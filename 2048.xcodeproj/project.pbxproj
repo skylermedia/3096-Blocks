@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -70,7 +70,8 @@
 		A9757F6124CC571800847031 /* 04.gif in Resources */ = {isa = PBXBuildFile; fileRef = A9757F5C24CC571800847031 /* 04.gif */; };
 		A9E400DB25A4755A00FE1F92 /* macOS01.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E400D925A4755A00FE1F92 /* macOS01.png */; };
 		A9E400DC25A4755A00FE1F92 /* macOS02.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E400DA25A4755A00FE1F92 /* macOS02.png */; };
-		D43A01A029689632007D8134 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D43A019F29689632007D8134 /* Launch Screen.storyboard */; };
+		D43A01A029689632007D8134 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D43A019F29689632007D8134 /* Launch Screen.storyboard */; platformFilter = ios; };
+		D46489A12968AC40003D7FEC /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46489A02968AC40003D7FEC /* HapticManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,10 +159,11 @@
 		A9757F5A24CC571800847031 /* 03.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 03.gif; sourceTree = "<group>"; };
 		A9757F5B24CC571800847031 /* 02.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 02.gif; sourceTree = "<group>"; };
 		A9757F5C24CC571800847031 /* 04.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 04.gif; sourceTree = "<group>"; };
-		A9E400CF25A4730F00FE1F92 /* T2iles.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = T2iles.entitlements; sourceTree = "<group>"; };
+		A9E400CF25A4730F00FE1F92 /* 2048.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = 2048.entitlements; sourceTree = "<group>"; };
 		A9E400D925A4755A00FE1F92 /* macOS01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = macOS01.png; sourceTree = "<group>"; };
 		A9E400DA25A4755A00FE1F92 /* macOS02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = macOS02.png; sourceTree = "<group>"; };
 		D43A019F29689632007D8134 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		D46489A02968AC40003D7FEC /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,9 +196,9 @@
 			children = (
 				A9757F5324CC497400847031 /* .gitignore */,
 				A9757F5824CC571800847031 /* Resources */,
-				A9757EAA24CC47EC00847031 /* T2iles */,
-				A9757EBC24CC47EC00847031 /* T2ilesTests */,
-				A9757EC724CC47EC00847031 /* T2ilesUITests */,
+				A9757EAA24CC47EC00847031 /* 2048 */,
+				A9757EBC24CC47EC00847031 /* 2048Tests */,
+				A9757EC724CC47EC00847031 /* 2048UITests */,
 				A9757EA924CC47EC00847031 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -211,17 +213,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A9757EAA24CC47EC00847031 /* T2iles */ = {
+		A9757EAA24CC47EC00847031 /* 2048 */ = {
 			isa = PBXGroup;
 			children = (
-				A9E400CF25A4730F00FE1F92 /* T2iles.entitlements */,
+				A9E400CF25A4730F00FE1F92 /* 2048.entitlements */,
 				A9757EB424CC47EC00847031 /* Info.plist */,
 				D43A019F29689632007D8134 /* Launch Screen.storyboard */,
 				A9757ED624CC481E00847031 /* Assets */,
 				A9757EB124CC47EC00847031 /* Preview Content */,
 				A9757EDD24CC481E00847031 /* Sources */,
 			);
-			path = T2iles;
+			path = 2048;
 			sourceTree = "<group>";
 		};
 		A9757EB124CC47EC00847031 /* Preview Content */ = {
@@ -232,23 +234,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		A9757EBC24CC47EC00847031 /* T2ilesTests */ = {
+		A9757EBC24CC47EC00847031 /* 2048Tests */ = {
 			isa = PBXGroup;
 			children = (
 				A9757EBF24CC47EC00847031 /* Info.plist */,
 				A9757EBD24CC47EC00847031 /* DirectionTests.swift */,
 				A9757F5524CC4C9F00847031 /* GameBoardSizeStateTests.swift */,
 			);
-			path = T2ilesTests;
+			path = 2048Tests;
 			sourceTree = "<group>";
 		};
-		A9757EC724CC47EC00847031 /* T2ilesUITests */ = {
+		A9757EC724CC47EC00847031 /* 2048UITests */ = {
 			isa = PBXGroup;
 			children = (
 				A9757ECA24CC47EC00847031 /* Info.plist */,
 				A9757EC824CC47EC00847031 /* AppLaunchUITests.swift */,
 			);
-			path = T2ilesUITests;
+			path = 2048UITests;
 			sourceTree = "<group>";
 		};
 		A9757ED624CC481E00847031 /* Assets */ = {
@@ -391,6 +393,7 @@
 			children = (
 				A9757F0224CC481E00847031 /* Audio.swift */,
 				A9757F0324CC481E00847031 /* AudioSource.swift */,
+				D46489A02968AC40003D7FEC /* HapticManager.swift */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -544,7 +547,7 @@
 		A9757EA024CC47EB00847031 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1200;
+				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
 					A9757EA724CC47EC00847031 = {
@@ -631,6 +634,7 @@
 				A9757F2A24CC481E00847031 /* AppStorageKeys.swift in Sources */,
 				A9757F3624CC481E00847031 /* AnyTransition+TileGenerator.swift in Sources */,
 				A9757F2624CC481E00847031 /* TileBoardSizeEnvironmentKey.swift in Sources */,
+				D46489A12968AC40003D7FEC /* HapticManager.swift in Sources */,
 				A9757F3B24CC481E00847031 /* FilledBackgroundStyle.swift in Sources */,
 				A9757F4624CC481E00847031 /* TileBoardView.swift in Sources */,
 				A9757F2424CC481E00847031 /* ColorSchemeBackgroundThemeEnvironmentKey.swift in Sources */,
@@ -700,6 +704,10 @@
 		};
 		A9757EC624CC47EC00847031 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilters = (
+				ios,
+				tvos,
+			);
 			target = A9757EA724CC47EC00847031 /* 2048 */;
 			targetProxy = A9757EC524CC47EC00847031 /* PBXContainerItemProxy */;
 		};
@@ -825,54 +833,64 @@
 		A9757ECE24CC47EC00847031 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Tiled-Plain";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = T2iles/T2iles.entitlements;
+				CODE_SIGN_ENTITLEMENTS = 2048/2048.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"T2iles/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"2048/Preview Content\"";
 				DEVELOPMENT_TEAM = 26RS32W3MQ;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = T2iles/Info.plist;
+				INFOPLIST_FILE = 2048/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = 2048;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.szijjarto.2048-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Debug;
 		};
 		A9757ECF24CC47EC00847031 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Tiled-Plain";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = T2iles/T2iles.entitlements;
+				CODE_SIGN_ENTITLEMENTS = 2048/2048.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"T2iles/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"2048/Preview Content\"";
 				DEVELOPMENT_TEAM = 26RS32W3MQ;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = T2iles/Info.plist;
+				INFOPLIST_FILE = 2048/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = 2048;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.szijjarto.2048-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Release;
 		};
@@ -883,14 +901,14 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T3K58FE38R;
-				INFOPLIST_FILE = T2ilesTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				INFOPLIST_FILE = 2048Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = eleev.astemir.T2ilesTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.szijjarto.2048Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -905,14 +923,14 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T3K58FE38R;
-				INFOPLIST_FILE = T2ilesTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				INFOPLIST_FILE = 2048Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = eleev.astemir.T2ilesTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.szijjarto.2048Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -925,18 +943,21 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T3K58FE38R;
-				INFOPLIST_FILE = T2ilesUITests/Info.plist;
+				DEVELOPMENT_TEAM = 26RS32W3MQ;
+				INFOPLIST_FILE = 2048UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = eleev.astemir.T2ilesUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.szijjarto.2048UITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = T2iles;
+				TARGETED_DEVICE_FAMILY = "1,2,3";
+				TEST_TARGET_NAME = 2048;
 			};
 			name = Debug;
 		};
@@ -945,18 +966,21 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T3K58FE38R;
-				INFOPLIST_FILE = T2ilesUITests/Info.plist;
+				DEVELOPMENT_TEAM = 26RS32W3MQ;
+				INFOPLIST_FILE = 2048UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = eleev.astemir.T2ilesUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.szijjarto.2048UITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = T2iles;
+				TARGETED_DEVICE_FAMILY = "1,2,3";
+				TEST_TARGET_NAME = 2048;
 			};
 			name = Release;
 		};
