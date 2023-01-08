@@ -76,6 +76,7 @@
 		D402368C29694BA400B81834 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D402368B29694BA400B81834 /* Podfile */; };
 		D43A01A029689632007D8134 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D43A019F29689632007D8134 /* Launch Screen.storyboard */; platformFilter = ios; };
 		D46489A12968AC40003D7FEC /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46489A02968AC40003D7FEC /* HapticManager.swift */; };
+		D4F85F2A296B17EC0038B3D7 /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F85F29296B17EC0038B3D7 /* BannerAd.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,6 +179,7 @@
 		D43A019F29689632007D8134 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D46489A02968AC40003D7FEC /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		D4967C584556D2FB7CD19F5A /* Pods_2048.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_2048.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4F85F29296B17EC0038B3D7 /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -443,6 +445,7 @@
 		A9757F0424CC481E00847031 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D4F85F28296B17E00038B3D7 /* Ads */,
 				A9757F0524CC481E00847031 /* Settings */,
 				A9757F0924CC481E00847031 /* Side */,
 				A9757F0C24CC481E00847031 /* About */,
@@ -526,6 +529,14 @@
 				A9E400DA25A4755A00FE1F92 /* macOS02.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		D4F85F28296B17E00038B3D7 /* Ads */ = {
+			isa = PBXGroup;
+			children = (
+				D4F85F29296B17EC0038B3D7 /* BannerAd.swift */,
+			);
+			path = Ads;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -793,6 +804,7 @@
 				A9757F4E24CC481E00847031 /* SlideViewModifier.swift in Sources */,
 				A9757F2924CC481E00847031 /* PlistConfigurationKeyPath.swift in Sources */,
 				A9757F2E24CC481E00847031 /* GameBoardSizeState.swift in Sources */,
+				D4F85F2A296B17EC0038B3D7 /* BannerAd.swift in Sources */,
 				A9757F4F24CC481E00847031 /* MainViewModifier.swift in Sources */,
 				A9757F2724CC481E00847031 /* GameBoardSizeEnvironmentKey.swift in Sources */,
 				A9757F4924CC481E00847031 /* HeaderView.swift in Sources */,

@@ -29,31 +29,36 @@ struct TileBoardView: View {
     
     var body: some View {
         GeometryReader { proxy in
-            ZStack {
-                Rectangle()
-                    .fill(backgroundColor)
-                
-                ForEach(0..<tileBoardSize, id: \.self) { x in
-                    ForEach(0..<tileBoardSize, id: \.self) { y in
-                        createBlock(nil, at: (x, y), proxy: proxy)
+            VStack {
+                ZStack {
+                    Rectangle()
+                        .fill(backgroundColor)
+                    
+                    ForEach(0..<tileBoardSize, id: \.self) { x in
+                        ForEach(0..<tileBoardSize, id: \.self) { y in
+                            createBlock(nil, at: (x, y), proxy: proxy)
+                        }
+                    }
+                    ForEach(matrix.flatten(), id: \.tile.id) { item in
+                        createBlock(item.tile, at: item.index, proxy: proxy)
                     }
                 }
-                ForEach(matrix.flatten(), id: \.tile.id) { item in
-                    createBlock(item.tile, at: item.index, proxy: proxy)
-                }
+                .frame(
+                    width: calculateFrameSize(proxy),
+                    height: calculateFrameSize(proxy), alignment: .center
+                )
+                .background(
+                    Rectangle()
+                        .fill(Color(red:0.76, green:0.76, blue:0.78, opacity: 1))
+                )
+                .clipped()
+                .cornerRadius(proxy.size.width / CGFloat(5 * tileBoardSize * 2))
+                .drawingGroup(opaque: false, colorMode: .linear)
+                .center(in: .local, with: proxy)
+                
+                BannerAd(unitID: "ca-app-pub-3940256099942544/2934735716")
+                    .frame(maxWidth: 320, maxHeight: 100)
             }
-            .frame(
-                width: calculateFrameSize(proxy),
-                height: calculateFrameSize(proxy), alignment: .center
-            )
-            .background(
-                Rectangle()
-                    .fill(Color(red:0.76, green:0.76, blue:0.78, opacity: 1))
-            )
-            .clipped()
-            .cornerRadius(proxy.size.width / CGFloat(5 * tileBoardSize * 2))
-            .drawingGroup(opaque: false, colorMode: .linear)
-            .center(in: .local, with: proxy)
         }
     }
     

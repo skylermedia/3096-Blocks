@@ -27,27 +27,30 @@ struct HeaderView: View {
     
     private var scoreView: some View {
         let shouldShowReset = showResetButton()
-        return HStack {
-            Text("Score")
-                .font(Font.system(.title, design: .monospaced).weight(.black))
-                .foregroundColor(Color(red:0.49, green:0.49, blue:0.49, opacity: 0.7))
-            
-            Text("\(score)")
-                .font(Font.system(.title, design: .monospaced).weight(.black))
-                .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
-                .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
-                .animation(.modalSpring, value: shouldShowReset)
-                .id("Score \(self.score)")
-            
-            Text("x\(scoreMultiplier)")
-                .font(Font.system(.body, design: .monospaced).weight(.black))
-                .foregroundColor(Color.primary.opacity(0.7))
-                .alignmentGuide(VerticalAlignment.center, computeValue: { $0[.bottom] })
+        return VStack {
+            HStack {
+                Text("Score")
+                    .font(Font.system(.title, design: .monospaced).weight(.black))
+                    .foregroundColor(Color(red:0.49, green:0.49, blue:0.49, opacity: 0.7))
+                
+                Text("\(score)")
+                    .font(Font.system(.title, design: .monospaced).weight(.black))
+                    .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
+                    .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
+                    .animation(.modalSpring, value: shouldShowReset)
+                    .id("Score \(self.score)")
+                
+                Text("x\(scoreMultiplier)")
+                    .font(Font.system(.body, design: .monospaced).weight(.black))
+                    .foregroundColor(Color.primary.opacity(0.7))
+                    .alignmentGuide(VerticalAlignment.center, computeValue: { $0[.bottom] })
+            }
+            .opacity(shouldShowReset ? 1.0 : 0.0)
+            .transition(AnyTransition.move(edge: .trailing).combined(with: .opacity))
+            .animation(.modalSpring, value: shouldShowReset)
+            .id("Score hview: \(showResetButton())")
         }
-        .opacity(shouldShowReset ? 1.0 : 0.0)
-        .transition(AnyTransition.move(edge: .trailing).combined(with: .opacity))
-        .animation(.modalSpring, value: shouldShowReset)
-        .id("Score hview: \(showResetButton())")
+
     }
     
     private var sideMenuButton: some View {

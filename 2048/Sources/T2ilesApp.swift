@@ -10,7 +10,9 @@ import GoogleMobileAds
 
 @main
 struct TwoZeroFourEightApp: App {
-    
+    init() {
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+    }
     class AppDelegate: UIResponder, UIApplicationDelegate {
 
       func application(_ application: UIApplication,
