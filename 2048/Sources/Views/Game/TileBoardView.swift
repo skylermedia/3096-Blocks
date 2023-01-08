@@ -56,7 +56,7 @@ struct TileBoardView: View {
                 .drawingGroup(opaque: false, colorMode: .linear)
                 .center(in: .local, with: proxy)
                 
-                BannerAd(unitID: "ca-app-pub-3940256099942544/2934735716")
+                BannerAd(unitID: "ca-app-pub-8534428621909577/9536587437")
                     .frame(maxWidth: 320, maxHeight: 100)
             }
         }

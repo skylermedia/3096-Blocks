@@ -258,7 +258,7 @@ final class GameLogic: ObservableObject {
         }
         let placeLocIndex = Int.random(in: 0..<blankLocations.count)
         tileMatrix.add(IdentifiedTile(id: mutableInstanceId,
-                                        value: (((0...4).randomElement() ?? 0) == 0) ? 4 : 2),
+                                        value: (((0...6).randomElement() ?? 0) == 0) ? 6 : 3),
                          to: blankLocations[placeLocIndex])
         return true
     }
@@ -278,7 +278,7 @@ final class GameLogic: ObservableObject {
         tileMatrix.add(
             IdentifiedTile(
                 id: mutableInstanceId,
-                value: 2),
+                value: 3),
             to: blankLocations[placeLocIndex]
         )
         return true
