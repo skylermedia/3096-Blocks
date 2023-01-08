@@ -34,7 +34,7 @@ struct SettingsView: View {
     
     var body: some View {
         List {
-            BannerAd(unitID: "ca-app-pub-8534428621909577/9536587437")
+            BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
             Section(header:
                 VStack(alignment: .leading) {
                     Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.gameBoardSize.rawValue] ?? "")
@@ -52,7 +52,7 @@ struct SettingsView: View {
                     previewSize: previewSize
                 )
             }
-            BannerAd(unitID: "ca-app-pub-8534428621909577/9536587437")
+            BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
             Section(header:
                 VStack(alignment: .leading) {
                     Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.audio.rawValue] ?? "")
@@ -70,7 +70,7 @@ struct SettingsView: View {
                     previewSize: previewSize
                 )
             }
-            BannerAd(unitID: "ca-app-pub-8534428621909577/9536587437")
+            BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
         }
         .listStyle(InsetGroupedListStyle())
         .foregroundColor(.clear)

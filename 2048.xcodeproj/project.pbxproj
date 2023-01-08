@@ -1007,7 +1007,7 @@
 				DEVELOPMENT_TEAM = 26RS32W3MQ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = 2048/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = 2048;
+				INFOPLIST_KEY_CFBundleDisplayName = 3096;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1040,7 +1040,7 @@
 				DEVELOPMENT_TEAM = 26RS32W3MQ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = 2048/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = 2048;
+				INFOPLIST_KEY_CFBundleDisplayName = 3096;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
