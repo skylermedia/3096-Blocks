@@ -8,10 +8,10 @@
 import Foundation
 
 extension Notification.Name {
-    static var gameBoardSize = Notification.Name("eleev.astemir.2048-swiftui-game.board.size")
+    static var gameBoardSize = Notification.Name("com.szijjarto.3096Game.board.size")
     static var gameBoardSizeUserInfoKey = "game.board.size"
     
-    static var audio = Notification.Name("eleev.astemir.2048-swiftui-audio")
+    static var audio = Notification.Name("com.szijjarto.3096Game,-swiftui-audio")
     static var audioUserInfoKey = "audio"
 
 }

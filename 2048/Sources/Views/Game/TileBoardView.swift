@@ -49,7 +49,7 @@ struct TileBoardView: View {
                 )
                 .background(
                     Rectangle()
-                        .fill(Color(red:0.76, green:0.76, blue:0.78, opacity: 1))
+                        .fill(Color(red:0.76, green:0.76, blue:0.78, opacity: 0.1))
                 )
                 .clipped()
                 .cornerRadius(proxy.size.width / CGFloat(5 * tileBoardSize * 2))

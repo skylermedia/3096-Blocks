@@ -22,13 +22,13 @@ extension TileColorTheme {
             return (defaultColor, Color.black)
         }
         guard lightTileColors.count == darkTileColors.count else {
-            fatalError("The color pallets for light and dark color schemes are not matching")
+            fatalError("The color pallets for light and dark color schemes do not match.")
         }
         
         let index = Int(log2(Double(number))) - 1
         
         if index < 0 || index >= lightTileColors.count {
-            fatalError("No color for such a number")
+            fatalError("This number has no associated color.")
         }
         return colorScheme == .light ? lightTileColors[index] : darkTileColors[index]
     }
