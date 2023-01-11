@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_2048VersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_2048VersionString[];
+FOUNDATION_EXPORT double Pods_3096___Blocks_3096___BlocksUITestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_3096___Blocks_3096___BlocksUITestsVersionString[];
 

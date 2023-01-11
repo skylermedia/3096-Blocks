@@ -7,9 +7,7 @@ target '3096 – Blocks' do
 
   # Pods for 2048
 pod 'Google-Mobile-Ads-SDK'
-pod 'FirebaseAnalytics'
-pod 'FirebaseAuth'
-pod 'FirebaseFirestore'
+
   target '3096 – BlocksTests' do
     inherit! :search_paths
     # Pods for testing
