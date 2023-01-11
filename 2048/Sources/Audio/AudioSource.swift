@@ -9,7 +9,7 @@ import Foundation
 
 enum AudioSource: String {
     case merge = "Merge"
-    case add = "Add"
+    case new = "New"
 }
 
 extension AudioSource {
@@ -28,7 +28,7 @@ extension AudioSource {
         case .merged:
             Audio.play(fileNamed: AudioSource.merge.rawValue)
         case .moved:
-            Audio.play(fileNamed: AudioSource.add.rawValue)
+            Audio.play(fileNamed: AudioSource.new.rawValue)
         default:
             ()
         }
