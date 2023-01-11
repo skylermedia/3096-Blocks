@@ -1,18 +1,21 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-target '2048' do
+target '3096 – Blocks' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
   # Pods for 2048
 pod 'Google-Mobile-Ads-SDK'
-  target '2048Tests' do
+pod 'FirebaseAnalytics'
+pod 'FirebaseAuth'
+pod 'FirebaseFirestore'
+  target '3096 – BlocksTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  target '2048UITests' do
+  target '3096 – BlocksUITests' do
     # Pods for testing
   end
 
