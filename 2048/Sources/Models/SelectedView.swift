@@ -15,7 +15,7 @@ enum SelectedView {
     var title: String {
         switch self {
         case .game:
-            return "Blocks"
+            return "3³"
         case .settings:
             return "Settings"
         case .about:
