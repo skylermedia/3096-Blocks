@@ -89,6 +89,9 @@
 		D43A01A029689632007D8134 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D43A019F29689632007D8134 /* Launch Screen.storyboard */; platformFilter = ios; };
 		D46489A12968AC40003D7FEC /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46489A02968AC40003D7FEC /* Haptics.swift */; };
 		D4B47F3C296E72BA00E8F971 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4B47F3B296E72BA00E8F971 /* GoogleService-Info.plist */; };
+		D4B47F3D296E760200E8F971 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4B47F3B296E72BA00E8F971 /* GoogleService-Info.plist */; };
+		D4B47F3E296E760300E8F971 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4B47F3B296E72BA00E8F971 /* GoogleService-Info.plist */; };
+		D4B47F3F296E760600E8F971 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4B47F3B296E72BA00E8F971 /* GoogleService-Info.plist */; };
 		D4F85F2A296B17EC0038B3D7 /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F85F29296B17EC0038B3D7 /* BannerAd.swift */; };
 /* End PBXBuildFile section */
 
@@ -801,6 +804,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4B47F3E296E760300E8F971 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -808,6 +812,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4B47F3D296E760200E8F971 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -817,6 +822,7 @@
 			files = (
 				D42DB3ED296D2B22006D7392 /* Preview Assets.xcassets in Resources */,
 				D42DB3EA296D2B22006D7392 /* Assets.xcassets in Resources */,
+				D4B47F3F296E760600E8F971 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
