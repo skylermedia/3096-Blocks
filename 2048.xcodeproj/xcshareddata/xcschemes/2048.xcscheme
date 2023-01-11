@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A9757EA724CC47EC00847031"
-               BuildableName = "3096 &#x2013; Blocks.app"
-               BlueprintName = "3096 &#x2013; Blocks"
+               BuildableName = "2048.app"
+               BlueprintName = "2048"
                ReferencedContainer = "container:2048.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A9757EA724CC47EC00847031"
-            BuildableName = "3096 &#x2013; Blocks.app"
-            BlueprintName = "3096 &#x2013; Blocks"
+            BuildableName = "2048.app"
+            BlueprintName = "2048"
             ReferencedContainer = "container:2048.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>
@@ -76,8 +76,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A9757EA724CC47EC00847031"
-            BuildableName = "3096 &#x2013; Blocks.app"
-            BlueprintName = "3096 &#x2013; Blocks"
+            BuildableName = "2048.app"
+            BlueprintName = "2048"
             ReferencedContainer = "container:2048.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -93,8 +93,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A9757EA724CC47EC00847031"
-            BuildableName = "3096 &#x2013; Blocks.app"
-            BlueprintName = "3096 &#x2013; Blocks"
+            BuildableName = "2048.app"
+            BlueprintName = "2048"
             ReferencedContainer = "container:2048.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

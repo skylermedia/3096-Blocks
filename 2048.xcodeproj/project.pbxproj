@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		70C44A94FF0308DE3DCC1637 /* Pods_2048_2048UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ABED6D7FF3D03DB8E5BF1AC /* Pods_2048_2048UITests.framework */; };
 		736D4068B7274653D3158983 /* Pods_2048.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4967C584556D2FB7CD19F5A /* Pods_2048.framework */; };
-		A9757EAC24CC47EC00847031 /* T2ilesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9757EAB24CC47EC00847031 /* T2ilesApp.swift */; };
+		A9757EAC24CC47EC00847031 /* 3096BlocksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9757EAB24CC47EC00847031 /* 3096BlocksApp.swift */; };
 		A9757EB324CC47EC00847031 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9757EB224CC47EC00847031 /* Preview Assets.xcassets */; };
 		A9757EBE24CC47EC00847031 /* DirectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9757EBD24CC47EC00847031 /* DirectionTests.swift */; };
 		A9757EC924CC47EC00847031 /* AppLaunchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9757EC824CC47EC00847031 /* AppLaunchUITests.swift */; };
@@ -108,6 +108,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D42DB505296E555F006D7392 /* Embed App Clips */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/AppClips";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed App Clips";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1580F22E326F3224264BE33E /* Pods-2048.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-2048.release.xcconfig"; path = "Target Support Files/Pods-2048/Pods-2048.release.xcconfig"; sourceTree = "<group>"; };
 		2540D8313AC00D83432AC256 /* Pods-2048Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-2048Tests.debug.xcconfig"; path = "Target Support Files/Pods-2048Tests/Pods-2048Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -117,8 +130,8 @@
 		6BF2BAE9C094605C4E3010DA /* Pods-2048-2048UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-2048-2048UITests.release.xcconfig"; path = "Target Support Files/Pods-2048-2048UITests/Pods-2048-2048UITests.release.xcconfig"; sourceTree = "<group>"; };
 		8474C2C0AE2135F005144D6B /* Pods-2048.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-2048.debug.xcconfig"; path = "Target Support Files/Pods-2048/Pods-2048.debug.xcconfig"; sourceTree = "<group>"; };
 		8ACC4F501572B6DDD0DC8FA0 /* Pods_2048Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_2048Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9757EA824CC47EC00847031 /* 3096 – Blocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "3096 – Blocks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9757EAB24CC47EC00847031 /* T2ilesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T2ilesApp.swift; sourceTree = "<group>"; };
+		A9757EA824CC47EC00847031 /* 2048.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 2048.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9757EAB24CC47EC00847031 /* 3096BlocksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 3096BlocksApp.swift; sourceTree = "<group>"; };
 		A9757EB224CC47EC00847031 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A9757EB424CC47EC00847031 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9757EB924CC47EC00847031 /* 2048Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 2048Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -283,7 +296,7 @@
 		A9757EA924CC47EC00847031 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A9757EA824CC47EC00847031 /* 3096 – Blocks.app */,
+				A9757EA824CC47EC00847031 /* 2048.app */,
 				A9757EB924CC47EC00847031 /* 2048Tests.xctest */,
 				A9757EC424CC47EC00847031 /* 2048UITests.xctest */,
 				D42DB3E3296D2B21006D7392 /* ThreeZeroNineSixWatch Watch App.app */,
@@ -353,7 +366,7 @@
 		A9757EDD24CC481E00847031 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				A9757EAB24CC47EC00847031 /* T2ilesApp.swift */,
+				A9757EAB24CC47EC00847031 /* 3096BlocksApp.swift */,
 				A9757F0124CC481E00847031 /* Audio */,
 				A9757EDE24CC481E00847031 /* Enviroment Keys */,
 				A9757EF624CC481E00847031 /* Extensions */,
@@ -635,23 +648,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A9757EA724CC47EC00847031 /* 3096 – Blocks */ = {
+		A9757EA724CC47EC00847031 /* 2048 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A9757ECD24CC47EC00847031 /* Build configuration list for PBXNativeTarget "3096 – Blocks" */;
+			buildConfigurationList = A9757ECD24CC47EC00847031 /* Build configuration list for PBXNativeTarget "2048" */;
 			buildPhases = (
 				90FB458413FBB4FE63B8FDF9 /* [CP] Check Pods Manifest.lock */,
 				A9757EA424CC47EC00847031 /* Sources */,
 				A9757EA524CC47EC00847031 /* Frameworks */,
 				A9757EA624CC47EC00847031 /* Resources */,
 				C0AE6D86F98652041FA167E9 /* [CP] Embed Pods Frameworks */,
+				D42DB505296E555F006D7392 /* Embed App Clips */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "3096 – Blocks";
+			name = 2048;
 			productName = T2iles;
-			productReference = A9757EA824CC47EC00847031 /* 3096 – Blocks.app */;
+			productReference = A9757EA824CC47EC00847031 /* 2048.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A9757EB824CC47EC00847031 /* 2048Tests */ = {
@@ -748,7 +762,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A9757EA724CC47EC00847031 /* 3096 – Blocks */,
+				A9757EA724CC47EC00847031 /* 2048 */,
 				A9757EB824CC47EC00847031 /* 2048Tests */,
 				A9757EC324CC47EC00847031 /* 2048UITests */,
 				D42DB3E2296D2B21006D7392 /* ThreeZeroNineSixWatch Watch App */,
@@ -948,7 +962,7 @@
 				A9757F3424CC481E00847031 /* Direction.swift in Sources */,
 				A9757F4324CC481E00847031 /* CompositeSideView.swift in Sources */,
 				A9757F3D24CC481E00847031 /* Audio.swift in Sources */,
-				A9757EAC24CC47EC00847031 /* T2ilesApp.swift in Sources */,
+				A9757EAC24CC47EC00847031 /* 3096BlocksApp.swift in Sources */,
 				A9757F2F24CC481E00847031 /* TileMatrix.swift in Sources */,
 				A9757F3824CC481E00847031 /* View+Center.swift in Sources */,
 				A9757F3324CC481E00847031 /* Tile.swift in Sources */,
@@ -1003,7 +1017,7 @@
 /* Begin PBXTargetDependency section */
 		A9757EBB24CC47EC00847031 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A9757EA724CC47EC00847031 /* 3096 – Blocks */;
+			target = A9757EA724CC47EC00847031 /* 2048 */;
 			targetProxy = A9757EBA24CC47EC00847031 /* PBXContainerItemProxy */;
 		};
 		A9757EC624CC47EC00847031 /* PBXTargetDependency */ = {
@@ -1012,7 +1026,7 @@
 				ios,
 				tvos,
 			);
-			target = A9757EA724CC47EC00847031 /* 3096 – Blocks */;
+			target = A9757EA724CC47EC00847031 /* 2048 */;
 			targetProxy = A9757EC524CC47EC00847031 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1138,6 +1152,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8474C2C0AE2135F005144D6B /* Pods-2048.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = 2048/2048.entitlements;
@@ -1171,6 +1186,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1580F22E326F3224264BE33E /* Pods-2048.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = 2048/2048.entitlements;
@@ -1368,7 +1384,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A9757ECD24CC47EC00847031 /* Build configuration list for PBXNativeTarget "3096 – Blocks" */ = {
+		A9757ECD24CC47EC00847031 /* Build configuration list for PBXNativeTarget "2048" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A9757ECE24CC47EC00847031 /* Debug */,
