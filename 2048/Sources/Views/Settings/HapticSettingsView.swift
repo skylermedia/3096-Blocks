@@ -2,7 +2,7 @@
 //  HapticSettingsView.swift
 //  3096 – Blocks
 //
-//  Created by Skyler Szijjarto on 1/11/23.
+//  Copyright © 2023 Skyler Szijjarto
 //
 
 import SwiftUI

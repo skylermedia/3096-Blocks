@@ -2,7 +2,7 @@
 //  IdentifiedBlock.swift
 //  ThreeZeroNineSixWatch Watch App
 //
-//  Created by Skyler Szijjarto
+//  Copyright © 2023 Skyler Szijjarto
 //
 
 import Foundation

@@ -2,7 +2,7 @@
 //  ThreeZeroNineSixWatchApp.swift
 //  ThreeZeroNineSixWatch Watch App
 //
-//  Created by Skyler Szijjarto on 1/9/23.
+//  Copyright © 2023 Skyler Szijjarto
 //
 
 import SwiftUI
