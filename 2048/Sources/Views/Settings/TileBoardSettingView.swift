@@ -18,28 +18,32 @@ struct TileBoardSettingView: View {
     
     var body: some View {
         VStack {
-            boardSizeSettingView(imageAssetName: "3x3", isSelected: $selection.is3x3On)
+            boardSizeSettingView(imageAssetName: "6x6", isSelected: $selection.is6x6On)
                 .onTapGesture {
-                    if !selection.is3x3On {
-                        selection.is3x3On = true
-                    }
-            }
-            boardSizeSettingView(imageAssetName: "4x4", isSelected: $selection.is4x4On)
-                .onTapGesture {
-                    if !selection.is4x4On {
-                        selection.is4x4On = true
+                    if !selection.is6x6On {
+                        selection.is6x6On = true
+                        Haptic.light()
                     }
             }
             boardSizeSettingView(imageAssetName: "5x5", isSelected: $selection.is5x5On)
                 .onTapGesture {
                     if !selection.is5x5On {
                         selection.is5x5On = true
+                        Haptic.light()
                     }
             }
-            boardSizeSettingView(imageAssetName: "6x6", isSelected: $selection.is6x6On)
+            boardSizeSettingView(imageAssetName: "4x4", isSelected: $selection.is4x4On)
                 .onTapGesture {
-                    if !selection.is6x6On {
-                        selection.is6x6On = true
+                    if !selection.is4x4On {
+                        selection.is4x4On = true
+                        Haptic.light()
+                    }
+            }
+            boardSizeSettingView(imageAssetName: "3x3", isSelected: $selection.is3x3On)
+                .onTapGesture {
+                    if !selection.is3x3On {
+                        selection.is3x3On = true
+                        Haptic.light()
                     }
             }
         }
@@ -47,7 +51,7 @@ struct TileBoardSettingView: View {
     
     private func boardSizeSettingView(imageAssetName: String, isSelected: Binding<Bool>) -> some View {
         // Prevent the toggle to be turned off in cases when all the other selection states are false
-        if !selection.is3x3On && !selection.is4x4On && !selection.is5x5On && !selection.is6x6On {
+        if !selection.is6x6On && !selection.is5x5On && !selection.is4x4On && !selection.is3x3On {
             DispatchQueue.main.async {
                 isSelected.wrappedValue = true
             }
