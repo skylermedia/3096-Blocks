@@ -44,8 +44,8 @@ struct AboutView: View {
         VStack(spacing: 16) {
             Image("Icon")
                 .resizable()
-                .cornerRadius(proxy.size.width / 50)
                 .aspectRatio(contentMode: .fit)
+                .clipShape(Circle())
             if #available(iOS 16.0, *) {
                 Link(about[PlistConfigurationKeyPath.about.rawValue]?[PlistConfigurationKeyPath.linkDescription.rawValue] ?? "[Missing Information]",
                      destination: URL(string: about[PlistConfigurationKeyPath.about.rawValue]?[PlistConfigurationKeyPath.linkUrl.rawValue] ?? "")!)
