@@ -39,16 +39,19 @@ class GameBoardSizeStateTests: XCTestCase {
         XCTAssertEqual(gameBoardSizeState.boardSize, BoardSize.fourByFour)
         XCTAssertNotEqual(gameBoardSizeState.boardSize, BoardSize.threeByThree)
         XCTAssertNotEqual(gameBoardSizeState.boardSize, BoardSize.fiveByFive)
+        XCTAssertNotEqual(gameBoardSizeState.boardSize, BoardSize.sixBySix)
         
         XCTAssertEqual(gameBoardSizeState.is3x3On, false)
         XCTAssertEqual(gameBoardSizeState.is4x4On, true)
         XCTAssertEqual(gameBoardSizeState.is5x5On, false)
+        XCTAssertEqual(gameBoardSizeState.is6x6On, false)
     }
 
     func test5x5BoardSize() throws {
         var gameBoardSizeState = GameBoardSizeState(suit: .test)
         gameBoardSizeState.is5x5On = true
-        
+       
+        XCTAssertEqual(gameBoardSizeState.boardSize, BoardSize.sixBySix)
         XCTAssertEqual(gameBoardSizeState.boardSize, BoardSize.fiveByFive)
         XCTAssertNotEqual(gameBoardSizeState.boardSize, BoardSize.threeByThree)
         XCTAssertNotEqual(gameBoardSizeState.boardSize, BoardSize.fourByFour)

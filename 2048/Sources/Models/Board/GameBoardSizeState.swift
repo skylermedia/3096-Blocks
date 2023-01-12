@@ -24,6 +24,7 @@ struct GameBoardSizeState {
                 boardSize = .threeByThree
                 is4x4On = false
                 is5x5On = false
+                is6x6On = false
             }
         }
     }
@@ -33,6 +34,7 @@ struct GameBoardSizeState {
                 boardSize = .fourByFour
                 is3x3On = false
                 is5x5On = false
+                is6x6On = false
             }
         }
     }
@@ -42,6 +44,18 @@ struct GameBoardSizeState {
                 boardSize = .fiveByFive
                 is3x3On = false
                 is4x4On = false
+                is6x6On = false
+
+            }
+        }
+    }
+    var is6x6On: Bool = false {
+        willSet {
+            if newValue {
+                boardSize = .sixBySix
+                is3x3On = false
+                is4x4On = false
+                is5x5On = false
             }
         }
     }
@@ -81,6 +95,8 @@ struct GameBoardSizeState {
             is4x4On = true
         case .fiveByFive:
             is5x5On = true
+        case .sixBySix:
+            is6x6On = true
         }
     }
     

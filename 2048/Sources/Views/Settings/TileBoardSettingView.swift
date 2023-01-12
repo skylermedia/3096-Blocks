@@ -36,12 +36,18 @@ struct TileBoardSettingView: View {
                         selection.is5x5On = true
                     }
             }
+            boardSizeSettingView(imageAssetName: "6x6", isSelected: $selection.is6x6On)
+                .onTapGesture {
+                    if !selection.is6x6On {
+                        selection.is6x6On = true
+                    }
+            }
         }
     }
     
     private func boardSizeSettingView(imageAssetName: String, isSelected: Binding<Bool>) -> some View {
         // Prevent the toggle to be turned off in cases when all the other selection states are false
-        if !selection.is3x3On && !selection.is4x4On && !selection.is5x5On {
+        if !selection.is3x3On && !selection.is4x4On && !selection.is5x5On && !selection.is6x6On {
             DispatchQueue.main.async {
                 isSelected.wrappedValue = true
             }
