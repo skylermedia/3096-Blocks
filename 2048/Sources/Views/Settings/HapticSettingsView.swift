@@ -43,6 +43,8 @@ struct HapticSettingsView: View {
     private func hapticSettingsView() -> some View {
         let systemImageName = isHapticEnabled ? StateRepresentation.enabled.rawValue : StateRepresentation.disabled.rawValue
         
+        Haptic.light()
+        
         return Toggle(isOn: $isHapticEnabled) {
             Image(systemName: systemImageName)
                 .resizable()
