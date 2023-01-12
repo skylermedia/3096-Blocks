@@ -21,7 +21,7 @@ struct HapticSettingsView: View {
     // MARK: - Internal State Enum
     
     enum StateRepresentation: String {
-        case enabled = "iphone.homebutton.radiowaves.left.and.right"
+        case enabled = "iphone.homebutton.radiowaves.left.and.right.circle"
         case disabled = "iphone.homebutton.slash"
     }
     
