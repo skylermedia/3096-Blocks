@@ -9,7 +9,7 @@
 		<key>gameOverSubtitle</key>
 		<string>Score: </string>
 		<key>resetGameTitle</key>
-		<string>Reset Game?</string>
+		<string>Restart Game?</string>
 		<key>resetGameSubtitle</key>
 		<string>Your progress will be lost.</string>
 	</dict>
