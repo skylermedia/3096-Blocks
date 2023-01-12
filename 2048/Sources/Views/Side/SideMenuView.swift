@@ -19,7 +19,7 @@ struct SideMenuView: View {
     
     @Binding var selectedView: SelectedView
     var onMenuChangeHandler: () -> Void
-    var items: [SelectedView] = [ .game, .settings ]
+    var items: [SelectedView] = [ .game, .settings, .about ]
     
     // MARK: - Constants
     
