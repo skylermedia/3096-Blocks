@@ -103,7 +103,7 @@ struct GameView : View {
             bind(self.layoutTraits(for: proxy)) { layoutTraits in
                 ZStack(alignment: layoutTraits.containerAlignment) {
                     if layoutTraits.showsBanner {
-                        Text("2048")
+                        Text("3096")
                             .font(Font.system(size: 6).weight(.black))
                             .foregroundColor(Color(red:0.47, green:0.43, blue:0.40, opacity:1.00))
                             .offset(layoutTraits.bannerOffset)

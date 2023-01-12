@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-@testable import 2048
+@testable import 3096
 
 class DirectionTests: XCTestCase {
 
