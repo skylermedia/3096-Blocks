@@ -1,8 +1,8 @@
 //
-//  HapticManager.swift
-//  2048
+//  HapticControler.swift
+//  3096 – Blocks
 //
-//  Created by Skyler Szijjarto on 1/6/23.
+//  Created by Skyler Szijjarto on 1/11/23.
 //
 
 import SwiftUI

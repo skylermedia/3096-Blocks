@@ -9,4 +9,5 @@ import Foundation
 
 enum AppStorageKeys: String {
     case audio = "isAudioEnabled"
+    case haptic = "isHapticEnabled"
 }

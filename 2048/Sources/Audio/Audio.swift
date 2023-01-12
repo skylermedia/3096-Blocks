@@ -15,7 +15,6 @@ class Audio {
             var sound: SystemSoundID = 0
             AudioServicesCreateSystemSoundID(url as CFURL, &sound)
             AudioServicesPlaySystemSound(sound)
-            Haptics.instance.impact(style: .light)
         }
         
         if let url = cachedURLs[file] {

@@ -20,14 +20,18 @@
 		<key>gameBoardSize</key>
 		<string>Game Board Size</string>
 		<key>audio</key>
-		<string>Sound Effects and Haptics</string>
+		<string>Sound Effects</string>
 		<key>audioDescription</key>
-		<string>Please mute your device if you would like to disable sounds but keep haptics enabled.</string>
+		<string>Toggle in-game sounds</string>
+		<key>haptic</key>
+		<string>Haptics</string>
+		<key>hapticDescription</key>
+		<string>Toggle in-game haptics</string>
 	</dict>
 	<key>about</key>
 	<dict>
 		<key>linkDescription</key>
-		<string>Skyler Szijjarto</string>
+		<string>Created by Skyler Szijjarto</string>
 		<key>linkUrl</key>
 		<string>https://skyler.media</string>
 		<key>copyright</key>

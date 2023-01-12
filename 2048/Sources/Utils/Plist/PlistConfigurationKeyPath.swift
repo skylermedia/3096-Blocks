@@ -23,6 +23,8 @@ enum PlistConfigurationKeyPath: String {
     case gameBoardSize
     case audio
     case audioDescription
+    case haptic
+    case hapticDescription
     
     // MARK: - Game Board State
     

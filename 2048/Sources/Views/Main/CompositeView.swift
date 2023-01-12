@@ -31,6 +31,7 @@ struct CompositeView: View {
     @State private var scoreMultiplier: Int = 0
     
     @AppStorage(AppStorageKeys.audio.rawValue) var isAudioEnabled: Bool = true
+    @AppStorage(AppStorageKeys.haptic.rawValue) var isHapticEnabled: Bool = true
     
     // MARK: - Initializers
     
@@ -100,6 +101,7 @@ struct CompositeView: View {
                         .onReceive(logic.$hasMoveMergedTiles) { hasMergedTiles in
                             guard isAudioEnabled else { return }
                             AudioSource.play(condition: hasMergedTiles)
+                            Haptic.light()
                         }
                     }
                     .blur(radius: (presentEndGameModal || presentSideMenu) ? 4 : 0)

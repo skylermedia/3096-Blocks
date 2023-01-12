@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-
+    
     // MARK: - Environment
     
     @Environment(\.colorScheme) private var colorScheme: ColorScheme
@@ -34,47 +34,65 @@ struct SettingsView: View {
     
     var body: some View {
         List {
-//            BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
+            //            BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
             Section(header:
-                VStack(alignment: .leading) {
-                    Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.gameBoardSize.rawValue] ?? "")
-                        .font(.system(.body, design: .monospaced))
-                        .foregroundColor(Color.primary.opacity(0.5))
-                        .fontWeight(.black)
-                    Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.gameBoardDescription.rawValue] ?? "")
-                        .font(.system(.caption, design: .monospaced))
-                        .foregroundColor(Color.primary.opacity(0.5))
-                        .fontWeight(.bold)
-                }
+                        VStack(alignment: .leading) {
+                Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.gameBoardSize.rawValue] ?? "")
+                    .font(.system(.body, design: .monospaced))
+                    .foregroundColor(Color.primary.opacity(0.5))
+                    .fontWeight(.black)
+                Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.gameBoardDescription.rawValue] ?? "")
+                    .font(.system(.caption, design: .monospaced))
+                    .foregroundColor(Color.primary.opacity(0.5))
+                    .fontWeight(.bold)
+            }
             ) {
                 TileBoardSettingView(
                     invertedBackgroundColor: invertedBackgroundColor,
                     previewSize: previewSize
                 )
             }
-//            BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
+            //            BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
             Section(header:
-                VStack(alignment: .leading) {
-                    Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.audio.rawValue] ?? "")
-                        .font(.system(.body, design: .monospaced))
-                        .foregroundColor(Color.primary.opacity(0.5))
-                        .fontWeight(.black)
-                    Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.audioDescription.rawValue] ?? "")
-                        .font(.system(.caption, design: .monospaced))
-                        .foregroundColor(Color.primary.opacity(0.5))
-                        .fontWeight(.bold)
-                }
+                        VStack(alignment: .leading) {
+                Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.audio.rawValue] ?? "")
+                    .font(.system(.body, design: .monospaced))
+                    .foregroundColor(Color.primary.opacity(0.5))
+                    .fontWeight(.black)
+                Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.audioDescription.rawValue] ?? "")
+                    .font(.system(.caption, design: .monospaced))
+                    .foregroundColor(Color.primary.opacity(0.5))
+                    .fontWeight(.bold)
+            }
             ) {
                 AudioSettingView(
                     invertedBackground: invertedBackgroundColor,
                     previewSize: previewSize
                 )
+                
             }
-//            BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
+            //            BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
+            Section(header:
+                        VStack(alignment: .leading) {
+                Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.haptic.rawValue] ?? "")
+                    .font(.system(.body, design: .monospaced))
+                    .foregroundColor(Color.primary.opacity(0.5))
+                    .fontWeight(.black)
+                Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.hapticDescription.rawValue] ?? "")
+                    .font(.system(.caption, design: .monospaced))
+                    .foregroundColor(Color.primary.opacity(0.5))
+                    .fontWeight(.bold)
+            }
+            ) {
+                HapticSettingsView(
+                    invertedBackground: invertedBackgroundColor,
+                    previewSize: previewSize
+                )
+            }
+            .listStyle(InsetGroupedListStyle())
+            .foregroundColor(.clear)
+            .environment(\.horizontalSizeClass, .regular)
+            .edgesIgnoringSafeArea(.bottom)
         }
-        .listStyle(InsetGroupedListStyle())
-        .foregroundColor(.clear)
-        .environment(\.horizontalSizeClass, .regular)
-        .edgesIgnoringSafeArea(.bottom)
     }
 }

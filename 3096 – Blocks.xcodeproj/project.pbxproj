@@ -73,6 +73,9 @@
 		A9E400DB25A4755A00FE1F92 /* macOS01.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E400D925A4755A00FE1F92 /* macOS01.png */; };
 		A9E400DC25A4755A00FE1F92 /* macOS02.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E400DA25A4755A00FE1F92 /* macOS02.png */; };
 		B7F44E4F6E1CB0E185400BCF /* Pods_3096___Blocks_3096___BlocksUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9DB49497576409234F7A664 /* Pods_3096___Blocks_3096___BlocksUITests.framework */; };
+		D40228B9296FA50F00A6F5D5 /* HapticSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40228B8296FA50F00A6F5D5 /* HapticSettingsView.swift */; };
+		D40228BB296FA64700A6F5D5 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40228BA296FA64700A6F5D5 /* Haptics.swift */; };
+		D40228BE296FA6A700A6F5D5 /* HapticControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40228BD296FA6A700A6F5D5 /* HapticControler.swift */; };
 		D402368C29694BA400B81834 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D402368B29694BA400B81834 /* Podfile */; };
 		D42DB3E6296D2B21006D7392 /* ThreeZeroNineSixWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DB3E5296D2B21006D7392 /* ThreeZeroNineSixWatchApp.swift */; };
 		D42DB3E8296D2B21006D7392 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DB3E7296D2B21006D7392 /* ContentView.swift */; };
@@ -87,7 +90,6 @@
 		D42DB403296D2BAA006D7392 /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DB3FA296D2BAA006D7392 /* GameLogic.swift */; };
 		D42DB404296D2BAA006D7392 /* SwiftUIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DB3FC296D2BAA006D7392 /* SwiftUIExtensions.swift */; };
 		D43A01A029689632007D8134 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D43A019F29689632007D8134 /* Launch Screen.storyboard */; platformFilter = ios; };
-		D46489A12968AC40003D7FEC /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46489A02968AC40003D7FEC /* Haptics.swift */; };
 		D4B47F3C296E72BA00E8F971 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4B47F3B296E72BA00E8F971 /* GoogleService-Info.plist */; };
 		D4B47F3D296E760200E8F971 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4B47F3B296E72BA00E8F971 /* GoogleService-Info.plist */; };
 		D4B47F3E296E760300E8F971 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4B47F3B296E72BA00E8F971 /* GoogleService-Info.plist */; };
@@ -132,9 +134,9 @@
 		46E32E257DA287856E97D61A /* Pods-3096 – Blocks-3096 – BlocksUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3096 – Blocks-3096 – BlocksUITests.release.xcconfig"; path = "Target Support Files/Pods-3096 – Blocks-3096 – BlocksUITests/Pods-3096 – Blocks-3096 – BlocksUITests.release.xcconfig"; sourceTree = "<group>"; };
 		50EC67F44200500EDD5DEF36 /* Pods-2048-2048UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-2048-2048UITests.debug.xcconfig"; path = "Target Support Files/Pods-2048-2048UITests/Pods-2048-2048UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6BF2BAE9C094605C4E3010DA /* Pods-2048-2048UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-2048-2048UITests.release.xcconfig"; path = "Target Support Files/Pods-2048-2048UITests/Pods-2048-2048UITests.release.xcconfig"; sourceTree = "<group>"; };
-		7410EAE678CCD64D5EC110CD /* Pods_3096___Blocks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_3096___Blocks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7410EAE678CCD64D5EC110CD /* Pods_3096___Blocks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_3096___Blocks.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8474C2C0AE2135F005144D6B /* Pods-2048.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-2048.debug.xcconfig"; path = "Target Support Files/Pods-2048/Pods-2048.debug.xcconfig"; sourceTree = "<group>"; };
-		89763799FD1B94783169D543 /* Pods_3096___BlocksTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_3096___BlocksTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		89763799FD1B94783169D543 /* Pods_3096___BlocksTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_3096___BlocksTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C43D2200CB7BC8043FCBE9 /* Pods-3096 – Blocks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3096 – Blocks.debug.xcconfig"; path = "Target Support Files/Pods-3096 – Blocks/Pods-3096 – Blocks.debug.xcconfig"; sourceTree = "<group>"; };
 		9B72161BC8EF290B635A6CF1 /* Pods-3096 – BlocksTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3096 – BlocksTests.release.xcconfig"; path = "Target Support Files/Pods-3096 – BlocksTests/Pods-3096 – BlocksTests.release.xcconfig"; sourceTree = "<group>"; };
 		A35F0EA60F3B537F9CED9ED4 /* Pods-3096 – Blocks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3096 – Blocks.release.xcconfig"; path = "Target Support Files/Pods-3096 – Blocks/Pods-3096 – Blocks.release.xcconfig"; sourceTree = "<group>"; };
@@ -209,6 +211,9 @@
 		A9E400D925A4755A00FE1F92 /* macOS01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = macOS01.png; sourceTree = "<group>"; };
 		A9E400DA25A4755A00FE1F92 /* macOS02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = macOS02.png; sourceTree = "<group>"; };
 		BC7E572518223D9AC4C4FDC6 /* Pods-3096 – BlocksTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3096 – BlocksTests.debug.xcconfig"; path = "Target Support Files/Pods-3096 – BlocksTests/Pods-3096 – BlocksTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D40228B8296FA50F00A6F5D5 /* HapticSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticSettingsView.swift; sourceTree = "<group>"; };
+		D40228BA296FA64700A6F5D5 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
+		D40228BD296FA6A700A6F5D5 /* HapticControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticControler.swift; sourceTree = "<group>"; };
 		D402368B29694BA400B81834 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D42DB3E3296D2B21006D7392 /* 3³.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "3³.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D42DB3E5296D2B21006D7392 /* ThreeZeroNineSixWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeZeroNineSixWatchApp.swift; sourceTree = "<group>"; };
@@ -224,11 +229,10 @@
 		D42DB3FA296D2BAA006D7392 /* GameLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
 		D42DB3FC296D2BAA006D7392 /* SwiftUIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIExtensions.swift; sourceTree = "<group>"; };
 		D43A019F29689632007D8134 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		D46489A02968AC40003D7FEC /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		D4B47F3B296E72BA00E8F971 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D4F85F29296B17EC0038B3D7 /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
 		DB02E63ACE4D0341267B6426 /* Pods-3096 – Blocks-3096 – BlocksUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3096 – Blocks-3096 – BlocksUITests.debug.xcconfig"; path = "Target Support Files/Pods-3096 – Blocks-3096 – BlocksUITests/Pods-3096 – Blocks-3096 – BlocksUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		E9DB49497576409234F7A664 /* Pods_3096___Blocks_3096___BlocksUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_3096___Blocks_3096___BlocksUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9DB49497576409234F7A664 /* Pods_3096___Blocks_3096___BlocksUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_3096___Blocks_3096___BlocksUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,6 +390,7 @@
 			children = (
 				A9757EAB24CC47EC00847031 /* 3096BlocksApp.swift */,
 				A9757F0124CC481E00847031 /* Audio */,
+				D40228BC296FA68300A6F5D5 /* Haptics */,
 				A9757EDE24CC481E00847031 /* Enviroment Keys */,
 				A9757EF624CC481E00847031 /* Extensions */,
 				A9757EE824CC481E00847031 /* Models */,
@@ -413,6 +418,7 @@
 			children = (
 				A9757EE424CC481E00847031 /* Plist */,
 				A9757EE724CC481E00847031 /* AppStorageKeys.swift */,
+				D40228BD296FA6A700A6F5D5 /* HapticControler.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -503,7 +509,6 @@
 			children = (
 				A9757F0224CC481E00847031 /* Audio.swift */,
 				A9757F0324CC481E00847031 /* AudioSource.swift */,
-				D46489A02968AC40003D7FEC /* Haptics.swift */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -526,6 +531,7 @@
 				A9757F0624CC481E00847031 /* SettingsView.swift */,
 				A9757F0724CC481E00847031 /* TileBoardSettingView.swift */,
 				A9757F0824CC481E00847031 /* AudioSettingView.swift */,
+				D40228B8296FA50F00A6F5D5 /* HapticSettingsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -594,6 +600,14 @@
 				A9E400DA25A4755A00FE1F92 /* macOS02.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		D40228BC296FA68300A6F5D5 /* Haptics */ = {
+			isa = PBXGroup;
+			children = (
+				D40228BA296FA64700A6F5D5 /* Haptics.swift */,
+			);
+			path = Haptics;
 			sourceTree = "<group>";
 		};
 		D42DB3E4296D2B21006D7392 /* ThreeZeroNineSixWatch Watch App */ = {
@@ -957,7 +971,6 @@
 				A9757F2A24CC481E00847031 /* AppStorageKeys.swift in Sources */,
 				A9757F3624CC481E00847031 /* AnyTransition+TileGenerator.swift in Sources */,
 				A9757F2624CC481E00847031 /* TileBoardSizeEnvironmentKey.swift in Sources */,
-				D46489A12968AC40003D7FEC /* Haptics.swift in Sources */,
 				A9757F3B24CC481E00847031 /* FilledBackgroundStyle.swift in Sources */,
 				A9757F4624CC481E00847031 /* TileBoardView.swift in Sources */,
 				A9757F2424CC481E00847031 /* ColorSchemeBackgroundThemeEnvironmentKey.swift in Sources */,
@@ -980,16 +993,19 @@
 				A9757F4A24CC481E00847031 /* CompositeView.swift in Sources */,
 				A9757F3E24CC481E00847031 /* AudioSource.swift in Sources */,
 				A9757F3524CC481E00847031 /* Edge+InvertedDirection.swift in Sources */,
+				D40228B9296FA50F00A6F5D5 /* HapticSettingsView.swift in Sources */,
 				A9757F3724CC481E00847031 /* Animation+ModalSpring.swift in Sources */,
 				A9757F4524CC481E00847031 /* TileView.swift in Sources */,
 				A9757F3424CC481E00847031 /* Direction.swift in Sources */,
 				A9757F4324CC481E00847031 /* CompositeSideView.swift in Sources */,
 				A9757F3D24CC481E00847031 /* Audio.swift in Sources */,
 				A9757EAC24CC47EC00847031 /* 3096BlocksApp.swift in Sources */,
+				D40228BB296FA64700A6F5D5 /* Haptics.swift in Sources */,
 				A9757F2F24CC481E00847031 /* TileMatrix.swift in Sources */,
 				A9757F3824CC481E00847031 /* View+Center.swift in Sources */,
 				A9757F3324CC481E00847031 /* Tile.swift in Sources */,
 				A9757F4424CC481E00847031 /* AboutView.swift in Sources */,
+				D40228BE296FA6A700A6F5D5 /* HapticControler.swift in Sources */,
 				A9757F2524CC481E00847031 /* TileColorThemeEnvironmentKey.swift in Sources */,
 				A9757F4124CC481E00847031 /* AudioSettingView.swift in Sources */,
 				A9757F4024CC481E00847031 /* TileBoardSettingView.swift in Sources */,
