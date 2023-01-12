@@ -418,7 +418,6 @@
 			children = (
 				A9757EE424CC481E00847031 /* Plist */,
 				A9757EE724CC481E00847031 /* AppStorageKeys.swift */,
-				D40228BD296FA6A700A6F5D5 /* HapticControler.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -606,6 +605,7 @@
 			isa = PBXGroup;
 			children = (
 				D40228BA296FA64700A6F5D5 /* Haptics.swift */,
+				D40228BD296FA6A700A6F5D5 /* HapticControler.swift */,
 			);
 			path = Haptics;
 			sourceTree = "<group>";
