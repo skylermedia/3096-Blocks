@@ -1,6 +1,6 @@
 //
 //  HeaderView.swift
-//  2048
+//  3096 – Blocks
 //
 //  Copyright © 2023 Skyler Szijjarto
 //
@@ -59,7 +59,7 @@ struct HeaderView: View {
                 showSideMenu.toggle()
             }
         }) {
-            Image(systemName: "text.justify")
+            Image(systemName: "scribble")
                 .resizable()
                 .scaledToFit()
                 .aspectRatio(1, contentMode: .fit)
@@ -77,7 +77,7 @@ struct HeaderView: View {
                 newGameAction()
             }
         }) {
-            Image(systemName: "arrow.counterclockwise.circle")
+            Image(systemName: "arrow.clockwise")
                 .resizable()
                 .scaledToFit()
                 .aspectRatio(1, contentMode: .fit)

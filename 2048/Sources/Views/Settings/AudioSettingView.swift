@@ -1,6 +1,6 @@
 //
 //  AudioSettingView.swift
-//  2048
+//  3096 – Blocks
 //
 //  Copyright © 2023 Skyler Szijjarto
 //
@@ -43,6 +43,8 @@ struct AudioSettingView: View {
     private func audioSettingView() -> some View {
         let systemImageName = isAudioEnabled ? StateRepresentation.enabled.rawValue : StateRepresentation.disabled.rawValue
         
+        Haptic.light()
+
         return Toggle(isOn: $isAudioEnabled) {
             Image(systemName: systemImageName)
                 .resizable()

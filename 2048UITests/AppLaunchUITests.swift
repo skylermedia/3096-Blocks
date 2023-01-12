@@ -1,6 +1,6 @@
 //
 //  AppLaunchUITests.swift
-//  2048UITests
+//  3096 – BlocksUITests
 //
 //  Copyright © 2023 Skyler Szijjarto
 //

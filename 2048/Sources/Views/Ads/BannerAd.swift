@@ -1,6 +1,6 @@
 //
 //  BannerAd.swift
-//  2048
+//  3096 – Blocks
 //
 //  Created by Skyler Szijjarto on 1/8/23.
 //

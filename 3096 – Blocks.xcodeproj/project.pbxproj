@@ -215,7 +215,7 @@
 		D40228BA296FA64700A6F5D5 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		D40228BD296FA6A700A6F5D5 /* HapticControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticControler.swift; sourceTree = "<group>"; };
 		D402368B29694BA400B81834 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		D42DB3E3296D2B21006D7392 /* 3³.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "3³.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D42DB3E3296D2B21006D7392 /* 3096 – Blocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "3096 – Blocks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D42DB3E5296D2B21006D7392 /* ThreeZeroNineSixWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeZeroNineSixWatchApp.swift; sourceTree = "<group>"; };
 		D42DB3E7296D2B21006D7392 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D42DB3E9296D2B22006D7392 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -320,7 +320,7 @@
 				A9757EA824CC47EC00847031 /* 3096 – Blocks.app */,
 				A9757EB924CC47EC00847031 /* 3096 – BlocksTests.xctest */,
 				A9757EC424CC47EC00847031 /* 3096 – BlocksUITests.xctest */,
-				D42DB3E3296D2B21006D7392 /* 3³.app */,
+				D42DB3E3296D2B21006D7392 /* 3096 – Blocks.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -754,7 +754,7 @@
 			);
 			name = "3096 – Blocks – Watch";
 			productName = "ThreeZeroNineSixWatch Watch App";
-			productReference = D42DB3E3296D2B21006D7392 /* 3³.app */;
+			productReference = D42DB3E3296D2B21006D7392 /* 3096 – Blocks.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1372,13 +1372,13 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = .watchkitapp;
-				PRODUCT_NAME = "3³";
+				PRODUCT_NAME = "3096 – Blocks";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
@@ -1403,13 +1403,13 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = .watchkitapp;
-				PRODUCT_NAME = "3³";
+				PRODUCT_NAME = "3096 – Blocks";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};

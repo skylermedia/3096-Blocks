@@ -1,6 +1,6 @@
 //
 //  SelectedView.swift
-//  2048
+//  3096 – Blocks
 //
 //  Copyright © 2023 Skyler Szijjarto
 //
@@ -15,7 +15,7 @@ enum SelectedView {
     var title: String {
         switch self {
         case .game:
-            return "3³"
+            return "3096"
         case .settings:
             return "Settings"
         case .about:

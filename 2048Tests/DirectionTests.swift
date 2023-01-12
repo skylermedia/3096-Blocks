@@ -1,6 +1,6 @@
 //
 //  DirectionTests.swift
-//  2048Tests
+//  3096 – BlocksTests
 //
 //  Copyright © 2023 Skyler Szijjarto
 //

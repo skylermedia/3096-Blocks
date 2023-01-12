@@ -1,6 +1,6 @@
 //
 //  PlistConfiguration.swift
-//  2048
+//  3096 – Blocks
 //
 //  Copyright © 2023 Skyler Szijjarto
 //

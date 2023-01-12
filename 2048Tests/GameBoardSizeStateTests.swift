@@ -1,13 +1,13 @@
 //
 //  GameBoardSizeStateTests.swift
-//  2048Tests
+//  3096 – BlocksTests
 //
 //  Copyright © 2023 Skyler Szijjarto
 //
 
 import XCTest
 import SwiftUI
-@testable import 2048
+@testable import 3096
 
 class GameBoardSizeStateTests: XCTestCase {
     
