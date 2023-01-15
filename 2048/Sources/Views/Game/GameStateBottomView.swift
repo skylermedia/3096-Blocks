@@ -15,6 +15,7 @@ struct GameStateBottomView: View {
     @Binding var presentEndGameModal: Bool
     @Binding var sideMenuViewState: CGSize
     @Binding var score: Int
+    @AppStorage("highScore") private var highScore: Int = 0
     var resetGame: () -> Void
     
     private let plist = PlistConfiguration(name: "Strings")

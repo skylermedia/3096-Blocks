@@ -20,7 +20,7 @@ struct HeaderView: View {
     @Binding var scoreMultiplier: Int
     var newGameAction: () -> Void
     var showResetButton: () -> Bool
-        
+    @AppStorage("highScore") private var highScore: Int = 0
     let buttonSize: CGFloat = 48
     
     // MARK: - Compited View Propeties
@@ -49,8 +49,15 @@ struct HeaderView: View {
             .transition(AnyTransition.move(edge: .trailing).combined(with: .opacity))
             .animation(.modalSpring, value: shouldShowReset)
             .id("Score hview: \(showResetButton())")
+            HStack {
+                Text("High Score: \(highScore)")
+                    .font(Font.system(.title, design: .monospaced).weight(.black))
+                    .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
+                    .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
+                    .animation(.modalSpring, value: shouldShowReset)
+                    .id("High Score \(self.highScore)")
+            }
         }
-
     }
     
     private var sideMenuButton: some View {

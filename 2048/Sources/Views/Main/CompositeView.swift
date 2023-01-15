@@ -28,6 +28,7 @@ struct CompositeView: View {
     
     @State private var selectedView: SelectedView = .game
     @State private var score: Int = 0
+    @State private var highScore: Int = 0
     @State private var scoreMultiplier: Int = 0
     
     @AppStorage(AppStorageKeys.audio.rawValue) var isAudioEnabled: Bool = true
@@ -37,6 +38,7 @@ struct CompositeView: View {
     
     init(board: GameLogic) {
         self.logic = board
+        highScore = UserDefaults.standard.integer(forKey: "highScore")
     }
     
     // MARK: - Drag Gesture
@@ -94,16 +96,19 @@ struct CompositeView: View {
                         )
                         .onReceive(logic.$score) { (publishedScore) in
                             score = publishedScore
+                            if score > highScore {
+                                highScore = score
+                                UserDefaults.standard.set(highScore, forKey: "highScore")
+                            }
                         }
-                        .onReceive(logic.$mergeMultiplier) { (publishedScoreMultiplier) in
-                            scoreMultiplier = publishedScoreMultiplier
-                        }
-                        .onReceive(logic.$hasMoveMergedTiles) { hasMergedTiles in
-                            guard isAudioEnabled else { return }
-                            AudioSource.play(condition: hasMergedTiles)
-                            Haptic.light()
-                        }
-                    }
+                                                .onReceive(logic.$mergeMultiplier) { (publishedScoreMultiplier) in
+                                                    scoreMultiplier = publishedScoreMultiplier
+                                                }
+                                                .onReceive(logic.$hasMoveMergedTiles) { hasMergedTiles in
+                                                    guard isAudioEnabled else { return }
+                                                    AudioSource.play(condition: hasMergedTiles)
+                                                    Haptic.light()
+                                                }                    }
                     .blur(radius: (presentEndGameModal || presentSideMenu) ? 4 : 0)
                 }
                 .modifier(RoundedClippedBackground(backgroundColor: colorSchemeBackgroundTheme.backgroundColor(for: colorScheme),
