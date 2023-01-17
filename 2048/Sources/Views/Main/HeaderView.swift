@@ -29,7 +29,7 @@ struct HeaderView: View {
         let shouldShowReset = showResetButton()
         return VStack {
             HStack {
-                Text("Score")
+                Text("Score: ")
                     .font(Font.system(.title, design: .monospaced).weight(.black))
                     .foregroundColor(Color(red:0.49, green:0.49, blue:0.49, opacity: 0.7))
                 
@@ -48,15 +48,23 @@ struct HeaderView: View {
             .opacity(shouldShowReset ? 1.0 : 0.0)
             .transition(AnyTransition.move(edge: .trailing).combined(with: .opacity))
             .animation(.modalSpring, value: shouldShowReset)
-            .id("Score hview: \(showResetButton())")
+            .id("Score View: \(showResetButton())")
             HStack {
-                Text("High Score: \(highScore)")
+                Text("High Score: ")
+                    .font(Font.system(.title, design: .monospaced).weight(.black))
+                    .foregroundColor(Color(red:0.49, green:0.49, blue:0.49, opacity: 0.7))
+                
+                Text("\(highScore)")
                     .font(Font.system(.title, design: .monospaced).weight(.black))
                     .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
                     .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
                     .animation(.modalSpring, value: shouldShowReset)
-                    .id("High Score \(self.highScore)")
+                    .id("Score \(self.score)")
             }
+            .opacity(shouldShowReset ? 1.0 : 0.0)
+            .transition(AnyTransition.move(edge: .trailing).combined(with: .opacity))
+            .animation(.modalSpring, value: shouldShowReset)
+            .id("High Score View: \(showResetButton())")
         }
     }
     
