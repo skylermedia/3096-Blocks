@@ -22,7 +22,7 @@ extension TileColorTheme {
             return (defaultColor, Color.black)
         }
         guard lightTileColors.count == darkTileColors.count else {
-            fatalError("The color pallets for light and dark color schemes do not match.")
+            fatalError("The palettes for the light and dark color schemes do not match.")
         }
         
         let index = Int(log2(Double(number))) - 1
