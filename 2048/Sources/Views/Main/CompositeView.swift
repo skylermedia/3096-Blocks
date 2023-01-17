@@ -99,6 +99,21 @@ struct CompositeView: View {
                             if score > highScore {
                                 highScore = score
                                 UserDefaults.standard.set(highScore, forKey: "highScore")
+                                /* Update Leaderboard
+                                let record = CKRecord(recordType: "Leaderboard")
+                                record.setValue(playerName, forKey: "playerName")
+                                record.setValue(score, forKey: "score")
+
+                                let operation = CKModifyRecordsOperation(recordsToSave: [record], recordIDsToDelete: nil)
+                                operation.savePolicy = .ifServerRecordUnchanged
+                                operation.queuePriority = .high
+                                operation.qualityOfService = .userInteractive
+                                operation.modifyRecordsCompletionBlock = { (savedRecords, deletedRecordIDs, error) in
+                                    if let error = error {
+                                         handle error
+                                    } else {
+                                         update leaderboard
+                                */
                             }
                         }
                                                 .onReceive(logic.$mergeMultiplier) { (publishedScoreMultiplier) in

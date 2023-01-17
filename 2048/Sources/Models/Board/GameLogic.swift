@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CloudKit
 import Combine
 
 final class GameLogic: ObservableObject {

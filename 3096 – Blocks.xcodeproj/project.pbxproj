@@ -90,6 +90,8 @@
 		D42DB403296D2BAA006D7392 /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DB3FA296D2BAA006D7392 /* GameLogic.swift */; };
 		D42DB404296D2BAA006D7392 /* SwiftUIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DB3FC296D2BAA006D7392 /* SwiftUIExtensions.swift */; };
 		D43A01A029689632007D8134 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D43A019F29689632007D8134 /* Launch Screen.storyboard */; platformFilter = ios; };
+		D470730A2976633F0019774A /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47073092976633F0019774A /* LeaderboardView.swift */; };
+		D470730D2976654E0019774A /* LeaderboardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D470730C2976654E0019774A /* LeaderboardData.swift */; };
 		D4B47F3C296E72BA00E8F971 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4B47F3B296E72BA00E8F971 /* GoogleService-Info.plist */; };
 		D4B47F3D296E760200E8F971 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4B47F3B296E72BA00E8F971 /* GoogleService-Info.plist */; };
 		D4B47F3E296E760300E8F971 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4B47F3B296E72BA00E8F971 /* GoogleService-Info.plist */; };
@@ -229,6 +231,8 @@
 		D42DB3FA296D2BAA006D7392 /* GameLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
 		D42DB3FC296D2BAA006D7392 /* SwiftUIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIExtensions.swift; sourceTree = "<group>"; };
 		D43A019F29689632007D8134 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		D47073092976633F0019774A /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
+		D470730C2976654E0019774A /* LeaderboardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardData.swift; sourceTree = "<group>"; };
 		D4B47F3B296E72BA00E8F971 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D4F85F29296B17EC0038B3D7 /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
 		DB02E63ACE4D0341267B6426 /* Pods-3096 – Blocks-3096 – BlocksUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3096 – Blocks-3096 – BlocksUITests.debug.xcconfig"; path = "Target Support Files/Pods-3096 – Blocks-3096 – BlocksUITests/Pods-3096 – Blocks-3096 – BlocksUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -556,6 +560,7 @@
 		A9757F0E24CC481E00847031 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				D470730B2976652C0019774A /* Leaderboard */,
 				A9757F0F24CC481E00847031 /* TileView.swift */,
 				A9757F1024CC481E00847031 /* TileBoardView.swift */,
 				A9757F1124CC481E00847031 /* GameStateBottomView.swift */,
@@ -667,6 +672,15 @@
 				D42DB3FC296D2BAA006D7392 /* SwiftUIExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D470730B2976652C0019774A /* Leaderboard */ = {
+			isa = PBXGroup;
+			children = (
+				D47073092976633F0019774A /* LeaderboardView.swift */,
+				D470730C2976654E0019774A /* LeaderboardData.swift */,
+			);
+			path = Leaderboard;
 			sourceTree = "<group>";
 		};
 		D4F85F28296B17E00038B3D7 /* Ads */ = {
@@ -998,6 +1012,7 @@
 				A9757F4524CC481E00847031 /* TileView.swift in Sources */,
 				A9757F3424CC481E00847031 /* Direction.swift in Sources */,
 				A9757F4324CC481E00847031 /* CompositeSideView.swift in Sources */,
+				D470730A2976633F0019774A /* LeaderboardView.swift in Sources */,
 				A9757F3D24CC481E00847031 /* Audio.swift in Sources */,
 				A9757EAC24CC47EC00847031 /* 3096BlocksApp.swift in Sources */,
 				D40228BB296FA64700A6F5D5 /* Haptics.swift in Sources */,
@@ -1008,6 +1023,7 @@
 				D40228BE296FA6A700A6F5D5 /* HapticControler.swift in Sources */,
 				A9757F2524CC481E00847031 /* TileColorThemeEnvironmentKey.swift in Sources */,
 				A9757F4124CC481E00847031 /* AudioSettingView.swift in Sources */,
+				D470730D2976654E0019774A /* LeaderboardData.swift in Sources */,
 				A9757F4024CC481E00847031 /* TileBoardSettingView.swift in Sources */,
 				A9757F3C24CC481E00847031 /* CheckboxToggleStyle.swift in Sources */,
 				A9757F5124CC481E00847031 /* BlurEffect.swift in Sources */,
