@@ -92,6 +92,7 @@
 		D43A01A029689632007D8134 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D43A019F29689632007D8134 /* Launch Screen.storyboard */; platformFilter = ios; };
 		D470730A2976633F0019774A /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47073092976633F0019774A /* LeaderboardView.swift */; };
 		D470730D2976654E0019774A /* LeaderboardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D470730C2976654E0019774A /* LeaderboardData.swift */; };
+		D470730F2976774B0019774A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D470730E2976774B0019774A /* LoginView.swift */; };
 		D4B47F3C296E72BA00E8F971 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4B47F3B296E72BA00E8F971 /* GoogleService-Info.plist */; };
 		D4B47F3D296E760200E8F971 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4B47F3B296E72BA00E8F971 /* GoogleService-Info.plist */; };
 		D4B47F3E296E760300E8F971 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4B47F3B296E72BA00E8F971 /* GoogleService-Info.plist */; };
@@ -233,6 +234,7 @@
 		D43A019F29689632007D8134 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D47073092976633F0019774A /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		D470730C2976654E0019774A /* LeaderboardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardData.swift; sourceTree = "<group>"; };
+		D470730E2976774B0019774A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D4B47F3B296E72BA00E8F971 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D4F85F29296B17EC0038B3D7 /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
 		DB02E63ACE4D0341267B6426 /* Pods-3096 – Blocks-3096 – BlocksUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3096 – Blocks-3096 – BlocksUITests.debug.xcconfig"; path = "Target Support Files/Pods-3096 – Blocks-3096 – BlocksUITests/Pods-3096 – Blocks-3096 – BlocksUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -679,6 +681,7 @@
 			children = (
 				D47073092976633F0019774A /* LeaderboardView.swift */,
 				D470730C2976654E0019774A /* LeaderboardData.swift */,
+				D470730E2976774B0019774A /* LoginView.swift */,
 			);
 			path = Leaderboard;
 			sourceTree = "<group>";
@@ -984,6 +987,7 @@
 				A9757F3024CC481E00847031 /* ColorSchemeBackgroundTheme.swift in Sources */,
 				A9757F2A24CC481E00847031 /* AppStorageKeys.swift in Sources */,
 				A9757F3624CC481E00847031 /* AnyTransition+TileGenerator.swift in Sources */,
+				D470730F2976774B0019774A /* LoginView.swift in Sources */,
 				A9757F2624CC481E00847031 /* TileBoardSizeEnvironmentKey.swift in Sources */,
 				A9757F3B24CC481E00847031 /* FilledBackgroundStyle.swift in Sources */,
 				A9757F4624CC481E00847031 /* TileBoardView.swift in Sources */,

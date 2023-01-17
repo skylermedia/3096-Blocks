@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import CloudKit
 
 struct CompositeView: View {
     
@@ -30,6 +31,8 @@ struct CompositeView: View {
     @State private var score: Int = 0
     @State private var highScore: Int = 0
     @State private var scoreMultiplier: Int = 0
+    
+    @State private var leaderboardData = [LeaderboardData]()
     
     @AppStorage(AppStorageKeys.audio.rawValue) var isAudioEnabled: Bool = true
     @AppStorage(AppStorageKeys.haptic.rawValue) var isHapticEnabled: Bool = true
@@ -99,21 +102,7 @@ struct CompositeView: View {
                             if score > highScore {
                                 highScore = score
                                 UserDefaults.standard.set(highScore, forKey: "highScore")
-                                /* Update Leaderboard
-                                let record = CKRecord(recordType: "Leaderboard")
-                                record.setValue(playerName, forKey: "playerName")
-                                record.setValue(score, forKey: "score")
-
-                                let operation = CKModifyRecordsOperation(recordsToSave: [record], recordIDsToDelete: nil)
-                                operation.savePolicy = .ifServerRecordUnchanged
-                                operation.queuePriority = .high
-                                operation.qualityOfService = .userInteractive
-                                operation.modifyRecordsCompletionBlock = { (savedRecords, deletedRecordIDs, error) in
-                                    if let error = error {
-                                         handle error
-                                    } else {
-                                         update leaderboard
-                                */
+                                saveScore(playerName: "player", score: score)
                             }
                         }
                                                 .onReceive(logic.$mergeMultiplier) { (publishedScoreMultiplier) in
@@ -190,6 +179,127 @@ struct CompositeView: View {
     
     private func resetGame() {
         logic.reset()
+    }
+// MARK: - Leaderboard Functions
+    
+    func saveScore(playerName: String, score: Int) {
+        let record = CKRecord(recordType: "Leaderboard")
+        record.setValue(playerName, forKey: "playerName")
+        record.setValue(score, forKey: "score")
+
+        let container = CKContainer.default()
+        let database = container.publicCloudDatabase
+        database.save(record) { (savedRecord, error) in
+            if let error = error {
+                print("Error saving score: \(error)")
+            } else {
+                self.fetchLeaderboardData()
+            }
+        }
+    }
+    
+    func fetchLeaderboardData() {
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: "Leaderboard", predicate: predicate)
+        query.sortDescriptors = [NSSortDescriptor(key: "score", ascending: false)]
+        
+        let operation = CKQueryOperation(query: query)
+        operation.resultsLimit = 10 // limit the number of results
+        operation.recordFetchedBlock = { record in
+            let playerName = record["playerName"] as! String
+            let score = record["score"] as! Int
+            let rank = self.leaderboardData.count + 1
+            self.leaderboardData.append(LeaderboardData(recordID: record.recordID, playerName: playerName, rank: rank, score: score))
+        }
+        operation.queryCompletionBlock = { [self] (cursor, error) in
+            if let error = error {
+                print("Error fetching leaderboard data: \(error)")
+            } else {
+                DispatchQueue.main.async {
+                    self.leaderboardData = self.leaderboardData.sorted(by: { $0.score > $1.score })
+                    for (index, data) in self.leaderboardData.enumerated() {
+                        self.leaderboardData[index].rank = index + 1
+                    }
+                }
+            }
+        }
+        let container = CKContainer(identifier: "iCloud.com.szijjarto.3096Game")
+        let database = container.publicCloudDatabase
+        database.add(operation)
+    }
+}
+
+// MARK: - Leaderboard
+struct LeaderboardView: View {
+    
+    @State private var leaderboardData = [LeaderboardData]()
+    @State private var searchTerm: String = ""
+    
+    var body: some View {
+        VStack {
+            HStack {
+                TextField("Search", text: $searchTerm)
+                    .padding()
+                    .background(Color.gray)
+                    .cornerRadius(8)
+                Button(action: {
+                    self.searchTerm = ""
+                }) {
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundColor(.gray)
+                }
+            }
+            List {
+                ForEach(leaderboardData, id: \.self) { data in
+                    HStack {
+                        Text("\(data.rank).")
+                        Text(data.playerName)
+                        Spacer()
+                        Text("\(data.score)")
+                    }
+                }
+                /*
+                 List(leaderboardData.filter { $0.playerName.contains(searchTerm) }, id: \.self) { item in
+                 HStack {
+                     Text("\(item.rank).")
+                     Text(item.playerName)
+                     Spacer()
+                     Text("\(item.score)")
+                 }
+                 */
+            }
+        }
+        .onAppear(perform: fetchLeaderboardData)
+    }
+    
+    func fetchLeaderboardData() {
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: "Leaderboard", predicate: predicate)
+        query.sortDescriptors = [NSSortDescriptor(key: "score", ascending: false)]
+        
+        let operation = CKQueryOperation(query: query)
+        operation.resultsLimit = 10 // limit the number of results
+        operation.recordFetchedBlock = { record in
+            let playerName = record["playerName"] as! String
+            let score = record["score"] as! Int
+            let rank = self.leaderboardData.count + 1
+            self.leaderboardData.append(LeaderboardData(recordID: record.recordID, playerName: playerName, rank: rank, score: score))
+        }
+        operation.queryCompletionBlock = { [self] (cursor, error) in
+            if let error = error {
+                print("Error fetching leaderboard data: \(error)")
+            } else {
+                DispatchQueue.main.async {
+                    self.leaderboardData = self.leaderboardData.sorted(by: { $0.score > $1.score })
+                    for (index, data) in self.leaderboardData.enumerated() {
+                        self.leaderboardData[index].rank = index + 1
+                    }
+                }
+            }
+        }
+        let container = CKContainer(identifier: "iCloud.com.szijjarto.3096Game")
+        let database = container.publicCloudDatabase
+        database.add(operation)
     }
 }
 

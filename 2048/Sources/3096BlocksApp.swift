@@ -19,6 +19,7 @@ struct TwoZeroFourEightApp: App {
                        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         GADMobileAds.sharedInstance().start(completionHandler: nil)
+//        UserDefaults.standard.register(defaults: ["playerName" : "Unknown player"])
 
         return true
       }

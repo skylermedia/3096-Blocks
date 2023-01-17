@@ -43,11 +43,18 @@ struct FactoryContentView<G: Gesture>: View {
             .padding(.top, -64)
     }
     
+    private var leaderboardView: some View {
+        LeaderboardView()
+            .padding(.top, -64)
+            .padding(.bottom, 24)
+    }
+    
     private var aboutView: some View {
         AboutView()
             .padding(.top, -64)
             .padding(.bottom, 24)
     }
+    
     
     // MARK: - Private Methods
     
@@ -58,6 +65,8 @@ struct FactoryContentView<G: Gesture>: View {
             tileBoardView
         case .settings:
             settingsView
+        case .leaderboard:
+            leaderboardView
         case .about:
             aboutView
         }
