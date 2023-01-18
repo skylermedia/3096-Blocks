@@ -7,9 +7,6 @@ target '3096 – Blocks' do
 
   # Pods for 3096 – Blocks
 pod 'Google-Mobile-Ads-SDK'
-pod 'FirebaseAnalytics'
-pod 'FirebaseAuth'
-pod 'FirebaseFirestore'
 
   target '3096 – BlocksTests' do
     inherit! :search_paths
