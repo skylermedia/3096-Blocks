@@ -15,11 +15,19 @@ struct LoginView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("Please enter your username")
-                TextField("Username", text: $userName)
-                Button("Continue") {
+                Spacer()
+                Text("Enter a Username Below")
+                    .bold()
+                    .font(.title)
+                TextField("", text: $userName)
+                    .padding()
+                    .background(.primary)
+                    .cornerRadius(25)
+                Button("Submit") {
                     setUserName()
                 }
+                .padding(.top)
+                .buttonStyle(.borderedProminent)
                 NavigationLink(destination: CompositeView(board: GameLogic(size: boardSize)), isActive: $isLoggedIn) {
                     EmptyView()
                 }
@@ -28,6 +36,7 @@ struct LoginView: View {
                         setUserName()
                     }
                 }
+                Spacer()
             }
             .navigationBarBackButtonHidden(isLoggedIn)
         }

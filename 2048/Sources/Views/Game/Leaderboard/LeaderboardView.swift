@@ -37,11 +37,11 @@ struct LeaderboardView: View {
             VStack {
                 HStack {
                     Spacer()
-                    TextField("Search", text: $searchTerm)
-                        .padding()
-                        .background(Color.primary.opacity(0.5))
-                        .foregroundColor(Color("leaderboardBorderColor"))
-                        .cornerRadius(8)
+//                    TextField("Search", text: $searchTerm)
+//                        .padding()
+//                        .background(Color.primary.opacity(0.5))
+//                        .foregroundColor(Color("leaderboardBorderColor"))
+//                        .cornerRadius(8)
                     //                Button(action: {
                     //                    self.searchTerm = ""
                     //                }) {
@@ -59,7 +59,7 @@ struct LeaderboardView: View {
                                 .font(.headline)
                             ZStack {
                                 RoundedRectangle(cornerRadius: 25)
-                                    .stroke(.blue, lineWidth: 4)
+//                                    .stroke(.blue, lineWidth: 4)
                                     .foregroundColor(Color("leaderboardBackgroundColor"))
                                     .shadow(color: Color(.black), radius: 10, x: 0, y: 0)
                                     .padding()
@@ -74,9 +74,9 @@ struct LeaderboardView: View {
                                 .multilineTextAlignment(.center)
                             ZStack {
                                 RoundedRectangle(cornerRadius: 25)
-                                    .stroke(.blue, lineWidth: 4)
+//                                    .stroke(.blue, lineWidth: 4)
                                     .foregroundColor(Color("leaderboardBackgroundColor"))
-                                    .shadow(color: Color(.black), radius: 10, x: 0, y: 0)
+                                    .shadow(color: Color(.black), radius: 5, x: 0, y: 0)
                                     .padding()
                                 VStack {
                                     ScrollView {
