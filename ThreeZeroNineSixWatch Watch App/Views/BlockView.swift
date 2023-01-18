@@ -98,7 +98,6 @@ struct BlockView : View {
                 .font(Font.system(size: fontSize).bold())
                 .foregroundColor(colorPair.1)
                 .id(textId!)
-                // ⚠️ Gotcha: `zIndex` is important for removal transition!!
                 .zIndex(1000)
                 .transition(AnyTransition.opacity.combined(with: .scale))
         }

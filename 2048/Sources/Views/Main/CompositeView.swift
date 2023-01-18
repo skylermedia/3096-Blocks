@@ -33,7 +33,9 @@ struct CompositeView: View {
     @State private var scoreMultiplier: Int = 0
     
     @State private var leaderboardData = [LeaderboardData]()
-    
+    let userName = UserDefaults.standard.string(forKey: "userName")
+    let isAuthenticated = UserDefaults.standard.string(forKey: "isAuthenticated")
+
     @AppStorage(AppStorageKeys.audio.rawValue) var isAudioEnabled: Bool = true
     @AppStorage(AppStorageKeys.haptic.rawValue) var isHapticEnabled: Bool = true
     
@@ -84,80 +86,86 @@ struct CompositeView: View {
     // MARK: - Comformance to View protocol
     
     var body: some View {
-        GeometryReader { proxy in
-            ZStack(alignment: .top) {
-                VStack {
-                    Group {
-                        self.headerView(proxy)
-
-                        FactoryContentView(
-                            selectedView: $selectedView,
-                            gesture: gesture,
-                            gameLogic: logic,
-                            presentEndGameModal: $presentEndGameModal,
-                            presentSideMenu: $presentSideMenu
+        NavigationView {
+            if (isAuthenticated != nil) == false {
+                LoginView(boardSize: 4)
+            } else {
+                GeometryReader { proxy in
+                    ZStack(alignment: .top) {
+                        VStack {
+                            Group {
+                                self.headerView(proxy)
+                                
+                                FactoryContentView(
+                                    selectedView: $selectedView,
+                                    gesture: gesture,
+                                    gameLogic: logic,
+                                    presentEndGameModal: $presentEndGameModal,
+                                    presentSideMenu: $presentSideMenu
+                                )
+                                .onReceive(logic.$score) { (publishedScore) in
+                                    score = publishedScore
+                                    if score > highScore {
+                                        highScore = score
+                                        UserDefaults.standard.set(highScore, forKey: "highScore")
+                                        saveScore(playerName: "player", score: score)
+                                    }
+                                }
+                                .onReceive(logic.$mergeMultiplier) { (publishedScoreMultiplier) in
+                                    scoreMultiplier = publishedScoreMultiplier
+                                }
+                                .onReceive(logic.$hasMoveMergedTiles) { hasMergedTiles in
+                                    guard isAudioEnabled else { return }
+                                    AudioSource.play(condition: hasMergedTiles)
+                                    Haptic.light()
+                                }                    }
+                            .blur(radius: (presentEndGameModal || presentSideMenu) ? 4 : 0)
+                        }
+                        .modifier(RoundedClippedBackground(backgroundColor: colorSchemeBackgroundTheme.backgroundColor(for: colorScheme),
+                                                           proxy: proxy))
+                        .modifier(
+                            MainViewModifier(
+                                proxy: proxy,
+                                presentEndGameModal: $presentEndGameModal,
+                                presentSideMenu: $presentSideMenu,
+                                viewState: $viewState
+                            )
                         )
-                        .onReceive(logic.$score) { (publishedScore) in
-                            score = publishedScore
-                            if score > highScore {
-                                highScore = score
-                                UserDefaults.standard.set(highScore, forKey: "highScore")
-                                saveScore(playerName: "player", score: score)
+                        .onTapGesture {
+                            guard !hasGameEnded else { return } // Disable on tap dismissal of the end game modal view
+                            
+                            withAnimation(.modalSpring) {
+                                presentEndGameModal = false
+                                presentSideMenu = false
                             }
                         }
-                                                .onReceive(logic.$mergeMultiplier) { (publishedScoreMultiplier) in
-                                                    scoreMultiplier = publishedScoreMultiplier
-                                                }
-                                                .onReceive(logic.$hasMoveMergedTiles) { hasMergedTiles in
-                                                    guard isAudioEnabled else { return }
-                                                    AudioSource.play(condition: hasMergedTiles)
-                                                    Haptic.light()
-                                                }                    }
-                    .blur(radius: (presentEndGameModal || presentSideMenu) ? 4 : 0)
-                }
-                .modifier(RoundedClippedBackground(backgroundColor: colorSchemeBackgroundTheme.backgroundColor(for: colorScheme),
-                                                   proxy: proxy))
-                .modifier(
-                    MainViewModifier(
-                        proxy: proxy,
-                        presentEndGameModal: $presentEndGameModal,
-                        presentSideMenu: $presentSideMenu,
-                        viewState: $viewState
-                    )
-                )
-                .onTapGesture {
-                    guard !hasGameEnded else { return } // Disable on tap dismissal of the end game modal view
-                        
-                        withAnimation(.modalSpring) {
-                            presentEndGameModal = false
-                            presentSideMenu = false
+                        .onReceive(logic.$noPossibleMove) { (publisher) in
+                            let hasGameEnded = logic.noPossibleMove
+                            self.hasGameEnded = hasGameEnded
+                            
+                            withAnimation(.modalSpring) {
+                                self.presentEndGameModal = hasGameEnded
+                            }
                         }
-                }
-                .onReceive(logic.$noPossibleMove) { (publisher) in
-                    let hasGameEnded = logic.noPossibleMove
-                    self.hasGameEnded = hasGameEnded
-                    
-                    withAnimation(.modalSpring) {
-                        self.presentEndGameModal = hasGameEnded
+                        
+                        GameStateBottomView(
+                            hasGameEnded: $hasGameEnded,
+                            presentEndGameModal: $presentEndGameModal,
+                            sideMenuViewState: $sideMenuViewState,
+                            score: $score,
+                            resetGame: resetGame
+                        )
+                        CompositeSideView(
+                            selectedView: $selectedView,
+                            sideMenuViewState: $sideMenuViewState,
+                            presentSideMenu: $presentSideMenu
+                        )
                     }
                 }
-                
-                GameStateBottomView(
-                    hasGameEnded: $hasGameEnded,
-                    presentEndGameModal: $presentEndGameModal,
-                    sideMenuViewState: $sideMenuViewState,
-                    score: $score,
-                    resetGame: resetGame
-                )
-                CompositeSideView(
-                    selectedView: $selectedView,
-                    sideMenuViewState: $sideMenuViewState,
-                    presentSideMenu: $presentSideMenu
-                )
+                .edgesIgnoringSafeArea(.all)
             }
         }
-        .edgesIgnoringSafeArea(.all)
-    }
+}
     
     // MARK: - Methods
     
@@ -206,84 +214,12 @@ struct CompositeView: View {
         let operation = CKQueryOperation(query: query)
         operation.resultsLimit = 10 // limit the number of results
         operation.recordFetchedBlock = { record in
-            let playerName = record["playerName"] as! String
+//            let playerName = record["playerName"] as! String
+            let playerName = UserDefaults.standard.string(forKey: "userName")
             let score = record["score"] as! Int
             let rank = self.leaderboardData.count + 1
-            self.leaderboardData.append(LeaderboardData(recordID: record.recordID, playerName: playerName, rank: rank, score: score))
-        }
-        operation.queryCompletionBlock = { [self] (cursor, error) in
-            if let error = error {
-                print("Error fetching leaderboard data: \(error)")
-            } else {
-                DispatchQueue.main.async {
-                    self.leaderboardData = self.leaderboardData.sorted(by: { $0.score > $1.score })
-                    for (index, data) in self.leaderboardData.enumerated() {
-                        self.leaderboardData[index].rank = index + 1
-                    }
-                }
-            }
-        }
-        let container = CKContainer(identifier: "iCloud.com.szijjarto.3096Game")
-        let database = container.publicCloudDatabase
-        database.add(operation)
-    }
-}
-
-// MARK: - Leaderboard
-struct LeaderboardView: View {
-    
-    @State private var leaderboardData = [LeaderboardData]()
-    @State private var searchTerm: String = ""
-    
-    var body: some View {
-        VStack {
-            HStack {
-                TextField("Search", text: $searchTerm)
-                    .padding()
-                    .background(Color.gray)
-                    .cornerRadius(8)
-                Button(action: {
-                    self.searchTerm = ""
-                }) {
-                    Image(systemName: "xmark.circle.fill")
-                        .foregroundColor(.gray)
-                }
-            }
-            List {
-                ForEach(leaderboardData, id: \.self) { data in
-                    HStack {
-                        Text("\(data.rank).")
-                        Text(data.playerName)
-                        Spacer()
-                        Text("\(data.score)")
-                    }
-                }
-                /*
-                 List(leaderboardData.filter { $0.playerName.contains(searchTerm) }, id: \.self) { item in
-                 HStack {
-                     Text("\(item.rank).")
-                     Text(item.playerName)
-                     Spacer()
-                     Text("\(item.score)")
-                 }
-                 */
-            }
-        }
-        .onAppear(perform: fetchLeaderboardData)
-    }
-    
-    func fetchLeaderboardData() {
-        let predicate = NSPredicate(value: true)
-        let query = CKQuery(recordType: "Leaderboard", predicate: predicate)
-        query.sortDescriptors = [NSSortDescriptor(key: "score", ascending: false)]
-        
-        let operation = CKQueryOperation(query: query)
-        operation.resultsLimit = 10 // limit the number of results
-        operation.recordFetchedBlock = { record in
-            let playerName = record["playerName"] as! String
-            let score = record["score"] as! Int
-            let rank = self.leaderboardData.count + 1
-            self.leaderboardData.append(LeaderboardData(recordID: record.recordID, playerName: playerName, rank: rank, score: score))
+            self.leaderboardData.append(LeaderboardData(recordID: record.recordID, playerName: playerName ?? "player", rank: rank, score: score))
+            print("Name: \(playerName) Score: \(score) High Score: \(highScore)")
         }
         operation.queryCompletionBlock = { [self] (cursor, error) in
             if let error = error {
