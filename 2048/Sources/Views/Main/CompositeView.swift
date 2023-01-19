@@ -46,6 +46,7 @@ struct CompositeView: View {
     
     init(board: GameLogic) {
         self.logic = board
+        fetchHighScore()
         highScore = UserDefaults.standard.integer(forKey: "highScore")
         selectedSound = UserDefaults.standard.string(forKey: "audioSound") ?? "default"
     }
@@ -115,9 +116,12 @@ struct CompositeView: View {
                                 .onReceive(logic.$score) { (publishedScore) in
                                     score = publishedScore
                                     if score > highScore {
+                                        // CloudKit
+//                                        updateHighScore(newScore: score)
+                                        
                                         highScore = score
-                                        UserDefaults.standard.set(highScore, forKey: "highScore")
                                         saveScore(playerName: "player", score: score)
+                                        UserDefaults.standard.set(highScore, forKey: "highScore")
                                     }
                                 }
                                 .onReceive(logic.$mergeMultiplier) { (publishedScoreMultiplier) in
@@ -198,8 +202,91 @@ struct CompositeView: View {
     private func resetGame() {
         logic.reset()
     }
-    // MARK: - Leaderboard Functions
+    // MARK: - Score Functions
     
+    func saveHighScore(score: Int) {
+        let container = CKContainer(identifier: "iCloud.com.szijjarto.3096Game")
+        let publicDB = container.publicCloudDatabase
+        
+        let newRecord = CKRecord(recordType: "highScore")
+        newRecord.setValue(score, forKey: "score")
+        newRecord.setValue(userName, forKey: "userName")
+        
+        publicDB.save(newRecord) { (record, error) in
+            if let error = error {
+                print("Error saving high score to CloudKit: \(error)")
+            } else {
+                print("High score saved successfully to CloudKit")
+            }
+        }
+    }
+
+    func fetchHighScore() {
+        let container = CKContainer.default()
+        let publicDB = container.publicCloudDatabase
+        let predicate = NSPredicate(format: "username == %@", userName!)
+        let query = CKQuery(recordType: "highScore", predicate: predicate)
+        publicDB.perform(query, inZoneWith: nil) { (records, error) in
+            if let error = error {
+                print("Error fetching high score from CloudKit: \(error)")
+                return
+            }
+            
+            guard let records = records else { return }
+            if records.isEmpty {
+                print("No high score records found for user: \(self.userName!).")
+                self.saveHighScore(score: self.highScore)
+                return
+            }
+            guard let highestScoreRecord = records.max(by: { ($0.value(forKey: "score") as! Int) < ($1.value(forKey: "score") as! Int) }) else { return }
+            let highScore = highestScoreRecord.value(forKey: "score") as! Int
+            DispatchQueue.main.async {
+                self.highScore = highScore
+            }
+        }
+    }
+
+    func createHighScoreRecord(score: Int) {
+        let highScoreRecord = CKRecord(recordType: "highScore")
+        highScoreRecord["username"] = userName as! CKRecordValue
+        highScoreRecord["score"] = score as CKRecordValue
+        let container = CKContainer.default()
+        let publicDB = container.publicCloudDatabase
+        publicDB.save(highScoreRecord) { (record, error) in
+            if let error = error {
+                print("Error saving high score record to CloudKit: \(error)")
+                return
+            }
+            print("High score record saved to CloudKit")
+        }
+    }
+
+    func updateHighScore(newScore: Int) {
+        let container = CKContainer.default()
+        let publicDB = container.publicCloudDatabase
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: "highScore", predicate: predicate)
+        publicDB.perform(query, inZoneWith: nil) { (records, error) in
+            if let error = error {
+                print("Error fetching high score from CloudKit: \(error)")
+                return
+            }
+            
+            guard let highestScoreRecord = records!.first(where: { $0.value(forKey: "username") as! String == self.userName! }) else {
+                print("No high score records found for user: \(self.userName!).")
+                return
+            }
+            guard let records = records else { return }
+            guard let highestScoreRecord = records.max(by: { ($0.value(forKey: "score") as! Int) < ($1.value(forKey: "score") as! Int) }) else { return }
+            highestScoreRecord.setValue(newScore, forKey: "score")
+            publicDB.save(highestScoreRecord) { (record, error) in
+                if let error = error {
+                    print("Error updating high score on CloudKit: \(error)")
+                }
+            }
+        }
+    }
+
     func saveScore(playerName: String, score: Int) {
         let record = CKRecord(recordType: "Leaderboard")
         record.setValue(playerName, forKey: "playerName")
@@ -215,7 +302,8 @@ struct CompositeView: View {
             }
         }
     }
-    
+    // MARK: - Leaderboard Functions
+
     func fetchLeaderboardData() {
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: "Leaderboard", predicate: predicate)
