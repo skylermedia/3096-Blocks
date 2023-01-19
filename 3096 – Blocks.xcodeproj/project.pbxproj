@@ -129,7 +129,7 @@
 
 /* Begin PBXFileReference section */
 		20560A3B9B0FB856D3F92B9D /* Pods-3096 – Blocks-3096 – BlocksUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3096 – Blocks-3096 – BlocksUITests.debug.xcconfig"; path = "Target Support Files/Pods-3096 – Blocks-3096 – BlocksUITests/Pods-3096 – Blocks-3096 – BlocksUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		25CC80793349263F26C7C159 /* Pods_3096___Blocks_3096___BlocksTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_3096___Blocks_3096___BlocksTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		25CC80793349263F26C7C159 /* Pods_3096___Blocks_3096___BlocksTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_3096___Blocks_3096___BlocksTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2987FF45EB14D40B87A08DB5 /* Pods-3096 – Blocks-3096 – BlocksTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3096 – Blocks-3096 – BlocksTests.debug.xcconfig"; path = "Target Support Files/Pods-3096 – Blocks-3096 – BlocksTests/Pods-3096 – Blocks-3096 – BlocksTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2D9865F1DA5BBC0AB54C913A /* Pods-3096 – Blocks-3096 – BlocksUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3096 – Blocks-3096 – BlocksUITests.release.xcconfig"; path = "Target Support Files/Pods-3096 – Blocks-3096 – BlocksUITests/Pods-3096 – Blocks-3096 – BlocksUITests.release.xcconfig"; sourceTree = "<group>"; };
 		61AB865D50E70A39F4317F78 /* Pods-3096 – Blocks-3096 – BlocksTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3096 – Blocks-3096 – BlocksTests.release.xcconfig"; path = "Target Support Files/Pods-3096 – Blocks-3096 – BlocksTests/Pods-3096 – Blocks-3096 – BlocksTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -207,7 +207,7 @@
 		A9E400DA25A4755A00FE1F92 /* macOS02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = macOS02.png; sourceTree = "<group>"; };
 		CE47A469550EF55323C6332C /* Pods-3096 – BlocksTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3096 – BlocksTests.debug.xcconfig"; path = "Target Support Files/Pods-3096 – BlocksTests/Pods-3096 – BlocksTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D0B31CD2A3158244DABD1D40 /* Pods-3096 – Blocks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-3096 – Blocks.debug.xcconfig"; path = "Target Support Files/Pods-3096 – Blocks/Pods-3096 – Blocks.debug.xcconfig"; sourceTree = "<group>"; };
-		D0B7ACB0F77988F099BA8E9F /* Pods_3096___Blocks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_3096___Blocks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0B7ACB0F77988F099BA8E9F /* Pods_3096___Blocks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_3096___Blocks.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40228B8296FA50F00A6F5D5 /* HapticSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticSettingsView.swift; sourceTree = "<group>"; };
 		D40228BA296FA64700A6F5D5 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		D40228BD296FA6A700A6F5D5 /* HapticControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticControler.swift; sourceTree = "<group>"; };
@@ -231,7 +231,7 @@
 		D470730C2976654E0019774A /* LeaderboardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardData.swift; sourceTree = "<group>"; };
 		D470730E2976774B0019774A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D4F85F29296B17EC0038B3D7 /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
-		F2585ADADE64E322717DBD52 /* Pods_3096___Blocks_3096___BlocksUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_3096___Blocks_3096___BlocksUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2585ADADE64E322717DBD52 /* Pods_3096___Blocks_3096___BlocksUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_3096___Blocks_3096___BlocksUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -510,9 +510,11 @@
 		A9757F0424CC481E00847031 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D45E87912979120E001220C5 /* Augmented Reality */,
 				A9757F0524CC481E00847031 /* Settings */,
 				A9757F0924CC481E00847031 /* Side */,
 				A9757F0C24CC481E00847031 /* About */,
+				D470730B2976652C0019774A /* Leaderboard */,
 				A9757F0E24CC481E00847031 /* Game */,
 				A9757F1224CC481E00847031 /* Main */,
 			);
@@ -551,7 +553,6 @@
 		A9757F0E24CC481E00847031 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				D470730B2976652C0019774A /* Leaderboard */,
 				A9757F0F24CC481E00847031 /* TileView.swift */,
 				A9757F1024CC481E00847031 /* TileBoardView.swift */,
 				A9757F1124CC481E00847031 /* GameStateBottomView.swift */,
@@ -664,6 +665,13 @@
 				D42DB3FC296D2BAA006D7392 /* SwiftUIExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D45E87912979120E001220C5 /* Augmented Reality */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Augmented Reality";
 			sourceTree = "<group>";
 		};
 		D470730B2976652C0019774A /* Leaderboard */ = {
