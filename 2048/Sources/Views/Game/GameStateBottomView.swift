@@ -72,7 +72,7 @@ struct GameStateBottomView: View {
         }
     }
     
-    // MARK: - Conformance to View protocol
+    // MARK: - Conformance to View Protocol
     
     var body: some View {
         GeometryReader { proxy in

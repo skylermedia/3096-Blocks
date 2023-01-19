@@ -30,7 +30,7 @@ struct SettingsView: View {
         settings = plist?.getItem(named: PlistConfigurationKeyPath.settings.rawValue) ?? ["" : [:]]
     }
     
-    // MARK: - Conformance to View protocol
+    // MARK: - Conformance to View Protocol
     
     var body: some View {
         List {

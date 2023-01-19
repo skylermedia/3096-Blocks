@@ -92,7 +92,7 @@ struct CompositeView: View {
         return drag
     }
     
-    // MARK: - Comformance to View protocol
+    // MARK: - Comformance to View Protocol
     
     var body: some View {
         NavigationView {

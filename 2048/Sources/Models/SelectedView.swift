@@ -9,18 +9,18 @@ import Foundation
 
 enum SelectedView {
     case game
+    case ranks
     case settings
-    case leaderboard
     case about
     
     var title: String {
         switch self {
         case .game:
             return "3096"
+        case .ranks:
+            return "Ranks"
         case .settings:
             return "Settings"
-        case .leaderboard:
-            return "Leaderboard"
         case .about:
             return "About"
 

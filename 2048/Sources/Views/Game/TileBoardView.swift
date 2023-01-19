@@ -25,7 +25,7 @@ struct TileBoardView: View {
         colorScheme == .light ? Color(red:0.43, green:0.43, blue:0.43, opacity: 1) : Color(red:0.33, green:0.33, blue:0.33, opacity: 1)
     }
     
-    // MARK: - Conformacne to View protocol
+    // MARK: - Conformacne to View Protocol
     
     var body: some View {
         GeometryReader { proxy in

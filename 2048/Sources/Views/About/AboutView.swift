@@ -20,7 +20,7 @@ struct AboutView: View {
         about = plist?.getItem(named: PlistConfigurationKeyPath.about.rawValue) ?? ["" : [:]]
     }
     
-    // MARK: - Conformance to View protocol
+    // MARK: - Conformance to View Protocol
     
     var body: some View {
         GeometryReader { proxy in

@@ -20,7 +20,7 @@ struct FactoryContentView<G: Gesture>: View {
     @Binding var presentEndGameModal: Bool
     @Binding var presentSideMenu: Bool
 
-    // MARK: - Conformacne to View protocol
+    // MARK: - Conformacne to View Protocol
     
     @ViewBuilder var body: some View {
         currentView()
@@ -43,7 +43,7 @@ struct FactoryContentView<G: Gesture>: View {
             .padding(.top, -64)
     }
     
-    private var leaderboardView: some View {
+    private var ranksView: some View {
         LeaderboardView()
             .padding(.top, -64)
             .padding(.bottom, 24)
@@ -65,8 +65,8 @@ struct FactoryContentView<G: Gesture>: View {
             tileBoardView
         case .settings:
             settingsView
-        case .leaderboard:
-            leaderboardView
+        case .ranks:
+            ranksView
         case .about:
             aboutView
         }

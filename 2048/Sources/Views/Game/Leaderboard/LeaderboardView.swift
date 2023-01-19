@@ -15,6 +15,7 @@ struct LeaderboardView: View {
     @State private var leaderboardData = [LeaderboardData]()
     @State private var searchTerm: String = ""
     @State private var leaderboardLoading: Bool = false
+    @State private var leaderboardIsFiltered: Bool = false
     
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
@@ -28,29 +29,31 @@ struct LeaderboardView: View {
         colorScheme == .dark ? Color(red:0.90, green:0.90, blue:0.90, opacity:1.00) : Color(red:0.10, green:0.10, blue:0.10, opacity:1.00)
     }
     
-    // MARK: - Conformacne to View protocol
+    // MARK: - Conformacne to View Protocol
 
     var body: some View {
         ZStack {
             Rectangle()
                 .fill(Color("leaderboardBackgroundColor"))
             VStack {
-                HStack {
-                    Spacer()
-//                    TextField("Search", text: $searchTerm)
+//                HStack {
+//                    Spacer()
+//                    TextField("Search", text: $searchTerm) {
+//                        filterLeaderboard()
+//                    }
 //                        .padding()
 //                        .background(Color.primary.opacity(0.5))
 //                        .foregroundColor(Color("leaderboardBorderColor"))
 //                        .cornerRadius(8)
-                    //                Button(action: {
-                    //                    self.searchTerm = ""
-                    //                }) {
-                    //                    Image(systemName: "xmark.circle.fill")
-                    //                        .foregroundColor(.gray)
-                    //                }
-                    Spacer()
-                }
-                .padding()
+//                                    Button(action: {
+//                                        endFilterLeaderboard()
+//                                    }) {
+//                                        Image(systemName: "xmark.circle.fill")
+//                                            .foregroundColor(.gray)
+//                                    }
+//                    Spacer()
+//                }
+//                .padding()
                 ZStack {
                     if leaderboardLoading == true {
                         VStack {
@@ -67,49 +70,88 @@ struct LeaderboardView: View {
                             }
                         }
                     } else {
-                        VStack {
-                            Text("Please allow up to 5 minutes for the leaderboard to update.")
-                                .bold()
-                                .font(.footnote)
-                                .multilineTextAlignment(.center)
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 25)
-//                                    .stroke(.blue, lineWidth: 4)
-                                    .foregroundColor(Color("leaderboardBackgroundColor"))
-                                    .shadow(color: Color(.black), radius: 5, x: 0, y: 0)
-                                    .padding()
-                                VStack {
-                                    ScrollView {
-                                        ForEach(leaderboardData, id: \.self) { data in
-                                            VStack {
-                                                HStack {
-                                                    Text("\(data.rank):")
-                                                        .bold()
-                                                        .font(.headline)
-                                                    Text(data.playerName.capitalized)
-                                                        .bold()
-                                                        .font(.headline)
-                                                    Spacer()
-                                                    Text("\(data.score)")
-                                                        .bold()
-                                                        .font(.headline)
-                                                }
-                                                Divider()
-                                            }
-                                        }
+                        if leaderboardIsFiltered {
+                            /*
+                             List(leaderboardData.filter { $0.playerName.contains(searchTerm) }, id: \.self) { item in
+                             HStack {
+                             Text("\(item.rank).")
+                             Text(item.playerName)
+                             Spacer()
+                             Text("\(item.score)")
+                             }
+                             */
+                            VStack {
+                                Text("Please allow up to 5 minutes for the leaderboard to update.")
+                                    .bold()
+                                    .font(.footnote)
+                                    .multilineTextAlignment(.center)
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 25)
+                                    //                                    .stroke(.blue, lineWidth: 4)
+                                        .foregroundColor(Color("leaderboardBackgroundColor"))
+                                        .shadow(color: Color(.black), radius: 5, x: 0, y: 0)
                                         .padding()
+                                    VStack {
+                                        ScrollView {
+                                            ForEach(leaderboardData.filter { $0.playerName.contains(searchTerm) }, id: \.self) { data in
+                                                VStack {
+                                                    HStack {
+                                                        Text("\(data.rank):")
+                                                            .bold()
+                                                            .font(.headline)
+                                                        Text(data.playerName.capitalized)
+                                                            .bold()
+                                                            .font(.headline)
+                                                        Spacer()
+                                                        Text("\(data.score)")
+                                                            .bold()
+                                                            .font(.headline)
+                                                    }
+                                                    Divider()
+                                                }
+                                            }
+                                            .padding()
+                                        }
                                     }
-                                    /*
-                                     List(leaderboardData.filter { $0.playerName.contains(searchTerm) }, id: \.self) { item in
-                                     HStack {
-                                     Text("\(item.rank).")
-                                     Text(item.playerName)
-                                     Spacer()
-                                     Text("\(item.score)")
-                                     }
-                                     */
+                                    .padding()
                                 }
-                                .padding()
+                            }
+                        } else {
+                            VStack {
+                                Text("Please allow up to 5 minutes for the leaderboard to update.")
+                                    .bold()
+                                    .font(.footnote)
+                                    .multilineTextAlignment(.center)
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 25)
+                                    //                                    .stroke(.blue, lineWidth: 4)
+                                        .foregroundColor(Color("leaderboardBackgroundColor"))
+                                        .shadow(color: Color(.black), radius: 5, x: 0, y: 0)
+                                        .padding()
+                                    VStack {
+                                        ScrollView {
+                                            ForEach(leaderboardData, id: \.self) { data in
+                                                VStack {
+                                                    HStack {
+                                                        Text("\(data.rank):")
+                                                            .bold()
+                                                            .font(.headline)
+                                                        Text(data.playerName.capitalized)
+                                                            .bold()
+                                                            .font(.headline)
+                                                        Spacer()
+                                                        Text("\(data.score)")
+                                                            .bold()
+                                                            .font(.headline)
+                                                    }
+                                                    Divider()
+                                                }
+                                            }
+                                            .padding()
+                                        }
+                                    }
+                                    .padding()
+                                }
                             }
                         }
                     }
@@ -118,6 +160,17 @@ struct LeaderboardView: View {
             .onAppear(perform: fetchLeaderboardData)
         }
     }
+    // MARK: - Functions
+
+    func filterLeaderboard() {
+        leaderboardIsFiltered = true
+    }
+    
+    func endFilterLeaderboard() {
+        leaderboardIsFiltered = false
+        self.searchTerm = ""
+    }
+    
     func fetchLeaderboardData() {
         leaderboardLoading = true
         let predicate = NSPredicate(value: true)
@@ -150,6 +203,8 @@ struct LeaderboardView: View {
         database.add(operation)
     }
 }
+
+// MARK: - Previews
 
 struct LeaderboardView_Previews: PreviewProvider {
     static var previews: some View {

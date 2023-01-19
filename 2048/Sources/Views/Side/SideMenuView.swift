@@ -19,14 +19,14 @@ struct SideMenuView: View {
     
     @Binding var selectedView: SelectedView
     var onMenuChangeHandler: () -> Void
-    var items: [SelectedView] = [ .game, .settings, .leaderboard, .about ]
+    var items: [SelectedView] = [ .game, .ranks, .settings, .about ]
     
     // MARK: - Constants
     
     let interItemSpacing: CGFloat = 44
     let cornerRadius: CGFloat = 25
     
-    // MARK: - Conformance to View protocol
+    // MARK: - Conformance to View Protocol
     
     var body: some View {
         GeometryReader { proxy in

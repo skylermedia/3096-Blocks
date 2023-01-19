@@ -22,7 +22,7 @@ struct ModalView: View {
     var completionHandler: () -> Void
     var cancellationHandler: (() -> Void)?
     
-    // MARK: - Conformane to View protocol
+    // MARK: - Conformane to View Protocol
     
     var body: some View {
         GeometryReader { proxy in

@@ -40,7 +40,7 @@ struct TileView: View {
         return self.init()
     }
     
-    // MARK: - Conformance to View protocol
+    // MARK: - Conformance to View Protocol
     
     var body: some View {
         let tileColorTheme = self.tileColorTheme.colorPair(for: number, colorScheme, defaultColor: self.backgroundColor)

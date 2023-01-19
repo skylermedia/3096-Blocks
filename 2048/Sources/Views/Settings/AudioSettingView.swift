@@ -36,7 +36,7 @@ struct AudioSettingView: View {
         self.previewSize = previewSize
     }
     
-    // MARK: - Conformance to View protocol
+    // MARK: - Conformance to View Protocol
     
     var body: some View {
         audioSettingView()

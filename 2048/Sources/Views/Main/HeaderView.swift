@@ -113,7 +113,7 @@ struct HeaderView: View {
             .id(title)
     }
     
-    // MARK: - Conformance to View protocol
+    // MARK: - Conformance to View Protocol
     
     var body: some View {
         VStack {
