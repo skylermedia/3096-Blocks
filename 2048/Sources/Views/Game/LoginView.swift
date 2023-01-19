@@ -26,7 +26,7 @@ struct LoginView: View {
                 Button("Submit") {
                     setUserName()
                 }
-                .padding(.top)
+                .padding()
                 .buttonStyle(.borderedProminent)
                 NavigationLink(destination: CompositeView(board: GameLogic(size: boardSize)), isActive: $isLoggedIn) {
                     EmptyView()

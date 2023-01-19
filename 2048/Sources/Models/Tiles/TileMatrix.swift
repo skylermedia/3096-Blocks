@@ -35,7 +35,6 @@ struct TileMatrix<T>: CustomStringConvertible, CustomDebugStringConvertible wher
     
     // MARK: - Properties
     
-    
     private(set) var matrix: [[T?]]
     private let size: Int
     

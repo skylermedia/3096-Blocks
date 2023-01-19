@@ -127,7 +127,7 @@ struct LeaderboardView: View {
         let operation = CKQueryOperation(query: query)
         operation.resultsLimit = 25 // limit the number of results
         operation.recordFetchedBlock = { record in
-            let playerName = UserDefaults.standard.string(forKey: "userName")
+            let playerName = record["playerName"] as! String
             let score = record["score"] as! Int
             let rank = self.leaderboardData.count + 1
             self.leaderboardData.append(LeaderboardData(recordID: record.recordID, playerName: playerName ?? "player", rank: rank, score: score))

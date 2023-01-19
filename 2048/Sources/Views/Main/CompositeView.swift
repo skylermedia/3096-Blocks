@@ -35,7 +35,9 @@ struct CompositeView: View {
     @State private var leaderboardData = [LeaderboardData]()
     let userName = UserDefaults.standard.string(forKey: "userName")
     let isAuthenticated = UserDefaults.standard.string(forKey: "isAuthenticated")
-
+    
+    private var selectedSound: String = AppStorage(AppStorageKeys.audioSound.rawValue)
+    
     @AppStorage(AppStorageKeys.audio.rawValue) var isAudioEnabled: Bool = true
     @AppStorage(AppStorageKeys.haptic.rawValue) var isHapticEnabled: Bool = true
     
@@ -56,8 +58,8 @@ struct CompositeView: View {
                 guard !ignoreGesture else { return }
                 
                 guard abs(v.translation.width) > threshold ||
-                    abs(v.translation.height) > threshold else {
-                        return
+                        abs(v.translation.height) > threshold else {
+                    return
                 }
                 withTransaction(Transaction()) {
                     ignoreGesture = true
@@ -76,10 +78,10 @@ struct CompositeView: View {
                         logic.move(.up)
                     }
                 }
-        }
-        .onEnded { _ in
-            ignoreGesture = false
-        }
+            }
+            .onEnded { _ in
+                ignoreGesture = false
+            }
         return drag
     }
     
@@ -116,7 +118,7 @@ struct CompositeView: View {
                                 }
                                 .onReceive(logic.$hasMoveMergedTiles) { hasMergedTiles in
                                     guard isAudioEnabled else { return }
-                                    AudioSource.play(condition: hasMergedTiles)
+                                    playSound()
                                     Haptic.light()
                                 }                    }
                             .blur(radius: (presentEndGameModal || presentSideMenu) ? 4 : 0)
@@ -165,7 +167,7 @@ struct CompositeView: View {
                 .edgesIgnoringSafeArea(.all)
             }
         }
-}
+    }
     
     // MARK: - Methods
     
@@ -188,13 +190,13 @@ struct CompositeView: View {
     private func resetGame() {
         logic.reset()
     }
-// MARK: - Leaderboard Functions
+    // MARK: - Leaderboard Functions
     
     func saveScore(playerName: String, score: Int) {
         let record = CKRecord(recordType: "Leaderboard")
         record.setValue(playerName, forKey: "playerName")
         record.setValue(score, forKey: "score")
-
+        
         let container = CKContainer.default()
         let database = container.publicCloudDatabase
         database.save(record) { (savedRecord, error) in
@@ -214,7 +216,7 @@ struct CompositeView: View {
         let operation = CKQueryOperation(query: query)
         operation.resultsLimit = 10 // limit the number of results
         operation.recordFetchedBlock = { record in
-//            let playerName = record["playerName"] as! String
+            //            let playerName = record["playerName"] as! String
             let playerName = UserDefaults.standard.string(forKey: "userName")
             let score = record["score"] as! Int
             let rank = self.leaderboardData.count + 1
@@ -237,8 +239,16 @@ struct CompositeView: View {
         let database = container.publicCloudDatabase
         database.add(operation)
     }
+    
+    private func playSound() {
+        if selectedSound == "default" {
+            // Play Default Sound
+            AudioSource.ding()
+        } else if selectedSound == "sound1" {
+            // play sound1
+        } // and so on for the other sounds
+    }
 }
-
 // MARK: - Previews
 
 struct CompositeView_Previews : PreviewProvider {
