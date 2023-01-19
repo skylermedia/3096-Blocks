@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 import CloudKit
+import AVFoundation
 
 struct CompositeView: View {
     
@@ -36,7 +37,7 @@ struct CompositeView: View {
     let userName = UserDefaults.standard.string(forKey: "userName")
     let isAuthenticated = UserDefaults.standard.string(forKey: "isAuthenticated")
     
-    private var selectedSound: String = AppStorage(AppStorageKeys.audioSound.rawValue)
+    @State private var selectedSound: String = UserDefaults.standard.string(forKey: "audioSound") ?? "default"
     
     @AppStorage(AppStorageKeys.audio.rawValue) var isAudioEnabled: Bool = true
     @AppStorage(AppStorageKeys.haptic.rawValue) var isHapticEnabled: Bool = true
@@ -46,6 +47,7 @@ struct CompositeView: View {
     init(board: GameLogic) {
         self.logic = board
         highScore = UserDefaults.standard.integer(forKey: "highScore")
+        selectedSound = UserDefaults.standard.string(forKey: "audioSound") ?? "default"
     }
     
     // MARK: - Drag Gesture
@@ -67,18 +69,23 @@ struct CompositeView: View {
                     if v.translation.width > threshold {
                         // Move right
                         logic.move(.right)
+                        playSound()
                     } else if v.translation.width < -threshold {
                         // Move left
                         logic.move(.left)
+                        playSound()
                     } else if v.translation.height > threshold {
                         // Move down
                         logic.move(.down)
+                        playSound()
                     } else if v.translation.height < -threshold {
                         // Move up
                         logic.move(.up)
+                        playSound()
                     }
                 }
             }
+        
             .onEnded { _ in
                 ignoreGesture = false
             }
@@ -118,7 +125,8 @@ struct CompositeView: View {
                                 }
                                 .onReceive(logic.$hasMoveMergedTiles) { hasMergedTiles in
                                     guard isAudioEnabled else { return }
-                                    playSound()
+                                    AudioSource.play(condition: hasMergedTiles)
+//                                    playSound()
                                     Haptic.light()
                                 }                    }
                             .blur(radius: (presentEndGameModal || presentSideMenu) ? 4 : 0)
@@ -221,7 +229,7 @@ struct CompositeView: View {
             let score = record["score"] as! Int
             let rank = self.leaderboardData.count + 1
             self.leaderboardData.append(LeaderboardData(recordID: record.recordID, playerName: playerName ?? "player", rank: rank, score: score))
-            print("Name: \(playerName) Score: \(score) High Score: \(highScore)")
+            print("Name: \(playerName) Score: \(score) High Score: \(highScore) Sound: \(selectedSound)")
         }
         operation.queryCompletionBlock = { [self] (cursor, error) in
             if let error = error {
@@ -241,14 +249,17 @@ struct CompositeView: View {
     }
     
     private func playSound() {
-        if selectedSound == "default" {
-            // Play Default Sound
-            AudioSource.ding()
-        } else if selectedSound == "sound1" {
-            // play sound1
-        } // and so on for the other sounds
+        if isAudioEnabled {
+            if selectedSound == "default" {
+                AudioSource.play(from: .ding)
+            } else if selectedSound == "sound1" {
+//                AudioSource.play(from: .new)
+                print("sound1")
+            }
+        }
     }
 }
+
 // MARK: - Previews
 
 struct CompositeView_Previews : PreviewProvider {

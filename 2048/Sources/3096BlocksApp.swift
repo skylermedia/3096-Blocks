@@ -20,6 +20,9 @@ struct TwoZeroFourEightApp: App {
 
         GADMobileAds.sharedInstance().start(completionHandler: nil)
 //        UserDefaults.standard.register(defaults: ["playerName" : "Unknown player"])
+          if UserDefaults.standard.string(forKey: "audioSound") == nil {
+              UserDefaults.standard.set("default", forKey: "audioSound")
+          }
 
         return true
       }

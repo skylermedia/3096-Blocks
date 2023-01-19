@@ -38,11 +38,11 @@ struct SettingsView: View {
             Section(header:
                         VStack(alignment: .leading) {
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.gameBoardSize.rawValue] ?? "")
-                    .font(.system(.body, design: .monospaced))
+                    .font(.system(.title, design: .monospaced))
                     .foregroundColor(Color.primary.opacity(0.5))
                     .fontWeight(.black)
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.gameBoardDescription.rawValue] ?? "")
-                    .font(.system(.caption, design: .monospaced))
+                    .font(.system(.body, design: .monospaced))
                     .foregroundColor(Color.primary.opacity(0.5))
                     .fontWeight(.bold)
             }
@@ -56,11 +56,11 @@ struct SettingsView: View {
             Section(header:
                         VStack(alignment: .leading) {
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.audio.rawValue] ?? "")
-                    .font(.system(.body, design: .monospaced))
+                    .font(.system(.title, design: .monospaced))
                     .foregroundColor(Color.primary.opacity(0.5))
                     .fontWeight(.black)
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.audioDescription.rawValue] ?? "")
-                    .font(.system(.caption, design: .monospaced))
+                    .font(.system(.body, design: .monospaced))
                     .foregroundColor(Color.primary.opacity(0.5))
                     .fontWeight(.bold)
             }
@@ -75,11 +75,11 @@ struct SettingsView: View {
             Section(header:
                         VStack(alignment: .leading) {
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.haptic.rawValue] ?? "")
-                    .font(.system(.body, design: .monospaced))
+                    .font(.system(.title, design: .monospaced))
                     .foregroundColor(Color.primary.opacity(0.5))
                     .fontWeight(.black)
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.hapticDescription.rawValue] ?? "")
-                    .font(.system(.caption, design: .monospaced))
+                    .font(.system(.body, design: .monospaced))
                     .foregroundColor(Color.primary.opacity(0.5))
                     .fontWeight(.bold)
             }

@@ -73,6 +73,7 @@ final class GameLogic: ObservableObject {
     enum State {
         case moved
         case merged
+        case ding
         case none
     }
     
