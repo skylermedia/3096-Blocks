@@ -9,7 +9,6 @@ target '3096 – Blocks' do
 pod 'Google-Mobile-Ads-SDK'
 
   target '3096 – BlocksTests' do
-    inherit! :search_paths
     # Pods for testing
   end
 
