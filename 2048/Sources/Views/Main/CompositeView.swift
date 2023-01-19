@@ -248,7 +248,7 @@ struct CompositeView: View {
 
     func createHighScoreRecord(score: Int) {
         let highScoreRecord = CKRecord(recordType: "highScore")
-        highScoreRecord["username"] = userName as! CKRecordValue
+        highScoreRecord["username"] = (userName as! CKRecordValue)
         highScoreRecord["score"] = score as CKRecordValue
         let container = CKContainer.default()
         let publicDB = container.publicCloudDatabase
@@ -272,7 +272,7 @@ struct CompositeView: View {
                 return
             }
             
-            guard let highestScoreRecord = records!.first(where: { $0.value(forKey: "username") as! String == self.userName! }) else {
+            guard records!.first(where: { $0.value(forKey: "username") as! String == self.userName! }) != nil else {
                 print("No high score records found for user: \(self.userName!).")
                 return
             }
@@ -289,6 +289,7 @@ struct CompositeView: View {
 
     func saveScore(playerName: String, score: Int) {
         let record = CKRecord(recordType: "Leaderboard")
+        let playerName = UserDefaults.standard.string(forKey: "userName")
         record.setValue(playerName, forKey: "playerName")
         record.setValue(score, forKey: "score")
         
@@ -302,6 +303,7 @@ struct CompositeView: View {
             }
         }
     }
+    
     // MARK: - Leaderboard Functions
 
     func fetchLeaderboardData() {
@@ -317,7 +319,7 @@ struct CompositeView: View {
             let score = record["score"] as! Int
             let rank = self.leaderboardData.count + 1
             self.leaderboardData.append(LeaderboardData(recordID: record.recordID, playerName: playerName ?? "player", rank: rank, score: score))
-            print("Name: \(playerName) Score: \(score) High Score: \(highScore) Sound: \(selectedSound)")
+//            print("Name: \(playerName) Score: \(score) High Score: \(highScore) Sound: \(selectedSound)")
         }
         operation.queryCompletionBlock = { [self] (cursor, error) in
             if let error = error {
@@ -325,7 +327,7 @@ struct CompositeView: View {
             } else {
                 DispatchQueue.main.async {
                     self.leaderboardData = self.leaderboardData.sorted(by: { $0.score > $1.score })
-                    for (index, data) in self.leaderboardData.enumerated() {
+                    for (index, _) in self.leaderboardData.enumerated() {
                         self.leaderboardData[index].rank = index + 1
                     }
                 }

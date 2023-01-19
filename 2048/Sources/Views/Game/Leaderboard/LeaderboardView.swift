@@ -183,7 +183,7 @@ struct LeaderboardView: View {
             let playerName = record["playerName"] as! String
             let score = record["score"] as! Int
             let rank = self.leaderboardData.count + 1
-            self.leaderboardData.append(LeaderboardData(recordID: record.recordID, playerName: playerName ?? "player", rank: rank, score: score))
+            self.leaderboardData.append(LeaderboardData(recordID: record.recordID, playerName: playerName, rank: rank, score: score))
             leaderboardLoading = false
         }
         operation.queryCompletionBlock = { [self] (cursor, error) in
@@ -192,7 +192,7 @@ struct LeaderboardView: View {
             } else {
                 DispatchQueue.main.async {
                     self.leaderboardData = self.leaderboardData.sorted(by: { $0.score > $1.score })
-                    for (index, data) in self.leaderboardData.enumerated() {
+                    for (index, _) in self.leaderboardData.enumerated() {
                         self.leaderboardData[index].rank = index + 1
                     }
                 }
