@@ -10,19 +10,19 @@ import GoogleMobileAds
 
 @main
 struct TwoZeroFourEightApp: App {
-    init() {
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
-    }
     class AppDelegate: UIResponder, UIApplicationDelegate {
 
       func application(_ application: UIApplication,
                        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
-//        UserDefaults.standard.register(defaults: ["playerName" : "Unknown player"])
-          if UserDefaults.standard.string(forKey: "audioSound") == nil {
-              UserDefaults.standard.set("default", forKey: "audioSound")
+          DispatchQueue.global().async {
+                GADMobileAds.sharedInstance().start(completionHandler: nil)
+              if UserDefaults.standard.string(forKey: "audioSound") == nil {
+                  UserDefaults.standard.set("default", forKey: "audioSound")
+              }
           }
+          //        UserDefaults.standard.register(defaults: ["playerName" : "Unknown player"])
+
 
         return true
       }
