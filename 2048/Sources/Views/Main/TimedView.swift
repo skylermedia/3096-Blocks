@@ -54,47 +54,8 @@ struct TimedView: View {
     
     init(board: GameLogic) {
         self.logic = board
-        fetchHighScore()
         highScore = UserDefaults.standard.integer(forKey: "highScore")
         selectedSound = UserDefaults.standard.string(forKey: "audioSound") ?? "default"
-    }
-    
-    // MARK: - Drag Gesture
-    
-    private var gesture: some Gesture {
-        let threshold: CGFloat = 25
-        
-        let drag = DragGesture()
-            .onChanged { v in
-                guard !ignoreGesture else { return }
-                
-                guard abs(v.translation.width) > threshold ||
-                        abs(v.translation.height) > threshold else {
-                    return
-                }
-                withTransaction(Transaction()) {
-                    ignoreGesture = true
-                    
-                    if v.translation.width > threshold {
-                        // Move right
-                        logic.move(.right)
-                    } else if v.translation.width < -threshold {
-                        // Move left
-                        logic.move(.left)
-                    } else if v.translation.height > threshold {
-                        // Move down
-                        logic.move(.down)
-                    } else if v.translation.height < -threshold {
-                        // Move up
-                        logic.move(.up)
-                    }
-                }
-            }
-        
-            .onEnded { _ in
-                ignoreGesture = false
-            }
-        return drag
     }
     
     // MARK: - Comformance to View Protocol
@@ -104,84 +65,15 @@ struct TimedView: View {
             if (isAuthenticated != nil) == false {
                 LoginView(boardSize: 4)
             } else {
-                GeometryReader { proxy in
-                    ZStack(alignment: .top) {
-                        VStack {
-                            Group {
-                                self.headerView(proxy)
-                                
-                                FactoryContentView(
-                                    selectedView: $selectedView,
-                                    gesture: gesture,
-                                    gameLogic: logic,
-                                    presentEndGameModal: $presentEndGameModal,
-                                    presentSideMenu: $presentSideMenu
-                                )
-                                .onReceive(logic.$score) { (publishedScore) in
-                                    score = publishedScore
-                                    if score > highScore {
-                                        // CloudKit
-                                        //                                        updateHighScore(newScore: score)
-                                        
-                                        highScore = score
-                                        saveScore(playerName: "player", score: score)
-                                        UserDefaults.standard.set(highScore, forKey: "highScore")
-                                    }
-                                }
-                                .onReceive(logic.$mergeMultiplier) { (publishedScoreMultiplier) in
-                                    scoreMultiplier = publishedScoreMultiplier
-                                }
-                                .onReceive(logic.$hasMoveMergedTiles) { hasMergedTiles in
-                                    guard isAudioEnabled else { return }
-                                    AudioSource.play(condition: hasMergedTiles)
-                                    //                                    playSound()
-//                                    setTotalScore()
-                                    Haptic.light()
-                                }                    }
-                            .blur(radius: (presentEndGameModal || presentSideMenu) ? 4 : 0)
-                        }
-                        .modifier(RoundedClippedBackground(backgroundColor: colorSchemeBackgroundTheme.backgroundColor(for: colorScheme),
-                                                           proxy: proxy))
-                        .modifier(
-                            MainViewModifier(
-                                proxy: proxy,
-                                presentEndGameModal: $presentEndGameModal,
-                                presentSideMenu: $presentSideMenu,
-                                viewState: $viewState
-                            )
-                        )
-                        .onTapGesture {
-                            guard !hasGameEnded else { return } // Disable on tap dismissal of the end game modal view
-                            
-                            withAnimation(.modalSpring) {
-                                presentEndGameModal = false
-                                presentSideMenu = false
-                            }
-                        }
-                        .onReceive(logic.$noPossibleMove) { (publisher) in
-                            let hasGameEnded = logic.noPossibleMove
-                            self.hasGameEnded = hasGameEnded
-                            
-                            withAnimation(.modalSpring) {
-                                self.presentEndGameModal = hasGameEnded
-                            }
-                        }
-                        
-                        GameStateBottomView(
-                            hasGameEnded: $hasGameEnded,
-                            presentEndGameModal: $presentEndGameModal,
-                            sideMenuViewState: $sideMenuViewState,
-                            score: $score,
-                            resetGame: resetGame
-                        )
-                        CompositeSideView(
-                            selectedView: $selectedView,
-                            sideMenuViewState: $sideMenuViewState,
-                            presentSideMenu: $presentSideMenu
-                        )
-                    }
+                VStack {
+                    GameStateBottomView(
+                        hasGameEnded: $hasGameEnded,
+                        presentEndGameModal: $presentEndGameModal,
+                        sideMenuViewState: $sideMenuViewState,
+                        score: $score,
+                        resetGame: resetGame
+                    )
                 }
-                .edgesIgnoringSafeArea(.all)
             }
         }
     }
@@ -207,106 +99,5 @@ struct TimedView: View {
     
     private func resetGame() {
         logic.reset()
-    }
-
-    // MARK: - Score Functions
-    
-    func saveHighScore(score: Int) {
-        let container = CKContainer(identifier: "iCloud.com.szijjarto.3096Game")
-        let publicDB = container.publicCloudDatabase
-        
-        let newRecord = CKRecord(recordType: "highScore")
-        newRecord.setValue(score, forKey: "score")
-        newRecord.setValue(userName, forKey: "userName")
-        
-        publicDB.save(newRecord) { (record, error) in
-            if let error = error {
-                print("Error saving high score to CloudKit: \(error)")
-            } else {
-                print("High score saved successfully to CloudKit")
-            }
-        }
-    }
-
-    func fetchHighScore() {
-        let container = CKContainer.default()
-        let publicDB = container.publicCloudDatabase
-        let predicate = NSPredicate(format: "username == %@", userName ?? "player")
-        let query = CKQuery(recordType: "highScore", predicate: predicate)
-        publicDB.perform(query, inZoneWith: nil) { (records, error) in
-            if let error = error {
-                print("Error fetching high score from CloudKit: \(error)")
-                return
-            }
-            
-            guard let records = records else { return }
-            if records.isEmpty {
-                print("No high score records found for user: \(self.userName!).")
-                self.saveHighScore(score: self.highScore)
-                return
-            }
-            guard let highestScoreRecord = records.max(by: { ($0.value(forKey: "score") as! Int) < ($1.value(forKey: "score") as! Int) }) else { return }
-            let highScore = highestScoreRecord.value(forKey: "score") as! Int
-            DispatchQueue.main.async {
-                self.highScore = highScore
-            }
-        }
-    }
-
-    func createHighScoreRecord(score: Int) {
-        let highScoreRecord = CKRecord(recordType: "highScore")
-        highScoreRecord["username"] = (userName! as CKRecordValue)
-        highScoreRecord["score"] = score as CKRecordValue
-        let container = CKContainer.default()
-        let publicDB = container.publicCloudDatabase
-        publicDB.save(highScoreRecord) { (record, error) in
-            if let error = error {
-                print("Error saving high score record to CloudKit: \(error)")
-                return
-            }
-            print("High score record saved to CloudKit")
-        }
-    }
-
-    func updateHighScore(newScore: Int) {
-        let container = CKContainer.default()
-        let publicDB = container.publicCloudDatabase
-        let predicate = NSPredicate(value: true)
-        let query = CKQuery(recordType: "highScore", predicate: predicate)
-        publicDB.perform(query, inZoneWith: nil) { (records, error) in
-            if let error = error {
-                print("Error fetching high score from CloudKit: \(error)")
-                return
-            }
-            
-            guard records!.first(where: { $0.value(forKey: "username") as! String == self.userName! }) != nil else {
-                print("No high score records found for user: \(self.userName!).")
-                return
-            }
-            guard let records = records else { return }
-            guard let highestScoreRecord = records.max(by: { ($0.value(forKey: "score") as! Int) < ($1.value(forKey: "score") as! Int) }) else { return }
-            highestScoreRecord.setValue(newScore, forKey: "score")
-            publicDB.save(highestScoreRecord) { (record, error) in
-                if let error = error {
-                    print("Error updating high score on CloudKit: \(error)")
-                }
-            }
-        }
-    }
-
-    func saveScore(playerName: String, score: Int) {
-        let record = CKRecord(recordType: "Leaderboard")
-        let playerName = UserDefaults.standard.string(forKey: "userName")
-        record.setValue(playerName, forKey: "playerName")
-        record.setValue(score, forKey: "score")
-        
-        let container = CKContainer.default()
-        let database = container.publicCloudDatabase
-        database.save(record) { (savedRecord, error) in
-            if let error = error {
-                print("Error saving score: \(error)")
-            } else {
-            }
-        }
     }
 }

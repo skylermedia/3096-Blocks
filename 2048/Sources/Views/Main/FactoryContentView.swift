@@ -50,7 +50,7 @@ struct FactoryContentView<G: Gesture>: View {
     }
     
     private var timedView: some View {
-        TimedView()
+        TimedView(board: GameLogic(size: 4))
             .padding(.top, -64)
             .padding(.bottom, 24)
     }

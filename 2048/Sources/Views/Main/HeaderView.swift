@@ -104,25 +104,6 @@ struct HeaderView: View {
         .opacity(showResetButton() ? 1.0 : 0.0)
     }
     
-    private var resetGameButton: some View {
-        Button(action: {
-            withAnimation(.spring()) {
-                showResetWarning.toggle()
-                newGameAction()
-            }
-        }) {
-            Image(systemName: "arrow.clockwise")
-                .resizable()
-                .scaledToFit()
-                .aspectRatio(1, contentMode: .fit)
-                .frame(width: buttonSize, height: buttonSize)
-                .foregroundColor(.gray)
-        }
-        .foregroundColor(.gray)
-        .padding()
-        .opacity(showResetButton() ? 1.0 : 0.0)
-    }
-    
     private var titleView: some View {
         Text(title)
             .font(Font.system(size: 46).weight(.black))
