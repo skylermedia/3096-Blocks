@@ -1,8 +1,8 @@
 //
-//  CompositeView.swift
-//  3096 – Blocks
+//  TimedView.swift
+//  3096 – Blocks
 //
-//  Copyright © 2023 Skyler Szijjarto
+//  Created by Skyler Szijjarto on 1/19/23.
 //
 
 import SwiftUI
@@ -10,7 +10,7 @@ import Combine
 import CloudKit
 import AVFoundation
 
-struct CompositeView: View {
+struct TimedView: View {
     
     // MARK: - Proeprties
     
@@ -23,6 +23,8 @@ struct CompositeView: View {
     
     @State private var sideMenuViewState = CGSize.zero
     @State private var presentSideMenu = false
+    
+    @State private var timeRemaining: Double = 60.0
     
     @ObservedObject private var logic: GameLogic
     @Environment(\.colorScheme) private var colorScheme: ColorScheme
@@ -76,19 +78,15 @@ struct CompositeView: View {
                     if v.translation.width > threshold {
                         // Move right
                         logic.move(.right)
-                        playSound()
                     } else if v.translation.width < -threshold {
                         // Move left
                         logic.move(.left)
-                        playSound()
                     } else if v.translation.height > threshold {
                         // Move down
                         logic.move(.down)
-                        playSound()
                     } else if v.translation.height < -threshold {
                         // Move up
                         logic.move(.up)
-                        playSound()
                     }
                 }
             }
@@ -210,20 +208,6 @@ struct CompositeView: View {
     private func resetGame() {
         logic.reset()
     }
-    
-    // MARK: - Stats Functions
-    
-//    func setTotalScore() {
-//        if logic .hasMoveMergedTiles {
-//            let totalScore = UserDefaults.standard.integer(forKey: "totalScore")
-//            let scoreDifference = self.totalScore - self.score
-//            self.totalScore = scoreDifference + totalScore
-//            UserDefaults.standard.set(self.totalScore, forKey: "totalScore")
-//            print(totalScore)
-//        } else {
-//            print("Tiles have not moved.")
-//        }
-//    }
 
     // MARK: - Score Functions
     
@@ -322,71 +306,7 @@ struct CompositeView: View {
             if let error = error {
                 print("Error saving score: \(error)")
             } else {
-                self.fetchLeaderboardData()
             }
-        }
-    }
-    
-    // MARK: - Leaderboard Functions
-
-    func fetchLeaderboardData() {
-        let predicate = NSPredicate(value: true)
-        let query = CKQuery(recordType: "Leaderboard", predicate: predicate)
-        query.sortDescriptors = [NSSortDescriptor(key: "score", ascending: false)]
-        
-        let operation = CKQueryOperation(query: query)
-        operation.resultsLimit = 10 // limit the number of results
-        operation.recordFetchedBlock = { record in
-            //            let playerName = record["playerName"] as! String
-            let playerName = UserDefaults.standard.string(forKey: "userName")
-            let score = record["score"] as! Int
-            let rank = self.leaderboardData.count + 1
-            self.leaderboardData.append(LeaderboardData(recordID: record.recordID, playerName: playerName ?? "player", rank: rank, score: score))
-//            print("Name: \(playerName) Score: \(score) High Score: \(highScore) Sound: \(selectedSound)")
-        }
-        operation.queryCompletionBlock = { [self] (cursor, error) in
-            if let error = error {
-                print("Error fetching leaderboard data: \(error)")
-            } else {
-                DispatchQueue.main.async {
-                    self.leaderboardData = self.leaderboardData.sorted(by: { $0.score > $1.score })
-                    for (index, _) in self.leaderboardData.enumerated() {
-                        self.leaderboardData[index].rank = index + 1
-                    }
-                }
-            }
-        }
-        let container = CKContainer(identifier: "iCloud.com.szijjarto.3096Game")
-        let database = container.publicCloudDatabase
-        database.add(operation)
-    }
-    
-    private func playSound() {
-        if isAudioEnabled {
-            if selectedSound == "default" {
-                AudioSource.play(from: .ding)
-            } else if selectedSound == "sound1" {
-//                AudioSource.play(from: .new)
-                print("sound1")
-            }
-        }
-    }
-}
-
-// MARK: - Previews
-
-struct CompositeView_Previews : PreviewProvider {
-    static var previews: some View {
-        Group {
-            CompositeView(
-                board: GameLogic(size: BoardSize.fourByFour.rawValue)
-            )
-            .colorScheme(.dark)
-    
-            CompositeView(
-                board: GameLogic(size: BoardSize.fourByFour.rawValue)
-            )
-            .colorScheme(.light)
         }
     }
 }
