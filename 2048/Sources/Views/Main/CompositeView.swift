@@ -271,7 +271,7 @@ struct CompositeView: View {
 
     func createHighScoreRecord(score: Int) {
         let highScoreRecord = CKRecord(recordType: "highScore")
-        highScoreRecord["username"] = (userName! as CKRecordValue)
+        highScoreRecord["username"] = (userName as! CKRecordValue)
         highScoreRecord["score"] = score as CKRecordValue
         let container = CKContainer.default()
         let publicDB = container.publicCloudDatabase
