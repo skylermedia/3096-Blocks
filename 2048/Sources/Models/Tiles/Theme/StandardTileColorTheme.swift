@@ -9,7 +9,7 @@ import Foundation
 import struct SwiftUI.Color
 
 struct StandardTileColorTheme: TileColorTheme {
-    var lightTileColors: [TilePair] = [
+    var defaultLightTileColors: [TilePair] = [
         (Color(red:0.91, green:0.87, blue:0.83, opacity:1.00), Color(red:0.42, green:0.39, blue:0.35, opacity: 1.00)), // 3
         (Color(red:0.90, green:0.86, blue:0.76, opacity:1.00), Color(red:0.42, green:0.39, blue:0.35, opacity: 1.00)), // 6
         (Color(red:0.93, green:0.67, blue:0.46, opacity:1.00), Color.white), // 12
@@ -29,7 +29,7 @@ struct StandardTileColorTheme: TileColorTheme {
         (Color(red:0.94, green:0.35, blue:0.23, opacity:1.00), Color.white), // 196,608
     ]
     
-    var darkTileColors: [TilePair] = [
+    var defaultDarkTileColors: [TilePair] = [
         (Color(red:0.81, green:0.77, blue:0.73, opacity:1.00), Color(red:0.32, green:0.29, blue:0.25, opacity: 1.00)), // 3
         (Color(red:0.80, green:0.76, blue:0.66, opacity:1.00), Color(red:0.32, green:0.29, blue:0.5, opacity: 1.00)), // 6
         (Color(red:0.83, green:0.57, blue:0.36, opacity:1.00), Color.white), // 12

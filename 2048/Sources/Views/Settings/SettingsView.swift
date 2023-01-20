@@ -34,7 +34,6 @@ struct SettingsView: View {
     
     var body: some View {
         List {
-            //            BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
             Section(header:
                         VStack(alignment: .leading) {
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.gameBoardSize.rawValue] ?? "")
@@ -52,6 +51,22 @@ struct SettingsView: View {
                     previewSize: previewSize
                 )
 //                ColorThemePickerView()
+            }
+            //            BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
+            Section(header:
+                        VStack(alignment: .leading) {
+                Text("Skin Selector (Beta)")
+                    .font(.system(.title, design: .monospaced))
+                    .foregroundColor(Color.primary.opacity(0.5))
+                    .fontWeight(.black)
+                Text("Set a skin for your game tiles!")
+                    .font(.system(.body, design: .monospaced))
+                    .foregroundColor(Color.primary.opacity(0.5))
+                    .fontWeight(.bold)
+            }
+            ) {
+                SkinSelectorView(invertedBackgroundColor: invertedBackgroundColor,
+                                 previewSize: previewSize)
             }
             //            BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
             Section(header:

@@ -15,10 +15,14 @@
 	</dict>
 	<key>settings</key>
 	<dict>
-		<key>gameBoardDescription</key>
-		<string>Note: Changing this setting will reset your current game.</string>
 		<key>gameBoardSize</key>
 		<string>Game Board Size</string>
+		<key>gameBoardDescription</key>
+		<string>Note: Changing this setting will reset your current game.</string>
+		<key>skinSelector</key>
+		<string>j</string>
+		<key>skinSelectorDescription</key>
+		<string>j</string>
 		<key>audio</key>
 		<string>Sound Effects</string>
 		<key>audioDescription</key>
