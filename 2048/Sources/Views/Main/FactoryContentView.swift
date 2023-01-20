@@ -79,6 +79,10 @@ struct FactoryContentView<G: Gesture>: View {
             timedView
         case .ranks:
             ranksView
+        case .stats:
+            statsView
+        case .settings:
+            settingsView
         case .about:
             aboutView
         }
