@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct TileBoardSettingView: View {
-
-    // MARK:  
     
     @State private var selection = GameBoardSizeState()
 
