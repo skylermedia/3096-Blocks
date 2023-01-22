@@ -44,6 +44,7 @@ struct CompositeView: View {
     let isAuthenticated = UserDefaults.standard.string(forKey: "isAuthenticated")
     
     @State private var selectedSound: String = UserDefaults.standard.string(forKey: "audioSound") ?? "default"
+    @State private var audioSound = UserDefaults.standard.string(forKey: "audioSound")
     
     @AppStorage(AppStorageKeys.audio.rawValue) var isAudioEnabled: Bool = true
     @AppStorage(AppStorageKeys.haptic.rawValue) var isHapticEnabled: Bool = true
@@ -122,9 +123,7 @@ struct CompositeView: View {
                                 .onReceive(logic.$score) { (publishedScore) in
                                     score = publishedScore
                                     if score > highScore {
-                                        // CloudKit
                                         //                                        updateHighScore(newScore: score)
-                                        
                                         highScore = score
                                         saveScore(playerName: "player", score: score)
                                         UserDefaults.standard.set(highScore, forKey: "highScore")
@@ -135,8 +134,13 @@ struct CompositeView: View {
                                 }
                                 .onReceive(logic.$hasMoveMergedTiles) { hasMergedTiles in
                                     guard isAudioEnabled else { return }
-                                    AudioSource.play(condition: hasMergedTiles)
-                                    //                                    playSound()
+                                    if audioSound == "default" {
+                                        AudioSource.playCustom(source: .ding)
+                                    } else if audioSound == "woosh" {
+                                        AudioSource.playCustom(source: .woosh)
+                                    } else {
+                                        AudioSource.playCustom(source: .ding)
+                                    }
 //                                    setTotalScore()
                                     Haptic.light()
                                 }                    }
@@ -314,8 +318,8 @@ struct CompositeView: View {
         let record = CKRecord(recordType: "Leaderboard")
         let playerName = UserDefaults.standard.string(forKey: "userName")
         record.setValue(playerName, forKey: "playerName")
-        record.setValue(score, forKey: "score")
-        
+        record.setValue(score, forKey: "highScore")
+
         let container = CKContainer.default()
         let database = container.publicCloudDatabase
         database.save(record) { (savedRecord, error) in

@@ -12,7 +12,8 @@ struct HeaderView: View {
     // MARK: - Properties
     
     @State private var showResetWarning: Bool = false
-    
+    @State private var highScore = UserDefaults.standard.integer(forKey: "highScore")
+
     var proxy: GeometryProxy
     @Binding var showSideMenu: Bool
     var title: String
@@ -20,7 +21,6 @@ struct HeaderView: View {
     @Binding var scoreMultiplier: Int
     var newGameAction: () -> Void
     var showResetButton: () -> Bool
-    @AppStorage("highScore") private var highScore: Int = 0
     let buttonSize: CGFloat = 48
     
     // MARK: - Compited View Propeties
