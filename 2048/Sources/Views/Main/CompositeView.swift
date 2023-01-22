@@ -126,7 +126,7 @@ struct CompositeView: View {
                                         //                                        updateHighScore(newScore: score)
                                         highScore = score
                                         saveScore(playerName: "player", score: score)
-                                        UserDefaults.standard.set(highScore, forKey: "highScore")
+                                        UserDefaults.standard.set(score, forKey: "highScore")
                                     }
                                 }
                                 .onReceive(logic.$mergeMultiplier) { (publishedScoreMultiplier) in
