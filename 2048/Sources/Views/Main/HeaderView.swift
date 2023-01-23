@@ -13,6 +13,7 @@ struct HeaderView: View {
     
     @State private var showResetWarning: Bool = false
     @State private var highScore = UserDefaults.standard.integer(forKey: "highScore")
+    @State private var showAboutSheet = false
 
     var proxy: GeometryProxy
     @Binding var showSideMenu: Bool
@@ -22,6 +23,7 @@ struct HeaderView: View {
     var newGameAction: () -> Void
     var showResetButton: () -> Bool
     let buttonSize: CGFloat = 48
+    let appStoreLink = "https://3096.skyler.media/downlaod-ios"
     
     // MARK: - Compited View Propeties
     
@@ -50,7 +52,7 @@ struct HeaderView: View {
             .animation(.modalSpring, value: shouldShowReset)
             .id("Score View: \(showResetButton())")
             HStack {
-                Text("High Score: ")
+                Text("Best: ")
                     .font(Font.system(.title, design: .monospaced).weight(.black))
                     .foregroundColor(Color(red:0.49, green:0.49, blue:0.49, opacity: 0.7))
                 
@@ -66,6 +68,24 @@ struct HeaderView: View {
             .animation(.modalSpring, value: shouldShowReset)
             .id("High Score View: \(showResetButton())")
         }
+        .sheet(isPresented: $showAboutSheet) {
+            AboutView()
+        }
+    }
+    
+    private var aboutButton: some View {
+        Button(action: {
+            self.showAboutSheet = true
+        }) {
+            Image(systemName: "info.circle")
+                .resizable()
+                .scaledToFit()
+                .aspectRatio(1, contentMode: .fit)
+                .frame(width: buttonSize, height: buttonSize)
+                .foregroundColor(.gray)
+        }
+        .foregroundColor(.gray)
+        .padding()
     }
     
     private var sideMenuButton: some View {
@@ -75,6 +95,22 @@ struct HeaderView: View {
             }
         }) {
             Image(systemName: "scribble")
+                .resizable()
+                .scaledToFit()
+                .aspectRatio(1, contentMode: .fit)
+                .frame(width: buttonSize, height: buttonSize)
+                .foregroundColor(.gray)
+        }
+        .foregroundColor(.gray)
+        .padding()
+    }
+    
+    private var shareButton: some View {
+        Button(action: {
+            let shareSheet = UIActivityViewController(activityItems: [self.appStoreLink], applicationActivities: nil)
+            UIApplication.shared.windows.first?.rootViewController?.present(shareSheet, animated: true, completion: nil)
+        }){
+            Image(systemName: "square.and.arrow.up")
                 .resizable()
                 .scaledToFit()
                 .aspectRatio(1, contentMode: .fit)
@@ -106,10 +142,11 @@ struct HeaderView: View {
     
     private var titleView: some View {
         Text(title)
-            .font(Font.system(size: 46).weight(.black))
+            .padding(.top, 50)
+            .font(Font.system(size: 64).weight(.black))
             .foregroundColor(Color(red:0.29, green:0.29, blue:0.29, opacity: 1.00))
-            .transition(AnyTransition.move(edge: .trailing).combined(with: .opacity))
-            .animation(.modalSpring, value: showSideMenu)
+//            .transition(AnyTransition.move(edge: .trailing).combined(with: .opacity))
+//            .animation(.modalSpring, value: showSideMenu)
             .id(title)
     }
     
@@ -118,11 +155,15 @@ struct HeaderView: View {
     var body: some View {
         VStack {
             HStack {
+                Spacer()
                 sideMenuButton
                 Spacer()
-                titleView
-                Spacer()
                 resetGameButton
+                Spacer()
+                shareButton
+                Spacer()
+                aboutButton
+                Spacer()
             }
             .padding(.top, proxy.size.width > proxy.size.height ? 24 : 48)
             
