@@ -8,6 +8,13 @@
 import Foundation
 
 enum AudioSource: String {
+    case beep = "Beep"
+    case can = "Can"
+    case click = "Click"
+    case hit = "Hit"
+    case plant = "Plant"
+    case toy = "Toy"
+    case boing = "Boing"
     case merge = "Merge"
     case new = "New"
     case ding = "Ding"
@@ -40,6 +47,20 @@ extension AudioSource {
             Audio.play(fileNamed: AudioSource.ding.rawValue)
         case .woosh:
             Audio.play(fileNamed: AudioSource.woosh.rawValue)
+        case .beep:
+            Audio.play(fileNamed: AudioSource.beep.rawValue)
+        case .can:
+            Audio.play(fileNamed: AudioSource.can.rawValue)
+        case .click:
+            Audio.play(fileNamed: AudioSource.click.rawValue)
+        case .hit:
+            Audio.play(fileNamed: AudioSource.hit.rawValue)
+        case .plant:
+            Audio.play(fileNamed: AudioSource.plant.rawValue)
+        case .toy:
+            Audio.play(fileNamed: AudioSource.toy.rawValue)
+        case .boing:
+            Audio.play(fileNamed: AudioSource.boing.rawValue)
         default:
             ()
         }

@@ -138,6 +138,20 @@ struct CompositeView: View {
                                         AudioSource.playCustom(source: .ding)
                                     } else if audioSound == "woosh" {
                                         AudioSource.playCustom(source: .woosh)
+                                    } else if audioSound == "beep" {
+                                        AudioSource.playCustom(source: .beep)
+                                    } else if audioSound == "can" {
+                                        AudioSource.playCustom(source: .can)
+                                    } else if audioSound == "click" {
+                                        AudioSource.playCustom(source: .click)
+                                    } else if audioSound == "hit" {
+                                        AudioSource.playCustom(source: .hit)
+                                    } else if audioSound == "plant" {
+                                        AudioSource.playCustom(source: .plant)
+                                    } else if audioSound == "toy" {
+                                        AudioSource.playCustom(source: .toy)
+                                    } else if audioSound == "boing" {
+                                        AudioSource.playCustom(source: .boing)
                                     } else {
                                         AudioSource.playCustom(source: .ding)
                                     }
@@ -371,7 +385,6 @@ struct CompositeView: View {
                 AudioSource.play(from: .ding)
             } else if selectedSound == "sound1" {
 //                AudioSource.play(from: .new)
-                print("sound1")
             }
         }
     }

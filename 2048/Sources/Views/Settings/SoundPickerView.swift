@@ -19,30 +19,83 @@ struct SoundPickerView: View {
     var body: some View {
         HStack {
             Spacer()
-            
-            // Default Sound
-            Button("Default") {
-                setDefaultSound()
+            VStack {
+                HStack {
+                    Spacer()
+                    // Beep
+                    Button("Beep") {
+                        setSoundBeep()
+                    }
+                    .buttonStyle(.bordered)
+                    .foregroundColor(Color.primary.opacity(0.5))
+
+                    // Can
+                    Button("Can") {
+                        setSoundCan()
+                    }
+                    .buttonStyle(.bordered)
+                    .foregroundColor(Color.primary.opacity(0.5))
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    // Click
+                    Button("Click") {
+                        setSoundClick()
+                    }
+                    .buttonStyle(.bordered)
+                    .foregroundColor(Color.primary.opacity(0.5))
+
+                    // Hit
+                    Button("Hit") {
+                        setSoundHit()
+                    }
+                    .buttonStyle(.bordered)
+                    .foregroundColor(Color.primary.opacity(0.5))
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    // Plant
+                    Button("Plant") {
+                        setSoundPlant()
+                    }
+                    .buttonStyle(.bordered)
+                    .foregroundColor(Color.primary.opacity(0.5))
+
+                    // Toy
+                    Button("Toy") {
+                        setSoundToy()
+                    }
+                    .buttonStyle(.bordered)
+                    .foregroundColor(Color.primary.opacity(0.5))
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    // Boing
+                    Button("Boing") {
+                        setSoundBoing()
+                    }
+                    .buttonStyle(.bordered)
+                    .foregroundColor(Color.primary.opacity(0.5))
+
+                    // Woosh
+                    Button("Woosh") {
+                        setWooshSound()
+                    }
+                    .buttonStyle(.bordered)
+                    .foregroundColor(Color.primary.opacity(0.5))
+
+                    Spacer()
+                }
+                // Default
+                Button("Default") {
+                    setDefaultSound()
+                }
+                .buttonStyle(.bordered)
+                .foregroundColor(Color.primary.opacity(0.5))
             }
-            .buttonStyle(.bordered)
-            .foregroundColor(Color.primary.opacity(0.5))
-            
-            Spacer()
-            
-            // Woosh
-            Button("Woosh") {
-                setWooshSound()
-            }
-            .buttonStyle(.bordered)
-            .foregroundColor(Color.primary.opacity(0.5))
-            
-            // Sound 2
-//            Button("Sound2") {
-//                setSound2()
-//            }
-//            .buttonStyle(.bordered)
-//            .foregroundColor(.black)
-            
             Spacer()
         }
         .padding(5)
@@ -60,8 +113,74 @@ struct SoundPickerView: View {
 
     // MARK: - Functions
     
-    func setDefaultSound() {
-        audioSound = "default"
+    func setSoundBeep() {
+        audioSound = "beep"
+        // User Defaults
+        UserDefaults.standard.set(audioSound, forKey: "audioSound")
+        // Logging
+        print(UserDefaults.standard.string(forKey: "audioSound"))
+        // Haptics
+        Haptic.light()
+        self.showAlert = true
+    }
+    
+    func setSoundCan() {
+        audioSound = "can"
+        // User Defaults
+        UserDefaults.standard.set(audioSound, forKey: "audioSound")
+        // Logging
+        print(UserDefaults.standard.string(forKey: "audioSound"))
+        // Haptics
+        Haptic.light()
+        self.showAlert = true
+    }
+    
+    func setSoundClick() {
+        audioSound = "click"
+        // User Defaults
+        UserDefaults.standard.set(audioSound, forKey: "audioSound")
+        // Logging
+        print(UserDefaults.standard.string(forKey: "audioSound"))
+        // Haptics
+        Haptic.light()
+        self.showAlert = true
+    }
+    
+    func setSoundHit() {
+        audioSound = "hit"
+        // User Defaults
+        UserDefaults.standard.set(audioSound, forKey: "audioSound")
+        // Logging
+        print(UserDefaults.standard.string(forKey: "audioSound"))
+        // Haptics
+        Haptic.light()
+        self.showAlert = true
+    }
+    
+    func setSoundPlant() {
+        audioSound = "plant"
+        // User Defaults
+        UserDefaults.standard.set(audioSound, forKey: "audioSound")
+        // Logging
+        print(UserDefaults.standard.string(forKey: "audioSound"))
+        // Haptics
+        Haptic.light()
+        self.showAlert = true
+    }
+    
+    func setSoundToy() {
+        audioSound = "toy"
+        // User Defaults
+        UserDefaults.standard.set(audioSound, forKey: "audioSound")
+        // Logging
+        print(UserDefaults.standard.string(forKey: "audioSound"))
+        // Haptics
+        Haptic.light()
+        self.showAlert = true
+    }
+    
+    func setSoundBoing() {
+        audioSound = "boing"
         // User Defaults
         UserDefaults.standard.set(audioSound, forKey: "audioSound")
         // Logging
@@ -82,9 +201,8 @@ struct SoundPickerView: View {
         // Restart App
         self.showAlert = true
     }
-
-    func setSound2() {
-        audioSound = "sound2"
+    func setDefaultSound() {
+        audioSound = "default"
         // User Defaults
         UserDefaults.standard.set(audioSound, forKey: "audioSound")
         // Logging

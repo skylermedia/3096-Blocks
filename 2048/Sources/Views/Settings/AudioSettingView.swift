@@ -19,7 +19,6 @@ struct AudioSettingView: View {
     
     private var invertedBackgroundColor: Color
     private var previewSize: CGSize
-    private var audioSounds = ["ding", "sound1", "sound2", "sound3", "sound4", "sound5"]
 
     // MARK: - Internal State Enum
     
