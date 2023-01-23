@@ -57,8 +57,9 @@ struct TileBoardView: View {
                 .center(in: .local, with: proxy)
                 
 //                BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
-                    .frame(maxWidth: 320, maxHeight: 50)
+//                    .frame(maxWidth: 320, maxHeight: 50)
             }
+            .shadow(color: .red, radius: 10)
         }
     }
     
