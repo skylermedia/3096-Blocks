@@ -80,21 +80,32 @@ struct SoundPickerView: View {
                     .buttonStyle(.bordered)
                     .foregroundColor(Color.primary.opacity(0.5))
 
-                    // Woosh
-                    Button("Woosh") {
-                        setWooshSound()
+                    // Wood
+                    Button("Wood") {
+                        setSoundWood()
                     }
                     .buttonStyle(.bordered)
                     .foregroundColor(Color.primary.opacity(0.5))
 
                     Spacer()
                 }
-                // Default
-                Button("Default") {
-                    setDefaultSound()
+                HStack {
+                    Spacer()
+                    // Woosh
+                    Button("Woosh") {
+                        setSoundWoosh()
+                    }
+                    .buttonStyle(.bordered)
+                    .foregroundColor(Color.primary.opacity(0.5))
+                    
+                    // Default
+                    Button("Default") {
+                        setSoundDefault()
+                    }
+                    .buttonStyle(.bordered)
+                    .foregroundColor(Color.primary.opacity(0.5))
+                    Spacer()
                 }
-                .buttonStyle(.bordered)
-                .foregroundColor(Color.primary.opacity(0.5))
             }
             Spacer()
         }
@@ -189,8 +200,19 @@ struct SoundPickerView: View {
         Haptic.light()
         self.showAlert = true
     }
-
-    func setWooshSound() {
+    
+    func setSoundWood() {
+        audioSound = "wood"
+        // User Defaults
+        UserDefaults.standard.set(audioSound, forKey: "audioSound")
+        // Logging
+        print(UserDefaults.standard.string(forKey: "audioSound"))
+        // Haptics
+        Haptic.light()
+        self.showAlert = true
+    }
+    
+    func setSoundWoosh() {
         audioSound = "woosh"
         // User Defaults
         UserDefaults.standard.set(audioSound, forKey: "audioSound")
@@ -201,7 +223,7 @@ struct SoundPickerView: View {
         // Restart App
         self.showAlert = true
     }
-    func setDefaultSound() {
+    func setSoundDefault() {
         audioSound = "default"
         // User Defaults
         UserDefaults.standard.set(audioSound, forKey: "audioSound")

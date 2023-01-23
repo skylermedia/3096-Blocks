@@ -152,6 +152,8 @@ struct CompositeView: View {
                                         AudioSource.playCustom(source: .toy)
                                     } else if audioSound == "boing" {
                                         AudioSource.playCustom(source: .boing)
+                                    } else if audioSound == "wood" {
+                                        AudioSource.playCustom(source: .wood)
                                     } else {
                                         AudioSource.playCustom(source: .ding)
                                     }

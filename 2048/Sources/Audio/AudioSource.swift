@@ -15,6 +15,7 @@ enum AudioSource: String {
     case plant = "Plant"
     case toy = "Toy"
     case boing = "Boing"
+    case wood = "Wood"
     case merge = "Merge"
     case new = "New"
     case ding = "Ding"
@@ -61,6 +62,8 @@ extension AudioSource {
             Audio.play(fileNamed: AudioSource.toy.rawValue)
         case .boing:
             Audio.play(fileNamed: AudioSource.boing.rawValue)
+        case .wood:
+            Audio.play(fileNamed: AudioSource.wood.rawValue)
         default:
             ()
         }
