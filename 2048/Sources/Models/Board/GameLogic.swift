@@ -191,7 +191,7 @@ final class GameLogic: ObservableObject {
                 if acc.last?.0 == false && acc.last?.1.value == item.1.value {
                     var accPrefix = Array(acc.dropLast())
                     var mergedBlock = item.1
-                    mergedBlock.value *= 2
+                    mergedBlock.value += 1
                     accPrefix.append((true, mergedBlock))
                     
                     self.mergeMultiplier += self.mergeMultiplierStep
