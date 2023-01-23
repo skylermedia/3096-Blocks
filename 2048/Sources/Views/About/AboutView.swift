@@ -41,16 +41,17 @@ struct AboutView: View {
     // MARK: - Private Methods
 
     private func iconHeader(padding spacing: CGFloat, proxy: GeometryProxy) -> some View {
-        VStack(spacing: 16) {
+        VStack(spacing: 8) {
             Image("Icon")
                 .resizable()
                 .cornerRadius(25)
                 .aspectRatio(contentMode: .fit)
             if #available(iOS 16.0, *) {
-                Link(about[PlistConfigurationKeyPath.about.rawValue]?[PlistConfigurationKeyPath.linkDescription.rawValue] ?? "[Missing Information]",
-                     destination: URL(string: about[PlistConfigurationKeyPath.about.rawValue]?[PlistConfigurationKeyPath.linkUrl.rawValue] ?? "")!)
+                Text(about[PlistConfigurationKeyPath.about.rawValue]?[PlistConfigurationKeyPath.linkDescription.rawValue] ?? "[Missing Information]")
                 .multilineTextAlignment(.center)
-                .fontWeight(.black)
+                .fontWeight(.bold)
+                .font(Font.system(.callout, design: .monospaced).weight(.bold))
+                .foregroundColor(.primary)
             } else {
                 // Fallback on earlier versions
             }
