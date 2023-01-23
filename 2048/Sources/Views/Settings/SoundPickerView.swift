@@ -117,7 +117,7 @@ struct SoundPickerView: View {
         // User Defaults
         UserDefaults.standard.set(audioSound, forKey: "audioSound")
         // Logging
-        print(UserDefaults.standard.string(forKey: "audioSound"))
+        print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
         // Haptics
         Haptic.light()
         self.showAlert = true
@@ -128,7 +128,7 @@ struct SoundPickerView: View {
         // User Defaults
         UserDefaults.standard.set(audioSound, forKey: "audioSound")
         // Logging
-        print(UserDefaults.standard.string(forKey: "audioSound"))
+        print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
         // Haptics
         Haptic.light()
         self.showAlert = true
@@ -139,7 +139,7 @@ struct SoundPickerView: View {
         // User Defaults
         UserDefaults.standard.set(audioSound, forKey: "audioSound")
         // Logging
-        print(UserDefaults.standard.string(forKey: "audioSound"))
+        print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
         // Haptics
         Haptic.light()
         self.showAlert = true
@@ -150,7 +150,7 @@ struct SoundPickerView: View {
         // User Defaults
         UserDefaults.standard.set(audioSound, forKey: "audioSound")
         // Logging
-        print(UserDefaults.standard.string(forKey: "audioSound"))
+        print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
         // Haptics
         Haptic.light()
         self.showAlert = true
@@ -161,7 +161,7 @@ struct SoundPickerView: View {
         // User Defaults
         UserDefaults.standard.set(audioSound, forKey: "audioSound")
         // Logging
-        print(UserDefaults.standard.string(forKey: "audioSound"))
+        print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
         // Haptics
         Haptic.light()
         self.showAlert = true
@@ -172,7 +172,7 @@ struct SoundPickerView: View {
         // User Defaults
         UserDefaults.standard.set(audioSound, forKey: "audioSound")
         // Logging
-        print(UserDefaults.standard.string(forKey: "audioSound"))
+        print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
         // Haptics
         Haptic.light()
         self.showAlert = true
@@ -183,7 +183,7 @@ struct SoundPickerView: View {
         // User Defaults
         UserDefaults.standard.set(audioSound, forKey: "audioSound")
         // Logging
-        print(UserDefaults.standard.string(forKey: "audioSound"))
+        print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
         // Haptics
         Haptic.light()
         self.showAlert = true
@@ -194,7 +194,7 @@ struct SoundPickerView: View {
         // User Defaults
         UserDefaults.standard.set(audioSound, forKey: "audioSound")
         // Logging
-        print(UserDefaults.standard.string(forKey: "audioSound"))
+        print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
         // Haptics
         Haptic.light()
         self.showAlert = true
@@ -205,7 +205,7 @@ struct SoundPickerView: View {
         // User Defaults
         UserDefaults.standard.set(audioSound, forKey: "audioSound")
         // Logging
-        print(UserDefaults.standard.string(forKey: "audioSound"))
+        print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
         // Haptics
         Haptic.light()
         // Restart App
@@ -216,7 +216,7 @@ struct SoundPickerView: View {
         // User Defaults
         UserDefaults.standard.set(audioSound, forKey: "audioSound")
         // Logging
-        print(UserDefaults.standard.string(forKey: "audioSound"))
+        print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
         // Haptics
         Haptic.light()
         // Restart App
