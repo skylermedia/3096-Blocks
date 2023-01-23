@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TileColorThemeEnvironmentKey: EnvironmentKey {
     public static let defaultValue: TileColorTheme = StandardTileColorTheme()
+//    public static let gradientValue: TileColorTheme = GradientTileColorScheme()
 }
 
 extension EnvironmentValues {
