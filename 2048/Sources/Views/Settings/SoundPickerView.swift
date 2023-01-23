@@ -9,10 +9,18 @@ import SwiftUI
 
 struct SoundPickerView: View {
     
-    // MARK: - Variables
+    // MARK: - Properties
         
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
     @State private var audioSound = "Default"
     @State private var showAlert = false
+    
+    // MARK: - Colors
+    
+    private var backgroundColor: Color {
+        colorScheme == .light ? Color(red:0.43, green:0.43, blue:0.43, opacity: 1) : Color(red:0.33, green:0.33, blue:0.33, opacity: 1)
+    }
     
     // MARK: - Conformance to View Protocol
     
@@ -23,87 +31,67 @@ struct SoundPickerView: View {
                 HStack {
                     Spacer()
                     // Beep
-                    Button("Beep") {
+                    CircleButton(image: Image(systemName: "tv"), text: Text("Beep"), gradient: LinearGradient(gradient: Gradient(colors: [Color.primary.opacity(0.75), Color.primary.opacity(0.75)]), startPoint: .topLeading, endPoint: .bottomTrailing), action: {
                         setSoundBeep()
-                    }
-                    .buttonStyle(.bordered)
-                    .foregroundColor(Color.primary.opacity(0.5))
-
+                        })
+                    
                     // Can
-                    Button("Can") {
+                    CircleButton(image: Image(systemName: "arrow.down"), text: Text("Can"), gradient: LinearGradient(gradient: Gradient(colors: [Color.primary.opacity(0.75), Color.primary.opacity(0.75)]), startPoint: .topLeading, endPoint: .bottomTrailing), action: {
                         setSoundCan()
-                    }
-                    .buttonStyle(.bordered)
-                    .foregroundColor(Color.primary.opacity(0.5))
+                        })
                     Spacer()
                 }
                 HStack {
                     Spacer()
                     // Click
-                    Button("Click") {
+                    CircleButton(image: Image(systemName: "cursorarrow.click"), text: Text("Click"), gradient: LinearGradient(gradient: Gradient(colors: [Color.primary.opacity(0.75), Color.primary.opacity(0.75)]), startPoint: .topLeading, endPoint: .bottomTrailing), action: {
                         setSoundClick()
-                    }
-                    .buttonStyle(.bordered)
-                    .foregroundColor(Color.primary.opacity(0.5))
+                        })
 
                     // Hit
-                    Button("Hit") {
+                    CircleButton(image: Image(systemName: "arrow.rectanglepath"), text: Text("Hit"), gradient: LinearGradient(gradient: Gradient(colors: [Color.primary.opacity(0.75), Color.primary.opacity(0.75)]), startPoint: .topLeading, endPoint: .bottomTrailing), action: {
                         setSoundHit()
-                    }
-                    .buttonStyle(.bordered)
-                    .foregroundColor(Color.primary.opacity(0.5))
+                        })
                     Spacer()
                 }
                 HStack {
                     Spacer()
                     // Plant
-                    Button("Plant") {
+                    CircleButton(image: Image(systemName: "laurel.leading"), text: Text("Plant"), gradient: LinearGradient(gradient: Gradient(colors: [Color.primary.opacity(0.75), Color.primary.opacity(0.75)]), startPoint: .topLeading, endPoint: .bottomTrailing), action: {
                         setSoundPlant()
-                    }
-                    .buttonStyle(.bordered)
-                    .foregroundColor(Color.primary.opacity(0.5))
+                        })
 
                     // Toy
-                    Button("Toy") {
+                    CircleButton(image: Image(systemName: "airport.express"), text: Text("Toy"), gradient: LinearGradient(gradient: Gradient(colors: [Color.primary.opacity(0.75), Color.primary.opacity(0.75)]), startPoint: .topLeading, endPoint: .bottomTrailing), action: {
                         setSoundToy()
-                    }
-                    .buttonStyle(.bordered)
-                    .foregroundColor(Color.primary.opacity(0.5))
+                        })
                     Spacer()
                 }
                 HStack {
                     Spacer()
                     // Boing
-                    Button("Boing") {
+                    CircleButton(image: Image(systemName: "football"), text: Text("Boing"), gradient: LinearGradient(gradient: Gradient(colors: [Color.primary.opacity(0.75), Color.primary.opacity(0.75)]), startPoint: .topLeading, endPoint: .bottomTrailing), action: {
                         setSoundBoing()
-                    }
-                    .buttonStyle(.bordered)
-                    .foregroundColor(Color.primary.opacity(0.5))
+                        })
 
                     // Wood
-                    Button("Wood") {
+                    CircleButton(image: Image(systemName: "tornado"), text: Text("Wood"), gradient: LinearGradient(gradient: Gradient(colors: [Color.primary.opacity(0.75), Color.primary.opacity(0.75)]), startPoint: .topLeading, endPoint: .bottomTrailing), action: {
                         setSoundWood()
-                    }
-                    .buttonStyle(.bordered)
-                    .foregroundColor(Color.primary.opacity(0.5))
+                        })
 
                     Spacer()
                 }
                 HStack {
                     Spacer()
                     // Woosh
-                    Button("Woosh") {
+                    CircleButton(image: Image(systemName: "wind"), text: Text("Woosh"), gradient: LinearGradient(gradient: Gradient(colors: [Color.primary.opacity(0.75), Color.primary.opacity(0.75)]), startPoint: .topLeading, endPoint: .bottomTrailing), action: {
                         setSoundWoosh()
-                    }
-                    .buttonStyle(.bordered)
-                    .foregroundColor(Color.primary.opacity(0.5))
+                        })
                     
                     // Default
-                    Button("Default") {
+                    CircleButton(image: Image(systemName: "checkmark.seal"), text: Text("Default"), gradient: LinearGradient(gradient: Gradient(colors: [Color.primary.opacity(0.75), Color.primary.opacity(0.75)]), startPoint: .topLeading, endPoint: .bottomTrailing), action: {
                         setSoundDefault()
-                    }
-                    .buttonStyle(.bordered)
-                    .foregroundColor(Color.primary.opacity(0.5))
+                        })
                     Spacer()
                 }
             }
