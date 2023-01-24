@@ -71,6 +71,21 @@ struct SettingsView: View {
             //            BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
             Section(header:
                         VStack(alignment: .leading) {
+                Text("Game Mode")
+                    .font(.system(.title, design: .monospaced))
+                    .foregroundColor(Color.primary.opacity(0.5))
+                    .fontWeight(.black)
+                Text("Choose whether your board uses letters or numbers")
+                    .font(.system(.body, design: .monospaced))
+                    .foregroundColor(Color.primary.opacity(0.5))
+                    .fontWeight(.bold)
+            }
+            ) {
+                GameModeView()
+            }
+            //            BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
+            Section(header:
+                        VStack(alignment: .leading) {
                 Text("Sound Picker")
                     .font(.system(.title, design: .monospaced))
                     .foregroundColor(Color.primary.opacity(0.5))

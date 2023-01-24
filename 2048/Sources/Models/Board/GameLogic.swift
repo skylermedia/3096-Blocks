@@ -19,7 +19,7 @@ final class GameLogic: ObservableObject {
     
     typealias TileMatrixType = TileMatrix<IdentifiedTile>
     
-    // MARK: - Publishd Properties
+    // MARK: - Properties
     
     @Published private(set) var noPossibleMove: Bool = false
     @Published private(set) var score: Int = 0
@@ -27,10 +27,20 @@ final class GameLogic: ObservableObject {
     @Published private(set) var boardSize: Int
     @Published private(set) var hasMoveMergedTiles: Bool = false
     
+    private var gameMode = UserDefaults.standard.string(forKey: "gameMode")
+    
     private(set) var lastGestureDirection: Direction = .up
 
     private let mergeMultiplierStep: Int = 2
     private var instanceId = 0
+    private var mutableNumberInstanceId: Int {
+            instanceId *= 2
+        return instanceId
+    }
+    private var mutableLetterInstanceId: Int {
+        instanceId += 1
+        return instanceId
+    }
     private var mutableInstanceId: Int {
         instanceId += 1
         return instanceId
@@ -259,9 +269,13 @@ final class GameLogic: ObservableObject {
             return false
         }
         let placeLocIndex = Int.random(in: 0..<blankLocations.count)
-        tileMatrix.add(IdentifiedTile(id: mutableInstanceId,
-                                      value: (((0...6).randomElement() ?? 0) == 0) ? 6 : 3),
-                         to: blankLocations[placeLocIndex])
+//        if gameMode == "letter" {
+//            tileMatrix.add(Identifiedions[placeLocIndex])
+//        } else {
+            tileMatrix.add(IdentifiedTile(id: mutableInstanceId,
+                                          value: (((0...6).randomElement() ?? 0) == 0) ? 4 : 3),
+                           to: blankLocations[placeLocIndex])
+//        }
         return true
     }
     
@@ -277,12 +291,21 @@ final class GameLogic: ObservableObject {
         var blankLocations = blankLocations
         blankLocations[placeLocIndex] = lastLoc
         placeLocIndex = Int.random(in: 0..<(blankLocations.count - 1))
-        tileMatrix.add(
-            IdentifiedTile(
-                id: mutableInstanceId,
-                value: 3),
-            to: blankLocations[placeLocIndex]
-        )
+//        if gameMode == "letter" {
+//            tileMatrix.add(
+//                IdentifiedTile(
+//                    id: mutableLetterInstanceId,
+//                    value: 3),
+//                to: blankLocations[placeLocIndex]
+//            )
+//        } else {
+            tileMatrix.add(
+                IdentifiedTile(
+                    id: mutableInstanceId,
+                    value: 3),
+                to: blankLocations[placeLocIndex]
+            )
+//        }
         return true
     }
 }
