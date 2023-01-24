@@ -99,6 +99,7 @@
 		D42DB402296D2BAA006D7392 /* IdentifiedBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DB3F9296D2BAA006D7392 /* IdentifiedBlock.swift */; };
 		D42DB403296D2BAA006D7392 /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DB3FA296D2BAA006D7392 /* GameLogic.swift */; };
 		D42DB404296D2BAA006D7392 /* SwiftUIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42DB3FC296D2BAA006D7392 /* SwiftUIExtensions.swift */; };
+		D436C0FE297EDE80009089BB /* GameModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D436C0FD297EDE80009089BB /* GameModeView.swift */; };
 		D43A01A029689632007D8134 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D43A019F29689632007D8134 /* Launch Screen.storyboard */; platformFilter = ios; };
 		D45F76892978CDFE00DB7BF8 /* Ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D45F76882978CDFE00DB7BF8 /* Ding.mp3 */; };
 		D470730A2976633F0019774A /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47073092976633F0019774A /* LeaderboardView.swift */; };
@@ -253,6 +254,7 @@
 		D42DB3F9296D2BAA006D7392 /* IdentifiedBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifiedBlock.swift; sourceTree = "<group>"; };
 		D42DB3FA296D2BAA006D7392 /* GameLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
 		D42DB3FC296D2BAA006D7392 /* SwiftUIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIExtensions.swift; sourceTree = "<group>"; };
+		D436C0FD297EDE80009089BB /* GameModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeView.swift; sourceTree = "<group>"; };
 		D43A019F29689632007D8134 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D45F76882978CDFE00DB7BF8 /* Ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Ding.mp3; sourceTree = "<group>"; };
 		D47073092976633F0019774A /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
@@ -558,7 +560,6 @@
 		A9757F0424CC481E00847031 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D45E87912979120E001220C5 /* Augmented Reality */,
 				A9757F0524CC481E00847031 /* Settings */,
 				D4D3047A297997770022868A /* Stats */,
 				A9757F0924CC481E00847031 /* Side */,
@@ -580,6 +581,7 @@
 				D4D3047F297A2BE10022868A /* ColorThemePickerView.swift */,
 				D42CF902297DE2C700E117DD /* SoundPickerView.swift */,
 				D4D30485297A480A0022868A /* SkinSelectorView.swift */,
+				D436C0FD297EDE80009089BB /* GameModeView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -718,13 +720,6 @@
 				D42DB3FC296D2BAA006D7392 /* SwiftUIExtensions.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		D45E87912979120E001220C5 /* Augmented Reality */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Augmented Reality";
 			sourceTree = "<group>";
 		};
 		D470730B2976652C0019774A /* Leaderboard */ = {
@@ -1076,6 +1071,7 @@
 				A9757F2C24CC481E00847031 /* GameLogic.swift in Sources */,
 				A9757F3024CC481E00847031 /* ColorSchemeBackgroundTheme.swift in Sources */,
 				A9757F2A24CC481E00847031 /* AppStorageKeys.swift in Sources */,
+				D436C0FE297EDE80009089BB /* GameModeView.swift in Sources */,
 				A9757F3624CC481E00847031 /* AnyTransition+TileGenerator.swift in Sources */,
 				D470730F2976774B0019774A /* LoginView.swift in Sources */,
 				A9757F2624CC481E00847031 /* TileBoardSizeEnvironmentKey.swift in Sources */,
