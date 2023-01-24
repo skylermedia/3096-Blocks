@@ -23,7 +23,7 @@ struct HeaderView: View {
     var newGameAction: () -> Void
     var showResetButton: () -> Bool
     let buttonSize: CGFloat = 48
-    let appStoreLink = "https://3096.skyler.media/downlaod-ios"
+    let appStoreLink = "https://3096.skyler.media"
     
     // MARK: - Compited View Propeties
     
@@ -52,7 +52,7 @@ struct HeaderView: View {
             .animation(.modalSpring, value: shouldShowReset)
             .id("Score View: \(showResetButton())")
             HStack {
-                Text("Best: ")
+                Text("Best (Beta): ")
                     .font(Font.system(.title, design: .monospaced).weight(.black))
                     .foregroundColor(Color(red:0.49, green:0.49, blue:0.49, opacity: 0.7))
                 
