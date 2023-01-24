@@ -59,7 +59,7 @@ struct TileBoardView: View {
 //                BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
 //                    .frame(maxWidth: 320, maxHeight: 50)
             }
-            .shadow(color: .red, radius: 10)
+            .shadow(color: .blue, radius: 10)
         }
     }
     
