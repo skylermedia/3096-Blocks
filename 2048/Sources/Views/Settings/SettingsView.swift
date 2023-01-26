@@ -12,6 +12,7 @@ struct SettingsView: View {
     // MARK: - Environment
     
     @Environment(\.colorScheme) private var colorScheme: ColorScheme
+    @EnvironmentObject var adsViewModel: AdsViewModel
     
     // MARK: - Private Properties
     
@@ -52,7 +53,7 @@ struct SettingsView: View {
                 )
 //                ColorThemePickerView()
             }
-//                        BannerAd(unitID: "ca-app-pub-8534428621909577/2232981327")
+//                        BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
 //                .frame(maxWidth: 320, maxHeight: 50)
 //            Section(header:
 //                        VStack(alignment: .leading) {
@@ -69,7 +70,7 @@ struct SettingsView: View {
 //                SkinSelectorView(invertedBackgroundColor: invertedBackgroundColor,
 //                                 previewSize: previewSize)
 //            }
-                        BannerAd(unitID: "ca-app-pub-8534428621909577/2232981327")
+                        BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
                 .frame(maxWidth: 320, maxHeight: 50)
             Section(header:
                         VStack(alignment: .leading) {
@@ -84,8 +85,12 @@ struct SettingsView: View {
             }
             ) {
                 GameModeView()
+//                Button("Show Interstitial") {
+//                    adsViewModel.showInterstitial = true
+//                }
+//                    .buttonStyle(.borderedProminent)
             }
-                        BannerAd(unitID: "ca-app-pub-8534428621909577/2232981327")
+                        BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
                 .frame(maxWidth: 320, maxHeight: 50)
             Section(header:
                         VStack(alignment: .leading) {
@@ -101,7 +106,7 @@ struct SettingsView: View {
             ) {
                 SoundPickerView()
             }
-                        BannerAd(unitID: "ca-app-pub-8534428621909577/2232981327")
+                        BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
                 .frame(maxWidth: 320, maxHeight: 50)
             Section(header:
                         VStack(alignment: .leading) {
@@ -120,7 +125,7 @@ struct SettingsView: View {
                     previewSize: previewSize
                 )
             }
-                        BannerAd(unitID: "ca-app-pub-8534428621909577/2232981327")
+                        BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
                 .frame(maxWidth: 320, maxHeight: 50)
             Section(header:
                         VStack(alignment: .leading) {
@@ -143,7 +148,7 @@ struct SettingsView: View {
             .foregroundColor(.clear)
             .environment(\.horizontalSizeClass, .regular)
             .edgesIgnoringSafeArea(.bottom)
-            BannerAd(unitID: "ca-app-pub-8534428621909577/2232981327")
+            BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
                 .frame(maxWidth: 320, maxHeight: 50)
         }
     }

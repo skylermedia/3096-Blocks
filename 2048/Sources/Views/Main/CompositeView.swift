@@ -46,6 +46,8 @@ struct CompositeView: View {
     @State private var selectedSound: String = UserDefaults.standard.string(forKey: "audioSound") ?? "default"
     @State private var audioSound = UserDefaults.standard.string(forKey: "audioSound")
     
+    @EnvironmentObject var adsViewModel: AdsViewModel
+    
     @AppStorage(AppStorageKeys.audio.rawValue) var isAudioEnabled: Bool = true
     @AppStorage(AppStorageKeys.haptic.rawValue) var isHapticEnabled: Bool = true
     
@@ -229,6 +231,7 @@ struct CompositeView: View {
     
     private func resetGame() {
         logic.reset()
+        adsViewModel.showInterstitial = true
     }
     
     // MARK: - Stats Functions

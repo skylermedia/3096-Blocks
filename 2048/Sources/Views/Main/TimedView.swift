@@ -15,6 +15,7 @@ struct TimedView: View {
     // MARK: - Proeprties
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
+    @EnvironmentObject var adsViewModel: AdsViewModel
     
     @State private var ignoreGesture = false
     @State private var presentEndGameModal = false
@@ -99,5 +100,6 @@ struct TimedView: View {
     
     private func resetGame() {
         logic.reset()
+        adsViewModel.showInterstitial = true
     }
 }
