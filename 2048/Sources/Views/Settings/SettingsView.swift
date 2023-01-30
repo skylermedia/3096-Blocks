@@ -24,6 +24,8 @@ struct SettingsView: View {
     private let plist = PlistConfiguration(name: "Strings")
     private let settings: [String : [String : String]]
     
+    let settingsId: String = "ca-app-pub-8534428621909577/2232981327"
+    
     // MARK: - Initializers
     
     init() {
@@ -63,7 +65,7 @@ struct SettingsView: View {
 //                SkinSelectorView(invertedBackgroundColor: invertedBackgroundColor,
 //                                 previewSize: previewSize)
 //            }
-                        BannerAd()
+            BannerAd(adId: settingsId)
             Section(header:
                         VStack(alignment: .leading) {
                 Text("Game Mode")
@@ -78,7 +80,7 @@ struct SettingsView: View {
 //                }
 //                    .buttonStyle(.borderedProminent)
             }
-            BannerAd()
+            BannerAd(adId: settingsId)
             Section(header:
                         VStack(alignment: .leading) {
                 Text("Sound Picker")
@@ -89,7 +91,7 @@ struct SettingsView: View {
             ) {
                 SoundPickerView()
             }
-            BannerAd()
+            BannerAd(adId: settingsId)
             Section(header:
                         VStack(alignment: .leading) {
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.audio.rawValue] ?? "")
@@ -103,7 +105,7 @@ struct SettingsView: View {
                     previewSize: previewSize
                 )
             }
-            BannerAd()
+            BannerAd(adId: settingsId)
             Section(header:
                         VStack(alignment: .leading) {
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.haptic.rawValue] ?? "")
@@ -121,7 +123,7 @@ struct SettingsView: View {
             .foregroundColor(.clear)
             .environment(\.horizontalSizeClass, .regular)
             .edgesIgnoringSafeArea(.bottom)
-            BannerAd()
+            BannerAd(adId: settingsId)
         }
     }
 }

@@ -16,6 +16,8 @@ struct TileBoardView: View {
     let matrix: Self.SupportingMatrix
     let tileEdge: Edge
     
+    let homeId: String = "ca-app-pub-8534428621909577/9536587437"
+    
     var tileBoardSize: Int
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
@@ -56,7 +58,7 @@ struct TileBoardView: View {
                 .drawingGroup(opaque: false, colorMode: .linear)
                 .center(in: .local, with: proxy)
                 
-                BannerAd()
+                BannerAd(adId: homeId)
             }
             .shadow(color: .blue, radius: 10)
         }
