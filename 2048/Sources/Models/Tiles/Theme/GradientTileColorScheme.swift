@@ -1,9 +1,9 @@
-////
-////  GradientTileColorScheme.swift
-////  3096 – Blocks
-////
-////  Created by Skyler Szijjarto on 1/19/23.
-////
+//
+//  GradientTileColorScheme.swift
+//  3096 – Blocks
+//
+//  Created by Skyler Szijjarto on 1/19/23.
+//
 //
 //import Foundation
 //import struct SwiftUI.Color

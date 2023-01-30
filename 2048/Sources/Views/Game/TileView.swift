@@ -80,7 +80,6 @@ struct TileView: View {
             let letterDictionary = [3: "3", 4: "6", 5: "12", 6: "24", 7: "48", 8: "96", 9: "192", 10: "384", 11: "768", 12: "1536", 13: "3072", 14: "6144", 15: "1228", 16: "24576", 17: "49152", 18: "98304", 19: "196608" ]
             let letter = letterDictionary[number]
             return letter ?? "!"
-//            return String(number)
         }
         private func titleLetter() -> String {
             guard let number = self.number else {

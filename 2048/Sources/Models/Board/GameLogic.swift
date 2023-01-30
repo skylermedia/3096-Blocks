@@ -291,21 +291,12 @@ final class GameLogic: ObservableObject {
         var blankLocations = blankLocations
         blankLocations[placeLocIndex] = lastLoc
         placeLocIndex = Int.random(in: 0..<(blankLocations.count - 1))
-//        if gameMode == "letter" {
-//            tileMatrix.add(
-//                IdentifiedTile(
-//                    id: mutableLetterInstanceId,
-//                    value: 3),
-//                to: blankLocations[placeLocIndex]
-//            )
-//        } else {
             tileMatrix.add(
                 IdentifiedTile(
                     id: mutableInstanceId,
                     value: 3),
                 to: blankLocations[placeLocIndex]
             )
-//        }
         return true
     }
 }
