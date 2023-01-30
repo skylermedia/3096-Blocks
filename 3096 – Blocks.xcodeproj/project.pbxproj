@@ -90,6 +90,7 @@
 		D436C0FE297EDE80009089BB /* GameModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D436C0FD297EDE80009089BB /* GameModeView.swift */; };
 		D43A01A029689632007D8134 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D43A019F29689632007D8134 /* Launch Screen.storyboard */; platformFilter = ios; };
 		D44A46C62987581300B9FD54 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A46C52987581300B9FD54 /* Settings.swift */; };
+		D44A46C92987650F00B9FD54 /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A46C82987650F00B9FD54 /* BannerAd.swift */; };
 		D45F76892978CDFE00DB7BF8 /* Ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D45F76882978CDFE00DB7BF8 /* Ding.mp3 */; };
 		D470730A2976633F0019774A /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47073092976633F0019774A /* LeaderboardView.swift */; };
 		D470730D2976654E0019774A /* LeaderboardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D470730C2976654E0019774A /* LeaderboardData.swift */; };
@@ -100,7 +101,7 @@
 		D4D30486297A480A0022868A /* SkinSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D30485297A480A0022868A /* SkinSelectorView.swift */; };
 		D4D3048B297A68620022868A /* GradientTileColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D3048A297A68620022868A /* GradientTileColorScheme.swift */; };
 		D4D3048D297A69B70022868A /* GradientSkinEnvironmentKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D3048C297A69B70022868A /* GradientSkinEnvironmentKey.swift */; };
-		D4F85F2A296B17EC0038B3D7 /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F85F29296B17EC0038B3D7 /* BannerAd.swift */; };
+		D4F85F2A296B17EC0038B3D7 /* BannerAdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F85F29296B17EC0038B3D7 /* BannerAdModel.swift */; };
 		E0267C572A8982B06922B914 /* Pods_3096___Blocks_3096___BlocksTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25CC80793349263F26C7C159 /* Pods_3096___Blocks_3096___BlocksTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -245,6 +246,7 @@
 		D436C0FD297EDE80009089BB /* GameModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeView.swift; sourceTree = "<group>"; };
 		D43A019F29689632007D8134 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D44A46C52987581300B9FD54 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		D44A46C82987650F00B9FD54 /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BannerAd.swift; path = ../../../../../BannerAd.swift; sourceTree = "<group>"; };
 		D45F76882978CDFE00DB7BF8 /* Ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Ding.mp3; sourceTree = "<group>"; };
 		D47073092976633F0019774A /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		D470730C2976654E0019774A /* LeaderboardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardData.swift; sourceTree = "<group>"; };
@@ -256,7 +258,7 @@
 		D4D30485297A480A0022868A /* SkinSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinSelectorView.swift; sourceTree = "<group>"; };
 		D4D3048A297A68620022868A /* GradientTileColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTileColorScheme.swift; sourceTree = "<group>"; };
 		D4D3048C297A69B70022868A /* GradientSkinEnvironmentKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientSkinEnvironmentKey.swift; sourceTree = "<group>"; };
-		D4F85F29296B17EC0038B3D7 /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
+		D4F85F29296B17EC0038B3D7 /* BannerAdModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdModel.swift; sourceTree = "<group>"; };
 		F2585ADADE64E322717DBD52 /* Pods_3096___Blocks_3096___BlocksUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_3096___Blocks_3096___BlocksUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -460,7 +462,7 @@
 			children = (
 				A9757EF524CC481E00847031 /* Direction.swift */,
 				A9757EE924CC481E00847031 /* SelectedView.swift */,
-				D4F85F29296B17EC0038B3D7 /* BannerAd.swift */,
+				D4F85F29296B17EC0038B3D7 /* BannerAdModel.swift */,
 				A9757EEA24CC481E00847031 /* Board */,
 				A9757EEE24CC481E00847031 /* Tiles */,
 				D42CF91A297E234900E117DD /* CircleButtonWithImageGradient.swift */,
@@ -541,6 +543,7 @@
 		A9757F0424CC481E00847031 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D44A46C72987650000B9FD54 /* Ads */,
 				A9757F0524CC481E00847031 /* Settings */,
 				D4D3047A297997770022868A /* Stats */,
 				A9757F0924CC481E00847031 /* Side */,
@@ -710,6 +713,14 @@
 				A9757F1E24CC481E00847031 /* RoundedClippedBackground.swift */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		D44A46C72987650000B9FD54 /* Ads */ = {
+			isa = PBXGroup;
+			children = (
+				D44A46C82987650F00B9FD54 /* BannerAd.swift */,
+			);
+			path = Ads;
 			sourceTree = "<group>";
 		};
 		D470730B2976652C0019774A /* Leaderboard */ = {
@@ -1033,7 +1044,7 @@
 				A9757F4E24CC481E00847031 /* SlideViewModifier.swift in Sources */,
 				A9757F2924CC481E00847031 /* PlistConfigurationKeyPath.swift in Sources */,
 				A9757F2E24CC481E00847031 /* GameBoardSizeState.swift in Sources */,
-				D4F85F2A296B17EC0038B3D7 /* BannerAd.swift in Sources */,
+				D4F85F2A296B17EC0038B3D7 /* BannerAdModel.swift in Sources */,
 				A9757F4F24CC481E00847031 /* MainViewModifier.swift in Sources */,
 				A9757F2724CC481E00847031 /* GameBoardSizeEnvironmentKey.swift in Sources */,
 				D4D3048B297A68620022868A /* GradientTileColorScheme.swift in Sources */,
@@ -1043,6 +1054,7 @@
 				A9757F3F24CC481E00847031 /* SettingsView.swift in Sources */,
 				A9757F2D24CC481E00847031 /* BoardSize.swift in Sources */,
 				A9757F4724CC481E00847031 /* GameStateBottomView.swift in Sources */,
+				D44A46C92987650F00B9FD54 /* BannerAd.swift in Sources */,
 				A9757F4B24CC481E00847031 /* FactoryContentView.swift in Sources */,
 				A9757F3224CC481E00847031 /* StandardTileColorTheme.swift in Sources */,
 				A9757F5024CC481E00847031 /* BottomSlidableModalModifier.swift in Sources */,

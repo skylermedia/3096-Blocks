@@ -49,8 +49,7 @@ struct SettingsView: View {
                 )
 //                ColorThemePickerView()
             }
-//                        BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
-//                .frame(maxWidth: 320, maxHeight: 50)
+//                        BannerAd()
 //            Section(header:
 //                        VStack(alignment: .leading) {
 //                Text("Skin Selector (Beta)")
@@ -64,8 +63,7 @@ struct SettingsView: View {
 //                SkinSelectorView(invertedBackgroundColor: invertedBackgroundColor,
 //                                 previewSize: previewSize)
 //            }
-                        BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
-                .frame(maxWidth: 320, maxHeight: 50)
+                        BannerAd()
             Section(header:
                         VStack(alignment: .leading) {
                 Text("Game Mode")
@@ -80,8 +78,7 @@ struct SettingsView: View {
 //                }
 //                    .buttonStyle(.borderedProminent)
             }
-                        BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
-                .frame(maxWidth: 320, maxHeight: 50)
+            BannerAd()
             Section(header:
                         VStack(alignment: .leading) {
                 Text("Sound Picker")
@@ -92,8 +89,7 @@ struct SettingsView: View {
             ) {
                 SoundPickerView()
             }
-                        BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
-                .frame(maxWidth: 320, maxHeight: 50)
+            BannerAd()
             Section(header:
                         VStack(alignment: .leading) {
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.audio.rawValue] ?? "")
@@ -107,8 +103,7 @@ struct SettingsView: View {
                     previewSize: previewSize
                 )
             }
-                        BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
-                .frame(maxWidth: 320, maxHeight: 50)
+            BannerAd()
             Section(header:
                         VStack(alignment: .leading) {
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.haptic.rawValue] ?? "")
@@ -126,8 +121,7 @@ struct SettingsView: View {
             .foregroundColor(.clear)
             .environment(\.horizontalSizeClass, .regular)
             .edgesIgnoringSafeArea(.bottom)
-            BannerAd(unitID: "ca-app-pub-3940256099942544/6300978111")
-                .frame(maxWidth: 320, maxHeight: 50)
+            BannerAd()
         }
     }
 }

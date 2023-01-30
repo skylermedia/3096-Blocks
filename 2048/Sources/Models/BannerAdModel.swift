@@ -1,5 +1,5 @@
 //
-//  BannerAd.swift
+//  BannerAdModel.swift
 //  3096 – Blocks
 //
 //  Copyright © 2023 Skyler Szijjarto
@@ -8,9 +8,7 @@
 import SwiftUI
 import GoogleMobileAds
 
-// Banner Ad
-
-struct BannerAd: UIViewRepresentable {
+struct BannerAdModel: UIViewRepresentable {
     
     var unitID: String
     
