@@ -38,13 +38,9 @@ struct SettingsView: View {
             Section(header:
                         VStack(alignment: .leading) {
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.gameBoardSize.rawValue] ?? "")
-                    .font(.system(.title, design: .monospaced))
-                    .foregroundColor(Color.primary.opacity(0.5))
-                    .fontWeight(.black)
+                    .modifier(SettingsTitleStyle())
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.gameBoardDescription.rawValue] ?? "")
-                    .font(.system(.body, design: .monospaced))
-                    .foregroundColor(Color.primary.opacity(0.5))
-                    .fontWeight(.bold)
+                    .modifier(SettingsDescriptionStyle())
             }
             ) {
                 TileBoardSettingView(
@@ -58,13 +54,11 @@ struct SettingsView: View {
 //            Section(header:
 //                        VStack(alignment: .leading) {
 //                Text("Skin Selector (Beta)")
-//                    .font(.system(.title, design: .monospaced))
-//                    .foregroundColor(Color.primary.opacity(0.5))
-//                    .fontWeight(.black)
+//            .modifier(SettingsTitleStyle())
+//
 //                Text("Set a skin for your game tiles!")
-//                    .font(.system(.body, design: .monospaced))
-//                    .foregroundColor(Color.primary.opacity(0.5))
-//                    .fontWeight(.bold)
+//                    .modifier(SettingsDescriptionStyle())
+
 //            }
 //            ) {
 //                SkinSelectorView(invertedBackgroundColor: invertedBackgroundColor,
@@ -75,13 +69,9 @@ struct SettingsView: View {
             Section(header:
                         VStack(alignment: .leading) {
                 Text("Game Mode")
-                    .font(.system(.title, design: .monospaced))
-                    .foregroundColor(Color.primary.opacity(0.5))
-                    .fontWeight(.black)
+                    .modifier(SettingsTitleStyle())
                 Text("Choose whether your board uses letters or numbers")
-                    .font(.system(.body, design: .monospaced))
-                    .foregroundColor(Color.primary.opacity(0.5))
-                    .fontWeight(.bold)
+                    .modifier(SettingsDescriptionStyle())
             }
             ) {
                 GameModeView()
@@ -95,13 +85,9 @@ struct SettingsView: View {
             Section(header:
                         VStack(alignment: .leading) {
                 Text("Sound Picker")
-                    .font(.system(.title, design: .monospaced))
-                    .foregroundColor(Color.primary.opacity(0.5))
-                    .fontWeight(.black)
+                    .modifier(SettingsTitleStyle())
                 Text("Change game sounds")
-                    .font(.system(.body, design: .monospaced))
-                    .foregroundColor(Color.primary.opacity(0.5))
-                    .fontWeight(.bold)
+                    .modifier(SettingsDescriptionStyle())
             }
             ) {
                 SoundPickerView()
@@ -111,13 +97,9 @@ struct SettingsView: View {
             Section(header:
                         VStack(alignment: .leading) {
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.audio.rawValue] ?? "")
-                    .font(.system(.title, design: .monospaced))
-                    .foregroundColor(Color.primary.opacity(0.5))
-                    .fontWeight(.black)
+                    .modifier(SettingsTitleStyle())
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.audioDescription.rawValue] ?? "")
-                    .font(.system(.body, design: .monospaced))
-                    .foregroundColor(Color.primary.opacity(0.5))
-                    .fontWeight(.bold)
+                    .modifier(SettingsDescriptionStyle())
             }
             ) {
                 AudioSettingView(
@@ -130,13 +112,9 @@ struct SettingsView: View {
             Section(header:
                         VStack(alignment: .leading) {
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.haptic.rawValue] ?? "")
-                    .font(.system(.title, design: .monospaced))
-                    .foregroundColor(Color.primary.opacity(0.5))
-                    .fontWeight(.black)
+                    .modifier(SettingsTitleStyle())
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.hapticDescription.rawValue] ?? "")
-                    .font(.system(.body, design: .monospaced))
-                    .foregroundColor(Color.primary.opacity(0.5))
-                    .fontWeight(.bold)
+                    .modifier(SettingsDescriptionStyle())
             }
             ) {
                 HapticSettingsView(

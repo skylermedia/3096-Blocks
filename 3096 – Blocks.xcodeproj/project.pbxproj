@@ -89,6 +89,7 @@
 		D42CF91B297E234900E117DD /* CircleButtonWithImageGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42CF91A297E234900E117DD /* CircleButtonWithImageGradient.swift */; };
 		D436C0FE297EDE80009089BB /* GameModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D436C0FD297EDE80009089BB /* GameModeView.swift */; };
 		D43A01A029689632007D8134 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D43A019F29689632007D8134 /* Launch Screen.storyboard */; platformFilter = ios; };
+		D44A46C62987581300B9FD54 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A46C52987581300B9FD54 /* Settings.swift */; };
 		D45F76892978CDFE00DB7BF8 /* Ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D45F76882978CDFE00DB7BF8 /* Ding.mp3 */; };
 		D470730A2976633F0019774A /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47073092976633F0019774A /* LeaderboardView.swift */; };
 		D470730D2976654E0019774A /* LeaderboardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D470730C2976654E0019774A /* LeaderboardData.swift */; };
@@ -243,6 +244,7 @@
 		D42DB3FC296D2BAA006D7392 /* SwiftUIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIExtensions.swift; sourceTree = "<group>"; };
 		D436C0FD297EDE80009089BB /* GameModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeView.swift; sourceTree = "<group>"; };
 		D43A019F29689632007D8134 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		D44A46C52987581300B9FD54 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		D45F76882978CDFE00DB7BF8 /* Ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Ding.mp3; sourceTree = "<group>"; };
 		D47073092976633F0019774A /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		D470730C2976654E0019774A /* LeaderboardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardData.swift; sourceTree = "<group>"; };
@@ -458,7 +460,7 @@
 			children = (
 				A9757EF524CC481E00847031 /* Direction.swift */,
 				A9757EE924CC481E00847031 /* SelectedView.swift */,
-				D4F85F28296B17E00038B3D7 /* Ads */,
+				D4F85F29296B17EC0038B3D7 /* BannerAd.swift */,
 				A9757EEA24CC481E00847031 /* Board */,
 				A9757EEE24CC481E00847031 /* Tiles */,
 				D42CF91A297E234900E117DD /* CircleButtonWithImageGradient.swift */,
@@ -609,13 +611,8 @@
 		A9757F1724CC481E00847031 /* View Modifiers */ = {
 			isa = PBXGroup;
 			children = (
-				A9757F1824CC481E00847031 /* Merged.swift */,
-				A9757F1924CC481E00847031 /* AnchoredScale.swift */,
-				A9757F1A24CC481E00847031 /* SlideViewModifier.swift */,
-				A9757F1B24CC481E00847031 /* MainViewModifier.swift */,
-				A9757F1C24CC481E00847031 /* BottomSlidableModalModifier.swift */,
-				A9757F1D24CC481E00847031 /* BlurEffect.swift */,
-				A9757F1E24CC481E00847031 /* RoundedClippedBackground.swift */,
+				D44A46C52987581300B9FD54 /* Settings.swift */,
+				D44A46C4298757C700B9FD54 /* Other */,
 			);
 			path = "View Modifiers";
 			sourceTree = "<group>";
@@ -701,6 +698,20 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		D44A46C4298757C700B9FD54 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				A9757F1824CC481E00847031 /* Merged.swift */,
+				A9757F1924CC481E00847031 /* AnchoredScale.swift */,
+				A9757F1A24CC481E00847031 /* SlideViewModifier.swift */,
+				A9757F1B24CC481E00847031 /* MainViewModifier.swift */,
+				A9757F1C24CC481E00847031 /* BottomSlidableModalModifier.swift */,
+				A9757F1D24CC481E00847031 /* BlurEffect.swift */,
+				A9757F1E24CC481E00847031 /* RoundedClippedBackground.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		D470730B2976652C0019774A /* Leaderboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -724,15 +735,6 @@
 				D4D3047B297997860022868A /* StatsView.swift */,
 			);
 			path = Stats;
-			sourceTree = "<group>";
-		};
-		D4F85F28296B17E00038B3D7 /* Ads */ = {
-			isa = PBXGroup;
-			children = (
-				D4F85F29296B17EC0038B3D7 /* BannerAd.swift */,
-			);
-			name = Ads;
-			path = ../Views/Ads;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1067,6 +1069,7 @@
 				D40228BE296FA6A700A6F5D5 /* HapticControler.swift in Sources */,
 				A9757F2524CC481E00847031 /* TileColorThemeEnvironmentKey.swift in Sources */,
 				A9757F4124CC481E00847031 /* AudioSettingView.swift in Sources */,
+				D44A46C62987581300B9FD54 /* Settings.swift in Sources */,
 				D470730D2976654E0019774A /* LeaderboardData.swift in Sources */,
 				A9757F4024CC481E00847031 /* TileBoardSettingView.swift in Sources */,
 				A9757F3C24CC481E00847031 /* CheckboxToggleStyle.swift in Sources */,
