@@ -31,12 +31,12 @@ struct SoundPickerView: View {
                 HStack {
                     Spacer()
                     // Beep
-                    CircleButton(image: Image(systemName: "tv"), text: Text("Beep"), gradient: LinearGradient(gradient: Gradient(colors: [Color.primary.opacity(0.75), Color.primary.opacity(0.75)]), startPoint: .topLeading, endPoint: .bottomTrailing), action: {
+                    CircleButton(image: Image(systemName: "tv"), text: Text("Beep"), action: {
                         setSoundBeep()
                         })
                     
                     // Can
-                    CircleButton(image: Image(systemName: "arrow.down"), text: Text("Can"), gradient: LinearGradient(gradient: Gradient(colors: [Color.primary.opacity(0.75), Color.primary.opacity(0.75)]), startPoint: .topLeading, endPoint: .bottomTrailing), action: {
+                    CircleButton(image: Image(systemName: "arrow.down"), text: Text("Can"), action: {
                         setSoundCan()
                         })
                     Spacer()
@@ -44,12 +44,12 @@ struct SoundPickerView: View {
                 HStack {
                     Spacer()
                     // Click
-                    CircleButton(image: Image(systemName: "cursorarrow.click"), text: Text("Click"), gradient: LinearGradient(gradient: Gradient(colors: [Color.primary.opacity(0.75), Color.primary.opacity(0.75)]), startPoint: .topLeading, endPoint: .bottomTrailing), action: {
+                    CircleButton(image: Image(systemName: "cursorarrow.click"), text: Text("Click"), action: {
                         setSoundClick()
                         })
 
                     // Hit
-                    CircleButton(image: Image(systemName: "arrow.rectanglepath"), text: Text("Hit"), gradient: LinearGradient(gradient: Gradient(colors: [Color.primary.opacity(0.75), Color.primary.opacity(0.75)]), startPoint: .topLeading, endPoint: .bottomTrailing), action: {
+                    CircleButton(image: Image(systemName: "arrow.rectanglepath"), text: Text("Hit"), action: {
                         setSoundHit()
                         })
                     Spacer()
@@ -57,12 +57,12 @@ struct SoundPickerView: View {
                 HStack {
                     Spacer()
                     // Plant
-                    CircleButton(image: Image(systemName: "laurel.leading"), text: Text("Plant"), gradient: LinearGradient(gradient: Gradient(colors: [Color.primary.opacity(0.75), Color.primary.opacity(0.75)]), startPoint: .topLeading, endPoint: .bottomTrailing), action: {
+                    CircleButton(image: Image(systemName: "laurel.leading"), text: Text("Plant"), action: {
                         setSoundPlant()
                         })
 
                     // Toy
-                    CircleButton(image: Image(systemName: "airport.express"), text: Text("Toy"), gradient: LinearGradient(gradient: Gradient(colors: [Color.primary.opacity(0.75), Color.primary.opacity(0.75)]), startPoint: .topLeading, endPoint: .bottomTrailing), action: {
+                    CircleButton(image: Image(systemName: "airport.express"), text: Text("Toy"), action: {
                         setSoundToy()
                         })
                     Spacer()
@@ -70,12 +70,12 @@ struct SoundPickerView: View {
                 HStack {
                     Spacer()
                     // Boing
-                    CircleButton(image: Image(systemName: "football"), text: Text("Boing"), gradient: LinearGradient(gradient: Gradient(colors: [Color.primary.opacity(0.75), Color.primary.opacity(0.75)]), startPoint: .topLeading, endPoint: .bottomTrailing), action: {
+                    CircleButton(image: Image(systemName: "football"), text: Text("Boing"), action: {
                         setSoundBoing()
                         })
 
                     // Wood
-                    CircleButton(image: Image(systemName: "tornado"), text: Text("Wood"), gradient: LinearGradient(gradient: Gradient(colors: [Color.primary.opacity(0.75), Color.primary.opacity(0.75)]), startPoint: .topLeading, endPoint: .bottomTrailing), action: {
+                    CircleButton(image: Image(systemName: "tornado"), text: Text("Wood"), action: {
                         setSoundWood()
                         })
 
@@ -84,12 +84,12 @@ struct SoundPickerView: View {
                 HStack {
                     Spacer()
                     // Woosh
-                    CircleButton(image: Image(systemName: "wind"), text: Text("Woosh"), gradient: LinearGradient(gradient: Gradient(colors: [Color.primary.opacity(0.75), Color.primary.opacity(0.75)]), startPoint: .topLeading, endPoint: .bottomTrailing), action: {
+                    CircleButton(image: Image(systemName: "wind"), text: Text("Woosh"), action: {
                         setSoundWoosh()
                         })
                     
                     // Default
-                    CircleButton(image: Image(systemName: "checkmark.seal"), text: Text("Default"), gradient: LinearGradient(gradient: Gradient(colors: [Color.primary.opacity(0.75), Color.primary.opacity(0.75)]), startPoint: .topLeading, endPoint: .bottomTrailing), action: {
+                    CircleButton(image: Image(systemName: "checkmark.seal"), text: Text("Default"), action: {
                         setSoundDefault()
                         })
                     Spacer()
@@ -112,15 +112,19 @@ struct SoundPickerView: View {
 
     // MARK: - Functions
     
+    func setSound() {
+        Haptic.light()
+        self.showAlert = true
+    }
+    
     func setSoundBeep() {
         audioSound = "beep"
         // User Defaults
         UserDefaults.standard.set(audioSound, forKey: "audioSound")
         // Logging
         print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
-        // Haptics
-        Haptic.light()
-        self.showAlert = true
+        // All Sounds
+        setSound()
     }
     
     func setSoundCan() {
@@ -129,9 +133,8 @@ struct SoundPickerView: View {
         UserDefaults.standard.set(audioSound, forKey: "audioSound")
         // Logging
         print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
-        // Haptics
-        Haptic.light()
-        self.showAlert = true
+        // All Sounds
+        setSound()
     }
     
     func setSoundClick() {
@@ -140,9 +143,8 @@ struct SoundPickerView: View {
         UserDefaults.standard.set(audioSound, forKey: "audioSound")
         // Logging
         print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
-        // Haptics
-        Haptic.light()
-        self.showAlert = true
+        // All Sounds
+        setSound()
     }
     
     func setSoundHit() {
@@ -151,9 +153,8 @@ struct SoundPickerView: View {
         UserDefaults.standard.set(audioSound, forKey: "audioSound")
         // Logging
         print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
-        // Haptics
-        Haptic.light()
-        self.showAlert = true
+        // All Sounds
+        setSound()
     }
     
     func setSoundPlant() {
@@ -162,9 +163,8 @@ struct SoundPickerView: View {
         UserDefaults.standard.set(audioSound, forKey: "audioSound")
         // Logging
         print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
-        // Haptics
-        Haptic.light()
-        self.showAlert = true
+        // All Sounds
+        setSound()
     }
     
     func setSoundToy() {
@@ -173,9 +173,8 @@ struct SoundPickerView: View {
         UserDefaults.standard.set(audioSound, forKey: "audioSound")
         // Logging
         print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
-        // Haptics
-        Haptic.light()
-        self.showAlert = true
+        // All Sounds
+        setSound()
     }
     
     func setSoundBoing() {
@@ -184,9 +183,8 @@ struct SoundPickerView: View {
         UserDefaults.standard.set(audioSound, forKey: "audioSound")
         // Logging
         print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
-        // Haptics
-        Haptic.light()
-        self.showAlert = true
+        // All Sounds
+        setSound()
     }
     
     func setSoundWood() {
@@ -195,9 +193,8 @@ struct SoundPickerView: View {
         UserDefaults.standard.set(audioSound, forKey: "audioSound")
         // Logging
         print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
-        // Haptics
-        Haptic.light()
-        self.showAlert = true
+        // All Sounds
+        setSound()
     }
     
     func setSoundWoosh() {
@@ -206,10 +203,8 @@ struct SoundPickerView: View {
         UserDefaults.standard.set(audioSound, forKey: "audioSound")
         // Logging
         print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
-        // Haptics
-        Haptic.light()
-        // Restart App
-        self.showAlert = true
+        // All Sounds
+        setSound()
     }
     func setSoundDefault() {
         audioSound = "default"
@@ -217,10 +212,8 @@ struct SoundPickerView: View {
         UserDefaults.standard.set(audioSound, forKey: "audioSound")
         // Logging
         print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
-        // Haptics
-        Haptic.light()
-        // Restart App
-        self.showAlert = true
+        // All Sounds
+        setSound()
     }
 }
 
