@@ -43,6 +43,8 @@ struct CompositeView: View {
     let userName = UserDefaults.standard.string(forKey: "userName")
     let isAuthenticated = UserDefaults.standard.string(forKey: "isAuthenticated")
     
+    @State private var resetWithScore: Bool = UserDefaults.standard.bool(forKey: "audioSound")
+    
     @State private var selectedSound: String = UserDefaults.standard.string(forKey: "audioSound") ?? "default"
     @State private var audioSound = UserDefaults.standard.string(forKey: "audioSound")
     
@@ -123,6 +125,9 @@ struct CompositeView: View {
                                     presentSideMenu: $presentSideMenu
                                 )
                                 .onReceive(logic.$score) { (publishedScore) in
+                                    if resetWithScore {
+                                        score = 0
+                                    }
                                     score = publishedScore
                                     if score > highScore {
                                         //                                        updateHighScore(newScore: score)

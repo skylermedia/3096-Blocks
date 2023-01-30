@@ -17,6 +17,8 @@ struct ModalView: View {
    
     // MARK: - Properties
     
+    @State private var resetWithScore = false
+    @Binding var score: Int
     var title: String
     var subtitle: String? = nil
     var completionHandler: () -> Void
@@ -70,7 +72,7 @@ struct ModalView: View {
     
     private var cancelBody: some View {
         HStack(spacing: 32) {
-            Button(action: completionHandler) {
+            Button(action: cancelGameAction) {
                 Text("Confirm")
                     .foregroundColor(colorSchemeBackgroundTheme.backgroundColor(for: colorScheme))
                     .font(.system(.body, design: .monospaced))
@@ -93,14 +95,50 @@ struct ModalView: View {
     }
     
     private var newGameBody: some View {
-        Button(action: completionHandler) {
-            Text("New Game")
-                .foregroundColor(colorSchemeBackgroundTheme.backgroundColor(for: colorScheme))
-                .font(.system(.body, design: .monospaced))
-                .bold()
-                .zIndex(Double.greatestFiniteMagnitude)
+        VStack {
+            Button(action: newGameAction) {
+                Text("New Game")
+                    .foregroundColor(colorSchemeBackgroundTheme.backgroundColor(for: colorScheme))
+                    .font(.system(.body, design: .monospaced))
+                    .bold()
+                    .zIndex(Double.greatestFiniteMagnitude)
+            }
+            .buttonStyle(FilledBackgroundStyle())
+            .padding(.horizontal)
+            Button(action: resetWithScoreAction) {
+                Text("Reset With Score (Beta)")
+                    .foregroundColor(colorSchemeBackgroundTheme.backgroundColor(for: colorScheme))
+                    .font(.system(.body, design: .monospaced))
+                    .bold()
+                    .zIndex(Double.greatestFiniteMagnitude)
+            }
+            .buttonStyle(FilledBackgroundStyle())
+            .padding(.horizontal)
         }
-        .buttonStyle(FilledBackgroundStyle())
-        .padding()
+    }
+    
+    func allGameAction() {
+        completionHandler()
+        UserDefaults.standard.set(resetWithScore, forKey: "resetWithScore")
+    }
+    
+    func cancelGameAction() {
+        print("User: Reset game manualy")
+        score = 0
+        let resetWithScore = false
+        allGameAction()
+    }
+    
+    func newGameAction() {
+        print("User: Reset without score")
+        score = 0
+        let resetWithScore = false
+        allGameAction()
+    }
+    
+    func resetWithScoreAction() {
+        print("User: Reset with scure")
+        let resetWithScore = true
+        allGameAction()
     }
 }

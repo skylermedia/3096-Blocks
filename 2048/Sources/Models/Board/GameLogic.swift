@@ -27,6 +27,8 @@ final class GameLogic: ObservableObject {
     @Published private(set) var boardSize: Int
     @Published private(set) var hasMoveMergedTiles: Bool = false
     
+    private var resetWithScore = UserDefaults.standard.bool(forKey: "resetWithScore")
+    
     private var gameMode = UserDefaults.standard.string(forKey: "gameMode")
     
     private(set) var lastGestureDirection: Direction = .up
@@ -68,11 +70,17 @@ final class GameLogic: ObservableObject {
             guard let gameBoardSize = $0 else { return }
             let rawValue = gameBoardSize.rawValue
             reset(boardSize: rawValue)
+            if resetWithScore {
+                score = 0
+            }
         }.store(in: &cancellables)
     }
     
     func reset() {
         reset(boardSize: boardSize)
+        if resetWithScore {
+            score = 0
+        }
     }
     
     func resetLastGestureDirection() {
@@ -228,7 +236,11 @@ final class GameLogic: ObservableObject {
         tileMatrix = TileMatrixType(size: boardSize)
         resetLastGestureDirection()
         generateBlocks(generator: .double)
-        score = 0
+        if resetWithScore {
+            score = 0
+        }
+        resetWithScore = false
+        UserDefaults.standard.set(resetWithScore, forKey: "resetWithScore")
         mergeMultiplier = 0
         objectWillChange.send(self)
     }

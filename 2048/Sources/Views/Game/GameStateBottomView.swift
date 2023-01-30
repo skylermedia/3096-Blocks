@@ -18,6 +18,8 @@ struct GameStateBottomView: View {
     @AppStorage("highScore") private var highScore: Int = 0
     var resetGame: () -> Void
     
+    private var resetWithScore = UserDefaults.standard.bool(forKey: "resetWithScore")
+
     private let plist = PlistConfiguration(name: "Strings")
     private let gameBoardState: [String : [String : String]]
     
@@ -43,10 +45,14 @@ struct GameStateBottomView: View {
     
     private var modalGameEnd: some View {
         ModalView(
+            score: $score,
             title: gameBoardState[PlistConfigurationKeyPath.gameState.rawValue]?[PlistConfigurationKeyPath.gameOverTitle.rawValue] ?? "",
             subtitle: (gameBoardState[PlistConfigurationKeyPath.gameState.rawValue]?[PlistConfigurationKeyPath.gameOverSubtitle.rawValue] ?? "") + "\(score)",
             completionHandler: {
                 withAnimation(.modalSpring) {
+                    if resetWithScore {
+                        score = 0
+                    }
                     resetGame()
                     presentEndGameModal = false
                 }
@@ -57,10 +63,14 @@ struct GameStateBottomView: View {
     
     private var modalExistingGame: some View {
         ModalView(
+            score: $score,
             title: gameBoardState[PlistConfigurationKeyPath.gameState.rawValue]?[PlistConfigurationKeyPath.resetGameTitle.rawValue] ?? "",
             subtitle: gameBoardState[PlistConfigurationKeyPath.gameState.rawValue]?[PlistConfigurationKeyPath.resetGameSubtitle.rawValue] ?? "",
             completionHandler: {
                 withAnimation(.modalSpring) {
+                    if resetWithScore {
+                        score = 0
+                    }
                     resetGame()
                     presentEndGameModal = false
                 }
