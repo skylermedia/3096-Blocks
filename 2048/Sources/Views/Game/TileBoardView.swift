@@ -19,8 +19,8 @@ struct TileBoardView: View {
     // Test
     let homeId: String = "ca-app-pub-3940256099942544/6300978111"
     // Production
-//    let homeId: String = "ca-app-pub-8534428621909577/9536587437"
-
+    //    let homeId: String = "ca-app-pub-8534428621909577/9536587437"
+    
     var tileBoardSize: Int
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
@@ -123,7 +123,6 @@ struct TileBoardView: View {
         let frameSize = calculateFrameSize(proxy)
         return (frameSize / 300) * 8 // for every 300 pixels have an 8 pixels of spacing between the tiles, which make equally proportial the overall tile board layout between different screen configurations
     }
-    
 }
 
 struct TileBoardView_Previews : PreviewProvider {
