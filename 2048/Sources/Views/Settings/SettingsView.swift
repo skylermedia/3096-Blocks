@@ -24,7 +24,10 @@ struct SettingsView: View {
     private let plist = PlistConfiguration(name: "Strings")
     private let settings: [String : [String : String]]
     
-    let settingsId: String = "ca-app-pub-8534428621909577/2232981327"
+    // Test
+    let settingsId: String = "ca-app-pub-3940256099942544/6300978111"
+    // Production
+//    let settingsId: String = "ca-app-pub-8534428621909577/2232981327"
     
     // MARK: - Initializers
     

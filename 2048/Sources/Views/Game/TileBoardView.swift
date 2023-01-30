@@ -16,8 +16,11 @@ struct TileBoardView: View {
     let matrix: Self.SupportingMatrix
     let tileEdge: Edge
     
-    let homeId: String = "ca-app-pub-8534428621909577/9536587437"
-    
+    // Test
+    let homeId: String = "ca-app-pub-3940256099942544/6300978111"
+    // Production
+//    let homeId: String = "ca-app-pub-8534428621909577/9536587437"
+
     var tileBoardSize: Int
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
