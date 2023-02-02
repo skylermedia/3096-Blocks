@@ -49,11 +49,11 @@ struct FactoryContentView<G: Gesture>: View {
             .padding(.bottom, 24)
     }
     
-//    private var timedView: some View {
-//        TimedView(board: GameLogic(size: 4))
-//            .padding(.top, -64)
-//            .padding(.bottom, 24)
-//    }
+    private var timedView: some View {
+        TimedView(board: GameLogic(size: 4))
+            .padding(.top, -64)
+            .padding(.bottom, 24)
+    }
     
     private var statsView: some View {
         StatsView()
@@ -75,8 +75,8 @@ struct FactoryContentView<G: Gesture>: View {
         switch selectedView {
         case .game:
             tileBoardView
-//        case .timed:
-//            timedView
+        case .timed:
+            timedView
         case .ranks:
             ranksView
         case .stats:

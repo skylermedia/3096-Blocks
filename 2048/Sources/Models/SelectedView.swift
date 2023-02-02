@@ -9,7 +9,7 @@ import Foundation
 
 enum SelectedView {
     case game
-//    case timed
+    case timed
     case ranks
     case stats
     case settings
@@ -19,8 +19,8 @@ enum SelectedView {
         switch self {
         case .game:
             return "3096"
-//        case .timed:
-//            return "Timed"
+        case .timed:
+            return "Timed"
         case .ranks:
             return "Ranks"
         case .stats:

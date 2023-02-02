@@ -114,60 +114,61 @@ struct CompositeView: View {
                 GeometryReader { proxy in
                     ZStack(alignment: .top) {
                         VStack {
-                            Group {
-                                self.headerView(proxy)
-                                
-                                FactoryContentView(
-                                    selectedView: $selectedView,
-                                    gesture: gesture,
-                                    gameLogic: logic,
-                                    presentEndGameModal: $presentEndGameModal,
-                                    presentSideMenu: $presentSideMenu
-                                )
-                                .onReceive(logic.$score) { (publishedScore) in
-                                    if resetWithScore {
-                                        score = 0
+                                Group {
+                                    self.headerView(proxy)
+
+                                    FactoryContentView(
+                                        selectedView: $selectedView,
+                                        gesture: gesture,
+                                        gameLogic: logic,
+                                        presentEndGameModal: $presentEndGameModal,
+                                        presentSideMenu: $presentSideMenu
+                                    )
+                                    .onReceive(logic.$score) { (publishedScore) in
+                                        if resetWithScore {
+                                            score = 0
+                                        }
+                                        score = publishedScore
+                                        if score > highScore {
+                                            //                                        updateHighScore(newScore: score)
+                                            highScore = score
+                                            saveScore(playerName: "player", score: score)
+                                            UserDefaults.standard.set(score, forKey: "highScore")
+                                        }
                                     }
-                                    score = publishedScore
-                                    if score > highScore {
-                                        //                                        updateHighScore(newScore: score)
-                                        highScore = score
-                                        saveScore(playerName: "player", score: score)
-                                        UserDefaults.standard.set(score, forKey: "highScore")
+                                    .onReceive(logic.$mergeMultiplier) { (publishedScoreMultiplier) in
+                                        scoreMultiplier = publishedScoreMultiplier
                                     }
-                                }
-                                .onReceive(logic.$mergeMultiplier) { (publishedScoreMultiplier) in
-                                    scoreMultiplier = publishedScoreMultiplier
-                                }
-                                .onReceive(logic.$hasMoveMergedTiles) { hasMergedTiles in
-                                    guard isAudioEnabled else { return }
-                                    if audioSound == "default" {
-                                        AudioSource.playCustom(source: .ding)
-                                    } else if audioSound == "woosh" {
-                                        AudioSource.playCustom(source: .woosh)
-                                    } else if audioSound == "beep" {
-                                        AudioSource.playCustom(source: .beep)
-                                    } else if audioSound == "can" {
-                                        AudioSource.playCustom(source: .can)
-                                    } else if audioSound == "click" {
-                                        AudioSource.playCustom(source: .click)
-                                    } else if audioSound == "hit" {
-                                        AudioSource.playCustom(source: .hit)
-                                    } else if audioSound == "plant" {
-                                        AudioSource.playCustom(source: .plant)
-                                    } else if audioSound == "toy" {
-                                        AudioSource.playCustom(source: .toy)
-                                    } else if audioSound == "boing" {
-                                        AudioSource.playCustom(source: .boing)
-                                    } else if audioSound == "wood" {
-                                        AudioSource.playCustom(source: .wood)
-                                    } else {
-                                        AudioSource.playCustom(source: .ding)
+                                    .onReceive(logic.$hasMoveMergedTiles) { hasMergedTiles in
+                                        guard isAudioEnabled else { return }
+                                        if audioSound == "default" {
+                                            AudioSource.playCustom(source: .ding)
+                                        } else if audioSound == "woosh" {
+                                            AudioSource.playCustom(source: .woosh)
+                                        } else if audioSound == "beep" {
+                                            AudioSource.playCustom(source: .beep)
+                                        } else if audioSound == "can" {
+                                            AudioSource.playCustom(source: .can)
+                                        } else if audioSound == "click" {
+                                            AudioSource.playCustom(source: .click)
+                                        } else if audioSound == "hit" {
+                                            AudioSource.playCustom(source: .hit)
+                                        } else if audioSound == "plant" {
+                                            AudioSource.playCustom(source: .plant)
+                                        } else if audioSound == "toy" {
+                                            AudioSource.playCustom(source: .toy)
+                                        } else if audioSound == "boing" {
+                                            AudioSource.playCustom(source: .boing)
+                                        } else if audioSound == "wood" {
+                                            AudioSource.playCustom(source: .wood)
+                                        } else {
+                                            AudioSource.playCustom(source: .ding)
+                                        }
+                                        //                                    setTotalScore()
+                                        Haptic.light()
                                     }
-//                                    setTotalScore()
-                                    Haptic.light()
-                                }                    }
-                            .blur(radius: (presentEndGameModal || presentSideMenu) ? 4 : 0)
+                                .blur(radius: (presentEndGameModal || presentSideMenu) ? 4 : 0)
+                            }
                         }
                         .modifier(RoundedClippedBackground(backgroundColor: colorSchemeBackgroundTheme.backgroundColor(for: colorScheme),
                                                            proxy: proxy))
@@ -228,10 +229,15 @@ struct CompositeView: View {
                 presentEndGameModal = true
             },
             showResetButton: {
-                selectedView == .game
+                if selectedView == .game || selectedView == .timed {
+                    return true
+                } else {
+                    return false
+                }
             }
         )
     }
+    
     // MARK: - Private Functions
     
     private func resetGame() {
