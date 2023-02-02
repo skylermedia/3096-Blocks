@@ -17,9 +17,9 @@ struct TileBoardView: View {
     let tileEdge: Edge
     
     // Test
-    let homeId: String = "ca-app-pub-3940256099942544/6300978111"
+    let gameId: String = "ca-app-pub-3940256099942544/6300978111"
     // Production
-    //    let homeId: String = "ca-app-pub-8534428621909577/9536587437"
+    //    let gameId: String = "ca-app-pub-8534428621909577/9536587437"
     
     var tileBoardSize: Int
     @Environment(\.colorScheme) var colorScheme: ColorScheme
@@ -61,7 +61,7 @@ struct TileBoardView: View {
                 .drawingGroup(opaque: false, colorMode: .linear)
                 .center(in: .local, with: proxy)
                 
-                BannerAd(adId: homeId)
+                BannerAd(adId: gameId)
             }
             .shadow(color: .blue, radius: 10)
         }
