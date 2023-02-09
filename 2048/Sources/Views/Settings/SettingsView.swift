@@ -68,22 +68,9 @@ struct SettingsView: View {
 //                SkinSelectorView(invertedBackgroundColor: invertedBackgroundColor,
 //                                 previewSize: previewSize)
 //            }
-            BannerAd(adId: settingsId)
-            Section(header:
-                        VStack(alignment: .leading) {
-                Text("Game Mode")
-                    .modifier(SettingsTitleStyle())
-                Text("Choose whether your board uses letters or numbers")
-                    .modifier(SettingsDescriptionStyle())
-            }
-            ) {
-                GameModeView()
-//                Button("Show Interstitial") {
-//                    adsViewModel.showInterstitial = true
-//                }
-//                    .buttonStyle(.borderedProminent)
-            }
-            BannerAd(adId: settingsId)
+//            BannerAd(adId: settingsId)
+//            
+//            BannerAd(adId: settingsId)
             Section(header:
                         VStack(alignment: .leading) {
                 Text("Sound Picker")
@@ -94,7 +81,7 @@ struct SettingsView: View {
             ) {
                 SoundPickerView()
             }
-            BannerAd(adId: settingsId)
+//            BannerAd(adId: settingsId)
             Section(header:
                         VStack(alignment: .leading) {
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.audio.rawValue] ?? "")
@@ -108,7 +95,7 @@ struct SettingsView: View {
                     previewSize: previewSize
                 )
             }
-            BannerAd(adId: settingsId)
+//            BannerAd(adId: settingsId)
             Section(header:
                         VStack(alignment: .leading) {
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.haptic.rawValue] ?? "")
@@ -126,7 +113,7 @@ struct SettingsView: View {
             .foregroundColor(.clear)
             .environment(\.horizontalSizeClass, .regular)
             .edgesIgnoringSafeArea(.bottom)
-            BannerAd(adId: settingsId)
+//            BannerAd(adId: settingsId)
         }
     }
 }
