@@ -51,22 +51,22 @@ struct HeaderView: View {
             .transition(AnyTransition.move(edge: .trailing).combined(with: .opacity))
             .animation(.modalSpring, value: shouldShowReset)
             .id("Score View: \(showResetButton())")
-            HStack {
-                Text("Best (Beta): ")
-                    .font(Font.system(.title, design: .monospaced).weight(.black))
-                    .foregroundColor(Color(red:0.49, green:0.49, blue:0.49, opacity: 0.7))
-                
-                Text("\(highScore)")
-                    .font(Font.system(.title, design: .monospaced).weight(.black))
-                    .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
-                    .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
-                    .animation(.modalSpring, value: shouldShowReset)
-                    .id("Score \(self.score)")
-            }
-            .opacity(shouldShowReset ? 1.0 : 0.0)
-            .transition(AnyTransition.move(edge: .trailing).combined(with: .opacity))
-            .animation(.modalSpring, value: shouldShowReset)
-            .id("High Score View: \(showResetButton())")
+//            HStack {
+//                Text("Best (Beta): ")
+//                    .font(Font.system(.title, design: .monospaced).weight(.black))
+//                    .foregroundColor(Color(red:0.49, green:0.49, blue:0.49, opacity: 0.7))
+//                
+//                Text("\(highScore)")
+//                    .font(Font.system(.title, design: .monospaced).weight(.black))
+//                    .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
+//                    .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
+//                    .animation(.modalSpring, value: shouldShowReset)
+//                    .id("Score \(self.score)")
+//            }
+//            .opacity(shouldShowReset ? 1.0 : 0.0)
+//            .transition(AnyTransition.move(edge: .trailing).combined(with: .opacity))
+//            .animation(.modalSpring, value: shouldShowReset)
+//            .id("High Score View: \(showResetButton())")
         }
         .sheet(isPresented: $showAboutSheet) {
             AboutView()
@@ -155,15 +155,15 @@ struct HeaderView: View {
     var body: some View {
         VStack {
             HStack {
-                Spacer()
-                sideMenuButton
-                Spacer()
-                resetGameButton
-                Spacer()
-                shareButton
-                Spacer()
-                aboutButton
-                Spacer()
+//                Spacer()
+//                sideMenuButton
+//                Spacer()
+//                resetGameButton
+//                Spacer()
+//                shareButton
+//                Spacer()
+//                aboutButton
+//                Spacer()
             }
             .padding(.top, proxy.size.width > proxy.size.height ? 24 : 48)
             
