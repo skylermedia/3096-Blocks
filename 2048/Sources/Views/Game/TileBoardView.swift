@@ -63,7 +63,8 @@ struct TileBoardView: View {
                 
 //                BannerAd(adId: gameId)
             }
-            .shadow(color: .blue, radius: 10)
+            .shadow(color: Color("darkBlue"), radius: 25)
+
         }
     }
     
