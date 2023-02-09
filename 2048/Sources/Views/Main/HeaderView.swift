@@ -155,8 +155,9 @@ struct HeaderView: View {
     var body: some View {
         VStack {
             HStack {
-                Spacer()
                 sideMenuButton
+                Spacer()
+                scoreView
                 Spacer()
                 resetGameButton
 //                Spacer()
@@ -167,7 +168,7 @@ struct HeaderView: View {
             }
             .padding(.top, proxy.size.width > proxy.size.height ? 24 : 48)
             
-            scoreView
+//            scoreView
         }
     }
 }
