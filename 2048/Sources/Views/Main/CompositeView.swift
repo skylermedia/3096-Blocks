@@ -242,7 +242,7 @@ struct CompositeView: View {
     
     private func resetGame() {
         logic.reset()
-        adsViewModel.showInterstitial = true
+//        adsViewModel.showInterstitial = true
     }
     
     // MARK: - Stats Functions
