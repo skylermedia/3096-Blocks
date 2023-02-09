@@ -55,7 +55,7 @@ struct HeaderView: View {
 //                Text("Best (Beta): ")
 //                    .font(Font.system(.title, design: .monospaced).weight(.black))
 //                    .foregroundColor(Color(red:0.49, green:0.49, blue:0.49, opacity: 0.7))
-//                
+//
 //                Text("\(highScore)")
 //                    .font(Font.system(.title, design: .monospaced).weight(.black))
 //                    .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
@@ -155,10 +155,10 @@ struct HeaderView: View {
     var body: some View {
         VStack {
             HStack {
-//                Spacer()
-//                sideMenuButton
-//                Spacer()
-//                resetGameButton
+                Spacer()
+                sideMenuButton
+                Spacer()
+                resetGameButton
 //                Spacer()
 //                shareButton
 //                Spacer()
