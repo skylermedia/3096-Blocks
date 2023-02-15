@@ -18,7 +18,7 @@ enum SelectedView {
     var title: String {
         switch self {
         case .game:
-            return "3096"
+            return "Fibonacci"
         case .timed:
             return "Timed"
         case .ranks:
