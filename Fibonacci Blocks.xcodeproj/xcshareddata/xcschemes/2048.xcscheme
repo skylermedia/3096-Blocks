@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D42DB3E2296D2B21006D7392"
-               BuildableName = "3096 &#x2013; Blocks.app"
-               BlueprintName = "3096 &#x2013;&#xa0;Blocks &#x2013; Watch"
-               ReferencedContainer = "container:3096 &#x2013;&#xa0;Blocks.xcodeproj">
+               BlueprintIdentifier = "A9757EA724CC47EC00847031"
+               BuildableName = "F.app"
+               BlueprintName = "F"
+               ReferencedContainer = "container:F.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -26,8 +26,39 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A9757EA724CC47EC00847031"
+            BuildableName = "F.app"
+            BlueprintName = "F"
+            ReferencedContainer = "container:F.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A9757EB824CC47EC00847031"
+               BuildableName = "FTests.xctest"
+               BlueprintName = "FTests"
+               ReferencedContainer = "container:F.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A9757EC324CC47EC00847031"
+               BuildableName = "FUITests.xctest"
+               BlueprintName = "FUITests"
+               ReferencedContainer = "container:F.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -44,10 +75,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D42DB3E2296D2B21006D7392"
-            BuildableName = "3096 &#x2013; Blocks.app"
-            BlueprintName = "3096 &#x2013;&#xa0;Blocks &#x2013; Watch"
-            ReferencedContainer = "container:3096 &#x2013;&#xa0;Blocks.xcodeproj">
+            BlueprintIdentifier = "A9757EA724CC47EC00847031"
+            BuildableName = "F.app"
+            BlueprintName = "F"
+            ReferencedContainer = "container:F.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -61,10 +92,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D42DB3E2296D2B21006D7392"
-            BuildableName = "3096 &#x2013; Blocks.app"
-            BlueprintName = "3096 &#x2013;&#xa0;Blocks &#x2013; Watch"
-            ReferencedContainer = "container:3096 &#x2013;&#xa0;Blocks.xcodeproj">
+            BlueprintIdentifier = "A9757EA724CC47EC00847031"
+            BuildableName = "F.app"
+            BlueprintName = "F"
+            ReferencedContainer = "container:F.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
