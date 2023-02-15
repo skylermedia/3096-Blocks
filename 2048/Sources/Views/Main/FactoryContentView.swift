@@ -13,6 +13,8 @@ struct FactoryContentView<G: Gesture>: View {
     
     @Binding var selectedView: SelectedView
     
+    var gameMode: String = ".groupActivity"
+    
     var gesture: G
     
     @ObservedObject var gameLogic: GameLogic
@@ -49,10 +51,14 @@ struct FactoryContentView<G: Gesture>: View {
             .padding(.bottom, 24)
     }
     
-    private var timedView: some View {
-        TimedView(board: GameLogic(size: 4))
-            .padding(.top, -64)
-            .padding(.bottom, 24)
+//    private var timedView: some View {
+//        TimedView(board: GameLogic(size: 4))
+//            .padding(.top, -64)
+//            .padding(.bottom, 24)
+//    }
+    
+    private var multiplayerView: some View {
+        GameView(game: Factory.groupActivity())
     }
     
     private var statsView: some View {
@@ -75,8 +81,10 @@ struct FactoryContentView<G: Gesture>: View {
         switch selectedView {
         case .game:
             tileBoardView
-        case .timed:
-            timedView
+//        case .timed:
+//            timedView
+        case.multiplayer:
+            multiplayerView
         case .ranks:
             ranksView
         case .stats:
@@ -88,4 +96,3 @@ struct FactoryContentView<G: Gesture>: View {
         }
     }
 }
-

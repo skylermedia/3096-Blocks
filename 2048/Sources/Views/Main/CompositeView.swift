@@ -115,7 +115,7 @@ struct CompositeView: View {
                     ZStack(alignment: .top) {
                         VStack {
                                 Group {
-                                    self.headerView(proxy)
+                                    self.compositeHeaderView(proxy)
 
                                     FactoryContentView(
                                         selectedView: $selectedView,
@@ -218,7 +218,7 @@ struct CompositeView: View {
     
     // MARK: - Methods
     
-    private func headerView(_ proxy: GeometryProxy) -> some View {
+    private func compositeHeaderView(_ proxy: GeometryProxy) -> some View {
         HeaderView(
             proxy: proxy,
             showSideMenu: $presentSideMenu,
@@ -229,7 +229,7 @@ struct CompositeView: View {
                 presentEndGameModal = true
             },
             showResetButton: {
-                if selectedView == .game || selectedView == .timed {
+                if selectedView == .game /*|| selectedView == .timed*/ {
                     return true
                 } else {
                     return false
