@@ -24,6 +24,11 @@ struct TileBoardView: View {
     var tileBoardSize: Int
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
+    var players: [Player] = [
+        Player(name: "Player 1", matrix: TileMatrix<IdentifiedTile>()),
+        Player(name: "Player 2", matrix: TileMatrix<IdentifiedTile>())
+    ]
+
     // MARK: - Computed Properties
     
     private var backgroundColor: Color {
@@ -41,11 +46,22 @@ struct TileBoardView: View {
                     
                     ForEach(0..<tileBoardSize, id: \.self) { x in
                         ForEach(0..<tileBoardSize, id: \.self) { y in
-                            createBlock(nil, at: (x, y), proxy: proxy)
+                            createBlock(nil, at: (x, y), proxy: proxy, player: players[0])
                         }
                     }
+                    
                     ForEach(matrix.flatten(), id: \.tile.id) { item in
-                        createBlock(item.tile, at: item.index, proxy: proxy)
+                        createBlock(item.tile, at: item.index, proxy: proxy, player: players[0])
+                    }
+
+                    ForEach(0..<tileBoardSize, id: \.self) { x in
+                        ForEach(0..<tileBoardSize, id: \.self) { y in
+                            createBlock(nil, at: (x, y), proxy: proxy, player: players[1])
+                        }
+                    }
+                    
+                    ForEach(players[1].matrix.flatten(), id: \.tile.id) { item in
+                        createBlock(item.tile, at: item.index, proxy: proxy, player: players[1])
                     }
                 }
                 .frame(
@@ -73,8 +89,10 @@ struct TileBoardView: View {
     func createBlock(
         _ block: IdentifiedTile?,
         at index: IndexedTile<IdentifiedTile>.Index,
-        proxy: GeometryProxy
+        proxy: GeometryProxy,
+        player: Player
     ) -> some View {
+        let matrix = player.matrix
         let blockView: TileView
         if let block = block {
             blockView = TileView(number: block.value)
@@ -126,24 +144,26 @@ struct TileBoardView: View {
     }
 }
 
-struct TileBoardView_Previews : PreviewProvider {
+//struct TileBoardView_Previews: PreviewProvider {
+//    static var players: [Player] = [        Player(name: "Player 1", matrix: getMatrix()),        Player(name: "Player 2", matrix: getMatrix())    ]
+//
+//    static func getMatrix() -> TileMatrix<IdentifiedTile> {
+//        var board = TileMatrix<IdentifiedTile>()
+//        board.add(IdentifiedTile(id: 1, value: 2), to: (2, 0))
+//        board.add(IdentifiedTile(id: 2, value: 2), to: (3, 0))
+//        board.add(IdentifiedTile(id: 3, value: 8), to: (1, 1))
+//        board.add(IdentifiedTile(id: 4, value: 4), to: (2, 1))
+//        board.add(IdentifiedTile(id: 5, value: 16), to: (3, 1))
+//        return board
+//    }
+//
+//    static var previews: some View {
+//        TileBoardView(matrix: matrix, tileEdge: .top, tileBoardSize: 4)
+//            .previewLayout(.sizeThatFits)
+//    }
+//}
 
-    static var matrix: TileBoardView.SupportingMatrix {
-        var board = TileBoardView.SupportingMatrix()
-
-        board.add(IdentifiedTile(id: 1, value: 2), to: (2, 0))
-        board.add(IdentifiedTile(id: 2, value: 2), to: (3, 0))
-        board.add(IdentifiedTile(id: 3, value: 8), to: (1, 1))
-        board.add(IdentifiedTile(id: 4, value: 4), to: (2, 1))
-        board.add(IdentifiedTile(id: 5, value: 512), to: (3, 3))
-        board.add(IdentifiedTile(id: 6, value: 1024), to: (2, 3))
-        board.add(IdentifiedTile(id: 7, value: 16), to: (0, 3))
-        board.add(IdentifiedTile(id: 8, value: 8), to: (1, 3))
-        return board
-    }
-
-    static var previews: some View {
-        TileBoardView(matrix: matrix, tileEdge: .top, tileBoardSize: 4)
-            .previewLayout(.sizeThatFits)
-    }
+struct Player {
+    let name: String
+    let matrix: TileMatrix<IdentifiedTile>
 }
