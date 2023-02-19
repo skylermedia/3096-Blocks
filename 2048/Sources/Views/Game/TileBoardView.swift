@@ -61,7 +61,8 @@ struct TileBoardView: View {
                 .drawingGroup(opaque: false, colorMode: .linear)
                 .center(in: .local, with: proxy)
                 
-                BannerAd(adId: gameId)
+                BannerAd(unitID: gameId)
+                    .frame(width: 320, height: 50)
             }
             .shadow(color: .blue, radius: 10)
         }

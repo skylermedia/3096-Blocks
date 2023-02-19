@@ -68,7 +68,8 @@ struct SettingsView: View {
 //                SkinSelectorView(invertedBackgroundColor: invertedBackgroundColor,
 //                                 previewSize: previewSize)
 //            }
-            BannerAd(adId: settingsId)
+            BannerAd(unitID: settingsId)
+                .frame(width: 320, height: 50)
             Section(header:
                         VStack(alignment: .leading) {
                 Text("Game Mode")
@@ -83,7 +84,8 @@ struct SettingsView: View {
 //                }
 //                    .buttonStyle(.borderedProminent)
             }
-            BannerAd(adId: settingsId)
+            BannerAd(unitID: settingsId)
+                .frame(width: 320, height: 50)
             Section(header:
                         VStack(alignment: .leading) {
                 Text("Sound Picker")
@@ -94,7 +96,8 @@ struct SettingsView: View {
             ) {
                 SoundPickerView()
             }
-            BannerAd(adId: settingsId)
+            BannerAd(unitID: settingsId)
+                .frame(width: 320, height: 50)
             Section(header:
                         VStack(alignment: .leading) {
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.audio.rawValue] ?? "")
@@ -108,7 +111,8 @@ struct SettingsView: View {
                     previewSize: previewSize
                 )
             }
-            BannerAd(adId: settingsId)
+            BannerAd(unitID: settingsId)
+                .frame(width: 320, height: 50)
             Section(header:
                         VStack(alignment: .leading) {
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.haptic.rawValue] ?? "")
@@ -126,7 +130,8 @@ struct SettingsView: View {
             .foregroundColor(.clear)
             .environment(\.horizontalSizeClass, .regular)
             .edgesIgnoringSafeArea(.bottom)
-            BannerAd(adId: settingsId)
+            BannerAd(unitID: settingsId)
+                .frame(width: 320, height: 50)
         }
     }
 }
