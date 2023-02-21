@@ -61,8 +61,61 @@ struct TileView: View {
                     Text(titleNumber())
                         .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
                         .id(number)
-                        .foregroundColor(tileColorTheme.font)
+//                        .foregroundColor(tileColorTheme.font)
                         .transition(AnyTransition.scale(scale: 0.2).combined(with: .opacity).animation(.modalSpring(duration: 0.3)))
+                }
+                if number == 3 {
+                    Image(systemName: "bolt.fill")
+                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
+                        .foregroundColor(.yellow)
+                } else if number == 4 {
+                    Image(systemName: "flame.fill")
+                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
+                        .foregroundColor(.orange)
+                } else if number == 5 {
+                    Image(systemName: "cloud.rain.fill")
+                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
+                        .foregroundColor(.blue)
+                } else if number == 6 {
+                    Image(systemName: "sun.max.fill")
+                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
+                        .foregroundColor(.yellow)
+                } else if number == 7 {
+                    Image(systemName: "moon.stars.fill")
+                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
+                        .foregroundColor(.blue)
+                } else if number == 8 {
+                    Image(systemName: "leaf.fill")
+                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
+                        .foregroundColor(.green)
+                } else if number == 9 {
+                    Image(systemName: "tornado")
+                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
+                        .foregroundColor(.red)
+                } else if number == 10 {
+                    Image(systemName: "umbrella.fill")
+                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
+                        .foregroundColor(.blue)
+                } else if number == 11 {
+                    Image(systemName: "cloud.heavyrain.fill")
+                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
+                        .foregroundColor(.blue)
+                } else if number == 12 {
+                    Image(systemName: "sunrise.fill")
+                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
+                        .foregroundColor(.yellow)
+                } else if number == 13 {
+                    Image(systemName: "cloud.sun.fill")
+                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
+                        .foregroundColor(.yellow)
+                } else if number == 14 {
+                    Image(systemName: "wind")
+                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
+                        .foregroundColor(.yellow)
+                } else if number == 15 {
+                    Image(systemName: "snowflake")
+                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
+                        .foregroundColor(.yellow)
                 }
             }
             .zIndex(Double.greatestFiniteMagnitude)
@@ -77,7 +130,7 @@ struct TileView: View {
             guard let number = self.number else {
                 return ""
             }
-            let letterDictionary = [3: "3", 4: "6", 5: "12", 6: "24", 7: "48", 8: "96", 9: "192", 10: "384", 11: "768", 12: "1536", 13: "3072", 14: "6144", 15: "1228", 16: "24576", 17: "49152", 18: "98304", 19: "196608" ]
+            let letterDictionary = [3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "", 12: "", 13: "", 14: "", 15: "", 16: "", 17: "", 18: "", 19: "" ]
             let letter = letterDictionary[number]
             return letter ?? "!"
         }
