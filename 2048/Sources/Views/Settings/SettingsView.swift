@@ -40,16 +40,7 @@ struct SettingsView: View {
     // MARK: - Conformance to View Protocol
     
     var body: some View {
-        let multiplayerManager = MultiplayerManager(peerID: MCPeerID(displayName: "MyDisplayName"))
         List {
-            Button(action: multiplayerManager.startAdvertisingAndBrowsing) {
-                       Text("Play")
-                           .font(.headline)
-                           .foregroundColor(.white)
-                           .padding(.horizontal, 20)
-                           .padding(.vertical, 10)
-                           .background(Capsule())
-                   }
             Section(header:
                         VStack(alignment: .leading) {
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.gameBoardSize.rawValue] ?? "")
@@ -78,22 +69,22 @@ struct SettingsView: View {
 //                SkinSelectorView(invertedBackgroundColor: invertedBackgroundColor,
 //                                 previewSize: previewSize)
 //            }
-            BannerAd(unitID: settingsId)
-                .frame(width: 320, height: 50)
-            Section(header:
-                        VStack(alignment: .leading) {
-                Text("Game Mode")
-                    .modifier(SettingsTitleStyle())
-                Text("Choose whether your board uses letters or numbers")
-                    .modifier(SettingsDescriptionStyle())
-            }
-            ) {
-                GameModeView()
+//            BannerAd(unitID: settingsId)
+//                .frame(width: 320, height: 50)
+//            Section(header:
+//                        VStack(alignment: .leading) {
+//                Text("Game Mode")
+//                    .modifier(SettingsTitleStyle())
+//                Text("Choose whether your board uses letters or numbers")
+//                    .modifier(SettingsDescriptionStyle())
+//            }
+//            ) {
+//                GameModeView()
 //                Button("Show Interstitial") {
 //                    adsViewModel.showInterstitial = true
 //                }
 //                    .buttonStyle(.borderedProminent)
-            }
+//            }
             BannerAd(unitID: settingsId)
                 .frame(width: 320, height: 50)
             Section(header:
