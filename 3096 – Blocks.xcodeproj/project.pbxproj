@@ -94,34 +94,6 @@
 		D470730A2976633F0019774A /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47073092976633F0019774A /* LeaderboardView.swift */; };
 		D470730D2976654E0019774A /* LeaderboardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D470730C2976654E0019774A /* LeaderboardData.swift */; };
 		D470730F2976774B0019774A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D470730E2976774B0019774A /* LoginView.swift */; };
-		D474B7C3299C7A310063266B /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B796299C7A310063266B /* GameViewModel.swift */; };
-		D474B7C4299C7A310063266B /* GameStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B798299C7A310063266B /* GameStateController.swift */; };
-		D474B7C5299C7A310063266B /* PongGameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B799299C7A310063266B /* PongGameLogic.swift */; };
-		D474B7C6299C7A310063266B /* LocalGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B79B299C7A310063266B /* LocalGameController.swift */; };
-		D474B7C7299C7A310063266B /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B79D299C7A310063266B /* GameObject.swift */; };
-		D474B7C8299C7A310063266B /* GameObject+Collisions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B79E299C7A310063266B /* GameObject+Collisions.swift */; };
-		D474B7C9299C7A310063266B /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B79F299C7A310063266B /* Wall.swift */; };
-		D474B7CA299C7A310063266B /* GameScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B7A0299C7A310063266B /* GameScore.swift */; };
-		D474B7CB299C7A310063266B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D474B7A1299C7A310063266B /* Assets.xcassets */; };
-		D474B7CC299C7A310063266B /* CGPoint+Arithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B7A3299C7A310063266B /* CGPoint+Arithmetic.swift */; };
-		D474B7CD299C7A310063266B /* GameStateMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B7A7299C7A310063266B /* GameStateMessage.swift */; };
-		D474B7CE299C7A310063266B /* GameUpdateMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B7A8299C7A310063266B /* GameUpdateMessage.swift */; };
-		D474B7CF299C7A310063266B /* PongActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B7A9299C7A310063266B /* PongActivityController.swift */; };
-		D474B7D0299C7A310063266B /* GroupActivity+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B7AC299C7A310063266B /* GroupActivity+Mock.swift */; };
-		D474B7D1299C7A310063266B /* GroupActivity+Live.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B7AE299C7A310063266B /* GroupActivity+Live.swift */; };
-		D474B7D2299C7A310063266B /* PongActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B7AF299C7A310063266B /* PongActivity.swift */; };
-		D474B7D3299C7A310063266B /* Interfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B7B0299C7A310063266B /* Interfaces.swift */; };
-		D474B7D4299C7A310063266B /* GameViewGroupActivityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B7B2299C7A310063266B /* GameViewGroupActivityTest.swift */; };
-		D474B7D5299C7A310063266B /* PongApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B7B3299C7A310063266B /* PongApp.swift */; };
-		D474B7D6299C7A310063266B /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B7B5299C7A310063266B /* GameView.swift */; };
-		D474B7D7299C7A310063266B /* ActivitySharingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B7B7299C7A310063266B /* ActivitySharingViewController.swift */; };
-		D474B7D8299C7A310063266B /* JoinToPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B7B8299C7A310063266B /* JoinToPlayView.swift */; };
-		D474B7D9299C7A310063266B /* GameObject+Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B7BA299C7A310063266B /* GameObject+Canvas.swift */; };
-		D474B7DA299C7A310063266B /* GameViewModel+Draw.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B7BB299C7A310063266B /* GameViewModel+Draw.swift */; };
-		D474B7DB299C7A310063266B /* Factory+Local.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B7BE299C7A310063266B /* Factory+Local.swift */; };
-		D474B7DC299C7A310063266B /* Factory+GroupActivityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B7C0299C7A310063266B /* Factory+GroupActivityTest.swift */; };
-		D474B7DD299C7A310063266B /* Factory+GroupActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B7C1299C7A310063266B /* Factory+GroupActivity.swift */; };
-		D474B7DE299C7A310063266B /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474B7C2299C7A310063266B /* Factory.swift */; };
 		D49F668329A1F3A100DC84BC /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49F668229A1F3A100DC84BC /* CircleButton.swift */; };
 		D49F668529A1F6A300DC84BC /* MultiplayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49F668429A1F6A300DC84BC /* MultiplayerManager.swift */; };
 		D4B1E9B5299C52B1006CAF24 /* TimedHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B1E9B4299C52B1006CAF24 /* TimedHeaderView.swift */; };
@@ -279,35 +251,6 @@
 		D47073092976633F0019774A /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		D470730C2976654E0019774A /* LeaderboardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardData.swift; sourceTree = "<group>"; };
 		D470730E2976774B0019774A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		D474B796299C7A310063266B /* GameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
-		D474B798299C7A310063266B /* GameStateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStateController.swift; sourceTree = "<group>"; };
-		D474B799299C7A310063266B /* PongGameLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PongGameLogic.swift; sourceTree = "<group>"; };
-		D474B79B299C7A310063266B /* LocalGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGameController.swift; sourceTree = "<group>"; };
-		D474B79D299C7A310063266B /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
-		D474B79E299C7A310063266B /* GameObject+Collisions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameObject+Collisions.swift"; sourceTree = "<group>"; };
-		D474B79F299C7A310063266B /* Wall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
-		D474B7A0299C7A310063266B /* GameScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScore.swift; sourceTree = "<group>"; };
-		D474B7A1299C7A310063266B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D474B7A3299C7A310063266B /* CGPoint+Arithmetic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Arithmetic.swift"; sourceTree = "<group>"; };
-		D474B7A4299C7A310063266B /* Pong.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Pong.entitlements; sourceTree = "<group>"; };
-		D474B7A7299C7A310063266B /* GameStateMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStateMessage.swift; sourceTree = "<group>"; };
-		D474B7A8299C7A310063266B /* GameUpdateMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameUpdateMessage.swift; sourceTree = "<group>"; };
-		D474B7A9299C7A310063266B /* PongActivityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PongActivityController.swift; sourceTree = "<group>"; };
-		D474B7AC299C7A310063266B /* GroupActivity+Mock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GroupActivity+Mock.swift"; sourceTree = "<group>"; };
-		D474B7AE299C7A310063266B /* GroupActivity+Live.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GroupActivity+Live.swift"; sourceTree = "<group>"; };
-		D474B7AF299C7A310063266B /* PongActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PongActivity.swift; sourceTree = "<group>"; };
-		D474B7B0299C7A310063266B /* Interfaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interfaces.swift; sourceTree = "<group>"; };
-		D474B7B2299C7A310063266B /* GameViewGroupActivityTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewGroupActivityTest.swift; sourceTree = "<group>"; };
-		D474B7B3299C7A310063266B /* PongApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PongApp.swift; sourceTree = "<group>"; };
-		D474B7B5299C7A310063266B /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
-		D474B7B7299C7A310063266B /* ActivitySharingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitySharingViewController.swift; sourceTree = "<group>"; };
-		D474B7B8299C7A310063266B /* JoinToPlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinToPlayView.swift; sourceTree = "<group>"; };
-		D474B7BA299C7A310063266B /* GameObject+Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameObject+Canvas.swift"; sourceTree = "<group>"; };
-		D474B7BB299C7A310063266B /* GameViewModel+Draw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GameViewModel+Draw.swift"; sourceTree = "<group>"; };
-		D474B7BE299C7A310063266B /* Factory+Local.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Factory+Local.swift"; sourceTree = "<group>"; };
-		D474B7C0299C7A310063266B /* Factory+GroupActivityTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Factory+GroupActivityTest.swift"; sourceTree = "<group>"; };
-		D474B7C1299C7A310063266B /* Factory+GroupActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Factory+GroupActivity.swift"; sourceTree = "<group>"; };
-		D474B7C2299C7A310063266B /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		D49F668229A1F3A100DC84BC /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CircleButton.swift; path = ../../../../CircleButton.swift; sourceTree = "<group>"; };
 		D49F668429A1F6A300DC84BC /* MultiplayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MultiplayerManager.swift; path = ../../../../../MultiplayerManager.swift; sourceTree = "<group>"; };
 		D4B1E9B4299C52B1006CAF24 /* TimedHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedHeaderView.swift; sourceTree = "<group>"; };
@@ -379,7 +322,6 @@
 			children = (
 				A9757F5324CC497400847031 /* .gitignore */,
 				A9757F5824CC571800847031 /* Resources */,
-				D474B794299C7A310063266B /* Pong */,
 				A9757EAA24CC47EC00847031 /* 2048 */,
 				A9757EBC24CC47EC00847031 /* 2048Tests */,
 				A9757EC724CC47EC00847031 /* 2048UITests */,
@@ -793,178 +735,6 @@
 			path = Leaderboard;
 			sourceTree = "<group>";
 		};
-		D474B794299C7A310063266B /* Pong */ = {
-			isa = PBXGroup;
-			children = (
-				D474B795299C7A310063266B /* ViewModel */,
-				D474B797299C7A310063266B /* Game Logic */,
-				D474B7A1299C7A310063266B /* Assets.xcassets */,
-				D474B7A2299C7A310063266B /* Extensions */,
-				D474B7A4299C7A310063266B /* Pong.entitlements */,
-				D474B7A5299C7A310063266B /* Group activity */,
-				D474B7B1299C7A310063266B /* View */,
-				D474B7BC299C7A310063266B /* Factory */,
-			);
-			path = Pong;
-			sourceTree = "<group>";
-		};
-		D474B795299C7A310063266B /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				D474B796299C7A310063266B /* GameViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		D474B797299C7A310063266B /* Game Logic */ = {
-			isa = PBXGroup;
-			children = (
-				D474B798299C7A310063266B /* GameStateController.swift */,
-				D474B799299C7A310063266B /* PongGameLogic.swift */,
-				D474B79A299C7A310063266B /* Game controller */,
-				D474B79C299C7A310063266B /* GameObject */,
-				D474B7A0299C7A310063266B /* GameScore.swift */,
-			);
-			path = "Game Logic";
-			sourceTree = "<group>";
-		};
-		D474B79A299C7A310063266B /* Game controller */ = {
-			isa = PBXGroup;
-			children = (
-				D474B79B299C7A310063266B /* LocalGameController.swift */,
-			);
-			path = "Game controller";
-			sourceTree = "<group>";
-		};
-		D474B79C299C7A310063266B /* GameObject */ = {
-			isa = PBXGroup;
-			children = (
-				D474B79D299C7A310063266B /* GameObject.swift */,
-				D474B79E299C7A310063266B /* GameObject+Collisions.swift */,
-				D474B79F299C7A310063266B /* Wall.swift */,
-			);
-			path = GameObject;
-			sourceTree = "<group>";
-		};
-		D474B7A2299C7A310063266B /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				D474B7A3299C7A310063266B /* CGPoint+Arithmetic.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		D474B7A5299C7A310063266B /* Group activity */ = {
-			isa = PBXGroup;
-			children = (
-				D474B7A6299C7A310063266B /* Messages */,
-				D474B7A9299C7A310063266B /* PongActivityController.swift */,
-				D474B7AA299C7A310063266B /* Group Activity */,
-			);
-			path = "Group activity";
-			sourceTree = "<group>";
-		};
-		D474B7A6299C7A310063266B /* Messages */ = {
-			isa = PBXGroup;
-			children = (
-				D474B7A7299C7A310063266B /* GameStateMessage.swift */,
-				D474B7A8299C7A310063266B /* GameUpdateMessage.swift */,
-			);
-			path = Messages;
-			sourceTree = "<group>";
-		};
-		D474B7AA299C7A310063266B /* Group Activity */ = {
-			isa = PBXGroup;
-			children = (
-				D474B7AB299C7A310063266B /* Mocks */,
-				D474B7AD299C7A310063266B /* Live */,
-				D474B7AF299C7A310063266B /* PongActivity.swift */,
-				D474B7B0299C7A310063266B /* Interfaces.swift */,
-			);
-			path = "Group Activity";
-			sourceTree = "<group>";
-		};
-		D474B7AB299C7A310063266B /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				D474B7AC299C7A310063266B /* GroupActivity+Mock.swift */,
-			);
-			path = Mocks;
-			sourceTree = "<group>";
-		};
-		D474B7AD299C7A310063266B /* Live */ = {
-			isa = PBXGroup;
-			children = (
-				D474B7AE299C7A310063266B /* GroupActivity+Live.swift */,
-			);
-			path = Live;
-			sourceTree = "<group>";
-		};
-		D474B7B1299C7A310063266B /* View */ = {
-			isa = PBXGroup;
-			children = (
-				D474B7B2299C7A310063266B /* GameViewGroupActivityTest.swift */,
-				D474B7B3299C7A310063266B /* PongApp.swift */,
-				D474B7B4299C7A310063266B /* GameView */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		D474B7B4299C7A310063266B /* GameView */ = {
-			isa = PBXGroup;
-			children = (
-				D474B7B5299C7A310063266B /* GameView.swift */,
-				D474B7B6299C7A310063266B /* Group Activity */,
-				D474B7B8299C7A310063266B /* JoinToPlayView.swift */,
-				D474B7B9299C7A310063266B /* GameObjects */,
-			);
-			path = GameView;
-			sourceTree = "<group>";
-		};
-		D474B7B6299C7A310063266B /* Group Activity */ = {
-			isa = PBXGroup;
-			children = (
-				D474B7B7299C7A310063266B /* ActivitySharingViewController.swift */,
-			);
-			path = "Group Activity";
-			sourceTree = "<group>";
-		};
-		D474B7B9299C7A310063266B /* GameObjects */ = {
-			isa = PBXGroup;
-			children = (
-				D474B7BA299C7A310063266B /* GameObject+Canvas.swift */,
-				D474B7BB299C7A310063266B /* GameViewModel+Draw.swift */,
-			);
-			path = GameObjects;
-			sourceTree = "<group>";
-		};
-		D474B7BC299C7A310063266B /* Factory */ = {
-			isa = PBXGroup;
-			children = (
-				D474B7BD299C7A310063266B /* Local */,
-				D474B7BF299C7A310063266B /* Group activity */,
-				D474B7C2299C7A310063266B /* Factory.swift */,
-			);
-			path = Factory;
-			sourceTree = "<group>";
-		};
-		D474B7BD299C7A310063266B /* Local */ = {
-			isa = PBXGroup;
-			children = (
-				D474B7BE299C7A310063266B /* Factory+Local.swift */,
-			);
-			path = Local;
-			sourceTree = "<group>";
-		};
-		D474B7BF299C7A310063266B /* Group activity */ = {
-			isa = PBXGroup;
-			children = (
-				D474B7C0299C7A310063266B /* Factory+GroupActivityTest.swift */,
-				D474B7C1299C7A310063266B /* Factory+GroupActivity.swift */,
-			);
-			path = "Group activity";
-			sourceTree = "<group>";
-		};
 		D4CA333A297DDAC900ABD061 /* OptimizationProfiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -1115,7 +885,6 @@
 				D402368C29694BA400B81834 /* Podfile in Resources */,
 				A9757F2324CC481E00847031 /* Strings.plist in Resources */,
 				D42CF914297E0FE200E117DD /* Can.mp3 in Resources */,
-				D474B7CB299C7A310063266B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1260,15 +1029,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D474B7D2299C7A310063266B /* PongActivity.swift in Sources */,
 				A9757F3924CC481E00847031 /* View+EraseToAnyView.swift in Sources */,
 				A9757F2824CC481E00847031 /* PlistConfiguration.swift in Sources */,
-				D474B7D7299C7A310063266B /* ActivitySharingViewController.swift in Sources */,
 				A9757F4C24CC481E00847031 /* Merged.swift in Sources */,
 				A9757F3A24CC481E00847031 /* Notification.Name+Keys.swift in Sources */,
 				A9757F2C24CC481E00847031 /* GameLogic.swift in Sources */,
 				A9757F3024CC481E00847031 /* ColorSchemeBackgroundTheme.swift in Sources */,
-				D474B7DA299C7A310063266B /* GameViewModel+Draw.swift in Sources */,
 				A9757F2A24CC481E00847031 /* AppStorageKeys.swift in Sources */,
 				D436C0FE297EDE80009089BB /* GameModeView.swift in Sources */,
 				D43EF0BB29A1EF79007E5022 /* BannerAd.swift in Sources */,
@@ -1276,39 +1042,25 @@
 				D49F668329A1F3A100DC84BC /* CircleButton.swift in Sources */,
 				D470730F2976774B0019774A /* LoginView.swift in Sources */,
 				A9757F2624CC481E00847031 /* TileBoardSizeEnvironmentKey.swift in Sources */,
-				D474B7C9299C7A310063266B /* Wall.swift in Sources */,
 				A9757F3B24CC481E00847031 /* FilledBackgroundStyle.swift in Sources */,
 				A9757F4624CC481E00847031 /* TileBoardView.swift in Sources */,
 				D4D3047C297997860022868A /* StatsView.swift in Sources */,
-				D474B7C6299C7A310063266B /* LocalGameController.swift in Sources */,
 				A9757F2424CC481E00847031 /* ColorSchemeBackgroundThemeEnvironmentKey.swift in Sources */,
 				A9757F4E24CC481E00847031 /* SlideViewModifier.swift in Sources */,
-				D474B7D0299C7A310063266B /* GroupActivity+Mock.swift in Sources */,
-				D474B7D6299C7A310063266B /* GameView.swift in Sources */,
 				A9757F2924CC481E00847031 /* PlistConfigurationKeyPath.swift in Sources */,
-				D474B7DE299C7A310063266B /* Factory.swift in Sources */,
 				A9757F2E24CC481E00847031 /* GameBoardSizeState.swift in Sources */,
-				D474B7CD299C7A310063266B /* GameStateMessage.swift in Sources */,
-				D474B7C7299C7A310063266B /* GameObject.swift in Sources */,
 				A9757F4F24CC481E00847031 /* MainViewModifier.swift in Sources */,
 				A9757F2724CC481E00847031 /* GameBoardSizeEnvironmentKey.swift in Sources */,
 				D4D3048B297A68620022868A /* GradientTileColorScheme.swift in Sources */,
 				A9757F4924CC481E00847031 /* HeaderView.swift in Sources */,
-				D474B7CA299C7A310063266B /* GameScore.swift in Sources */,
 				A9757F2B24CC481E00847031 /* SelectedView.swift in Sources */,
-				D474B7DB299C7A310063266B /* Factory+Local.swift in Sources */,
-				D474B7C3299C7A310063266B /* GameViewModel.swift in Sources */,
 				A9757F4224CC481E00847031 /* SideMenuView.swift in Sources */,
 				A9757F3F24CC481E00847031 /* SettingsView.swift in Sources */,
 				A9757F2D24CC481E00847031 /* BoardSize.swift in Sources */,
 				A9757F4724CC481E00847031 /* GameStateBottomView.swift in Sources */,
 				A9757F4B24CC481E00847031 /* FactoryContentView.swift in Sources */,
 				A9757F3224CC481E00847031 /* StandardTileColorTheme.swift in Sources */,
-				D474B7CC299C7A310063266B /* CGPoint+Arithmetic.swift in Sources */,
-				D474B7CE299C7A310063266B /* GameUpdateMessage.swift in Sources */,
-				D474B7D9299C7A310063266B /* GameObject+Canvas.swift in Sources */,
 				A9757F5024CC481E00847031 /* BottomSlidableModalModifier.swift in Sources */,
-				D474B7DC299C7A310063266B /* Factory+GroupActivityTest.swift in Sources */,
 				A9757F4824CC481E00847031 /* ModalView.swift in Sources */,
 				A9757F4A24CC481E00847031 /* CompositeView.swift in Sources */,
 				A9757F3E24CC481E00847031 /* AudioSource.swift in Sources */,
@@ -1321,17 +1073,11 @@
 				A9757F3424CC481E00847031 /* Direction.swift in Sources */,
 				A9757F4324CC481E00847031 /* CompositeSideView.swift in Sources */,
 				D470730A2976633F0019774A /* LeaderboardView.swift in Sources */,
-				D474B7D3299C7A310063266B /* Interfaces.swift in Sources */,
 				A9757F3D24CC481E00847031 /* Audio.swift in Sources */,
-				D474B7C8299C7A310063266B /* GameObject+Collisions.swift in Sources */,
-				D474B7DD299C7A310063266B /* Factory+GroupActivity.swift in Sources */,
 				A9757EAC24CC47EC00847031 /* 3096BlocksApp.swift in Sources */,
-				D474B7C4299C7A310063266B /* GameStateController.swift in Sources */,
-				D474B7C5299C7A310063266B /* PongGameLogic.swift in Sources */,
 				D40228BB296FA64700A6F5D5 /* Haptics.swift in Sources */,
 				A9757F2F24CC481E00847031 /* TileMatrix.swift in Sources */,
 				A9757F3824CC481E00847031 /* View+Center.swift in Sources */,
-				D474B7D1299C7A310063266B /* GroupActivity+Live.swift in Sources */,
 				A9757F3324CC481E00847031 /* Tile.swift in Sources */,
 				A9757F4424CC481E00847031 /* AboutView.swift in Sources */,
 				D40228BE296FA6A700A6F5D5 /* HapticControler.swift in Sources */,
@@ -1341,16 +1087,12 @@
 				D49F668529A1F6A300DC84BC /* MultiplayerManager.swift in Sources */,
 				D44A46C62987581300B9FD54 /* Settings.swift in Sources */,
 				D470730D2976654E0019774A /* LeaderboardData.swift in Sources */,
-				D474B7D8299C7A310063266B /* JoinToPlayView.swift in Sources */,
 				A9757F4024CC481E00847031 /* TileBoardSettingView.swift in Sources */,
 				A9757F3C24CC481E00847031 /* CheckboxToggleStyle.swift in Sources */,
 				A9757F5124CC481E00847031 /* BlurEffect.swift in Sources */,
 				A9757F5224CC481E00847031 /* RoundedClippedBackground.swift in Sources */,
-				D474B7D4299C7A310063266B /* GameViewGroupActivityTest.swift in Sources */,
-				D474B7CF299C7A310063266B /* PongActivityController.swift in Sources */,
 				D4D30482297A373E0022868A /* TimedView.swift in Sources */,
 				D4D3048D297A69B70022868A /* GradientSkinEnvironmentKey.swift in Sources */,
-				D474B7D5299C7A310063266B /* PongApp.swift in Sources */,
 				A9757F4D24CC481E00847031 /* AnchoredScale.swift in Sources */,
 				A9757F3124CC481E00847031 /* TileColorTheme.swift in Sources */,
 				D4D30480297A2BE10022868A /* ColorThemePickerView.swift in Sources */,

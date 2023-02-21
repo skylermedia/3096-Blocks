@@ -18,6 +18,20 @@ final class GameLogic : ObservableObject {
         case down
     }
     
+    enum SpecialTileType {
+        case bomb
+        case x2
+        // add other types here
+    }
+    
+    enum Power {
+        case clearRow
+        case clearColumn
+        case clearBlock
+        case shuffle
+        // add other powers here
+    }
+
     typealias BlockMatrixType = BlockMatrix<IdentifiedBlock>
     
     let objectWillChange = PassthroughSubject<GameLogic, Never>()
@@ -133,40 +147,74 @@ final class GameLogic : ObservableObject {
         if reverse {
             blocks = blocks.reversed()
         }
-        
-        blocks = blocks
-            .map { (false, $0) }
-            .reduce([(Bool, IdentifiedBlock)]()) { acc, item in
-                if acc.last?.0 == false && acc.last?.1.number == item.1.number {
-                    var accPrefix = Array(acc.dropLast())
-                    var mergedBlock = item.1
-                    mergedBlock.number *= 2
-                    accPrefix.append((true, mergedBlock))
-                    return accPrefix
-                } else {
-                    var accTmp = acc
-                    accTmp.append((false, item.1))
-                    return accTmp
+        if isSpecialTile(compactRow[i]) || isSpecialTile(compactRow[j]) {
+            // handle special tile merging here
+        } else if compactRow[i].number == compactRow[j].number {
+            // handle regular block merging here
+            blocks = blocks
+                .map { (false, $0) }
+                .reduce([(Bool, IdentifiedBlock)]()) { acc, item in
+                    if acc.last?.0 == false && acc.last?.1.number == item.1.number {
+                        var accPrefix = Array(acc.dropLast())
+                        var mergedBlock = item.1
+                        mergedBlock.number *= 2
+                        accPrefix.append((true, mergedBlock))
+                        return accPrefix
+                    } else {
+                        var accTmp = acc
+                        accTmp.append((false, item.1))
+                        return accTmp
+                    }
                 }
+                .map { $0.1 }
+            
+            if reverse {
+                blocks = blocks.reversed()
             }
-            .map { $0.1 }
-        
-        if reverse {
-            blocks = blocks.reversed()
         }
     }
     
     @discardableResult fileprivate func generateNewBlocks() -> Bool {
         var blankLocations = [BlockMatrixType.Index]()
-        for rowIndex in 0..<4 {
-            for colIndex in 0..<4 {
-                let index = (colIndex, rowIndex)
-                if _blockMatrix[index] == nil {
-                    blankLocations.append(index)
+        let power = Power.allCases.randomElement()!
+        let specialTile = SpecialTile(type: specialTileType, power: power)
+        let isSpecialTile = Bool.random()
+        if isSpecialTile {
+            let specialTileType = SpecialTileType.allCases.randomElement()!
+            let specialTile = SpecialTile(type: specialTileType)
+            // place the special tile in the block matrix
+        } else {
+            // generate a numbered tile
+            for rowIndex in 0..<4 {
+                for colIndex in 0..<4 {
+                    let index = (colIndex, rowIndex)
+                    if _blockMatrix[index] == nil {
+                        blankLocations.append(index)
+                    }
                 }
             }
         }
         
+        func isSpecialTile(_ block: IdentifiedBlock) -> Bool {
+            // return true if the block is a special tile
+        }
+
+        func activatePower(forSpecialTiles specialTiles: [SpecialTile]) {
+            let specialTileType = specialTiles.first!.type
+            let power = specialTiles.first!.power
+            switch power {
+            case .clearRow:
+                // clear the row that the special tiles are in
+            case .clearColumn:
+                // clear the column that the special tiles are in
+            case .clearBlock:
+                // clear all tiles adjacent to the special tiles
+            case .shuffle:
+                // shuffle the positions of all tiles on the board
+            // add other power implementations here
+            }
+        }
+
         guard blankLocations.count >= 2 else {
             return false
         }
@@ -233,6 +281,3 @@ final class GameLogic : ObservableObject {
     }
     
 }
-
-
-

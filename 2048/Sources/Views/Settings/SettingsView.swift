@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MultipeerConnectivity
 
 struct SettingsView: View {
     
@@ -39,7 +40,16 @@ struct SettingsView: View {
     // MARK: - Conformance to View Protocol
     
     var body: some View {
+        let multiplayerManager = MultiplayerManager(peerID: MCPeerID(displayName: "MyDisplayName"))
         List {
+            Button(action: multiplayerManager.startAdvertisingAndBrowsing) {
+                       Text("Play")
+                           .font(.headline)
+                           .foregroundColor(.white)
+                           .padding(.horizontal, 20)
+                           .padding(.vertical, 10)
+                           .background(Capsule())
+                   }
             Section(header:
                         VStack(alignment: .leading) {
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.gameBoardSize.rawValue] ?? "")
@@ -130,8 +140,8 @@ struct SettingsView: View {
             .foregroundColor(.clear)
             .environment(\.horizontalSizeClass, .regular)
             .edgesIgnoringSafeArea(.bottom)
-            BannerAd(unitID: settingsId)
-                .frame(width: 320, height: 50)
+//            BannerAd(unitID: settingsId)
+//                .frame(width: 320, height: 50)
         }
     }
 }

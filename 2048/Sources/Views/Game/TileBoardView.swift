@@ -23,11 +23,6 @@ struct TileBoardView: View {
     
     var tileBoardSize: Int
     @Environment(\.colorScheme) var colorScheme: ColorScheme
-    
-    var players: [Player] = [
-        Player(name: "Player 1", matrix: TileMatrix<IdentifiedTile>()),
-        Player(name: "Player 2", matrix: TileMatrix<IdentifiedTile>())
-    ]
 
     // MARK: - Computed Properties
     
@@ -38,61 +33,48 @@ struct TileBoardView: View {
     // MARK: - Conformacne to View Protocol
     
     var body: some View {
-        GeometryReader { proxy in
-            VStack {
-                ZStack {
-                    Rectangle()
-                        .fill(backgroundColor)
-                    
-                    ForEach(0..<tileBoardSize, id: \.self) { x in
-                        ForEach(0..<tileBoardSize, id: \.self) { y in
-                            createBlock(nil, at: (x, y), proxy: proxy, player: players[0])
+            GeometryReader { proxy in
+                VStack {
+                    ZStack {
+                        Rectangle()
+                            .fill(backgroundColor)
+                        
+                        ForEach(0..<tileBoardSize, id: \.self) { x in
+                            ForEach(0..<tileBoardSize, id: \.self) { y in
+                                createBlock(nil, at: (x, y), proxy: proxy)
+                            }
+                        }
+                        ForEach(matrix.flatten(), id: \.tile.id) { item in
+                            createBlock(item.tile, at: item.index, proxy: proxy)
                         }
                     }
+                    .frame(
+                        width: calculateFrameSize(proxy),
+                        height: calculateFrameSize(proxy), alignment: .center
+                    )
+                    .background(
+                        Rectangle()
+                            .fill(Color(red:0.76, green:0.76, blue:0.78, opacity: 0.1))
+                    )
+                    .clipped()
+                    .cornerRadius(proxy.size.width / CGFloat(5 * tileBoardSize * 2))
+                    .drawingGroup(opaque: false, colorMode: .linear)
+                    .center(in: .local, with: proxy)
                     
-                    ForEach(matrix.flatten(), id: \.tile.id) { item in
-                        createBlock(item.tile, at: item.index, proxy: proxy, player: players[0])
-                    }
-
-                    ForEach(0..<tileBoardSize, id: \.self) { x in
-                        ForEach(0..<tileBoardSize, id: \.self) { y in
-                            createBlock(nil, at: (x, y), proxy: proxy, player: players[1])
-                        }
-                    }
-                    
-                    ForEach(players[1].matrix.flatten(), id: \.tile.id) { item in
-                        createBlock(item.tile, at: item.index, proxy: proxy, player: players[1])
-                    }
+                    BannerAd(unitID: gameId)
+                        .frame(width: 320, height: 50)
                 }
-                .frame(
-                    width: calculateFrameSize(proxy),
-                    height: calculateFrameSize(proxy), alignment: .center
-                )
-                .background(
-                    Rectangle()
-                        .fill(Color(red:0.76, green:0.76, blue:0.78, opacity: 0.1))
-                )
-                .clipped()
-                .cornerRadius(proxy.size.width / CGFloat(5 * tileBoardSize * 2))
-                .drawingGroup(opaque: false, colorMode: .linear)
-                .center(in: .local, with: proxy)
-                
-                BannerAd(unitID: gameId)
-                    .frame(width: 320, height: 50)
+                .shadow(color: .blue, radius: 10)
             }
-            .shadow(color: .blue, radius: 10)
         }
-    }
     
     // MARK: - Methods
     
     func createBlock(
         _ block: IdentifiedTile?,
         at index: IndexedTile<IdentifiedTile>.Index,
-        proxy: GeometryProxy,
-        player: Player
+        proxy: GeometryProxy
     ) -> some View {
-        let matrix = player.matrix
         let blockView: TileView
         if let block = block {
             blockView = TileView(number: block.value)
@@ -145,9 +127,7 @@ struct TileBoardView: View {
 }
 
 //struct TileBoardView_Previews: PreviewProvider {
-//    static var players: [Player] = [        Player(name: "Player 1", matrix: getMatrix()),        Player(name: "Player 2", matrix: getMatrix())    ]
-//
-//    static func getMatrix() -> TileMatrix<IdentifiedTile> {
+//static func getMatrix() -> TileMatrix<IdentifiedTile> {
 //        var board = TileMatrix<IdentifiedTile>()
 //        board.add(IdentifiedTile(id: 1, value: 2), to: (2, 0))
 //        board.add(IdentifiedTile(id: 2, value: 2), to: (3, 0))
@@ -158,12 +138,7 @@ struct TileBoardView: View {
 //    }
 //
 //    static var previews: some View {
-//        TileBoardView(matrix: matrix, tileEdge: .top, tileBoardSize: 4)
+//        TileBoardView(matrix: tileboardmatrix, tileEdge: .top, tileBoardSize: 4)
 //            .previewLayout(.sizeThatFits)
 //    }
 //}
-
-struct Player {
-    let name: String
-    let matrix: TileMatrix<IdentifiedTile>
-}

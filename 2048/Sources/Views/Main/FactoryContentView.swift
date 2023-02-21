@@ -13,8 +13,6 @@ struct FactoryContentView<G: Gesture>: View {
     
     @Binding var selectedView: SelectedView
     
-    var gameMode: String = ".groupActivity"
-    
     var gesture: G
     
     @ObservedObject var gameLogic: GameLogic
@@ -57,10 +55,6 @@ struct FactoryContentView<G: Gesture>: View {
 //            .padding(.bottom, 24)
 //    }
     
-    private var multiplayerView: some View {
-        GameView(game: Factory.groupActivity())
-    }
-    
     private var statsView: some View {
         StatsView()
             .padding(.top, -64)
@@ -79,12 +73,10 @@ struct FactoryContentView<G: Gesture>: View {
     @ViewBuilder
     private func currentView() -> some View {
         switch selectedView {
+        case .multiplayer:
+            tileBoardView
         case .game:
             tileBoardView
-//        case .timed:
-//            timedView
-        case.multiplayer:
-            multiplayerView
         case .ranks:
             ranksView
         case .stats:
