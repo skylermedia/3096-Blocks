@@ -33,18 +33,18 @@ struct HeaderView: View {
             HStack {
                 Text("Score: ")
                     .font(Font.system(.title, design: .monospaced).weight(.black))
-                    .foregroundColor(Color(red:0.49, green:0.49, blue:0.49, opacity: 0.7))
+                    .foregroundColor(.white)
                 
                 Text("\(score)")
                     .font(Font.system(.title, design: .monospaced).weight(.black))
-                    .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
+                    .foregroundColor(.white)
                     .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
                     .animation(.modalSpring, value: shouldShowReset)
                     .id("Score \(self.score)")
                 
                 Text("x\(scoreMultiplier)")
                     .font(Font.system(.body, design: .monospaced).weight(.black))
-                    .foregroundColor(Color.primary.opacity(0.7))
+                    .foregroundColor(.white)
                     .alignmentGuide(VerticalAlignment.center, computeValue: { $0[.bottom] })
             }
             .opacity(shouldShowReset ? 1.0 : 0.0)
@@ -54,11 +54,11 @@ struct HeaderView: View {
             HStack {
                 Text("Best (Beta): ")
                     .font(Font.system(.title, design: .monospaced).weight(.black))
-                    .foregroundColor(Color(red:0.49, green:0.49, blue:0.49, opacity: 0.7))
+                    .foregroundColor(.white)
                 
                 Text("\(highScore)")
                     .font(Font.system(.title, design: .monospaced).weight(.black))
-                    .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
+                    .foregroundColor(.white)
                     .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
                     .animation(.modalSpring, value: shouldShowReset)
                     .id("Score \(self.score)")
@@ -84,7 +84,7 @@ struct HeaderView: View {
                 .scaledToFit()
                 .aspectRatio(1, contentMode: .fit)
                 .frame(width: buttonSize, height: buttonSize)
-                .foregroundColor(.white)
+                .foregroundColor(Color("signaturePink"))
         }
         .foregroundColor(.gray)
         .padding()
@@ -100,7 +100,7 @@ struct HeaderView: View {
                 .scaledToFit()
                 .aspectRatio(1, contentMode: .fit)
                 .frame(width: buttonSize, height: buttonSize)
-                .foregroundColor(.white)
+                .foregroundColor(Color("signaturePink"))
         }
         .foregroundColor(.gray)
         .padding()
@@ -118,7 +118,7 @@ struct HeaderView: View {
                 .scaledToFit()
                 .aspectRatio(1, contentMode: .fit)
                 .frame(width: buttonSize, height: buttonSize)
-                .foregroundColor(.white)
+                .foregroundColor(Color("signaturePink"))
         }
         .foregroundColor(.gray)
         .padding()
@@ -134,7 +134,7 @@ struct HeaderView: View {
                 .scaledToFit()
                 .aspectRatio(1, contentMode: .fit)
                 .frame(width: buttonSize, height: buttonSize)
-                .foregroundColor(.white)
+                .foregroundColor(Color("signaturePink"))
         }
         .foregroundColor(.gray)
         .padding()
