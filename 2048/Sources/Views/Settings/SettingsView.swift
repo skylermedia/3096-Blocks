@@ -13,7 +13,7 @@ struct SettingsView: View {
     // MARK: - Environment
     
     @Environment(\.colorScheme) private var colorScheme: ColorScheme
-    @EnvironmentObject var adsViewModel: AdsViewModel
+//    @EnvironmentObject var adsViewModel: AdsViewModel
     
     // MARK: - Private Properties
     
@@ -71,22 +71,22 @@ struct SettingsView: View {
 //            }
 //            BannerAd(unitID: settingsId)
 //                .frame(width: 320, height: 50)
-//            Section(header:
-//                        VStack(alignment: .leading) {
+//            Section(header: VStack(alignment: .leading) {
 //                Text("Game Mode")
 //                    .modifier(SettingsTitleStyle())
 //                Text("Choose whether your board uses letters or numbers")
 //                    .modifier(SettingsDescriptionStyle())
 //            }
 //            ) {
-//                GameModeView()
-//                Button("Show Interstitial") {
-//                    adsViewModel.showInterstitial = true
-//                }
-//                    .buttonStyle(.borderedProminent)
+                
+//                                GameModeView()
+//                                Button("Show Interstitial") {
+//                                    adsViewModel.showInterstitial = true
+//                                }
+//                                    .buttonStyle(.borderedProminent)
 //            }
-            BannerAd(unitID: settingsId)
-                .frame(width: 320, height: 50)
+//            BannerAd(unitID: settingsId)
+//                .frame(width: 320, height: 50)
             Section(header:
                         VStack(alignment: .leading) {
                 Text("Sound Picker")
@@ -97,8 +97,8 @@ struct SettingsView: View {
             ) {
                 SoundPickerView()
             }
-            BannerAd(unitID: settingsId)
-                .frame(width: 320, height: 50)
+//            BannerAd(unitID: settingsId)
+//                .frame(width: 320, height: 50)
             Section(header:
                         VStack(alignment: .leading) {
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.audio.rawValue] ?? "")
@@ -112,8 +112,8 @@ struct SettingsView: View {
                     previewSize: previewSize
                 )
             }
-            BannerAd(unitID: settingsId)
-                .frame(width: 320, height: 50)
+//            BannerAd(unitID: settingsId)
+//                .frame(width: 320, height: 50)
             Section(header:
                         VStack(alignment: .leading) {
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.haptic.rawValue] ?? "")

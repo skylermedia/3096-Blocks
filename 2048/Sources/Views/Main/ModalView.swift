@@ -125,20 +125,20 @@ struct ModalView: View {
     func cancelGameAction() {
         print("User: Reset game manualy")
         score = 0
-        let resetWithScore = false
+        _ = false
         allGameAction()
     }
     
     func newGameAction() {
         print("User: Reset without score")
         score = 0
-        let resetWithScore = false
+        _ = false
         allGameAction()
     }
     
     func resetWithScoreAction() {
         print("User: Reset with scure")
-        let resetWithScore = true
+        _ = true
         allGameAction()
     }
 }

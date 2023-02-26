@@ -64,58 +64,35 @@ struct TileView: View {
 //                        .foregroundColor(tileColorTheme.font)
                         .transition(AnyTransition.scale(scale: 0.2).combined(with: .opacity).animation(.modalSpring(duration: 0.3)))
                 }
-                if number == 3 {
-                    Image(systemName: "bolt.fill")
-                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
-                        .foregroundColor(.yellow)
-                } else if number == 4 {
-                    Image(systemName: "flame.fill")
-                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
-                        .foregroundColor(.orange)
-                } else if number == 5 {
-                    Image(systemName: "cloud.rain.fill")
-                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
-                        .foregroundColor(.blue)
-                } else if number == 6 {
-                    Image(systemName: "sun.max.fill")
-                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
-                        .foregroundColor(.yellow)
-                } else if number == 7 {
-                    Image(systemName: "moon.stars.fill")
-                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
-                        .foregroundColor(.blue)
-                } else if number == 8 {
-                    Image(systemName: "leaf.fill")
-                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
-                        .foregroundColor(.green)
-                } else if number == 9 {
-                    Image(systemName: "tornado")
-                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
-                        .foregroundColor(.red)
-                } else if number == 10 {
-                    Image(systemName: "umbrella.fill")
-                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
-                        .foregroundColor(.blue)
-                } else if number == 11 {
-                    Image(systemName: "cloud.heavyrain.fill")
-                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
-                        .foregroundColor(.blue)
-                } else if number == 12 {
-                    Image(systemName: "sunrise.fill")
-                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
-                        .foregroundColor(.yellow)
-                } else if number == 13 {
-                    Image(systemName: "cloud.sun.fill")
-                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
-                        .foregroundColor(.yellow)
-                } else if number == 14 {
-                    Image(systemName: "wind")
-                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
-                        .foregroundColor(.yellow)
-                } else if number == 15 {
-                    Image(systemName: "snowflake")
-                        .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
-                        .foregroundColor(.yellow)
+                
+                if gameMode == "weather" {
+                    if number == 3 {
+                        TileNI(image: "bolt.fill", number: "3", color: .yellow)
+                    } else if number == 4 {
+                        TileNI(image: "flame.fill", number: "4", color: .orange)
+                    } else if number == 5 {
+                        TileNI(image: "cloud.rain.fill", number: "5", color: .blue)
+                    } else if number == 6 {
+                        TileNI(image: "sun.max.fill", number: "6", color: .yellow)
+                    } else if number == 7 {
+                        TileNI(image: "moon.stars.fill", number: "7", color: .blue)
+                    } else if number == 8 {
+                        TileNI(image: "leaf.fill", number: "8", color: .green)
+                    } else if number == 9 {
+                        TileNI(image: "tornado", number: "9", color: .red)
+                    } else if number == 10 {
+                        TileNI(image: "umbrella.fill", number: "10", color: .blue)
+                    } else if number == 11 {
+                        TileNI(image: "cloud.heavyrain.fill", number: "11", color: .blue)
+                    } else if number == 12 {
+                        TileNI(image: "sunrise.fill", number: "12", color: .yellow)
+                    } else if number == 13 {
+                        TileNI(image: "cloud.sun.fill", number: "13", color: .yellow)
+                    } else if number == 14 {
+                        TileNI(image: "wind", number: "14", color: .yellow)
+                    } else if number == 15 {
+                        TileNI(image: "snowflake", number: "15", color: .yellow)
+                    }
                 }
             }
             .zIndex(Double.greatestFiniteMagnitude)
@@ -130,10 +107,20 @@ struct TileView: View {
             guard let number = self.number else {
                 return ""
             }
-            let letterDictionary = [3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "", 12: "", 13: "", 14: "", 15: "", 16: "", 17: "", 18: "", 19: "" ]
-            let letter = letterDictionary[number]
-            return letter ?? "!"
+                let blankDictionary = [3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: "", 10: "", 11: "", 12: "", 13: "", 14: "", 15: "", 16: "", 17: "", 18: "", 19: "" ]
+            
+                let numberDictionary = [3: "3", 4: "6", 5: "12", 6: "24", 7: "48", 8: "96", 9: "192", 10: "384", 11: "768", 12: "1536", 13: "3072", 14: "6144", 15: "1228", 16: "24576", 17: "49152", 18: "98304", 19: "196608" ]
+
+                let letter = numberDictionary[number]
+                let blankLetter = blankDictionary[number]
+            
+            if gameMode == "weather" {
+                return blankLetter ?? "!"
+            } else {
+                return letter ?? "!"
+            }
         }
+    
         private func titleLetter() -> String {
             guard let number = self.number else {
                 return ""

@@ -23,6 +23,7 @@ struct TileBoardView: View {
     
     var tileBoardSize: Int
     @Environment(\.colorScheme) var colorScheme: ColorScheme
+    @State private var gameMode = UserDefaults.standard.string(forKey: "gameMode")
 
     // MARK: - Computed Properties
     
@@ -35,6 +36,69 @@ struct TileBoardView: View {
     var body: some View {
             GeometryReader { proxy in
                 VStack {
+                    if gameMode == "weather" {
+//                        Divider()
+//                        ZStack {
+//                            VStack {
+//                                HStack {
+//                                    Image(systemName: "bolt.fill")
+//                                        .foregroundColor(.yellow)
+//                                        .font(.title)
+//
+//                                    Image(systemName: "flame.fill")
+//                                        .foregroundColor(.red)
+//                                        .font(.title)
+//
+//                                    Image(systemName: "cloud.rain.fill")
+//                                        .foregroundColor(.blue)
+//                                        .font(.title)
+//
+//                                    Image(systemName: "sun.max.fill")
+//                                        .foregroundColor(.yellow)
+//                                        .font(.title)
+//
+//                                    Image(systemName: "moon.stars.fill")
+//                                        .foregroundColor(.blue)
+//                                        .font(.title)
+//
+//                                    Image(systemName: "leaf.fill")
+//                                        .foregroundColor(.green)
+//                                        .font(.title)
+//
+//                                    Image(systemName: "tornado")
+//                                        .foregroundColor(.red)
+//                                        .font(.title)
+//                                }
+//                                Divider()
+//                                HStack {
+//                                    Image(systemName: "umbrella.fill")
+//                                        .foregroundColor(.blue)
+//                                        .font(.title)
+//
+//                                    Image(systemName: "cloud.heavyrain.fill")
+//                                        .foregroundColor(.blue)
+//                                        .font(.title)
+//
+//                                    Image(systemName: "sunrise.fill")
+//                                        .foregroundColor(.yellow)
+//                                        .font(.title)
+//
+//                                    Image(systemName: "cloud.sun.fill")
+//                                        .foregroundColor(.yellow)
+//                                        .font(.title)
+//
+//                                    Image(systemName: "wind")
+//                                        .foregroundColor(.yellow)
+//                                        .font(.title)
+//
+//                                    Image(systemName: "snowflake")
+//                                        .foregroundColor(.yellow)
+//                                        .font(.title)
+//                                }
+//                            }
+//                        }
+//                        Divider()
+                    }
                     ZStack {
                         Rectangle()
                             .fill(backgroundColor)
@@ -61,10 +125,10 @@ struct TileBoardView: View {
                     .drawingGroup(opaque: false, colorMode: .linear)
                     .center(in: .local, with: proxy)
                     
-                    BannerAd(unitID: gameId)
-                        .frame(width: 320, height: 50)
+                    //                    BannerAd(unitID: gameId)
+                    //                        .frame(width: 320, height: 50)
                 }
-                .shadow(color: .blue, radius: 10)
+                .shadow(color: .white, radius: 10)
             }
         }
     

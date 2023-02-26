@@ -48,7 +48,7 @@ struct CompositeView: View {
     @State private var selectedSound: String = UserDefaults.standard.string(forKey: "audioSound") ?? "default"
     @State private var audioSound = UserDefaults.standard.string(forKey: "audioSound")
     
-    @EnvironmentObject var adsViewModel: AdsViewModel
+//    @EnvironmentObject var adsViewModel: AdsViewModel
     
     @AppStorage(AppStorageKeys.audio.rawValue) var isAudioEnabled: Bool = true
     @AppStorage(AppStorageKeys.haptic.rawValue) var isHapticEnabled: Bool = true
@@ -60,6 +60,7 @@ struct CompositeView: View {
 //        fetchHighScore()
         highScore = UserDefaults.standard.integer(forKey: "highScore")
         selectedSound = UserDefaults.standard.string(forKey: "audioSound") ?? "default"
+        UserDefaults.standard.set("weather", forKey: "gameMode")
     }
     
     // MARK: - Drag Gesture
@@ -242,7 +243,7 @@ struct CompositeView: View {
     
     private func resetGame() {
         logic.reset()
-        adsViewModel.showInterstitial = true
+//        adsViewModel.showInterstitial = true
     }
     
     // MARK: - Stats Functions

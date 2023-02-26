@@ -13,7 +13,7 @@ struct GameModeView: View {
 
     @Environment(\.colorScheme) var colorScheme: ColorScheme
 
-    @State private var gameMode = "Letters"
+    @State private var gameMode = "letter"
     @State private var showAlert = false
 
     // MARK: - Colors
@@ -66,6 +66,25 @@ struct GameModeView: View {
                         .onTapGesture {
                             setNumberMode()
                         }
+                    
+                    // Weather
+                    ZStack {
+                            Circle()
+                                .fill(Color.primary.opacity(0.75))
+                            VStack {
+                                Image(systemName: "cloud")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 25, height: 25)
+                                    .foregroundColor(colorScheme == .light ? Color.white : Color.black)
+                            }
+                        }
+                        .frame(width: 75, height: 75)
+                        .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                        .onTapGesture {
+                            setWeatherMode()
+                        }
+                    
                     Spacer()
                 }
                 Spacer()
@@ -83,27 +102,39 @@ struct GameModeView: View {
             }
         }
     }
+    
         // MARK: - Functions
 
-        func setLetterMode() {
+    func setLetterMode() {
             gameMode = "letter"
             // User Defaults
             UserDefaults.standard.set(gameMode, forKey: "gameMode")
             // Logging
-            print(UserDefaults.standard.string(forKey: "gameMode"))
+        print(UserDefaults.standard.string(forKey: "gameMode") ?? "letter")
             // Haptics
             Haptic.light()
             self.showAlert = true
         }
 
-        func setNumberMode() {
+    func setNumberMode() {
             gameMode = "number"
             // User Defaults
             UserDefaults.standard.set(gameMode, forKey: "gameMode")
             // Logging
-            print(UserDefaults.standard.string(forKey: "gameMode"))
+        print(UserDefaults.standard.string(forKey: "gameMode") ?? "number")
             // Haptics
             Haptic.light()
             self.showAlert = true
+    }
+    
+    func setWeatherMode() {
+        gameMode = "weather"
+        // User Defaults
+        UserDefaults.standard.set(gameMode, forKey: "gameMode")
+        // Logging
+        print(UserDefaults.standard.string(forKey: "gameMode") ?? "weather")
+        // Haptics
+        Haptic.light()
+        self.showAlert = true
     }
 }

@@ -1,6 +1,0 @@
-framework module Pods_3096___Blocks_3096___BlocksUITests {
-  umbrella header "Pods-3096 – Blocks-3096 – BlocksUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}

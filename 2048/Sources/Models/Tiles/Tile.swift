@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 typealias IndexPair = (Int, Int)
 
@@ -48,3 +49,21 @@ struct IndexedTile<T: Tile> {
     let tile: T
 }
 
+struct TileNI: View {
+    var image: String
+    var number: String
+    var color: Color
+        
+    var body: some View {
+        ZStack {
+            Image(systemName: image)
+                .font(.monospaced(.title)())
+                .foregroundColor(color)
+                .font(.title)
+            Text(number)
+                .offset(x: 25, y: 25)
+                .font(.body)
+                .fontWeight(.black)
+        }
+    }
+}

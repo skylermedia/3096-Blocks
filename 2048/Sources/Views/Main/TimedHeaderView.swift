@@ -28,7 +28,7 @@ struct TimedHeaderView: View {
     // MARK: - Compited View Propeties
     
     private var scoreView: some View {
-        let shouldShowReset = showResetButton()
+        _ = showResetButton()
         return VStack {
             
         }
