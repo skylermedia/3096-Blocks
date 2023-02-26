@@ -73,21 +73,6 @@ struct HeaderView: View {
         }
     }
     
-    private var aboutButton: some View {
-        Button(action: {
-            self.showAboutSheet = true
-        }) {
-            Image(systemName: "info.circle")
-                .resizable()
-                .scaledToFit()
-                .aspectRatio(1, contentMode: .fit)
-                .frame(width: buttonSize, height: buttonSize)
-                .foregroundColor(.gray)
-        }
-        .foregroundColor(.gray)
-        .padding()
-    }
-    
     private var sideMenuButton: some View {
         Button(action: {
             withAnimation(.modalSpring) {
@@ -99,7 +84,7 @@ struct HeaderView: View {
                 .scaledToFit()
                 .aspectRatio(1, contentMode: .fit)
                 .frame(width: buttonSize, height: buttonSize)
-                .foregroundColor(.gray)
+                .foregroundColor(.white)
         }
         .foregroundColor(.gray)
         .padding()
@@ -115,7 +100,7 @@ struct HeaderView: View {
                 .scaledToFit()
                 .aspectRatio(1, contentMode: .fit)
                 .frame(width: buttonSize, height: buttonSize)
-                .foregroundColor(.gray)
+                .foregroundColor(.white)
         }
         .foregroundColor(.gray)
         .padding()
@@ -133,11 +118,26 @@ struct HeaderView: View {
                 .scaledToFit()
                 .aspectRatio(1, contentMode: .fit)
                 .frame(width: buttonSize, height: buttonSize)
-                .foregroundColor(.gray)
+                .foregroundColor(.white)
         }
         .foregroundColor(.gray)
         .padding()
         .opacity(showResetButton() ? 1.0 : 0.0)
+    }
+    
+    private var aboutButton: some View {
+        Button(action: {
+            self.showAboutSheet = true
+        }) {
+            Image(systemName: "info.circle")
+                .resizable()
+                .scaledToFit()
+                .aspectRatio(1, contentMode: .fit)
+                .frame(width: buttonSize, height: buttonSize)
+                .foregroundColor(.white)
+        }
+        .foregroundColor(.gray)
+        .padding()
     }
     
     private var titleView: some View {
