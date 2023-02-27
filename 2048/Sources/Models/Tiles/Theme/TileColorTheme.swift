@@ -13,7 +13,6 @@ protocol TileColorTheme {
     var defaultLightTileColors: [TilePair] { get }
     var defaultDarkTileColors: [TilePair] { get }
     
-    
     func colorPair(for index: Int?, _ colorScheme: ColorScheme, defaultColor: Color) -> TilePair
 }
 
