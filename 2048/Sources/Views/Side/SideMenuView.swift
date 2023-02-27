@@ -63,12 +63,12 @@ struct SideMenuView: View {
             Text(name)
                 .font(.system(.title, design: .monospaced))
                 .bold()
-                .foregroundColor(Color("signaturePink"))
+                .foregroundColor(.primary)
                 .animation(.modalSpring)
-//                .shadow(
-//                    color: colorSchemeBackgroundTheme.invertedBackgroundColor(for: colorScheme),
-//                    radius: cornerRadius
-//                )
+                .shadow(
+                    color: colorSchemeBackgroundTheme.invertedBackgroundColor(for: colorScheme),
+                    radius: cornerRadius
+                )
         }.eraseToAnyView
     }
 }
