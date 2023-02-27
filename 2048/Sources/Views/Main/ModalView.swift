@@ -49,7 +49,7 @@ struct ModalView: View {
         Text(title)
             .font(.system(.largeTitle, design: .monospaced))
             .bold()
-            .foregroundColor(.primary)
+            .foregroundColor(.white)
             .animation(.modalSpring)
     }
     
@@ -57,7 +57,7 @@ struct ModalView: View {
         if subtitle != nil {
             Text(subtitle!) // safe to unwrap
                 .font(Font.system(.body, design: .monospaced).weight(.bold))
-                .foregroundColor(.secondary)
+                .foregroundColor(.white)
                 .animation(.modalSpring)
         }
     }
@@ -74,7 +74,7 @@ struct ModalView: View {
         HStack(spacing: 32) {
             Button(action: cancelGameAction) {
                 Text("Confirm")
-                    .foregroundColor(colorSchemeBackgroundTheme.backgroundColor(for: colorScheme))
+                    .foregroundColor(.white)
                     .font(.system(.body, design: .monospaced))
                     .bold()
                     .zIndex(Double.greatestFiniteMagnitude)
@@ -84,7 +84,7 @@ struct ModalView: View {
             
             Button(action: cancellationHandler!) { // safe to unwrap
                 Text("Cancel")
-                    .foregroundColor(colorSchemeBackgroundTheme.backgroundColor(for: colorScheme))
+                    .foregroundColor(.white)
                     .font(.system(.body, design: .monospaced))
                     .bold()
                     .zIndex(Double.greatestFiniteMagnitude)
@@ -98,7 +98,7 @@ struct ModalView: View {
         VStack {
             Button(action: newGameAction) {
                 Text("New Game")
-                    .foregroundColor(colorSchemeBackgroundTheme.backgroundColor(for: colorScheme))
+                    .foregroundColor(.white)
                     .font(.system(.body, design: .monospaced))
                     .bold()
                     .zIndex(Double.greatestFiniteMagnitude)
@@ -107,7 +107,7 @@ struct ModalView: View {
             .padding(.horizontal)
             Button(action: resetWithScoreAction) {
                 Text("Reset With Score (Beta)")
-                    .foregroundColor(colorSchemeBackgroundTheme.backgroundColor(for: colorScheme))
+                    .foregroundColor(.white)
                     .font(.system(.body, design: .monospaced))
                     .bold()
                     .zIndex(Double.greatestFiniteMagnitude)

@@ -29,11 +29,11 @@ struct StatsView: View {
     // MARK: - Private Properties
     
     private var backgroundColor: Color {
-        colorScheme == .light ? Color(red:0.43, green:0.43, blue:0.43, opacity: 1) : Color(red:0.33, green:0.33, blue:0.33, opacity: 1)
+        colorScheme == .light ? Color("signatureBlue") : Color("signatureBlue")
     }
     
     private var invertedBackgroundColor: Color {
-        colorScheme == .dark ? Color(red:0.90, green:0.90, blue:0.90, opacity:1.00) : Color(red:0.10, green:0.10, blue:0.10, opacity:1.00)
+        colorScheme == .dark ? Color("signatureBlue") : Color("signatureBlue")
     }
     
     // MARK: - Conformacne to View Protocol

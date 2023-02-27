@@ -144,7 +144,7 @@ struct HeaderView: View {
         Text(title)
             .padding(.top, 50)
             .font(Font.system(size: 64).weight(.black))
-            .foregroundColor(Color(red:0.29, green:0.29, blue:0.29, opacity: 1.00))
+            .foregroundColor(Color("signatureBlue"))
 //            .transition(AnyTransition.move(edge: .trailing).combined(with: .opacity))
 //            .animation(.modalSpring, value: showSideMenu)
             .id(title)

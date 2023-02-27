@@ -22,11 +22,11 @@ struct LeaderboardView: View {
     // MARK: - Private Properties
     
     private var backgroundColor: Color {
-        colorScheme == .light ? Color(red:0.43, green:0.43, blue:0.43, opacity: 1) : Color(red:0.33, green:0.33, blue:0.33, opacity: 1)
+        colorScheme == .light ? Color("signatureBlue") : Color("signatureBlue")
     }
     
     private var invertedBackgroundColor: Color {
-        colorScheme == .dark ? Color(red:0.90, green:0.90, blue:0.90, opacity:1.00) : Color(red:0.10, green:0.10, blue:0.10, opacity:1.00)
+        colorScheme == .dark ? Color("signatureBlue") : Color("signatureBlue")
     }
     
     // MARK: - Conformacne to View Protocol
@@ -34,7 +34,7 @@ struct LeaderboardView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(Color("leaderboardBackgroundColor"))
+                .fill(Color("signatureBlue"))
             VStack {
 //                HStack {
 //                    Spacer()
@@ -59,14 +59,14 @@ struct LeaderboardView: View {
                         VStack {
                             Text("Please allow up to 5 minutes for the leaderboard to update.")
                                 .bold()
-                                .font(.headline)
+                                .font(.footnote)
+                                .foregroundColor(.white)
                             ZStack {
                                 RoundedRectangle(cornerRadius: 25)
 //                                    .stroke(.blue, lineWidth: 4)
-                                    .foregroundColor(Color("leaderboardBackgroundColor"))
-                                    .shadow(color: Color(.black), radius: 10, x: 0, y: 0)
+                                    .foregroundColor(Color("signatureBlue"))
+                                    .shadow(color: Color(.white), radius: 10, x: 0, y: 0)
                                     .padding()
-                                ProgressView()
                             }
                         }
                     } else {
@@ -85,11 +85,12 @@ struct LeaderboardView: View {
                                     .bold()
                                     .font(.footnote)
                                     .multilineTextAlignment(.center)
+                                    .foregroundColor(.white)
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 25)
                                     //                                    .stroke(.blue, lineWidth: 4)
-                                        .foregroundColor(Color("leaderboardBackgroundColor"))
-                                        .shadow(color: Color(.black), radius: 5, x: 0, y: 0)
+                                        .foregroundColor(Color("signatureBlue"))
+                                        .shadow(color: Color(.white), radius: 5, x: 0, y: 0)
                                         .padding()
                                     VStack {
                                         ScrollView {
@@ -122,11 +123,12 @@ struct LeaderboardView: View {
                                     .bold()
                                     .font(.footnote)
                                     .multilineTextAlignment(.center)
+                                    .foregroundColor(.white)
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 25)
                                     //                                    .stroke(.blue, lineWidth: 4)
-                                        .foregroundColor(Color("leaderboardBackgroundColor"))
-                                        .shadow(color: Color(.black), radius: 5, x: 0, y: 0)
+                                        .foregroundColor(Color("signatureBlue"))
+                                        .shadow(color: Color(.white), radius: 5, x: 0, y: 0)
                                         .padding()
                                     VStack {
                                         ScrollView {
@@ -136,13 +138,16 @@ struct LeaderboardView: View {
                                                         Text("\(data.rank):")
                                                             .bold()
                                                             .font(.headline)
+                                                            .foregroundColor(.white)
                                                         Text(data.playerName.capitalized)
+                                                            .foregroundColor(.white)
                                                             .bold()
                                                             .font(.headline)
                                                         Spacer()
                                                         Text("\(data.score)")
                                                             .bold()
                                                             .font(.headline)
+                                                            .foregroundColor(.white)
                                                     }
                                                     Divider()
                                                 }

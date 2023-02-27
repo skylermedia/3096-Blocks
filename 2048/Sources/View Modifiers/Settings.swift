@@ -15,7 +15,7 @@ struct SettingsTitleStyle: ViewModifier {
         if #available(iOS 16.0, *) {
             content
                 .font(.system(.title, design: .monospaced))
-                .foregroundColor(Color.primary.opacity(0.5))
+                .foregroundColor(.white)
                 .fontWeight(.black)
         } else {
             content
@@ -32,7 +32,7 @@ struct SettingsDescriptionStyle: ViewModifier {
         if #available(iOS 16.0, *) {
             content
                 .font(.system(.body, design: .monospaced))
-                .foregroundColor(Color.primary.opacity(0.5))
+                .foregroundColor(.white)
                 .fontWeight(.bold)
         } else {
             content
