@@ -6,29 +6,34 @@
 //
 
 import SwiftUI
+import MultipeerConnectivity
 
 struct SettingsView: View {
     
     // MARK: - Environment
     
-//    @Environment(\.colorScheme) private var colorScheme: ColorScheme
+    @Environment(\.colorScheme) private var colorScheme: ColorScheme
 //    @EnvironmentObject var adsViewModel: AdsViewModel
     
     // MARK: - Private Properties
     
-    private var backgroundColor: Color = Color("signatureBlue")
-
+    private var invertedBackgroundColor: Color {
+        colorScheme == .dark ? Color(red:0.90, green:0.90, blue:0.90, opacity:1.00) : Color(red:0.10, green:0.10, blue:0.10, opacity:1.00)
+    }
     private let previewSize: CGSize = .init(width: 144, height: 144)
     
     private let plist = PlistConfiguration(name: "Strings")
     private let settings: [String : [String : String]]
     
+    // Test
     let settingsId: String = "ca-app-pub-3940256099942544/6300978111"
+    // Production
 //    let settingsId: String = "ca-app-pub-8534428621909577/2232981327"
     
     // MARK: - Initializers
     
     init() {
+        UITableView.appearance().backgroundColor = .clear
         settings = plist?.getItem(named: PlistConfigurationKeyPath.settings.rawValue) ?? ["" : [:]]
     }
     
@@ -45,7 +50,7 @@ struct SettingsView: View {
             }
             ) {
                 TileBoardSettingView(
-                    invertedBackgroundColor: backgroundColor,
+                    invertedBackgroundColor: invertedBackgroundColor,
                     previewSize: previewSize
                 )
 //                //                ColorThemePickerView()
@@ -103,7 +108,7 @@ struct SettingsView: View {
             }
             ) {
                 AudioSettingView(
-                    invertedBackground: backgroundColor,
+                    invertedBackground: invertedBackgroundColor,
                     previewSize: previewSize
                 )
             }
@@ -118,7 +123,7 @@ struct SettingsView: View {
             }
             ) {
                 HapticSettingsView(
-                    invertedBackground: backgroundColor,
+                    invertedBackground: invertedBackgroundColor,
                     previewSize: previewSize
                 )
             }

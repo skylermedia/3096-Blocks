@@ -17,7 +17,7 @@ struct TileView: View {
     @State private var gameMode = UserDefaults.standard.string(forKey: "gameMode")
     
     private var backgroundColor: Color {
-        colorScheme == .light ? Color("signatureBlue") : Color("signatureBlue")
+        colorScheme == .light ? Color(red:0.78, green:0.73, blue:0.68, opacity: 1.0) : Color(red:0.58, green:0.53, blue:0.48, opacity: 1.0)
     }
     
     private let number: Int?

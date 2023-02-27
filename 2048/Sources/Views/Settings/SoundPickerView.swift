@@ -19,7 +19,7 @@ struct SoundPickerView: View {
     // MARK: - Colors
     
     private var backgroundColor: Color {
-        colorScheme == .light ? Color("signatureBlue") : Color("signatureBlue")
+        colorScheme == .light ? Color(red:0.43, green:0.43, blue:0.43, opacity: 1) : Color(red:0.33, green:0.33, blue:0.33, opacity: 1)
     }
     
     // MARK: - Conformance to View Protocol
