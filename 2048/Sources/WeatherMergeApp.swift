@@ -69,7 +69,7 @@ class AdsManager: NSObject, ObservableObject {
 //}
 
 @main
-struct TwoZeroFourEightApp: App {
+struct WeatherMergeApp: App {
 //    let adsVM = AdsViewModel.shared
 
     class AppDelegate: UIResponder, UIApplicationDelegate {

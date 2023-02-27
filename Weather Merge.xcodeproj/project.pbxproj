@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A9757EAC24CC47EC00847031 /* 3096BlocksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9757EAB24CC47EC00847031 /* 3096BlocksApp.swift */; };
+		A9757EAC24CC47EC00847031 /* WeatherMergeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9757EAB24CC47EC00847031 /* WeatherMergeApp.swift */; };
 		A9757EB324CC47EC00847031 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9757EB224CC47EC00847031 /* Preview Assets.xcassets */; };
 		A9757EBE24CC47EC00847031 /* DirectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9757EBD24CC47EC00847031 /* DirectionTests.swift */; };
 		A9757EC924CC47EC00847031 /* AppLaunchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9757EC824CC47EC00847031 /* AppLaunchUITests.swift */; };
@@ -129,7 +129,7 @@
 
 /* Begin PBXFileReference section */
 		A9757EA824CC47EC00847031 /* Weather Merge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather Merge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9757EAB24CC47EC00847031 /* 3096BlocksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 3096BlocksApp.swift; sourceTree = "<group>"; };
+		A9757EAB24CC47EC00847031 /* WeatherMergeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherMergeApp.swift; sourceTree = "<group>"; };
 		A9757EB224CC47EC00847031 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A9757EB424CC47EC00847031 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9757EB924CC47EC00847031 /* Weather MergeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Weather MergeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -366,7 +366,7 @@
 		A9757EDD24CC481E00847031 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				A9757EAB24CC47EC00847031 /* 3096BlocksApp.swift */,
+				A9757EAB24CC47EC00847031 /* WeatherMergeApp.swift */,
 				A9757F0124CC481E00847031 /* Audio */,
 				D40228BC296FA68300A6F5D5 /* Haptics */,
 				A9757EDE24CC481E00847031 /* Enviroment Keys */,
@@ -880,7 +880,7 @@
 				A9757F4324CC481E00847031 /* CompositeSideView.swift in Sources */,
 				D470730A2976633F0019774A /* LeaderboardView.swift in Sources */,
 				A9757F3D24CC481E00847031 /* Audio.swift in Sources */,
-				A9757EAC24CC47EC00847031 /* 3096BlocksApp.swift in Sources */,
+				A9757EAC24CC47EC00847031 /* WeatherMergeApp.swift in Sources */,
 				D40228BB296FA64700A6F5D5 /* Haptics.swift in Sources */,
 				A9757F2F24CC481E00847031 /* TileMatrix.swift in Sources */,
 				A9757F3824CC481E00847031 /* View+Center.swift in Sources */,
@@ -1066,6 +1066,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_ENTITLEMENTS = "2048/3096 – Blocks.entitlements";
 				CODE_SIGN_STYLE = Automatic;
@@ -1087,9 +1088,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = "1,6";
 				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Debug;
@@ -1100,6 +1101,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				CODE_SIGN_ENTITLEMENTS = "2048/3096 – Blocks.entitlements";
 				CODE_SIGN_STYLE = Automatic;
@@ -1121,9 +1123,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = "1,6";
 				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Release;
