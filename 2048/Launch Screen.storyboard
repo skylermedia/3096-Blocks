@@ -46,7 +46,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icon" width="5000" height="5000"/>
+        <image name="Icon" width="1024" height="1024"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
