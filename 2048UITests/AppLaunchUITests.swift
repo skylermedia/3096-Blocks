@@ -1,6 +1,6 @@
 //
 //  AppLaunchUITests.swift
-//  3096 – BlocksUITests
+//  Weather MergeUITests
 //
 //  Copyright © 2023 Skyler Szijjarto
 //
