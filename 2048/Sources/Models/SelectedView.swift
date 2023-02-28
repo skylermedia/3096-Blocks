@@ -19,7 +19,7 @@ enum SelectedView {
     var title: String {
         switch self {
         case .game:
-            return "3096"
+            return "Game"
 //        case .timed:
 //            return "Timed"
         case .multiplayer:
