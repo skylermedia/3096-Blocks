@@ -74,7 +74,7 @@ struct SettingsView: View {
                         Section(header: VStack(alignment: .leading) {
                             Text("Game Mode")
                                 .modifier(SettingsTitleStyle())
-                            Text("Choose whether your board uses letters or numbers")
+                            Text("Choose whether your board uses letters, numbers, or symbols.")
                                 .modifier(SettingsDescriptionStyle())
                         }
                         ) {
