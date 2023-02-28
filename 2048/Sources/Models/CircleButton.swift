@@ -13,17 +13,22 @@ struct CircleButton: View {
     let action: () -> Void
     
     var body: some View {
-        Button(action: action) {
-            VStack(spacing: 4) {
-                image
-                    .font(.title)
-                text
-                    .font(.subheadline)
+        ZStack {
+            Circle()
+                .foregroundColor(.blue)
+                .frame(width: 75, height: 75)
+            Button(action: action) {
+                VStack(spacing: 4) {
+                    image
+                        .font(.title)
+                    text
+                        .font(.subheadline)
+                }
+                .foregroundColor(.white)
+                .padding(15)
+                .background(Color.blue)
+                .clipShape(Circle())
             }
-            .foregroundColor(.white)
-            .padding(15)
-            .background(Color.blue)
-            .clipShape(Circle())
         }
     }
 }
