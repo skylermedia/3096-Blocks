@@ -1,6 +1,6 @@
 //
 //  SideMenuView.swift
-//  3096 – Blocks
+//  Weather Merge
 //
 //  Copyright © 2023 Skyler Szijjarto
 //
@@ -19,7 +19,7 @@ struct SideMenuView: View {
     
     @Binding var selectedView: SelectedView
     var onMenuChangeHandler: () -> Void
-    var items: [SelectedView] = [ .game, /* .timed ,  .multiplayer,*/ .ranks, /* .stats, */ .settings ]
+    var items: [SelectedView] = [ .game, .ranks, .settings, .about ]
     
     // MARK: - Constants
     
