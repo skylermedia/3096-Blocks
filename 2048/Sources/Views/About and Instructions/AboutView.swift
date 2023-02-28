@@ -50,7 +50,7 @@ struct AboutView: View {
                 Text(about[PlistConfigurationKeyPath.about.rawValue]?[PlistConfigurationKeyPath.linkDescription.rawValue] ?? "[Missing Information]")
                 .multilineTextAlignment(.center)
                 .fontWeight(.bold)
-                .font(Font.system(.callout, design: .monospaced).weight(.bold))
+                .font(Font.system(.caption, design: .monospaced).weight(.bold))
                 .foregroundColor(.primary)
             } else {
                 // Fallback on earlier versions
