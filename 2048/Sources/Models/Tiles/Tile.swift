@@ -1,6 +1,6 @@
 //
 //  Tile.swift
-//  3096 – Blocks
+//  Weather Merge
 //
 //  Copyright © 2023 Skyler Szijjarto
 //
@@ -47,23 +47,4 @@ struct IndexedTile<T: Tile> {
     
     let index: Index
     let tile: T
-}
-
-struct TileNI: View {
-    var image: String
-    var number: String
-    var color: Color
-        
-    var body: some View {
-        ZStack {
-            Image(systemName: image)
-                .font(.monospaced(.title)())
-                .foregroundColor(color)
-                .font(.title)
-            Text(number)
-                .offset(x: 25, y: 25)
-                .font(.body)
-                .fontWeight(.black)
-        }
-    }
 }
