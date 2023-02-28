@@ -24,7 +24,7 @@ struct HeaderView: View {
     var newGameAction: () -> Void
     var showResetButton: () -> Bool
     let buttonSize: CGFloat = 48
-    let appStoreLink = "https://3096.skyler.media"
+    let appStoreLink = "https://merge.skyler.media"
     
     // MARK: - Compited View Propeties
     
