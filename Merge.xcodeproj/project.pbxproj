@@ -407,11 +407,11 @@
 		A9757EE824CC481E00847031 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D43E7FB129ADA65000792A90 /* CircleButton.swift */,
 				A9757EF524CC481E00847031 /* Direction.swift */,
 				A9757EE924CC481E00847031 /* SelectedView.swift */,
 				A9757EEA24CC481E00847031 /* Board */,
 				A9757EEE24CC481E00847031 /* Tiles */,
+				D43E7FB129ADA65000792A90 /* CircleButton.swift */,
 				D43E7FB529ADBDF400792A90 /* TileNI.swift */,
 			);
 			path = Models;
