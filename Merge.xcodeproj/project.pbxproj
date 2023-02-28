@@ -84,6 +84,7 @@
 		D43E7FB429ADA66F00792A90 /* MultiplayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43E7FB329ADA66F00792A90 /* MultiplayerManager.swift */; };
 		D43E7FB629ADBDF400792A90 /* TileNI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43E7FB529ADBDF400792A90 /* TileNI.swift */; };
 		D43E7FB829ADC13500792A90 /* InstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43E7FB729ADC13500792A90 /* InstructionsView.swift */; };
+		D43E7FBA29AE911300792A90 /* InitialInstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43E7FB929AE911300792A90 /* InitialInstructionsView.swift */; };
 		D43EF0BB29A1EF79007E5022 /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43EF0BA29A1EF79007E5022 /* BannerAd.swift */; };
 		D44A46C62987581300B9FD54 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A46C52987581300B9FD54 /* Settings.swift */; };
 		D45F76892978CDFE00DB7BF8 /* Ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D45F76882978CDFE00DB7BF8 /* Ding.mp3 */; };
@@ -226,6 +227,7 @@
 		D43E7FB329ADA66F00792A90 /* MultiplayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplayerManager.swift; sourceTree = "<group>"; };
 		D43E7FB529ADBDF400792A90 /* TileNI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileNI.swift; sourceTree = "<group>"; };
 		D43E7FB729ADC13500792A90 /* InstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsView.swift; sourceTree = "<group>"; };
+		D43E7FB929AE911300792A90 /* InitialInstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InitialInstructionsView.swift; path = ../../../../../InitialInstructionsView.swift; sourceTree = "<group>"; };
 		D43EF0BA29A1EF79007E5022 /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
 		D44A46C52987581300B9FD54 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		D45F76882978CDFE00DB7BF8 /* Ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Ding.mp3; sourceTree = "<group>"; };
@@ -490,11 +492,11 @@
 		A9757F0424CC481E00847031 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A9757F0C24CC481E00847031 /* About and Instructions */,
 				D44A46C72987650000B9FD54 /* Ads */,
 				A9757F0524CC481E00847031 /* Settings */,
 				D4D3047A297997770022868A /* Stats */,
 				A9757F0924CC481E00847031 /* Side */,
-				A9757F0C24CC481E00847031 /* About and Instructions */,
 				D470730B2976652C0019774A /* Leaderboard */,
 				A9757F0E24CC481E00847031 /* Game */,
 				A9757F1224CC481E00847031 /* Main */,
@@ -531,6 +533,7 @@
 			children = (
 				A9757F0D24CC481E00847031 /* AboutView.swift */,
 				D43E7FB729ADC13500792A90 /* InstructionsView.swift */,
+				D43E7FB929AE911300792A90 /* InitialInstructionsView.swift */,
 				D402368B29694BA400B81834 /* Podfile */,
 			);
 			path = "About and Instructions";
@@ -858,6 +861,7 @@
 				A9757F4824CC481E00847031 /* ModalView.swift in Sources */,
 				A9757F4A24CC481E00847031 /* CompositeView.swift in Sources */,
 				A9757F3E24CC481E00847031 /* AudioSource.swift in Sources */,
+				D43E7FBA29AE911300792A90 /* InitialInstructionsView.swift in Sources */,
 				A9757F3524CC481E00847031 /* Edge+InvertedDirection.swift in Sources */,
 				D43E7FB229ADA65000792A90 /* CircleButton.swift in Sources */,
 				D40228B9296FA50F00A6F5D5 /* HapticSettingsView.swift in Sources */,

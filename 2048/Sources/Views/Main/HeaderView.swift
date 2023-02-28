@@ -148,7 +148,7 @@ struct HeaderView: View {
         Button(action: {
             self.showInstructionsSheet = true
         }) {
-            Image(systemName: "info.circle")
+            Image(systemName: "book")
                 .resizable()
                 .scaledToFit()
                 .aspectRatio(1, contentMode: .fit)
@@ -180,8 +180,8 @@ struct HeaderView: View {
                 resetGameButton
                 Spacer()
                 shareButton
-//                Spacer()
-//                instructionsButton
+                Spacer()
+                instructionsButton
                 Spacer()
             }
             .padding(.top, proxy.size.width > proxy.size.height ? 24 : 48)

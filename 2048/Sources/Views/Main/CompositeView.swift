@@ -42,6 +42,7 @@ struct CompositeView: View {
     @State private var leaderboardData = [LeaderboardData]()
     let userName = UserDefaults.standard.string(forKey: "userName")
     let isAuthenticated = UserDefaults.standard.string(forKey: "isAuthenticated")
+    let hasPlayedBefore = UserDefaults.standard.string(forKey: "hasPlayedBefore")
     
     @State private var resetWithScore: Bool = UserDefaults.standard.bool(forKey: "audioSound")
     
@@ -111,7 +112,9 @@ struct CompositeView: View {
         NavigationView {
             if (isAuthenticated != nil) == false {
                 LoginView(boardSize: 4)
-            } else {
+            } else if (hasPlayedBefore != nil) == false {
+                    InitialInstructionsView(boardSize: 4)
+                } else {
                 GeometryReader { proxy in
                     ZStack(alignment: .top) {
                         VStack {
