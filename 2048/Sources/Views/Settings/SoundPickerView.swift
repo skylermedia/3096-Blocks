@@ -113,106 +113,61 @@ struct SoundPickerView: View {
     // MARK: - Functions
     
     func setSound() {
+        // User Defaults
+        UserDefaults.standard.set(audioSound, forKey: "audioSound")
+        // Logging
+        print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
+        // Haptics
         Haptic.light()
         self.showAlert = true
     }
     
     func setSoundBeep() {
         audioSound = "beep"
-        // User Defaults
-        UserDefaults.standard.set(audioSound, forKey: "audioSound")
-        // Logging
-        print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
-        // All Sounds
         setSound()
     }
     
     func setSoundCan() {
         audioSound = "can"
-        // User Defaults
-        UserDefaults.standard.set(audioSound, forKey: "audioSound")
-        // Logging
-        print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
-        // All Sounds
         setSound()
     }
     
     func setSoundClick() {
         audioSound = "click"
-        // User Defaults
-        UserDefaults.standard.set(audioSound, forKey: "audioSound")
-        // Logging
-        print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
-        // All Sounds
         setSound()
     }
     
     func setSoundHit() {
         audioSound = "hit"
-        // User Defaults
-        UserDefaults.standard.set(audioSound, forKey: "audioSound")
-        // Logging
-        print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
-        // All Sounds
         setSound()
     }
     
     func setSoundPlant() {
         audioSound = "plant"
-        // User Defaults
-        UserDefaults.standard.set(audioSound, forKey: "audioSound")
-        // Logging
-        print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
-        // All Sounds
         setSound()
     }
     
     func setSoundToy() {
         audioSound = "toy"
-        // User Defaults
-        UserDefaults.standard.set(audioSound, forKey: "audioSound")
-        // Logging
-        print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
-        // All Sounds
         setSound()
     }
     
     func setSoundBoing() {
         audioSound = "boing"
-        // User Defaults
-        UserDefaults.standard.set(audioSound, forKey: "audioSound")
-        // Logging
-        print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
-        // All Sounds
         setSound()
     }
     
     func setSoundWood() {
         audioSound = "wood"
-        // User Defaults
-        UserDefaults.standard.set(audioSound, forKey: "audioSound")
-        // Logging
-        print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
-        // All Sounds
         setSound()
     }
     
     func setSoundWoosh() {
         audioSound = "woosh"
-        // User Defaults
-        UserDefaults.standard.set(audioSound, forKey: "audioSound")
-        // Logging
-        print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
-        // All Sounds
         setSound()
     }
     func setSoundDefault() {
         audioSound = "default"
-        // User Defaults
-        UserDefaults.standard.set(audioSound, forKey: "audioSound")
-        // Logging
-        print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
-        // All Sounds
         setSound()
     }
 }
