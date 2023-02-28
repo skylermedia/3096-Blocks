@@ -59,7 +59,7 @@ struct LeaderboardView: View {
                         VStack {
                             Text("Please allow up to 5 minutes for the leaderboard to update.")
                                 .bold()
-                                .font(.headline)
+                                .font(.footnote)
                             ZStack {
                                 RoundedRectangle(cornerRadius: 25)
 //                                    .stroke(.blue, lineWidth: 4)
