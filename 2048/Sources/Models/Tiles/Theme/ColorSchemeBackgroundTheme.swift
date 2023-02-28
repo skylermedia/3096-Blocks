@@ -1,6 +1,6 @@
 //
 //  ColorSchemeBackgroundTheme.swift
-//  3096 – Blocks
+//  Weather Merge
 //
 //  Copyright © 2023 Skyler Szijjarto
 //
@@ -31,8 +31,8 @@ extension ColorSchemeBackgroundTheme {
 }
 
 struct StandardBackgroundColorScheme: ColorSchemeBackgroundTheme {
-//    var light: Color = Color(red:0.90, green:0.90, blue:0.90, opacity:1.00)
-    var light: Color = Color("signatureBlue")
-    var dark: Color = Color("signatureBlue")
-//    var dark: Color = Color(red:0.10, green:0.10, blue:0.10, opacity:1.00)
+    var light: Color = Color(red:0.90, green:0.90, blue:0.90, opacity:1.00)
+//    var light: Color = Color("signatureBlue")
+//    var dark: Color = Color("signatureBlue")
+    var dark: Color = Color(red:0.10, green:0.10, blue:0.10, opacity:1.00)
 }
