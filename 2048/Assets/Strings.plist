@@ -35,11 +35,11 @@
 	<key>about</key>
 	<dict>
 		<key>linkDescription</key>
-		<string>3096 – Blocks is an exciting and enjoyable variation of the popular game 2048, but with letters (numbers are still an option)! It offers many features that make it stand out from the original game, such as responsive dark mode support, a leaderboard to track your progress, multiple grid sizes to suit your needs, haptics for tactile feedback, customizable sound effects for an immersive experience, an attractive design that draws you in, detailed animations to bring the game to life, and support for iPad (Mac support coming soon). Enjoy three times the fun and challenge yourself to reach the highest score!</string>
+		<string>Weather Merge is an exciting and enjoyable variation of the popular game 2048, but with letters (numbers are still an option)! It offers many features that make it stand out from the original game, such as responsive dark mode support, a leaderboard to track your progress, multiple grid sizes to suit your needs, haptics for tactile feedback, customizable sound effects for an immersive experience, an attractive design that draws you in, detailed animations to bring the game to life, and support for iPad (Mac support coming soon). Enjoy three times the fun and challenge yourself to reach the highest score!</string>
 		<key>linkUrl</key>
 		<string>https://skyler.media</string>
 		<key>copyright</key>
-		<string>©2023 Skyler Szijjarto</string>
+		<string>©2023 Skyler Media Co.</string>
 	</dict>
 </dict>
 </plist>
