@@ -1,6 +1,6 @@
 //
 //  HeaderView.swift
-//  3096 – Blocks
+//  Weather Merge
 //
 //  Copyright © 2023 Skyler Szijjarto
 //
@@ -14,6 +14,7 @@ struct HeaderView: View {
     @State private var showResetWarning: Bool = false
     @State private var highScore = UserDefaults.standard.integer(forKey: "highScore")
     @State private var showAboutSheet = false
+    @State private var showInstructionsSheet = false
 
     var proxy: GeometryProxy
     @Binding var showSideMenu: Bool
@@ -70,6 +71,9 @@ struct HeaderView: View {
         }
         .sheet(isPresented: $showAboutSheet) {
             AboutView()
+        }
+        .sheet(isPresented: $showInstructionsSheet) {
+            InstructionsView()
         }
     }
     
@@ -140,6 +144,21 @@ struct HeaderView: View {
         .opacity(showResetButton() ? 1.0 : 0.0)
     }
     
+    private var instructionsButton: some View {
+        Button(action: {
+            self.showInstructionsSheet = true
+        }) {
+            Image(systemName: "info.circle")
+                .resizable()
+                .scaledToFit()
+                .aspectRatio(1, contentMode: .fit)
+                .frame(width: buttonSize, height: buttonSize)
+                .foregroundColor(.gray)
+        }
+        .foregroundColor(.gray)
+        .padding()
+    }
+    
     private var titleView: some View {
         Text(title)
             .padding(.top, 50)
@@ -161,8 +180,8 @@ struct HeaderView: View {
                 resetGameButton
                 Spacer()
                 shareButton
-                Spacer()
-                aboutButton
+//                Spacer()
+//                instructionsButton
                 Spacer()
             }
             .padding(.top, proxy.size.width > proxy.size.height ? 24 : 48)
