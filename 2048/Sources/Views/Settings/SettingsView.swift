@@ -78,27 +78,26 @@ struct SettingsView: View {
                                 .modifier(SettingsDescriptionStyle())
                         }
                         ) {
-//
-//                                            GameModeView()
+                                            GameModeView()
 //                                            Button("Show Interstitial") {
 //                                                adsViewModel.showInterstitial = true
-                                            }
+//                                            }
 //                                                .buttonStyle(.borderedProminent)
-//                        }
+                        }
 //                        BannerAd(unitID: settingsId)
 //                            .frame(width: 320, height: 50)
-////            Section(header:
-////                        VStack(alignment: .leading) {
-////                Text("Sound Picker")
-////                    .modifier(SettingsTitleStyle())
-////                Text("Change game sounds")
-////                    .modifier(SettingsDescriptionStyle())
-////            }
-////            ) {
-////                SoundPickerView()
-////            }
-////            //            BannerAd(unitID: settingsId)
-////            //                .frame(width: 320, height: 50)
+            Section(header:
+                        VStack(alignment: .leading) {
+                Text("Sound Picker")
+                    .modifier(SettingsTitleStyle())
+                Text("Change game sounds")
+                    .modifier(SettingsDescriptionStyle())
+            }
+            ) {
+                SoundPickerView()
+            }
+//                        BannerAd(unitID: settingsId)
+//                            .frame(width: 320, height: 50)
             Section(header:
                         VStack(alignment: .leading) {
                 Text(settings[PlistConfigurationKeyPath.settings.rawValue]?[PlistConfigurationKeyPath.audio.rawValue] ?? "")
