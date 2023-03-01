@@ -85,6 +85,8 @@
 		D43E7FB629ADBDF400792A90 /* TileNI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43E7FB529ADBDF400792A90 /* TileNI.swift */; };
 		D43E7FB829ADC13500792A90 /* InstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43E7FB729ADC13500792A90 /* InstructionsView.swift */; };
 		D43E7FBA29AE911300792A90 /* InitialInstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43E7FB929AE911300792A90 /* InitialInstructionsView.swift */; };
+		D43E7FBC29AE959900792A90 /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43E7FBB29AE959900792A90 /* LevelView.swift */; };
+		D43E7FBE29AEEA2400792A90 /* LevelCompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43E7FBD29AEEA2400792A90 /* LevelCompletedView.swift */; };
 		D43EF0BB29A1EF79007E5022 /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43EF0BA29A1EF79007E5022 /* BannerAd.swift */; };
 		D44A46C62987581300B9FD54 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A46C52987581300B9FD54 /* Settings.swift */; };
 		D45F76892978CDFE00DB7BF8 /* Ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D45F76882978CDFE00DB7BF8 /* Ding.mp3 */; };
@@ -228,6 +230,8 @@
 		D43E7FB529ADBDF400792A90 /* TileNI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileNI.swift; sourceTree = "<group>"; };
 		D43E7FB729ADC13500792A90 /* InstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsView.swift; sourceTree = "<group>"; };
 		D43E7FB929AE911300792A90 /* InitialInstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InitialInstructionsView.swift; path = ../../../../../InitialInstructionsView.swift; sourceTree = "<group>"; };
+		D43E7FBB29AE959900792A90 /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LevelView.swift; path = ../../../../../LevelView.swift; sourceTree = "<group>"; };
+		D43E7FBD29AEEA2400792A90 /* LevelCompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LevelCompletedView.swift; path = ../../../../../LevelCompletedView.swift; sourceTree = "<group>"; };
 		D43EF0BA29A1EF79007E5022 /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
 		D44A46C52987581300B9FD54 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		D45F76882978CDFE00DB7BF8 /* Ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Ding.mp3; sourceTree = "<group>"; };
@@ -547,6 +551,8 @@
 				A9757F1024CC481E00847031 /* TileBoardView.swift */,
 				A9757F1124CC481E00847031 /* GameStateBottomView.swift */,
 				D470730E2976774B0019774A /* LoginView.swift */,
+				D43E7FBB29AE959900792A90 /* LevelView.swift */,
+				D43E7FBD29AEEA2400792A90 /* LevelCompletedView.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -846,6 +852,7 @@
 				A9757F4E24CC481E00847031 /* SlideViewModifier.swift in Sources */,
 				A9757F2924CC481E00847031 /* PlistConfigurationKeyPath.swift in Sources */,
 				A9757F2E24CC481E00847031 /* GameBoardSizeState.swift in Sources */,
+				D43E7FBE29AEEA2400792A90 /* LevelCompletedView.swift in Sources */,
 				A9757F4F24CC481E00847031 /* MainViewModifier.swift in Sources */,
 				A9757F2724CC481E00847031 /* GameBoardSizeEnvironmentKey.swift in Sources */,
 				D4D3048B297A68620022868A /* GradientTileColorScheme.swift in Sources */,
@@ -892,6 +899,7 @@
 				A9757F5124CC481E00847031 /* BlurEffect.swift in Sources */,
 				A9757F5224CC481E00847031 /* RoundedClippedBackground.swift in Sources */,
 				D4D30482297A373E0022868A /* TimedView.swift in Sources */,
+				D43E7FBC29AE959900792A90 /* LevelView.swift in Sources */,
 				D4D3048D297A69B70022868A /* GradientSkinEnvironmentKey.swift in Sources */,
 				D43E7FB629ADBDF400792A90 /* TileNI.swift in Sources */,
 				A9757F4D24CC481E00847031 /* AnchoredScale.swift in Sources */,

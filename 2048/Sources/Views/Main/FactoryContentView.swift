@@ -38,6 +38,11 @@ struct FactoryContentView<G: Gesture>: View {
             .padding(.bottom, 24)
     }
     
+    private var levelView: some View {
+        LevelView()
+            .padding(.bottom, 24)
+    }
+    
     private var settingsView: some View {
         SettingsView()
             .padding(.top, -64)
@@ -77,6 +82,8 @@ struct FactoryContentView<G: Gesture>: View {
             tileBoardView
         case .game:
             tileBoardView
+        case .levels:
+            levelView
         case .ranks:
             ranksView
         case .stats:

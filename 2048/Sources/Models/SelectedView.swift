@@ -14,12 +14,15 @@ enum SelectedView {
     case ranks
     case stats
     case settings
+    case levels
     case about
     
     var title: String {
         switch self {
         case .game:
             return "Game"
+        case .levels:
+            return "Levels"
 //        case .timed:
 //            return "Timed"
         case .multiplayer:

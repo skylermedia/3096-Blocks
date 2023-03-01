@@ -33,6 +33,12 @@ struct CompositeView: View {
     @State private var highScore: Int = 0
     @State private var scoreMultiplier: Int = 0
     
+    @State private var level = UserDefaults.standard.integer(forKey: "level")
+    private let scoreMilestones = [100, 200, 300]
+    @State private var showNextLevelPopup = false
+    @State private var scoreGoal = UserDefaults.standard.integer(forKey: "scoreGoal")
+    @State private var isShowingLevelCompletedView = false
+    
     @State private var totalScore: Int = 1
     @State private var totalSwipes: Int = 0
     @State private var totalGames: Int = 0
@@ -49,7 +55,7 @@ struct CompositeView: View {
     @State private var selectedSound: String = UserDefaults.standard.string(forKey: "audioSound") ?? "default"
     @State private var audioSound = UserDefaults.standard.string(forKey: "audioSound")
     
-//    @EnvironmentObject var adsViewModel: AdsViewModel
+    //    @EnvironmentObject var adsViewModel: AdsViewModel
     
     @AppStorage(AppStorageKeys.audio.rawValue) var isAudioEnabled: Bool = true
     @AppStorage(AppStorageKeys.haptic.rawValue) var isHapticEnabled: Bool = true
@@ -58,7 +64,7 @@ struct CompositeView: View {
     
     init(board: GameLogic) {
         self.logic = board
-//        fetchHighScore()
+        //        fetchHighScore()
         highScore = UserDefaults.standard.integer(forKey: "highScore")
         selectedSound = UserDefaults.standard.string(forKey: "audioSound") ?? "default"
         UserDefaults.standard.set("weather", forKey: "gameMode")
@@ -110,17 +116,19 @@ struct CompositeView: View {
     
     var body: some View {
         NavigationView {
-            if (isAuthenticated != nil) == false {
-                LoginView(boardSize: 4)
-            } else if (hasPlayedBefore != nil) == false {
+            if !isShowingLevelCompletedView {
+                // Your game content here
+                if (isAuthenticated != nil) == false {
+                    LoginView(boardSize: 4)
+                } else if (hasPlayedBefore != nil) == false {
                     InitialInstructionsView(boardSize: 4)
                 } else {
-                GeometryReader { proxy in
-                    ZStack(alignment: .top) {
-                        VStack {
+                    GeometryReader { proxy in
+                        ZStack(alignment: .top) {
+                            VStack {
                                 Group {
                                     self.compositeHeaderView(proxy)
-
+                                    
                                     FactoryContentView(
                                         selectedView: $selectedView,
                                         gesture: gesture,
@@ -171,54 +179,63 @@ struct CompositeView: View {
                                         //                                    setTotalScore()
                                         Haptic.light()
                                     }
-                                .blur(radius: (presentEndGameModal || presentSideMenu) ? 4 : 0)
+                                    .blur(radius: (presentEndGameModal || presentSideMenu) ? 4 : 0)
+                                }
                             }
-                        }
-                        .modifier(RoundedClippedBackground(backgroundColor: colorSchemeBackgroundTheme.backgroundColor(for: colorScheme),
-                                                           proxy: proxy))
-                        .modifier(
-                            MainViewModifier(
-                                proxy: proxy,
-                                presentEndGameModal: $presentEndGameModal,
-                                presentSideMenu: $presentSideMenu,
-                                viewState: $viewState
+                            .modifier(RoundedClippedBackground(backgroundColor: colorSchemeBackgroundTheme.backgroundColor(for: colorScheme),
+                                                               proxy: proxy))
+                            .modifier(
+                                MainViewModifier(
+                                    proxy: proxy,
+                                    presentEndGameModal: $presentEndGameModal,
+                                    presentSideMenu: $presentSideMenu,
+                                    viewState: $viewState
+                                )
                             )
-                        )
-                        .onTapGesture {
-                            guard !hasGameEnded else { return } // Disable on tap dismissal of the end game modal view
-                            
-                            withAnimation(.modalSpring) {
-                                presentEndGameModal = false
-                                presentSideMenu = false
+                            .onTapGesture {
+                                guard !hasGameEnded else { return } // Disable on tap dismissal of the end game modal view
+                                
+                                withAnimation(.modalSpring) {
+                                    presentEndGameModal = false
+                                    presentSideMenu = false
+                                }
                             }
-                        }
-                        .onReceive(logic.$noPossibleMove) { (publisher) in
-                            let hasGameEnded = logic.noPossibleMove
-                            self.hasGameEnded = hasGameEnded
-                            
-                            withAnimation(.modalSpring) {
-                                self.presentEndGameModal = hasGameEnded
+                            .onReceive(logic.$noPossibleMove) { (publisher) in
+                                let hasGameEnded = logic.noPossibleMove
+                                self.hasGameEnded = hasGameEnded
+                                
+                                withAnimation(.modalSpring) {
+                                    self.presentEndGameModal = hasGameEnded
+                                }
                             }
+                            
+                            GameStateBottomView(
+                                hasGameEnded: $hasGameEnded,
+                                presentEndGameModal: $presentEndGameModal,
+                                sideMenuViewState: $sideMenuViewState,
+                                score: $score,
+                                resetGame: resetGame
+                            )
+                            CompositeSideView(
+                                selectedView: $selectedView,
+                                sideMenuViewState: $sideMenuViewState,
+                                presentSideMenu: $presentSideMenu
+                            )
                         }
-                        
-                        GameStateBottomView(
-                            hasGameEnded: $hasGameEnded,
-                            presentEndGameModal: $presentEndGameModal,
-                            sideMenuViewState: $sideMenuViewState,
-                            score: $score,
-                            resetGame: resetGame
-                        )
-                        CompositeSideView(
-                            selectedView: $selectedView,
-                            sideMenuViewState: $sideMenuViewState,
-                            presentSideMenu: $presentSideMenu
-                        )
                     }
+                    .edgesIgnoringSafeArea(.all)
                 }
-                .edgesIgnoringSafeArea(.all)
+                
+                Button("Play") {
+                    UserDefaults.standard.set(10000, forKey: "scoreGoal")
+                    isShowingLevelCompletedView = true
+                }
+            } else {
+                LevelCompletedView(isShowingLevelCompletedView: $isShowingLevelCompletedView)
             }
         }
     }
+
     
     // MARK: - Methods
     

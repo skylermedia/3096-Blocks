@@ -13,6 +13,7 @@ struct HeaderView: View {
     
     @State private var showResetWarning: Bool = false
     @State private var highScore = UserDefaults.standard.integer(forKey: "highScore")
+    @State private var scoreGoal = UserDefaults.standard.integer(forKey: "scoreGoal")
     @State private var showAboutSheet = false
     @State private var showInstructionsSheet = false
 
@@ -31,6 +32,18 @@ struct HeaderView: View {
     private var scoreView: some View {
         let shouldShowReset = showResetButton()
         return VStack {
+            HStack {
+                Text("Goal: ")
+                    .font(Font.system(.title, design: .monospaced).weight(.black))
+                    .foregroundColor(Color(red:0.49, green:0.49, blue:0.49, opacity: 0.7))
+                
+                Text("\(scoreGoal)")
+                    .font(Font.system(.title, design: .monospaced).weight(.black))
+                    .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
+                    .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
+                    .animation(.modalSpring, value: shouldShowReset)
+                    .id("Score \(self.score)")
+            }
             HStack {
                 Text("Score: ")
                     .font(Font.system(.title, design: .monospaced).weight(.black))
