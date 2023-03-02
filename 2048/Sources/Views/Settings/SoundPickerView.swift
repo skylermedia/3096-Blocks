@@ -99,7 +99,7 @@ struct SoundPickerView: View {
         }
         .padding(5)
         .actionSheet(isPresented: $showAlert) {
-            ActionSheet(title: Text("Requires Restart"), message: Text("You must restart 3096 – Blocks to change this setting."), buttons: [
+            ActionSheet(title: Text("Sound Changed"), message: Text(""), buttons: [
                 .destructive(Text("Restart"), action: {
                     exit(EXIT_SUCCESS)
                 }),
@@ -120,6 +120,7 @@ struct SoundPickerView: View {
         // Haptics
         Haptic.light()
         self.showAlert = true
+        print("Sound Changed")
     }
     
     func setSoundBeep() {
