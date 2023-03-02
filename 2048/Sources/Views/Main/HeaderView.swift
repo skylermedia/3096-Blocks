@@ -34,16 +34,20 @@ struct HeaderView: View {
         return VStack {
             HStack {
                 Text("Goal: ")
-                    .font(Font.system(.title, design: .monospaced).weight(.black))
+                    .font(shouldShowReset ? Font.system(.title, design: .monospaced).weight(.black) : Font.caption)
                     .foregroundColor(Color(red:0.49, green:0.49, blue:0.49, opacity: 0.7))
-                
+
                 Text("\(scoreGoal)")
-                    .font(Font.system(.title, design: .monospaced).weight(.black))
+                    .font(shouldShowReset ? Font.system(.title, design: .monospaced).weight(.black) : Font.caption)
                     .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
                     .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
                     .animation(.modalSpring, value: shouldShowReset)
-                    .id("Score \(self.score)")
+                    .id("Score Goal View: \(showResetButton())")
             }
+            .opacity(shouldShowReset ? 1.0 : 0.0)
+            .transition(AnyTransition.move(edge: .trailing).combined(with: .opacity))
+            .animation(.modalSpring, value: shouldShowReset)
+            .id("Score Goal View: \(showResetButton())")
             HStack {
                 Text("Score: ")
                     .font(Font.system(.title, design: .monospaced).weight(.black))
@@ -67,11 +71,11 @@ struct HeaderView: View {
             .id("Score View: \(showResetButton())")
             HStack {
                 Text("Best (Beta): ")
-                    .font(Font.system(.title, design: .monospaced).weight(.black))
+                    .font(shouldShowReset ? Font.system(.title, design: .monospaced).weight(.black) : Font.caption)
                     .foregroundColor(Color(red:0.49, green:0.49, blue:0.49, opacity: 0.7))
-                
+
                 Text("\(highScore)")
-                    .font(Font.system(.title, design: .monospaced).weight(.black))
+                    .font(shouldShowReset ? Font.system(.title, design: .monospaced).weight(.black) : Font.caption)
                     .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
                     .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
                     .animation(.modalSpring, value: shouldShowReset)
@@ -136,6 +140,7 @@ struct HeaderView: View {
         }
         .foregroundColor(.gray)
         .padding()
+        .opacity(showResetButton() ? 1.0 : 0.0)
     }
     
     private var resetGameButton: some View {
@@ -170,6 +175,7 @@ struct HeaderView: View {
         }
         .foregroundColor(.gray)
         .padding()
+        .opacity(showResetButton() ? 1.0 : 0.0)
     }
     
     private var titleView: some View {
@@ -185,21 +191,28 @@ struct HeaderView: View {
     // MARK: - Conformance to View Protocol
     
     var body: some View {
-        VStack {
-            HStack {
-                Spacer()
-                sideMenuButton
-                Spacer()
-                resetGameButton
-                Spacer()
-                shareButton
-                Spacer()
-                instructionsButton
-                Spacer()
+        ZStack {
+            Text("Test")
+                .opacity(showResetButton() ? 1.0 : 0.0)
+                .scaledToFit()
+                .frame(width: buttonSize, height: buttonSize)
+                .padding(.top, proxy.size.width > proxy.size.height ? -28 : -54)
+            VStack {
+                HStack {
+                    Spacer()
+                    sideMenuButton
+                    Spacer()
+                    resetGameButton
+                    Spacer()
+                    shareButton
+                    Spacer()
+                    instructionsButton
+                    Spacer()
+                }
+                .padding(.top, proxy.size.width > proxy.size.height ? 24 : 48)
+                
+                scoreView
             }
-            .padding(.top, proxy.size.width > proxy.size.height ? 24 : 48)
-            
-            scoreView
         }
     }
 }
