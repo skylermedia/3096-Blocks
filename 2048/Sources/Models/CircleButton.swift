@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CircleButton: View {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
     let image: String
     let text: String
     let action: () -> Void
@@ -16,18 +18,19 @@ struct CircleButton: View {
         VStack {
             ZStack {
                 Circle()
-                    .foregroundColor(.blue)
-                    .frame(width: 65, height: 65)
-                Button(action: action) {
-                    VStack(spacing: 4) {
-                        Image(systemName: image)
-                    }
-                    .font(.title)
-                    .foregroundColor(.white)
-                    .padding(15)
-                    .background(Color.blue)
-                    .clipShape(Circle())
+                    .fill(Color.primary.opacity(0.75))
+                VStack {
+                    Image(systemName: image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 25, height: 25)
+                        .foregroundColor(colorScheme == .light ? Color.white : Color.black)
                 }
+            }
+            .frame(width: 75, height: 75)
+            .overlay(Circle().stroke(Color.white, lineWidth: 2))
+            .onTapGesture {
+                action()
             }
             Text(text)
                 .font(.callout.bold())
