@@ -34,18 +34,18 @@ struct AboutView: View {
             .position(x: proxy.frame(in: .local).midX, y: proxy.frame(in: .local).maxY)
             
         }
-        .padding(.bottom, 24)
-        .padding([.leading, .trailing], 48)
+//        .padding(.bottom, 6)
+        .padding([.leading, .trailing], 12)
     }
 
     // MARK: - Private Methods
 
     private func iconHeader(padding spacing: CGFloat, proxy: GeometryProxy) -> some View {
         VStack(spacing: 8) {
-            Image("Icon")
-                .resizable()
-                .cornerRadius(25)
-                .aspectRatio(contentMode: .fit)
+//            Image("Icon")
+//                .resizable()
+//                .cornerRadius(25)
+//                .aspectRatio(contentMode: .fit)
             if #available(iOS 16.0, *) {
                 Text(about[PlistConfigurationKeyPath.about.rawValue]?[PlistConfigurationKeyPath.linkDescription.rawValue] ?? "[Missing Information]")
                 .multilineTextAlignment(.center)
