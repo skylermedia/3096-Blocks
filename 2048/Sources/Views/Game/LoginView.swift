@@ -43,11 +43,19 @@ struct LoginView: View {
                         .cornerRadius(25)
                     Spacer()
                 }
-                Button("Submit") {
-                    setUserName()
+                if #available(iOS 15.0, *) {
+                    Button("Submit") {
+                        setUserName()
+                    }
+                    .padding()
+                    .buttonStyle(.borderedProminent)
+                } else {
+                    Button("Submit") {
+                        setUserName()
+                    }
+                    .padding()
+                    .buttonStyle(.automatic)
                 }
-                .padding()
-                .buttonStyle(.borderedProminent)
                 NavigationLink(destination: CompositeView(board: GameLogic(size: boardSize)), isActive: $isLoggedIn) {
                     EmptyView()
                 }

@@ -17,37 +17,68 @@ struct TileNI: View {
 
     var body: some View {
         ZStack {
-            Image(systemName: image)
-                .font(.monospaced(.title)())
-                .foregroundColor(color)
-                .font(.largeTitle)
+            if #available(iOS 15.0, *) {
+                Image(systemName: image)
+                    .font(.monospaced(.title)())
+                    .foregroundColor(color)
+                    .font(.largeTitle)
+            } else {
+                Image(systemName: image)
+                    .font(.title)
+                    .foregroundColor(color)
+                    .font(.largeTitle)
+            }
             
-            if selection.is3x3On {
+            if #available(iOS 16.0, *) {
+                if selection.is3x3On {
+                    Text(number)
+                        .offset(x: 25, y: 25)
+                        .font(.title)
+                        .fontWeight(.black)
+                }
+            } else {
                 Text(number)
                     .offset(x: 25, y: 25)
                     .font(.title)
-                    .fontWeight(.black)
             }
             
-            if selection.is4x4On {
-                Text(number)
-                    .offset(x: 25, y: 25)
-                    .font(.body)
-                    .fontWeight(.black)
-            }
-            
-            if selection.is5x5On {
-                Text(number)
-                    .offset(x: 20, y: 20)
-                    .font(.body)
-                    .fontWeight(.black)
-            }
-            
-            if selection.is6x6On {
+            if #available(iOS 16.0, *) {
+                if selection.is4x4On {
+                    Text(number)
+                        .offset(x: 25, y: 25)
+                        .font(.body)
+                        .fontWeight(.black)
+                }
+            } else {
                 Text(number)
                     .offset(x: 17, y: 17)
                     .font(.caption)
-                    .fontWeight(.black)
+            }
+            
+            if #available(iOS 16.0, *) {
+                if selection.is5x5On {
+                    Text(number)
+                        .offset(x: 20, y: 20)
+                        .font(.body)
+                        .fontWeight(.black)
+                } else {
+                    Text(number)
+                        .offset(x: 17, y: 17)
+                        .font(.caption)
+                }
+                
+                if #available(iOS 16.0, *) {
+                    if selection.is6x6On {
+                        Text(number)
+                            .offset(x: 17, y: 17)
+                            .font(.caption)
+                            .fontWeight(.black)
+                    }
+                } else {
+                    Text(number)
+                        .offset(x: 17, y: 17)
+                        .font(.caption)
+                }
             }
         }
     }

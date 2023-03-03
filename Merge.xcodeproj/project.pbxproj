@@ -1080,7 +1080,7 @@
 				INFOPLIST_FILE = 2048/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "3096 – Blocks";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1091,7 +1091,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,6";
 				TVOS_DEPLOYMENT_TARGET = 15.0;
@@ -1115,7 +1115,7 @@
 				INFOPLIST_FILE = 2048/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "3096 – Blocks";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1126,7 +1126,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,6";
 				TVOS_DEPLOYMENT_TARGET = 15.0;
