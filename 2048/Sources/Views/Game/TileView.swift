@@ -51,7 +51,7 @@ struct TileView: View {
             ZStack {
                 Rectangle()
                     .fill(tileColorTheme.background)
-                if gameMode == "letter" {
+                if gameMode == "letters" {
                     Text(titleLetter())
                         .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
                         .id(number)
@@ -114,7 +114,7 @@ struct TileView: View {
                 let letter = numberDictionary[number]
                 let blankLetter = blankDictionary[number]
             
-            if gameMode == "weather" {
+            if gameMode == "symbols" {
                 return blankLetter ?? "!"
             } else {
                 return letter ?? "!"
