@@ -44,7 +44,7 @@ struct SoundPickerView: View {
                 HStack {
                     Spacer()
                     // Click
-                    CircleButton(image: "cursorarrow.click", text: "Click", action: {
+                    CircleButton(image: "cursorarrow.click.2", text: "Click", action: {
                         setSoundClick()
                         })
 
@@ -75,7 +75,7 @@ struct SoundPickerView: View {
                         })
 
                     // Wood
-                    CircleButton(image: "tornado", text: "Wood", action: {
+                    CircleButton(image: "leaf", text: "Wood", action: {
                         setSoundWood()
                         })
 
