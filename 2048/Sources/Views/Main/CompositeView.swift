@@ -30,7 +30,7 @@ struct CompositeView: View {
     
     @State private var selectedView: SelectedView = .game
     @State private var score: Int = 0
-    @State private var highScore: Int = 0
+    @State var highScore: Int = 0
     @State private var scoreMultiplier: Int = 0
     
     @State private var level = UserDefaults.standard.integer(forKey: "level")
@@ -121,7 +121,7 @@ struct CompositeView: View {
                 if (isAuthenticated != nil) == false {
                     LoginView(boardSize: 4)
                 } else if (hasPlayedBefore != nil) == false {
-                    InitialInstructionsView(boardSize: 4)
+                    InitialInstructionsView()
                 } else {
                     GeometryReader { proxy in
                         ZStack(alignment: .top) {
@@ -145,7 +145,7 @@ struct CompositeView: View {
                                             //                                        updateHighScore(newScore: score)
                                             highScore = score
                                             saveScore(playerName: "player", score: score)
-                                            UserDefaults.standard.set(score, forKey: "highScore")
+                                            UserDefaults.standard.set(highScore, forKey: "highScore")
                                         }
                                     }
                                     .onReceive(logic.$mergeMultiplier) { (publishedScoreMultiplier) in
@@ -234,6 +234,8 @@ struct CompositeView: View {
                 LevelCompletedView(isShowingLevelCompletedView: $isShowingLevelCompletedView)
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 
     

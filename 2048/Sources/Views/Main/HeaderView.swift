@@ -12,10 +12,11 @@ struct HeaderView: View {
     // MARK: - Properties
     
     @State private var showResetWarning: Bool = false
-    @State private var highScore = UserDefaults.standard.integer(forKey: "highScore")
-    @State private var scoreGoal = UserDefaults.standard.integer(forKey: "scoreGoal")
+//    @AppStorage("highScore") var highScore: String?
+    @State var highScore = UserDefaults.standard.integer(forKey: "highScore")
+    @State var scoreGoal = UserDefaults.standard.integer(forKey: "scoreGoal")
     @State private var showAboutSheet = false
-    @State private var showInstructionsSheet = false
+    @State var showInstructionsSheet = false
 
     var proxy: GeometryProxy
     @Binding var showSideMenu: Bool
@@ -165,6 +166,7 @@ struct HeaderView: View {
     private var instructionsButton: some View {
         Button(action: {
             self.showInstructionsSheet = true
+            UserDefaults.standard.set(showInstructionsSheet, forKey: "showInstructionsSheet")
         }) {
             Image(systemName: "book")
                 .resizable()

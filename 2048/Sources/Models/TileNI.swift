@@ -14,7 +14,7 @@ struct TileNI: View {
     var color: Color
     
     @State private var selection = GameBoardSizeState()
-
+    
     var body: some View {
         ZStack {
             if #available(iOS 15.0, *) {
@@ -61,24 +61,25 @@ struct TileNI: View {
                         .offset(x: 20, y: 20)
                         .font(.body)
                         .fontWeight(.black)
-                } else {
+                }
+            } else {
+                Text(number)
+                    .offset(x: 17, y: 17)
+                    .font(.caption)
+            }
+            
+            if #available(iOS 16.0, *) {
+                if selection.is6x6On {
                     Text(number)
                         .offset(x: 17, y: 17)
                         .font(.caption)
+                        .fontWeight(.black)
                 }
+            } else {
+                Text(number)
+                    .offset(x: 17, y: 17)
+                    .font(.caption)
                 
-                if #available(iOS 16.0, *) {
-                    if selection.is6x6On {
-                        Text(number)
-                            .offset(x: 17, y: 17)
-                            .font(.caption)
-                            .fontWeight(.black)
-                    }
-                } else {
-                    Text(number)
-                        .offset(x: 17, y: 17)
-                        .font(.caption)
-                }
             }
         }
     }

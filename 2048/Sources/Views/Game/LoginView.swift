@@ -67,6 +67,7 @@ struct LoginView: View {
                 Spacer()
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarBackButtonHidden(isLoggedIn)
     }
     
