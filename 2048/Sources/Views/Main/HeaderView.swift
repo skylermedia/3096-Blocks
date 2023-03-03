@@ -213,6 +213,8 @@ struct HeaderView: View {
                     Spacer()
                 }
                 .padding(.top, proxy.size.width > proxy.size.height ? 24 : 48)
+                Divider()
+                    .padding(.horizontal)
                 
                 scoreView
             }
