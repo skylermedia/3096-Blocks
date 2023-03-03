@@ -36,10 +36,6 @@ struct ChangeUsernameView: View {
     var body: some View {
         VStack {
             Spacer()
-            Text("Enter a New Username")
-                .bold()
-                .font(.title)
-                .foregroundColor(textColor)
             Text("Do not use personal information in your username (full name, phone number, etc…).")
                 .padding(.horizontal)
                 .padding(.bottom, 10)
