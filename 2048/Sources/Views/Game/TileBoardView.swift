@@ -24,7 +24,7 @@ struct TileBoardView: View {
     var tileBoardSize: Int
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     @State private var gameMode = UserDefaults.standard.string(forKey: "gameMode")
-
+    
     // MARK: - Computed Properties
     
     private var backgroundColor: Color {
@@ -34,104 +34,43 @@ struct TileBoardView: View {
     // MARK: - Conformacne to View Protocol
     
     var body: some View {
-            GeometryReader { proxy in
-                VStack {
-                    if gameMode == "weather" {
-//                        Divider()
-//                        ZStack {
-//                            VStack {
-//                                HStack {
-//                                    Image(systemName: "bolt.fill")
-//                                        .foregroundColor(.yellow)
-//                                        .font(.title)
-//
-//                                    Image(systemName: "flame.fill")
-//                                        .foregroundColor(.red)
-//                                        .font(.title)
-//
-//                                    Image(systemName: "cloud.rain.fill")
-//                                        .foregroundColor(.blue)
-//                                        .font(.title)
-//
-//                                    Image(systemName: "sun.max.fill")
-//                                        .foregroundColor(.yellow)
-//                                        .font(.title)
-//
-//                                    Image(systemName: "moon.stars.fill")
-//                                        .foregroundColor(.blue)
-//                                        .font(.title)
-//
-//                                    Image(systemName: "leaf.fill")
-//                                        .foregroundColor(.green)
-//                                        .font(.title)
-//
-//                                    Image(systemName: "tornado")
-//                                        .foregroundColor(.red)
-//                                        .font(.title)
-//                                }
-//                                Divider()
-//                                HStack {
-//                                    Image(systemName: "umbrella.fill")
-//                                        .foregroundColor(.blue)
-//                                        .font(.title)
-//
-//                                    Image(systemName: "cloud.heavyrain.fill")
-//                                        .foregroundColor(.blue)
-//                                        .font(.title)
-//
-//                                    Image(systemName: "sunrise.fill")
-//                                        .foregroundColor(.yellow)
-//                                        .font(.title)
-//
-//                                    Image(systemName: "cloud.sun.fill")
-//                                        .foregroundColor(.yellow)
-//                                        .font(.title)
-//
-//                                    Image(systemName: "wind")
-//                                        .foregroundColor(.yellow)
-//                                        .font(.title)
-//
-//                                    Image(systemName: "snowflake")
-//                                        .foregroundColor(.yellow)
-//                                        .font(.title)
-//                                }
-//                            }
-//                        }
-//                        Divider()
-                    }
-                    ZStack {
-                        Rectangle()
-                            .fill(backgroundColor)
-                        
-                        ForEach(0..<tileBoardSize, id: \.self) { x in
-                            ForEach(0..<tileBoardSize, id: \.self) { y in
-                                createBlock(nil, at: (x, y), proxy: proxy)
-                            }
-                        }
-                        ForEach(matrix.flatten(), id: \.tile.id) { item in
-                            createBlock(item.tile, at: item.index, proxy: proxy)
-                        }
-                    }
-                    .frame(
-                        width: calculateFrameSize(proxy),
-                        height: calculateFrameSize(proxy), alignment: .center
-                    )
-                    .background(
-                        Rectangle()
-                            .fill(Color(red:0.76, green:0.76, blue:0.78, opacity: 0.1))
-                    )
-                    .scaledToFit()
-                    .clipped()
-                    .cornerRadius(proxy.size.width / CGFloat(5 * tileBoardSize * 2))
-                    .drawingGroup(opaque: false, colorMode: .linear)
-                    .center(in: .local, with: proxy)
+        GeometryReader { proxy in
+            VStack {
+                ZStack {
+                    Rectangle()
+                        .fill(backgroundColor)
                     
-                    //                    BannerAd(unitID: gameId)
-                    //                        .frame(width: 320, height: 50)
+                    ForEach(0..<tileBoardSize, id: \.self) { x in
+                        ForEach(0..<tileBoardSize, id: \.self) { y in
+                            createBlock(nil, at: (x, y), proxy: proxy)
+                        }
+                    }
+                    
+                    ForEach(matrix.flatten(), id: \.tile.id) { item in
+                        createBlock(item.tile, at: item.index, proxy: proxy)
+                    }
+//                    .shadow(color: .red, radius: 10)
                 }
-                .shadow(color: .white, radius: 10)
+                .frame(
+                    width: calculateFrameSize(proxy),
+                    height: calculateFrameSize(proxy), alignment: .center
+                )
+                .background(
+                    Rectangle()
+                        .fill(Color(red:0.76, green:0.76, blue:0.78, opacity: 0.1))
+                )
+                .scaledToFit()
+                .clipped()
+                .cornerRadius(proxy.size.width / CGFloat(5 * tileBoardSize * 2))
+                .drawingGroup(opaque: false, colorMode: .linear)
+                .center(in: .local, with: proxy)
+                
+                //                    BannerAd(unitID: gameId)
+                //                        .frame(width: 320, height: 50)
             }
+            .shadow(color: .white, radius: 10)
         }
+    }
     
     // MARK: - Methods
     
