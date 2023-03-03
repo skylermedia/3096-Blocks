@@ -8,27 +8,29 @@
 import SwiftUI
 
 struct CircleButton: View {
-    let image: Image
-    let text: Text
+    let image: String
+    let text: String
     let action: () -> Void
     
     var body: some View {
-        ZStack {
-            Circle()
-                .foregroundColor(.blue)
-                .frame(width: 75, height: 75)
-            Button(action: action) {
-                VStack(spacing: 4) {
-                    image
-                        .font(.title)
-                    text
-                        .font(.subheadline)
+        VStack {
+            ZStack {
+                Circle()
+                    .foregroundColor(.blue)
+                    .frame(width: 65, height: 65)
+                Button(action: action) {
+                    VStack(spacing: 4) {
+                        Image(systemName: image)
+                    }
+                    .font(.title)
+                    .foregroundColor(.white)
+                    .padding(15)
+                    .background(Color.blue)
+                    .clipShape(Circle())
                 }
-                .foregroundColor(.white)
-                .padding(15)
-                .background(Color.blue)
-                .clipShape(Circle())
             }
+            Text(text)
+                .font(.callout.bold())
         }
     }
 }
