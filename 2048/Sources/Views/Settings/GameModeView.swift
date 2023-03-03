@@ -13,7 +13,7 @@ struct GameModeView: View {
     
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
-    @State private var gameMode = "letter"
+    @State private var gameMode = "symbols"
     @State private var showAlert = false
     
     // MARK: - Colors
@@ -67,12 +67,12 @@ struct GameModeView: View {
                         setNumberMode()
                     }
                     
-                    // Weather
+                    // Symbols
                     ZStack {
                         Circle()
                             .fill(Color.primary.opacity(0.75))
                         VStack {
-                            Image(systemName: "cloud")
+                            Image(systemName: "bolt")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 25, height: 25)

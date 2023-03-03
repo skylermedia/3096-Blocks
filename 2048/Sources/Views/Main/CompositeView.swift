@@ -67,7 +67,7 @@ struct CompositeView: View {
         //        fetchHighScore()
         highScore = UserDefaults.standard.integer(forKey: "highScore")
         selectedSound = UserDefaults.standard.string(forKey: "audioSound") ?? "default"
-        UserDefaults.standard.set("weather", forKey: "gameMode")
+        UserDefaults.standard.set("symbols", forKey: "gameMode")
     }
     
     // MARK: - Drag Gesture

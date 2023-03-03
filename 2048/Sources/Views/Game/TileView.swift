@@ -65,7 +65,7 @@ struct TileView: View {
                         .transition(AnyTransition.scale(scale: 0.2).combined(with: .opacity).animation(.modalSpring(duration: 0.3)))
                 }
                 
-                if gameMode == "weather" {
+                if gameMode == "symbols" {
                     if number == 3 {
                         TileNI(image: "bolt.fill", number: "1", color: .yellow)
                     } else if number == 4 {
