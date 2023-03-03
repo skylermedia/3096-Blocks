@@ -120,8 +120,6 @@ struct CompositeView: View {
                 // Your game content here
                 if (isAuthenticated != nil) == false {
                     LoginView(boardSize: 4)
-                } else if (hasPlayedBefore != nil) == false {
-                    InitialInstructionsView()
                 } else {
                     GeometryReader { proxy in
                         ZStack(alignment: .top) {
