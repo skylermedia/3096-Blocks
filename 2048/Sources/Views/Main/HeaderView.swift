@@ -32,22 +32,22 @@ struct HeaderView: View {
     private var scoreView: some View {
         let shouldShowReset = showResetButton()
         return VStack {
-            HStack {
-                Text("Goal: ")
-                    .font(shouldShowReset ? Font.system(.title, design: .monospaced).weight(.black) : Font.caption)
-                    .foregroundColor(Color(red:0.49, green:0.49, blue:0.49, opacity: 0.7))
-
-                Text("\(scoreGoal)")
-                    .font(shouldShowReset ? Font.system(.title, design: .monospaced).weight(.black) : Font.caption)
-                    .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
-                    .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
-                    .animation(.modalSpring, value: shouldShowReset)
-                    .id("Score Goal View: \(showResetButton())")
-            }
-            .opacity(shouldShowReset ? 1.0 : 0.0)
-            .transition(AnyTransition.move(edge: .trailing).combined(with: .opacity))
-            .animation(.modalSpring, value: shouldShowReset)
-            .id("Score Goal View: \(showResetButton())")
+//            HStack {
+//                Text("Goal: ")
+//                    .font(shouldShowReset ? Font.system(.title, design: .monospaced).weight(.black) : Font.caption)
+//                    .foregroundColor(Color(red:0.49, green:0.49, blue:0.49, opacity: 0.7))
+//
+//                Text("\(scoreGoal)")
+//                    .font(shouldShowReset ? Font.system(.title, design: .monospaced).weight(.black) : Font.caption)
+//                    .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
+//                    .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
+//                    .animation(.modalSpring, value: shouldShowReset)
+//                    .id("Score Goal View: \(showResetButton())")
+//            }
+//            .opacity(shouldShowReset ? 1.0 : 0.0)
+//            .transition(AnyTransition.move(edge: .trailing).combined(with: .opacity))
+//            .animation(.modalSpring, value: shouldShowReset)
+//            .id("Score Goal View: \(showResetButton())")
             HStack {
                 Text("Score: ")
                     .font(Font.system(.title, design: .monospaced).weight(.black))
@@ -180,11 +180,11 @@ struct HeaderView: View {
     
     private var titleView: some View {
         Text(title)
-            .padding(.top, 50)
-            .font(Font.system(size: 64).weight(.black))
-            .foregroundColor(Color(red:0.29, green:0.29, blue:0.29, opacity: 1.00))
-//            .transition(AnyTransition.move(edge: .trailing).combined(with: .opacity))
-//            .animation(.modalSpring, value: showSideMenu)
+            .fontWeight(.heavy)
+            .font(.largeTitle)
+            .opacity(!showResetButton() ? 1.0 : 0.0)
+            .padding(.top, proxy.size.width > proxy.size.height ? -10 : -20)
+            .transition(AnyTransition.move(edge: .trailing).combined(with: .opacity))
             .id(title)
     }
     
@@ -192,11 +192,12 @@ struct HeaderView: View {
     
     var body: some View {
         ZStack {
-            Text("Test")
-                .opacity(showResetButton() ? 1.0 : 0.0)
-                .scaledToFit()
-                .frame(width: buttonSize, height: buttonSize)
-                .padding(.top, proxy.size.width > proxy.size.height ? -28 : -54)
+            titleView
+//            Text(title)
+//                .fontWeight(.heavy)
+//                .font(.largeTitle)
+//                .opacity(!showResetButton() ? 1.0 : 0.0)
+//                .padding(.top, proxy.size.width > proxy.size.height ? -10 : -20)
             VStack {
                 HStack {
                     Spacer()
