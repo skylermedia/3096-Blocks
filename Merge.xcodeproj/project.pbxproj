@@ -88,6 +88,7 @@
 		D43E7FBC29AE959900792A90 /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43E7FBB29AE959900792A90 /* LevelView.swift */; };
 		D43E7FBE29AEEA2400792A90 /* LevelCompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43E7FBD29AEEA2400792A90 /* LevelCompletedView.swift */; };
 		D43EF0BB29A1EF79007E5022 /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43EF0BA29A1EF79007E5022 /* BannerAd.swift */; };
+		D4435CAF29B29A250036CB95 /* ChangeUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4435CAE29B29A250036CB95 /* ChangeUsernameView.swift */; };
 		D44A46C62987581300B9FD54 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A46C52987581300B9FD54 /* Settings.swift */; };
 		D45F76892978CDFE00DB7BF8 /* Ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D45F76882978CDFE00DB7BF8 /* Ding.mp3 */; };
 		D470730A2976633F0019774A /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47073092976633F0019774A /* LeaderboardView.swift */; };
@@ -233,6 +234,7 @@
 		D43E7FBB29AE959900792A90 /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LevelView.swift; path = ../../../../../LevelView.swift; sourceTree = "<group>"; };
 		D43E7FBD29AEEA2400792A90 /* LevelCompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LevelCompletedView.swift; path = ../../../../../LevelCompletedView.swift; sourceTree = "<group>"; };
 		D43EF0BA29A1EF79007E5022 /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
+		D4435CAE29B29A250036CB95 /* ChangeUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUsernameView.swift; sourceTree = "<group>"; };
 		D44A46C52987581300B9FD54 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		D45F76882978CDFE00DB7BF8 /* Ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Ding.mp3; sourceTree = "<group>"; };
 		D47073092976633F0019774A /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
@@ -519,6 +521,7 @@
 				D42CF902297DE2C700E117DD /* SoundPickerView.swift */,
 				D4D30485297A480A0022868A /* SkinSelectorView.swift */,
 				D436C0FD297EDE80009089BB /* GameModeView.swift */,
+				D4435CAE29B29A250036CB95 /* ChangeUsernameView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -858,6 +861,7 @@
 				D4D3048B297A68620022868A /* GradientTileColorScheme.swift in Sources */,
 				A9757F4924CC481E00847031 /* HeaderView.swift in Sources */,
 				A9757F2B24CC481E00847031 /* SelectedView.swift in Sources */,
+				D4435CAF29B29A250036CB95 /* ChangeUsernameView.swift in Sources */,
 				A9757F4224CC481E00847031 /* SideMenuView.swift in Sources */,
 				A9757F3F24CC481E00847031 /* SettingsView.swift in Sources */,
 				A9757F2D24CC481E00847031 /* BoardSize.swift in Sources */,

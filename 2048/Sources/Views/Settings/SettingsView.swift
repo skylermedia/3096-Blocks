@@ -24,20 +24,6 @@ struct SettingsView: View {
     }
     private let previewSize: CGSize = .init(width: 144, height: 144)
     
-    @State private var userName: String = (UserDefaults.standard.string(forKey: "userName") ?? "username")
-    
-    private var textColor: Color {
-        colorScheme == .dark ? Color(red:0.90, green:0.90, blue:0.90, opacity:1.00) : Color(red:0.10, green:0.10, blue:0.10, opacity:1.00)
-    }
-    
-    private var usernameTextColor: Color {
-        colorScheme == .light ? Color(red:0.90, green:0.90, blue:0.90, opacity:1.00) : Color(red:0.10, green:0.10, blue:0.10, opacity:1.00)
-    }
-    
-    private var backgroundColor: Color {
-        colorScheme == .dark ? Color(red:0.90, green:0.90, blue:0.90, opacity:1.00) : Color(red:0.10, green:0.10, blue:0.10, opacity:1.00)
-    }
-    
     private let plist = PlistConfiguration(name: "Strings")
     private let settings: [String : [String : String]]
     
@@ -138,45 +124,21 @@ struct SettingsView: View {
                         .modifier(SettingsDescriptionStyle())
                 }
                 ) {
+                }
                     HapticSettingsView(
                         invertedBackground: invertedBackgroundColor,
                         previewSize: previewSize
                     )
                     Section(header: VStack(alignment: .leading) {
-                        Text("Change Username")
+                        Text("Username")
                             .modifier(SettingsTitleStyle())
                         Text("Change the username you set after first opening Weather Merge.")
                             .modifier(SettingsDescriptionStyle())
                     }
                     ) {
-                        VStack {
-                            Spacer()
-                            HStack {
-                                Spacer()
-                                TextField("", text: $userName)
-                                    .padding()
-                                    .foregroundColor(usernameTextColor)
-                                    .background(backgroundColor)
-                                    .cornerRadius(25)
-                                Spacer()
-                            }
-                            if #available(iOS 15.0, *) {
-                                Button("Submit") {
-                                    setUserName()
-                                }
-                                .padding()
-                                .buttonStyle(.borderedProminent)
-                            } else {
-                                Button("Submit") {
-                                    setUserName()
-                                }
-                                .padding()
-                                .buttonStyle(.automatic)
-                            }
-                            Spacer()
-                        }
+                        ChangeUsernameView()
                     }
-                }
+                
                 .listRowBackground(Color.white)
                 .listStyle(InsetGroupedListStyle())
                 .foregroundColor(.red)
@@ -187,10 +149,19 @@ struct SettingsView: View {
             }
             .listRowBackground(Color.white)
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
-    
-    func setUserName() {
-        UserDefaults.standard.set(self.userName, forKey: "userName")
-        print(userName)
+}
+
+// MARK: - Previews
+
+struct SettingsView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            SettingsView()
+                .preferredColorScheme(.dark)
+            SettingsView()
+                .preferredColorScheme(.light)
+        }
     }
 }

@@ -30,10 +30,18 @@ struct LoginView: View {
         NavigationView {
             VStack {
                 Spacer()
-                Text("Enter a Username Below")
+                Text("Enter a Username")
                     .bold()
                     .font(.title)
                     .foregroundColor(textColor)
+                Text("Do not use personal information in your username (full name, phone number, etc…).")
+                    .padding(.horizontal)
+                    .padding(.bottom, 10)
+                    .multilineTextAlignment(.center)
+                    .font(.body)
+                    .foregroundColor(textColor)
+                Divider()
+                    .padding([.horizontal, .bottom])
                 HStack {
                     Spacer()
                     TextField("", text: $userName)
