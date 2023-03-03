@@ -10,17 +10,9 @@ import SwiftUI
 struct SoundPickerView: View {
     
     // MARK: - Properties
-        
-    @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     @State private var audioSound = "Default"
     @State private var showAlert = false
-    
-    // MARK: - Colors
-    
-    private var backgroundColor: Color {
-        colorScheme == .light ? Color(red:0.43, green:0.43, blue:0.43, opacity: 1) : Color(red:0.33, green:0.33, blue:0.33, opacity: 1)
-    }
     
     // MARK: - Conformance to View Protocol
     
@@ -99,7 +91,7 @@ struct SoundPickerView: View {
         }
         .padding(5)
         .actionSheet(isPresented: $showAlert) {
-            ActionSheet(title: Text("Sound Changed"), message: Text(""), buttons: [
+            ActionSheet(title: Text("Sound Changed"), message: Text("Your game sound has been changed to " + audioSound.capitalized + "."), buttons: [
                 .destructive(Text("Restart"), action: {
                     exit(EXIT_SUCCESS)
                 }),
