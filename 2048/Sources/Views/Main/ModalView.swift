@@ -19,6 +19,9 @@ struct ModalView: View {
     
     @State private var resetWithScore = false
     @Binding var score: Int
+    @Binding var highScore: Int
+    @Binding var scoreGoal: Int
+    
     var title: String
     var subtitle: String? = nil
     var completionHandler: () -> Void
@@ -137,7 +140,7 @@ struct ModalView: View {
     }
     
     func resetWithScoreAction() {
-        print("User: Reset with scure")
+        print("User: Reset with score")
         _ = true
         allGameAction()
     }

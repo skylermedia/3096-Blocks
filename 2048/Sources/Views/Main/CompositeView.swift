@@ -30,13 +30,13 @@ struct CompositeView: View {
     
     @State private var selectedView: SelectedView = .game
     @State private var score: Int = 0
-    @State var highScore: Int = 0
+    @State private var highScore: Int = UserDefaults.standard.integer(forKey: "highScore")
+    @State private var scoreGoal = UserDefaults.standard.integer(forKey: "scoreGoal")
     @State private var scoreMultiplier: Int = 0
     
     @State private var level = UserDefaults.standard.integer(forKey: "level")
     private let scoreMilestones = [100, 200, 300]
     @State private var showNextLevelPopup = false
-    @State private var scoreGoal = UserDefaults.standard.integer(forKey: "scoreGoal")
     @State private var isShowingLevelCompletedView = false
     
     @State private var totalScore: Int = 1
@@ -65,7 +65,7 @@ struct CompositeView: View {
     init(board: GameLogic) {
         self.logic = board
         //        fetchHighScore()
-        highScore = UserDefaults.standard.integer(forKey: "highScore")
+        highScore = 0
         selectedSound = UserDefaults.standard.string(forKey: "audioSound") ?? "default"
         UserDefaults.standard.set("symbols", forKey: "gameMode")
     }
@@ -138,8 +138,9 @@ struct CompositeView: View {
                                         if resetWithScore {
                                             score = 0
                                         }
+                                        saveScore(playerName: "player", score: score)
                                         score = publishedScore
-                                        if score > highScore {
+                                        if publishedScore > highScore {
                                             //                                        updateHighScore(newScore: score)
                                             highScore = score
                                             saveScore(playerName: "player", score: score)
@@ -212,6 +213,8 @@ struct CompositeView: View {
                                 presentEndGameModal: $presentEndGameModal,
                                 sideMenuViewState: $sideMenuViewState,
                                 score: $score,
+                                highScore: $highScore,
+                                scoreGoal: $scoreGoal,
                                 resetGame: resetGame
                             )
                             CompositeSideView(
@@ -246,6 +249,8 @@ struct CompositeView: View {
             title: selectedView.title,
             score: $score,
             scoreMultiplier: $scoreMultiplier,
+            highScore: $highScore,
+            scoreGoal: $scoreGoal,
             newGameAction: {
                 presentEndGameModal = true
             },

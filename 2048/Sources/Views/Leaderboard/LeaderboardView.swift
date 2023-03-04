@@ -36,24 +36,24 @@ struct LeaderboardView: View {
             Rectangle()
                 .fill(Color("leaderboardBackgroundColor"))
             VStack {
-//                HStack {
-//                    Spacer()
-//                    TextField("Search", text: $searchTerm) {
-//                        filterLeaderboard()
-//                    }
-//                        .padding()
-//                        .background(Color.primary.opacity(0.5))
-//                        .foregroundColor(Color("leaderboardBorderColor"))
-//                        .cornerRadius(8)
-//                                    Button(action: {
-//                                        endFilterLeaderboard()
-//                                    }) {
-//                                        Image(systemName: "xmark.circle.fill")
-//                                            .foregroundColor(.gray)
-//                                    }
-//                    Spacer()
-//                }
-//                .padding()
+                HStack {
+                    Spacer()
+                    TextField("Search", text: $searchTerm) {
+                        filterLeaderboard()
+                    }
+                        .padding()
+                        .background(Color.primary.opacity(0.5))
+                        .foregroundColor(Color("leaderboardBorderColor"))
+                        .cornerRadius(8)
+                                    Button(action: {
+                                        endFilterLeaderboard()
+                                    }) {
+                                        Image(systemName: "xmark.circle.fill")
+                                            .foregroundColor(.gray)
+                                    }
+                    Spacer()
+                }
+                .padding()
                 ZStack {
                     if leaderboardLoading == true {
                         VStack {
@@ -71,15 +71,16 @@ struct LeaderboardView: View {
                         }
                     } else {
                         if leaderboardIsFiltered {
-                            /*
-                             List(leaderboardData.filter { $0.playerName.contains(searchTerm) }, id: \.self) { item in
-                             HStack {
-                             Text("\(item.rank).")
-                             Text(item.playerName)
-                             Spacer()
-                             Text("\(item.score)")
-                             }
-                             */
+                            
+                            List(leaderboardData.filter { $0.playerName.contains(searchTerm) }, id: \.self) { item in
+                                HStack {
+                                    Text("\(item.rank).")
+                                    Text(item.playerName)
+                                    Spacer()
+                                    Text("\(item.score)")
+                                }
+                            }
+                            
                             VStack {
                                 Text("Please allow up to 5 minutes for the leaderboard to update.")
                                     .bold()

@@ -137,7 +137,12 @@ struct SettingsView: View {
                     }
                     ) {
                         ChangeUsernameView()
-                    }
+                        Button(action: {
+                            fatalError()
+                        }) {
+                            Text("Send Feedback")
+                        }
+                        }
                 
                 .listRowBackground(Color.white)
                 .listStyle(InsetGroupedListStyle())

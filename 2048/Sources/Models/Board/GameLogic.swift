@@ -24,6 +24,7 @@ final class GameLogic: ObservableObject {
     @Published private(set) var noPossibleMove: Bool = false
     @Published private(set) var score: Int = 0
     @Published private(set) var highScore: Int = 0
+    @Published private(set) var scoreGoal: Int = 0
     @Published private(set) var mergeMultiplier: Int = 0
     @Published private(set) var boardSize: Int
     @Published private(set) var hasMoveMergedTiles: Bool = false
@@ -240,6 +241,7 @@ final class GameLogic: ObservableObject {
         if resetWithScore {
             score = 0
         }
+        
         resetWithScore = false
         UserDefaults.standard.set(resetWithScore, forKey: "resetWithScore")
         mergeMultiplier = 0

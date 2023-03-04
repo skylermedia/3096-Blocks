@@ -15,7 +15,9 @@ struct GameStateBottomView: View {
     @Binding var presentEndGameModal: Bool
     @Binding var sideMenuViewState: CGSize
     @Binding var score: Int
-    @AppStorage("highScore") private var highScore: Int = 0
+    @Binding var highScore: Int
+    @Binding var scoreGoal: Int
+    
     var resetGame: () -> Void
     
     private var resetWithScore = UserDefaults.standard.bool(forKey: "resetWithScore")
@@ -30,12 +32,16 @@ struct GameStateBottomView: View {
         presentEndGameModal: Binding<Bool>,
         sideMenuViewState: Binding<CGSize>,
         score: Binding<Int>,
+        highScore: Binding<Int>,
+        scoreGoal: Binding<Int>,
         resetGame: @escaping () -> Void
     ) {
         _hasGameEnded = hasGameEnded
         _presentEndGameModal = presentEndGameModal
         _sideMenuViewState = sideMenuViewState
         _score = score
+        _highScore = highScore
+        _scoreGoal = scoreGoal
         self.resetGame = resetGame
         
         gameBoardState = plist?.getItem(named: PlistConfigurationKeyPath.gameState.rawValue) ?? ["" : [:]]
@@ -46,6 +52,8 @@ struct GameStateBottomView: View {
     private var modalGameEnd: some View {
         ModalView(
             score: $score,
+            highScore: $highScore,
+            scoreGoal: $scoreGoal,
             title: gameBoardState[PlistConfigurationKeyPath.gameState.rawValue]?[PlistConfigurationKeyPath.gameOverTitle.rawValue] ?? "",
             subtitle: (gameBoardState[PlistConfigurationKeyPath.gameState.rawValue]?[PlistConfigurationKeyPath.gameOverSubtitle.rawValue] ?? "") + "\(score)",
             completionHandler: {
@@ -64,6 +72,8 @@ struct GameStateBottomView: View {
     private var modalExistingGame: some View {
         ModalView(
             score: $score,
+            highScore: $highScore,
+            scoreGoal: $scoreGoal,
             title: gameBoardState[PlistConfigurationKeyPath.gameState.rawValue]?[PlistConfigurationKeyPath.resetGameTitle.rawValue] ?? "",
             subtitle: gameBoardState[PlistConfigurationKeyPath.gameState.rawValue]?[PlistConfigurationKeyPath.resetGameSubtitle.rawValue] ?? "",
             completionHandler: {
