@@ -18,6 +18,7 @@ struct SettingsView: View {
     // MARK: - Private Properties
     
     @State private var isLoggedIn: Bool = false
+    @State private var userName: String = (UserDefaults.standard.string(forKey: "userName") ?? "username")
     
     private var invertedBackgroundColor: Color {
         colorScheme == .dark ? Color(red:0.90, green:0.90, blue:0.90, opacity:1.00) : Color(red:0.10, green:0.10, blue:0.10, opacity:1.00)
@@ -137,10 +138,13 @@ struct SettingsView: View {
                     }
                     ) {
                         ChangeUsernameView()
-                        Button(action: {
-                            fatalError()
-                        }) {
-                            Text("Send Feedback")
+                        if userName == "Feedback.Sender" {
+                            Button(action: {
+                                fatalError()
+                            }) {
+                                Text("Send Feedback")
+                            }
+                            .buttonStyle(.automatic)
                         }
                         }
                 
