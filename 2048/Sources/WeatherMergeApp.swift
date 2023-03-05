@@ -105,6 +105,7 @@ struct WeatherMergeApp: App {
     
     var body: some Scene {
         WindowGroup {
+//            BetaLoginView()
             mainView
 //                .environmentObject(adsVM)
         }
