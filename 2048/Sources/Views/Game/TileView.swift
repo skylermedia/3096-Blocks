@@ -16,6 +16,8 @@ struct TileView: View {
     
     @State private var gameMode = UserDefaults.standard.string(forKey: "gameMode")
     
+    @State private var showTileSheet: Bool = false
+    
     private var backgroundColor: Color {
         colorScheme == .light ? Color(red:0.78, green:0.73, blue:0.68, opacity: 1.0) : Color(red:0.58, green:0.53, blue:0.48, opacity: 1.0)
     }
@@ -61,7 +63,7 @@ struct TileView: View {
                     Text(titleNumber())
                         .font(.system(size: fontSize(proxy), weight: .bold, design: .monospaced))
                         .id(number)
-//                        .foregroundColor(tileColorTheme.font)
+                    //                        .foregroundColor(tileColorTheme.font)
                         .transition(AnyTransition.scale(scale: 0.2).combined(with: .opacity).animation(.modalSpring(duration: 0.3)))
                 }
                 
@@ -95,9 +97,115 @@ struct TileView: View {
                     }
                 }
             }
+            .onLongPressGesture(maximumDistance: 75, perform: { tileLongPress() })
             .zIndex(Double.greatestFiniteMagnitude)
             .clipped()
             .cornerRadius(proxy.size.width / 9)
+        }
+        .sheet(isPresented: $showTileSheet) {
+            VStack {
+                HStack {
+                    Spacer()
+                    HStack {
+                        ZStack {
+                            Rectangle()
+                                .fill(tileColorTheme.background)
+                                .frame(width: 75, height: 75)
+                                .clipped()
+                                .cornerRadius(10)
+                            
+                            if gameMode == "symbols" {
+                                if number == 3 {
+                                    TileNI(image: "bolt.fill", number: "1", color: .yellow)
+                                } else if number == 4 {
+                                    TileNI(image: "flame.fill", number: "2", color: .orange)
+                                } else if number == 5 {
+                                    TileNI(image: "cloud.rain.fill", number: "3", color: .blue)
+                                } else if number == 6 {
+                                    TileNI(image: "sun.max.fill", number: "4", color: .yellow)
+                                } else if number == 7 {
+                                    TileNI(image: "moon.stars.fill", number: "5", color: .blue)
+                                } else if number == 8 {
+                                    TileNI(image: "leaf.fill", number: "6", color: .green)
+                                } else if number == 9 {
+                                    TileNI(image: "tornado", number: "7", color: .red)
+                                } else if number == 10 {
+                                    TileNI(image: "umbrella.fill", number: "8", color: .blue)
+                                } else if number == 11 {
+                                    TileNI(image: "cloud.heavyrain.fill", number: "9", color: .blue)
+                                } else if number == 12 {
+                                    TileNI(image: "sunrise.fill", number: "10", color: .yellow)
+                                } else if number == 13 {
+                                    TileNI(image: "cloud.sun.fill", number: "11", color: .yellow)
+                                } else if number == 14 {
+                                    TileNI(image: "wind", number: "12", color: .yellow)
+                                } else if number == 15 {
+                                    TileNI(image: "snowflake", number: "13", color: .yellow)
+                                }
+                            }
+                            
+                            
+                                
+                            }
+                        }
+                        Spacer()
+                    
+                    if gameMode == "symbols" {
+                        if number == 3 {
+                            Text("Lightning")
+                                .font(.largeTitle.bold())
+                        }
+                    }
+                    
+                    Spacer()
+                }
+                
+                Divider()
+                HStack {
+                    Text("Next Tile:")
+                        .font(.title.bold())
+                    ZStack {
+                        Rectangle()
+                            .fill(tileColorTheme.background)
+                            .frame(width: 75, height: 75)
+                            .clipped()
+                            .cornerRadius(10)
+                        if number == 3 {
+                            TileNI(image: "flame.fill", number: "2", color: .orange)
+                        } else if number == 4 {
+                            TileNI(image: "cloud.rain.fill", number: "3", color: .blue)
+                        } else if number == 5 {
+                            TileNI(image: "sun.max.fill", number: "4", color: .yellow)
+                        } else if number == 6 {
+                            TileNI(image: "moon.stars.fill", number: "5", color: .blue)
+                        } else if number == 7 {
+                            TileNI(image: "leaf.fill", number: "6", color: .green)
+                        } else if number == 8 {
+                            TileNI(image: "tornado", number: "7", color: .red)
+                        } else if number == 9 {
+                            TileNI(image: "umbrella.fill", number: "8", color: .blue)
+                        } else if number == 10 {
+                            TileNI(image: "cloud.heavyrain.fill", number: "9", color: .blue)
+                        } else if number == 11 {
+                            TileNI(image: "sunrise.fill", number: "10", color: .yellow)
+                        } else if number == 12 {
+                            TileNI(image: "cloud.sun.fill", number: "11", color: .yellow)
+                        } else if number == 13 {
+                            TileNI(image: "wind", number: "12", color: .yellow)
+                        } else if number == 14 {
+                            TileNI(image: "snowflake", number: "13", color: .yellow)
+                        }
+                    }
+                }
+                HStack {
+                    Text("ID: " )
+                        .font(.title.bold())
+                    Text("\((number ?? 0) - 2)")
+                        .font(.title.bold())
+                }
+                Spacer()
+            }
+            .padding([.top], 50)
         }
     }
     
@@ -131,5 +239,11 @@ struct TileView: View {
         }
     private func fontSize(_ proxy: GeometryProxy) -> CGFloat {
         proxy.size.width / fontProportionalWidth
+    }
+    
+    private func tileLongPress() {
+        print("Long Pressed Tile: \(titleLetter())")
+        showTileSheet = true
+        Haptic.heavy()
     }
 }
