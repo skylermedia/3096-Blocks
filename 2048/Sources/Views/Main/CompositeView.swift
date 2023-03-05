@@ -271,38 +271,38 @@ struct CompositeView: View {
 //                        level = level + 1
 ////                        scoreGoal = scoreGoal + 1000
 //                        self.level = level
-//                        
+//
 //                        if level == 0 {
 //                            scoreGoal = 100
 //                        }
-//                        
+//
 //                        if level == 1 {
 //                            scoreGoal = 1000
 //                        }
-//                        
+//
 //                        if level == 2 {
 //                            scoreGoal = 25000
 //                        }
-//                        
+//
 //                        if level == 3 {
 //                            scoreGoal = 50000
 //                        }
-//                        
+//
 //                        if level == 4 {
 //                            scoreGoal = 75000
 //                        }
 //                        if level == 5 {
 //                            scoreGoal = 100000
 //                        }
-//                        
+//
 //                        if level == 6 {
 //                            scoreGoal = 150000
 //                        }
-//                        
+//
 //                        if level == 7 {
 //                            scoreGoal = 250000
 //                        }
-//                        
+//
 //                        UserDefaults.standard.set(scoreGoal, forKey: "scoreGoal")
 //                        UserDefaults.standard.set(level, forKey: "level")
 //                    }) {
@@ -456,19 +456,21 @@ struct CompositeView: View {
 //    }
 
     func saveScore(playerName: String, score: Int) {
-        let record = CKRecord(recordType: "Leaderboard")
-        let playerName = UserDefaults.standard.string(forKey: "userName")
-        record.setValue(playerName, forKey: "userName")
-        record.setValue(score, forKey: "highScore")
-
-        let container = CKContainer(identifier: "iCloud.szijjarto.WeatherMerge")
-        let database = container.publicCloudDatabase
-        database.save(record) { (savedRecord, error) in
-            if let error = error {
-                print("Error saving score: \(error)")
-            } else {
-                self.fetchLeaderboardData()
-                print("Success Saving Data")
+        DispatchQueue.global().async {
+            let record = CKRecord(recordType: "Leaderboard")
+            let playerName = UserDefaults.standard.string(forKey: "userName")
+            record.setValue(playerName, forKey: "userName")
+            record.setValue(score, forKey: "highScore")
+            
+            let container = CKContainer(identifier: "iCloud.szijjarto.WeatherMerge")
+            let database = container.publicCloudDatabase
+            database.save(record) { (savedRecord, error) in
+                if let error = error {
+                    print("Error saving score: \(error)")
+                } else {
+                    self.fetchLeaderboardData()
+                    print("Success Saving Data")
+                }
             }
         }
     }
