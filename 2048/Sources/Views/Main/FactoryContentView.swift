@@ -54,11 +54,11 @@ struct FactoryContentView<G: Gesture>: View {
             .padding(.bottom, 24)
     }
     
-//    private var timedView: some View {
-//        TimedView(board: GameLogic(size: 4))
-//            .padding(.top, -64)
-//            .padding(.bottom, 24)
-//    }
+    private var timedView: some View {
+        TimedGameView()
+            .padding(.top, -64)
+            .padding(.bottom, 24)
+    }
     
     private var statsView: some View {
         StatsView()
@@ -72,22 +72,37 @@ struct FactoryContentView<G: Gesture>: View {
             .padding(.bottom, 24)
     }
     
+    private var multiplayerView: some View {
+        AboutView()
+            .padding(.top, -64)
+            .padding(.bottom, 24)
+    }
+    
+    private var loginView: some View {
+        BetaLoginView()
+            .padding(.top, -64)
+            .padding(.bottom, 24)
+    }
     
     // MARK: - Private Methods
     
     @ViewBuilder
     private func currentView() -> some View {
         switch selectedView {
-        case .multiplayer:
-            tileBoardView
         case .game:
             tileBoardView
         case .levels:
             levelView
         case .ranks:
             ranksView
+        case .timed:
+            timedView
+        case .login:
+            loginView
         case .stats:
             statsView
+        case .multiplayer:
+            multiplayerView
         case .settings:
             settingsView
         case .about:
