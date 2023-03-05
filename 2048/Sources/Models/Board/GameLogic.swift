@@ -24,7 +24,8 @@ final class GameLogic: ObservableObject {
     @Published private(set) var noPossibleMove: Bool = false
     @Published private(set) var score: Int = 0
     @Published private(set) var highScore: Int = 0
-    @Published private(set) var scoreGoal: Int = 0
+    @Published private(set) var scoreGoal: Int = 1000
+    @Published private(set) var level: Int = 1
     @Published private(set) var mergeMultiplier: Int = 0
     @Published private(set) var boardSize: Int
     @Published private(set) var hasMoveMergedTiles: Bool = false

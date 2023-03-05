@@ -31,13 +31,16 @@ struct CompositeView: View {
     @State private var selectedView: SelectedView = .game
     @State private var score: Int = 0
     @State private var highScore: Int = UserDefaults.standard.integer(forKey: "highScore")
-    @State private var scoreGoal = UserDefaults.standard.integer(forKey: "scoreGoal")
+    @State private var scoreGoal: Int = UserDefaults.standard.integer(forKey: "scoreGoal")
+    @State private var resetNextMove: Bool = UserDefaults.standard.bool(forKey: "resetNextMove")
+    @State private var level: Int = UserDefaults.standard.integer(forKey: "level")
     @State private var scoreMultiplier: Int = 0
     
-    @State private var level = UserDefaults.standard.integer(forKey: "level")
+    @State private var showLevelCompletedView: Bool = false
+    
     private let scoreMilestones = [100, 200, 300]
-    @State private var showNextLevelPopup = false
-    @State private var isShowingLevelCompletedView = false
+    @State private var showNextLevelPopup: Bool = false
+    @State private var isShowingLevelCompletedView: Bool = false
     
     @State private var totalScore: Int = 1
     @State private var totalSwipes: Int = 0
@@ -65,7 +68,10 @@ struct CompositeView: View {
     init(board: GameLogic) {
         self.logic = board
         //        fetchHighScore()
+        resetNextMove = false
         highScore = 0
+        scoreGoal = 100
+        level = 1
         selectedSound = UserDefaults.standard.string(forKey: "audioSound") ?? "default"
         UserDefaults.standard.set("symbols", forKey: "gameMode")
     }
@@ -138,10 +144,22 @@ struct CompositeView: View {
                                         if resetWithScore {
                                             score = 0
                                         }
-                                        saveScore(playerName: "player", score: score)
+                                        
+                                        if resetNextMove == true {
+                                            resetGame()
+                                            resetNextMove = false
+                                            UserDefaults.standard.set(resetNextMove, forKey: "resetNextMove")
+                                        }
+                                        
+                                        scoreGoal = UserDefaults.standard.integer(forKey: "scoreGoal")
+                                        if publishedScore > scoreGoal {
+                                            showLevelCompletedView = true
+                                        }
+                                        
                                         score = publishedScore
                                         if publishedScore > highScore {
                                             //                                        updateHighScore(newScore: score)
+                                            saveScore(playerName: "player", score: score)
                                             highScore = score
                                             saveScore(playerName: "player", score: score)
                                             UserDefaults.standard.set(highScore, forKey: "highScore")
@@ -215,6 +233,7 @@ struct CompositeView: View {
                                 score: $score,
                                 highScore: $highScore,
                                 scoreGoal: $scoreGoal,
+                                level: $level,
                                 resetGame: resetGame
                             )
                             CompositeSideView(
@@ -235,7 +254,72 @@ struct CompositeView: View {
                 LevelCompletedView(isShowingLevelCompletedView: $isShowingLevelCompletedView)
             }
         }
-        .navigationViewStyle(StackNavigationViewStyle())
+//        .sheet(isPresented: $showLevelCompletedView) {
+//            VStack {
+//                Text("Gameplay 2")
+//                    .padding(.top)
+//                    .font(.largeTitle.bold())
+//                Spacer()
+//                instructionsText(title: "e", text: "e")
+//                instructionsText(title: ":", text: "uctions1")
+//                instructionsText(title: ":", text: "instructions1")
+//                Spacer()
+//                HStack {
+//                    Spacer()
+//                    Button(action: {
+//                        showLevelCompletedView = false
+//                        level = level + 1
+////                        scoreGoal = scoreGoal + 1000
+//                        self.level = level
+//                        
+//                        if level == 0 {
+//                            scoreGoal = 100
+//                        }
+//                        
+//                        if level == 1 {
+//                            scoreGoal = 1000
+//                        }
+//                        
+//                        if level == 2 {
+//                            scoreGoal = 25000
+//                        }
+//                        
+//                        if level == 3 {
+//                            scoreGoal = 50000
+//                        }
+//                        
+//                        if level == 4 {
+//                            scoreGoal = 75000
+//                        }
+//                        if level == 5 {
+//                            scoreGoal = 100000
+//                        }
+//                        
+//                        if level == 6 {
+//                            scoreGoal = 150000
+//                        }
+//                        
+//                        if level == 7 {
+//                            scoreGoal = 250000
+//                        }
+//                        
+//                        UserDefaults.standard.set(scoreGoal, forKey: "scoreGoal")
+//                        UserDefaults.standard.set(level, forKey: "level")
+//                    }) {
+//                        VStack {
+//                            Image(systemName: "x.circle.fill")
+//                                .font(.largeTitle.bold())
+//                                .foregroundColor(.primary)
+//                            Text("Continue to Next Level")
+//                                .foregroundColor(.primary)
+//                                .font(.headline.bold())
+//                        }
+//                    }
+//                    .padding()
+//                    Spacer()
+//                }
+//            }
+//        }
         .navigationViewStyle(StackNavigationViewStyle())
     }
 
@@ -251,6 +335,7 @@ struct CompositeView: View {
             scoreMultiplier: $scoreMultiplier,
             highScore: $highScore,
             scoreGoal: $scoreGoal,
+            level: $level,
             newGameAction: {
                 presentEndGameModal = true
             },
@@ -288,7 +373,7 @@ struct CompositeView: View {
     // MARK: - Score Functions
     
 //    func saveHighScore(score: Int) {
-//        let container = CKContainer(identifier: "iCloud.com.szijjarto.3096Game")
+//        let container = CKContainer.default()
 //        let publicDB = container.publicCloudDatabase
 //
 //        let newRecord = CKRecord(recordType: "highScore")
@@ -373,16 +458,17 @@ struct CompositeView: View {
     func saveScore(playerName: String, score: Int) {
         let record = CKRecord(recordType: "Leaderboard")
         let playerName = UserDefaults.standard.string(forKey: "userName")
-        record.setValue(playerName, forKey: "playerName")
+        record.setValue(playerName, forKey: "userName")
         record.setValue(score, forKey: "highScore")
 
-        let container = CKContainer.default()
+        let container = CKContainer(identifier: "iCloud.szijjarto.WeatherMerge")
         let database = container.publicCloudDatabase
         database.save(record) { (savedRecord, error) in
             if let error = error {
                 print("Error saving score: \(error)")
             } else {
                 self.fetchLeaderboardData()
+                print("Success Saving Data")
             }
         }
     }
@@ -416,7 +502,7 @@ struct CompositeView: View {
                 }
             }
         }
-        let container = CKContainer(identifier: "iCloud.com.szijjarto.3096Game")
+        let container = CKContainer.default()
         let database = container.publicCloudDatabase
         database.add(operation)
     }

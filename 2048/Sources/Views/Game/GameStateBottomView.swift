@@ -17,6 +17,7 @@ struct GameStateBottomView: View {
     @Binding var score: Int
     @Binding var highScore: Int
     @Binding var scoreGoal: Int
+    @Binding var level: Int
     
     var resetGame: () -> Void
     
@@ -34,6 +35,7 @@ struct GameStateBottomView: View {
         score: Binding<Int>,
         highScore: Binding<Int>,
         scoreGoal: Binding<Int>,
+        level: Binding<Int>,
         resetGame: @escaping () -> Void
     ) {
         _hasGameEnded = hasGameEnded
@@ -42,6 +44,7 @@ struct GameStateBottomView: View {
         _score = score
         _highScore = highScore
         _scoreGoal = scoreGoal
+        _level = level
         self.resetGame = resetGame
         
         gameBoardState = plist?.getItem(named: PlistConfigurationKeyPath.gameState.rawValue) ?? ["" : [:]]
@@ -54,6 +57,7 @@ struct GameStateBottomView: View {
             score: $score,
             highScore: $highScore,
             scoreGoal: $scoreGoal,
+            level: $level,
             title: gameBoardState[PlistConfigurationKeyPath.gameState.rawValue]?[PlistConfigurationKeyPath.gameOverTitle.rawValue] ?? "",
             subtitle: (gameBoardState[PlistConfigurationKeyPath.gameState.rawValue]?[PlistConfigurationKeyPath.gameOverSubtitle.rawValue] ?? "") + "\(score)",
             completionHandler: {
@@ -74,6 +78,7 @@ struct GameStateBottomView: View {
             score: $score,
             highScore: $highScore,
             scoreGoal: $scoreGoal,
+            level: $level,
             title: gameBoardState[PlistConfigurationKeyPath.gameState.rawValue]?[PlistConfigurationKeyPath.resetGameTitle.rawValue] ?? "",
             subtitle: gameBoardState[PlistConfigurationKeyPath.gameState.rawValue]?[PlistConfigurationKeyPath.resetGameSubtitle.rawValue] ?? "",
             completionHandler: {

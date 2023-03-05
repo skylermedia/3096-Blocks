@@ -21,6 +21,7 @@ struct ModalView: View {
     @Binding var score: Int
     @Binding var highScore: Int
     @Binding var scoreGoal: Int
+    @Binding var level: Int
     
     var title: String
     var subtitle: String? = nil

@@ -12,7 +12,6 @@ struct HeaderView: View {
     // MARK: - Properties
     
     @State private var showResetWarning: Bool = false
-//    @AppStorage("highScore") var highScore: String?
     @State private var showAboutSheet = false
     @State var showInstructionsSheet = false
 
@@ -23,6 +22,7 @@ struct HeaderView: View {
     @Binding var scoreMultiplier: Int
     @Binding var highScore: Int
     @Binding var scoreGoal: Int
+    @Binding var level: Int
     var newGameAction: () -> Void
     var showResetButton: () -> Bool
     let buttonSize: CGFloat = 48
@@ -43,7 +43,11 @@ struct HeaderView: View {
                     .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
                     .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
                     .animation(.modalSpring, value: shouldShowReset)
-                    .id("Score Goal View: \(showResetButton())")
+                    .id("Score Goal \(self.scoreGoal)")
+                Text("\(level)")
+                    .font(Font.system(.body, design: .monospaced).weight(.black))
+                    .foregroundColor(Color.primary.opacity(0.7))
+                    .alignmentGuide(VerticalAlignment.center, computeValue: { $0[.bottom] })
             }
             .opacity(shouldShowReset ? 1.0 : 0.0)
             .transition(AnyTransition.move(edge: .trailing).combined(with: .opacity))
@@ -71,7 +75,7 @@ struct HeaderView: View {
             .animation(.modalSpring, value: shouldShowReset)
             .id("Score View: \(showResetButton())")
             HStack {
-                Text("Best (Beta): ")
+                Text("High Score: ")
                     .font(shouldShowReset ? Font.system(.title, design: .monospaced).weight(.black) : Font.caption)
                     .foregroundColor(Color(red:0.49, green:0.49, blue:0.49, opacity: 0.7))
 
@@ -80,7 +84,7 @@ struct HeaderView: View {
                     .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
                     .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
                     .animation(.modalSpring, value: shouldShowReset)
-                    .id("Score \(self.score)")
+                    .id("High Score \(self.highScore)")
             }
             .opacity(shouldShowReset ? 1.0 : 0.0)
             .transition(AnyTransition.move(edge: .trailing).combined(with: .opacity))
