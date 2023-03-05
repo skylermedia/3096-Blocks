@@ -199,7 +199,7 @@ struct LeaderboardView: View {
                 }
             }
         }
-        let container = CKContainer(identifier: "iCloud.com.szijjarto.3096Game")
+        let container = CKContainer.default()
         let database = container.publicCloudDatabase
         database.add(operation)
     }
