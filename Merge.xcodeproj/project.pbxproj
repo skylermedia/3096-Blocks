@@ -91,6 +91,9 @@
 		D4435CAF29B29A250036CB95 /* ChangeUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4435CAE29B29A250036CB95 /* ChangeUsernameView.swift */; };
 		D44A46C62987581300B9FD54 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A46C52987581300B9FD54 /* Settings.swift */; };
 		D45F76892978CDFE00DB7BF8 /* Ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D45F76882978CDFE00DB7BF8 /* Ding.mp3 */; };
+		D46A953D29B3EED00029874D /* BetaLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46A953C29B3EED00029874D /* BetaLoginView.swift */; };
+		D46A954029B3F0070029874D /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46A953F29B3F0070029874D /* OnboardingView.swift */; };
+		D46A954229B3FDC60029874D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46A954129B3FDC60029874D /* ProfileView.swift */; };
 		D470730A2976633F0019774A /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47073092976633F0019774A /* LeaderboardView.swift */; };
 		D470730D2976654E0019774A /* LeaderboardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D470730C2976654E0019774A /* LeaderboardData.swift */; };
 		D470730F2976774B0019774A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D470730E2976774B0019774A /* LoginView.swift */; };
@@ -237,6 +240,9 @@
 		D4435CAE29B29A250036CB95 /* ChangeUsernameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUsernameView.swift; sourceTree = "<group>"; };
 		D44A46C52987581300B9FD54 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		D45F76882978CDFE00DB7BF8 /* Ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Ding.mp3; sourceTree = "<group>"; };
+		D46A953C29B3EED00029874D /* BetaLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetaLoginView.swift; sourceTree = "<group>"; };
+		D46A953F29B3F0070029874D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnboardingView.swift; path = ../../../../../OnboardingView.swift; sourceTree = "<group>"; };
+		D46A954129B3FDC60029874D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileView.swift; path = ../../../../../ProfileView.swift; sourceTree = "<group>"; };
 		D47073092976633F0019774A /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		D470730C2976654E0019774A /* LeaderboardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardData.swift; sourceTree = "<group>"; };
 		D470730E2976774B0019774A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -503,6 +509,7 @@
 				A9757F0524CC481E00847031 /* Settings */,
 				D4D3047A297997770022868A /* Stats */,
 				A9757F0924CC481E00847031 /* Side */,
+				D46A953E29B3EFF50029874D /* Login */,
 				D470730B2976652C0019774A /* Leaderboard */,
 				A9757F0E24CC481E00847031 /* Game */,
 				A9757F1224CC481E00847031 /* Main */,
@@ -670,6 +677,16 @@
 				D43EF0BA29A1EF79007E5022 /* BannerAd.swift */,
 			);
 			path = Ads;
+			sourceTree = "<group>";
+		};
+		D46A953E29B3EFF50029874D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D46A953C29B3EED00029874D /* BetaLoginView.swift */,
+				D46A953F29B3F0070029874D /* OnboardingView.swift */,
+				D46A954129B3FDC60029874D /* ProfileView.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		D470730B2976652C0019774A /* Leaderboard */ = {
@@ -852,8 +869,10 @@
 				A9757F4624CC481E00847031 /* TileBoardView.swift in Sources */,
 				D4D3047C297997860022868A /* StatsView.swift in Sources */,
 				A9757F2424CC481E00847031 /* ColorSchemeBackgroundThemeEnvironmentKey.swift in Sources */,
+				D46A954229B3FDC60029874D /* ProfileView.swift in Sources */,
 				A9757F4E24CC481E00847031 /* SlideViewModifier.swift in Sources */,
 				A9757F2924CC481E00847031 /* PlistConfigurationKeyPath.swift in Sources */,
+				D46A954029B3F0070029874D /* OnboardingView.swift in Sources */,
 				A9757F2E24CC481E00847031 /* GameBoardSizeState.swift in Sources */,
 				D43E7FBE29AEEA2400792A90 /* LevelCompletedView.swift in Sources */,
 				A9757F4F24CC481E00847031 /* MainViewModifier.swift in Sources */,
@@ -874,6 +893,7 @@
 				A9757F3E24CC481E00847031 /* AudioSource.swift in Sources */,
 				D43E7FBA29AE911300792A90 /* InitialInstructionsView.swift in Sources */,
 				A9757F3524CC481E00847031 /* Edge+InvertedDirection.swift in Sources */,
+				D46A953D29B3EED00029874D /* BetaLoginView.swift in Sources */,
 				D43E7FB229ADA65000792A90 /* CircleButton.swift in Sources */,
 				D40228B9296FA50F00A6F5D5 /* HapticSettingsView.swift in Sources */,
 				D4D30486297A480A0022868A /* SkinSelectorView.swift in Sources */,
@@ -1093,11 +1113,11 @@
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.szijjarto.3096Game;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = "1,2,3,6";
 				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Debug;
@@ -1128,11 +1148,11 @@
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.szijjarto.3096Game;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = "1,2,3,6";
 				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Release;
