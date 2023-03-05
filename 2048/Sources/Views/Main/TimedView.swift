@@ -1,15 +1,15 @@
-////
-////  TimedView.swift
-////  3096 – Blocks
-////
-////  Created by Skyler Szijjarto on 1/19/23.
-////
 //
-//import SwiftUI
-//import Combine
-//import CloudKit
-//import AVFoundation
+//  TimedView.swift
+//  3096 – Blocks
 //
+//  Created by Skyler Szijjarto on 1/19/23.
+//
+
+import SwiftUI
+import Combine
+import CloudKit
+import AVFoundation
+
 //struct TimedView: View {
 //
 //    // MARK: - Proeprties
@@ -25,7 +25,7 @@
 //    @State private var selectedSound: String = UserDefaults.standard.string(forKey: "audioSound") ?? "default"
 //    @State private var audioSound = UserDefaults.standard.string(forKey: "audioSound")
 //
-//    @EnvironmentObject var adsViewModel: AdsViewModel
+////    @EnvironmentObject var adsViewModel: AdsViewModel
 //
 //    @AppStorage(AppStorageKeys.audio.rawValue) var isAudioEnabled: Bool = true
 //    @AppStorage(AppStorageKeys.haptic.rawValue) var isHapticEnabled: Bool = true
@@ -76,7 +76,7 @@
 //        }
 //    }
 //}
-//
+
 //struct TimedGameBoard {
 //    var tiles: [[any Tile]] // a 2D array of Tile structs representing the game board
 //    // add other properties and methods as needed
@@ -86,24 +86,12 @@
 //    var value: Int // the value of the tile (could be a letter in your game)
 //    // add other properties and methods as needed
 //}
-//
-//struct TimedGameView: View {
-//    @State var gameBoard: TimedGameBoard // use @State to track changes to the game board
-//    
-//    var body: some View {
-//        VStack {
-//            // display the game board using a ForEach loop
-//            ForEach(gameBoard.tiles, id: \.self) { row in
-//                HStack {
-//                    ForEach(row, id: \.self) { tile in
-//                        // display the value of the tile
-//                        Text("\(tile.value)")
-//                            .padding()
-//                            .border(Color.black)
-//                    }
-//                }
-//            }
-//            // add other UI elements as needed
-//        }
-//    }
-//}
+
+struct TimedGameView: View {
+    
+    var body: some View {
+        VStack {
+            Text("Timed View")
+        }
+    }
+}

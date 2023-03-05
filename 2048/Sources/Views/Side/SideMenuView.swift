@@ -18,8 +18,12 @@ struct SideMenuView: View {
     // MARK: - Properties
     
     @Binding var selectedView: SelectedView
+    @State private var userName: String = (UserDefaults.standard.string(forKey: "userName") ?? "username")
+
     var onMenuChangeHandler: () -> Void
-    var items: [SelectedView] = [ .game, /* .levels, */ .ranks, .settings, .about ]
+    
+    var adminItems: [SelectedView] = [ .game, .levels, .ranks, .settings, .about, .stats, .multiplayer ]
+    var items: [SelectedView] = [ .game, .levels, .ranks, .settings, .about ]
     
     // MARK: - Constants
     
@@ -33,10 +37,19 @@ struct SideMenuView: View {
             Group {
                 VStack(spacing: interItemSpacing) {
                     Spacer()
-                    ForEach(0..<items.count, id: \.self) { item in
-                        self.item(named: items[item].title) {
-                            selectedView = items[item]
-                            onMenuChangeHandler()
+                    if userName == "Skyler.Admin" {
+                        ForEach(0..<adminItems.count, id: \.self) { adminItem in
+                            self.adminItem(named: adminItems[adminItem].title) {
+                                selectedView = adminItems[adminItem]
+                                onMenuChangeHandler()
+                            }
+                        }
+                    } else {
+                        ForEach(0..<items.count, id: \.self) { item in
+                            self.item(named: items[item].title) {
+                                selectedView = items[item]
+                                onMenuChangeHandler()
+                            }
                         }
                     }
                     Spacer()
@@ -59,6 +72,20 @@ struct SideMenuView: View {
     // MARK: - Private Methods
     
     private func item(named name: String, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            Text(name)
+                .font(.system(.title, design: .monospaced))
+                .bold()
+                .foregroundColor(.primary)
+                .animation(.modalSpring)
+                .shadow(
+                    color: colorSchemeBackgroundTheme.invertedBackgroundColor(for: colorScheme),
+                    radius: cornerRadius
+                )
+        }.eraseToAnyView
+    }
+    
+    private func adminItem(named name: String, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             Text(name)
                 .font(.system(.title, design: .monospaced))
