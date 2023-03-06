@@ -122,207 +122,200 @@ struct CompositeView: View {
     
     var body: some View {
         NavigationView {
-            if !isShowingLevelCompletedView {
-                // Your game content here
-                if (isAuthenticated != nil) == false {
-                    LoginView(boardSize: 4)
-                } else {
-                    GeometryReader { proxy in
-                        ZStack(alignment: .top) {
-                            VStack {
-                                Group {
-                                    self.compositeHeaderView(proxy)
-                                    
-                                    FactoryContentView(
-                                        selectedView: $selectedView,
-                                        gesture: gesture,
-                                        gameLogic: logic,
-                                        presentEndGameModal: $presentEndGameModal,
-                                        presentSideMenu: $presentSideMenu
-                                    )
-                                    .onReceive(logic.$score) { (publishedScore) in
-                                        if resetWithScore {
-                                            score = 0
-                                        }
-                                        
-                                        if resetNextMove == true {
-                                            resetGame()
-                                            resetNextMove = false
-                                            UserDefaults.standard.set(resetNextMove, forKey: "resetNextMove")
-                                        }
-                                        
-                                        scoreGoal = UserDefaults.standard.integer(forKey: "scoreGoal")
-                                        if publishedScore > scoreGoal {
-                                            showLevelCompletedView = true
-                                        }
-                                        
-                                        score = publishedScore
-                                        if publishedScore > highScore {
-                                            //                                        updateHighScore(newScore: score)
-                                            saveScore(playerName: "player", score: score)
-                                            highScore = score
-                                            saveScore(playerName: "player", score: score)
-                                            UserDefaults.standard.set(highScore, forKey: "highScore")
-                                        }
-                                    }
-                                    .onReceive(logic.$mergeMultiplier) { (publishedScoreMultiplier) in
-                                        scoreMultiplier = publishedScoreMultiplier
-                                    }
-                                    .onReceive(logic.$hasMoveMergedTiles) { hasMergedTiles in
-                                        guard isAudioEnabled else { return }
-                                        if audioSound == "default" {
-                                            AudioSource.playCustom(source: .ding)
-                                        } else if audioSound == "woosh" {
-                                            AudioSource.playCustom(source: .woosh)
-                                        } else if audioSound == "beep" {
-                                            AudioSource.playCustom(source: .beep)
-                                        } else if audioSound == "can" {
-                                            AudioSource.playCustom(source: .can)
-                                        } else if audioSound == "click" {
-                                            AudioSource.playCustom(source: .click)
-                                        } else if audioSound == "hit" {
-                                            AudioSource.playCustom(source: .hit)
-                                        } else if audioSound == "plant" {
-                                            AudioSource.playCustom(source: .plant)
-                                        } else if audioSound == "toy" {
-                                            AudioSource.playCustom(source: .toy)
-                                        } else if audioSound == "boing" {
-                                            AudioSource.playCustom(source: .boing)
-                                        } else if audioSound == "wood" {
-                                            AudioSource.playCustom(source: .wood)
-                                        } else {
-                                            AudioSource.playCustom(source: .ding)
-                                        }
-                                        //                                    setTotalScore()
-                                        Haptic.light()
-                                    }
-                                    .blur(radius: (presentEndGameModal || presentSideMenu) ? 4 : 0)
-                                }
-                            }
-                            .modifier(RoundedClippedBackground(backgroundColor: colorSchemeBackgroundTheme.backgroundColor(for: colorScheme),
-                                                               proxy: proxy))
-                            .modifier(
-                                MainViewModifier(
-                                    proxy: proxy,
-                                    presentEndGameModal: $presentEndGameModal,
-                                    presentSideMenu: $presentSideMenu,
-                                    viewState: $viewState
-                                )
-                            )
-                            .onTapGesture {
-                                guard !hasGameEnded else { return } // Disable on tap dismissal of the end game modal view
-                                
-                                withAnimation(.modalSpring) {
-                                    presentEndGameModal = false
-                                    presentSideMenu = false
-                                }
-                            }
-                            .onReceive(logic.$noPossibleMove) { (publisher) in
-                                let hasGameEnded = logic.noPossibleMove
-                                self.hasGameEnded = hasGameEnded
-                                
-                                withAnimation(.modalSpring) {
-                                    self.presentEndGameModal = hasGameEnded
-                                }
-                            }
-                            
-                            GameStateBottomView(
-                                hasGameEnded: $hasGameEnded,
-                                presentEndGameModal: $presentEndGameModal,
-                                sideMenuViewState: $sideMenuViewState,
-                                score: $score,
-                                highScore: $highScore,
-                                scoreGoal: $scoreGoal,
-                                level: $level,
-                                resetGame: resetGame
-                            )
-                            CompositeSideView(
-                                selectedView: $selectedView,
-                                sideMenuViewState: $sideMenuViewState,
-                                presentSideMenu: $presentSideMenu
-                            )
-                        }
-                    }
-                    .edgesIgnoringSafeArea(.all)
-                }
-                
-                Button("Play") {
-                    UserDefaults.standard.set(10000, forKey: "scoreGoal")
-                    isShowingLevelCompletedView = true
-                }
+            if (isAuthenticated != nil) == false {
+                LoginView(boardSize: 4)
             } else {
-                LevelCompletedView(isShowingLevelCompletedView: $isShowingLevelCompletedView)
+                GeometryReader { proxy in
+                    ZStack(alignment: .top) {
+                        VStack {
+                            Group {
+                                self.compositeHeaderView(proxy)
+                                
+                                FactoryContentView(
+                                    selectedView: $selectedView,
+                                    gesture: gesture,
+                                    gameLogic: logic,
+                                    presentEndGameModal: $presentEndGameModal,
+                                    presentSideMenu: $presentSideMenu
+                                )
+                                .onReceive(logic.$score) { (publishedScore) in
+                                    if resetWithScore {
+                                        score = 0
+                                    }
+                                    
+                                    if resetNextMove == true {
+                                        resetGame()
+                                        resetNextMove = false
+                                        UserDefaults.standard.set(resetNextMove, forKey: "resetNextMove")
+                                    }
+                                    
+                                    scoreGoal = UserDefaults.standard.integer(forKey: "scoreGoal")
+                                    if publishedScore > scoreGoal {
+                                        showLevelCompletedView = true
+                                    }
+                                    
+                                    score = publishedScore
+                                    if publishedScore > highScore {
+                                        //                                        updateHighScore(newScore: score)
+                                        saveScore(playerName: "player", score: score)
+                                        highScore = score
+                                        saveScore(playerName: "player", score: score)
+                                        UserDefaults.standard.set(highScore, forKey: "highScore")
+                                    }
+                                }
+                                .onReceive(logic.$mergeMultiplier) { (publishedScoreMultiplier) in
+                                    scoreMultiplier = publishedScoreMultiplier
+                                }
+                                .onReceive(logic.$hasMoveMergedTiles) { hasMergedTiles in
+                                    guard isAudioEnabled else { return }
+                                    if audioSound == "default" {
+                                        AudioSource.playCustom(source: .ding)
+                                    } else if audioSound == "woosh" {
+                                        AudioSource.playCustom(source: .woosh)
+                                    } else if audioSound == "beep" {
+                                        AudioSource.playCustom(source: .beep)
+                                    } else if audioSound == "can" {
+                                        AudioSource.playCustom(source: .can)
+                                    } else if audioSound == "click" {
+                                        AudioSource.playCustom(source: .click)
+                                    } else if audioSound == "hit" {
+                                        AudioSource.playCustom(source: .hit)
+                                    } else if audioSound == "plant" {
+                                        AudioSource.playCustom(source: .plant)
+                                    } else if audioSound == "toy" {
+                                        AudioSource.playCustom(source: .toy)
+                                    } else if audioSound == "boing" {
+                                        AudioSource.playCustom(source: .boing)
+                                    } else if audioSound == "wood" {
+                                        AudioSource.playCustom(source: .wood)
+                                    } else {
+                                        AudioSource.playCustom(source: .ding)
+                                    }
+                                    //                                    setTotalScore()
+                                    Haptic.light()
+                                }
+                                .blur(radius: (presentEndGameModal || presentSideMenu) ? 4 : 0)
+                            }
+                        }
+                        .modifier(RoundedClippedBackground(backgroundColor: colorSchemeBackgroundTheme.backgroundColor(for: colorScheme),
+                                                           proxy: proxy))
+                        .modifier(
+                            MainViewModifier(
+                                proxy: proxy,
+                                presentEndGameModal: $presentEndGameModal,
+                                presentSideMenu: $presentSideMenu,
+                                viewState: $viewState
+                            )
+                        )
+                        .onTapGesture {
+                            guard !hasGameEnded else { return } // Disable on tap dismissal of the end game modal view
+                            
+                            withAnimation(.modalSpring) {
+                                presentEndGameModal = false
+                                presentSideMenu = false
+                            }
+                        }
+                        .onReceive(logic.$noPossibleMove) { (publisher) in
+                            let hasGameEnded = logic.noPossibleMove
+                            self.hasGameEnded = hasGameEnded
+                            
+                            withAnimation(.modalSpring) {
+                                self.presentEndGameModal = hasGameEnded
+                            }
+                        }
+                        
+                        GameStateBottomView(
+                            hasGameEnded: $hasGameEnded,
+                            presentEndGameModal: $presentEndGameModal,
+                            sideMenuViewState: $sideMenuViewState,
+                            score: $score,
+                            highScore: $highScore,
+                            scoreGoal: $scoreGoal,
+                            level: $level,
+                            resetGame: resetGame
+                        )
+                        CompositeSideView(
+                            selectedView: $selectedView,
+                            sideMenuViewState: $sideMenuViewState,
+                            presentSideMenu: $presentSideMenu
+                        )
+                    }
+                }
+                .edgesIgnoringSafeArea(.all)
             }
         }
-//        .sheet(isPresented: $showLevelCompletedView) {
-//            VStack {
-//                Text("Gameplay 2")
-//                    .padding(.top)
-//                    .font(.largeTitle.bold())
-//                Spacer()
-//                instructionsText(title: "e", text: "e")
-//                instructionsText(title: ":", text: "uctions1")
-//                instructionsText(title: ":", text: "instructions1")
-//                Spacer()
-//                HStack {
-//                    Spacer()
-//                    Button(action: {
-//                        showLevelCompletedView = false
-//                        level = level + 1
-////                        scoreGoal = scoreGoal + 1000
-//                        self.level = level
-//
-//                        if level == 0 {
-//                            scoreGoal = 100
-//                        }
-//
-//                        if level == 1 {
-//                            scoreGoal = 1000
-//                        }
-//
-//                        if level == 2 {
-//                            scoreGoal = 25000
-//                        }
-//
-//                        if level == 3 {
-//                            scoreGoal = 50000
-//                        }
-//
-//                        if level == 4 {
-//                            scoreGoal = 75000
-//                        }
-//                        if level == 5 {
-//                            scoreGoal = 100000
-//                        }
-//
-//                        if level == 6 {
-//                            scoreGoal = 150000
-//                        }
-//
-//                        if level == 7 {
-//                            scoreGoal = 250000
-//                        }
-//
-//                        UserDefaults.standard.set(scoreGoal, forKey: "scoreGoal")
-//                        UserDefaults.standard.set(level, forKey: "level")
-//                    }) {
-//                        VStack {
-//                            Image(systemName: "x.circle.fill")
-//                                .font(.largeTitle.bold())
-//                                .foregroundColor(.primary)
-//                            Text("Continue to Next Level")
-//                                .foregroundColor(.primary)
-//                                .font(.headline.bold())
-//                        }
-//                    }
-//                    .padding()
-//                    Spacer()
-//                }
-//            }
-//        }
+        
+        
+        //        .sheet(isPresented: $showLevelCompletedView) {
+        //            VStack {
+        //                Text("Gameplay 2")
+        //                    .padding(.top)
+        //                    .font(.largeTitle.bold())
+        //                Spacer()
+        //                instructionsText(title: "e", text: "e")
+        //                instructionsText(title: ":", text: "uctions1")
+        //                instructionsText(title: ":", text: "instructions1")
+        //                Spacer()
+        //                HStack {
+        //                    Spacer()
+        //                    Button(action: {
+        //                        showLevelCompletedView = false
+        //                        level = level + 1
+        ////                        scoreGoal = scoreGoal + 1000
+        //                        self.level = level
+        //
+        //                        if level == 0 {
+        //                            scoreGoal = 100
+        //                        }
+        //
+        //                        if level == 1 {
+        //                            scoreGoal = 1000
+        //                        }
+        //
+        //                        if level == 2 {
+        //                            scoreGoal = 25000
+        //                        }
+        //
+        //                        if level == 3 {
+        //                            scoreGoal = 50000
+        //                        }
+        //
+        //                        if level == 4 {
+        //                            scoreGoal = 75000
+        //                        }
+        //                        if level == 5 {
+        //                            scoreGoal = 100000
+        //                        }
+        //
+        //                        if level == 6 {
+        //                            scoreGoal = 150000
+        //                        }
+        //
+        //                        if level == 7 {
+        //                            scoreGoal = 250000
+        //                        }
+        //
+        //                        UserDefaults.standard.set(scoreGoal, forKey: "scoreGoal")
+        //                        UserDefaults.standard.set(level, forKey: "level")
+        //                    }) {
+        //                        VStack {
+        //                            Image(systemName: "x.circle.fill")
+        //                                .font(.largeTitle.bold())
+        //                                .foregroundColor(.primary)
+        //                            Text("Continue to Next Level")
+        //                                .foregroundColor(.primary)
+        //                                .font(.headline.bold())
+        //                        }
+        //                    }
+        //                    .padding()
+        //                    Spacer()
+        //                }
+        //            }
+        //        }
+        
         .navigationViewStyle(StackNavigationViewStyle())
     }
-
+    
     
     // MARK: - Methods
     
@@ -353,108 +346,108 @@ struct CompositeView: View {
     
     private func resetGame() {
         logic.reset()
-//        adsViewModel.showInterstitial = true
+        //        adsViewModel.showInterstitial = true
     }
     
     // MARK: - Stats Functions
     
-//    func setTotalScore() {
-//        if logic .hasMoveMergedTiles {
-//            let totalScore = UserDefaults.standard.integer(forKey: "totalScore")
-//            let scoreDifference = self.totalScore - self.score
-//            self.totalScore = scoreDifference + totalScore
-//            UserDefaults.standard.set(self.totalScore, forKey: "totalScore")
-//            print(totalScore)
-//        } else {
-//            print("Tiles have not moved.")
-//        }
-//    }
-
+    //    func setTotalScore() {
+    //        if logic .hasMoveMergedTiles {
+    //            let totalScore = UserDefaults.standard.integer(forKey: "totalScore")
+    //            let scoreDifference = self.totalScore - self.score
+    //            self.totalScore = scoreDifference + totalScore
+    //            UserDefaults.standard.set(self.totalScore, forKey: "totalScore")
+    //            print(totalScore)
+    //        } else {
+    //            print("Tiles have not moved.")
+    //        }
+    //    }
+    
     // MARK: - Score Functions
     
-//    func saveHighScore(score: Int) {
-//        let container = CKContainer.default()
-//        let publicDB = container.publicCloudDatabase
-//
-//        let newRecord = CKRecord(recordType: "highScore")
-//        newRecord.setValue(score, forKey: "score")
-//        newRecord.setValue(userName, forKey: "userName")
-//
-//        publicDB.save(newRecord) { (record, error) in
-//            if let error = error {
-//                print("Error saving high score to CloudKit: \(error)")
-//            } else {
-//                print("High score saved successfully to CloudKit")
-//            }
-//        }
-//    }
-//
-//    func fetchHighScore() {
-//        let container = CKContainer.default()
-//        let publicDB = container.publicCloudDatabase
-//        let predicate = NSPredicate(format: "username == %@", userName ?? "player")
-//        let query = CKQuery(recordType: "highScore", predicate: predicate)
-//        publicDB.perform(query, inZoneWith: nil) { (records, error) in
-//            if let error = error {
-//                print("Error fetching high score from CloudKit: \(error)")
-//                return
-//            }
-//
-//            guard let records = records else { return }
-//            if records.isEmpty {
-//                print("No high score records found for user: \(self.userName!).")
-//                self.saveHighScore(score: self.highScore)
-//                return
-//            }
-//            guard let highestScoreRecord = records.max(by: { ($0.value(forKey: "score") as! Int) < ($1.value(forKey: "score") as! Int) }) else { return }
-//            let highScore = highestScoreRecord.value(forKey: "score") as! Int
-//            DispatchQueue.main.async {
-//                self.highScore = highScore
-//            }
-//        }
-//    }
-
-//    func createHighScoreRecord(score: Int) {
-//        let highScoreRecord = CKRecord(recordType: "highScore")
-//        highScoreRecord["username"] = (userName as! CKRecordValue)
-//        highScoreRecord["score"] = score as CKRecordValue
-//        let container = CKContainer.default()
-//        let publicDB = container.publicCloudDatabase
-//        publicDB.save(highScoreRecord) { (record, error) in
-//            if let error = error {
-//                print("Error saving high score record to CloudKit: \(error)")
-//                return
-//            }
-//            print("High score record saved to CloudKit")
-//        }
-//    }
-//
-//    func updateHighScore(newScore: Int) {
-//        let container = CKContainer.default()
-//        let publicDB = container.publicCloudDatabase
-//        let predicate = NSPredicate(value: true)
-//        let query = CKQuery(recordType: "highScore", predicate: predicate)
-//        publicDB.perform(query, inZoneWith: nil) { (records, error) in
-//            if let error = error {
-//                print("Error fetching high score from CloudKit: \(error)")
-//                return
-//            }
-//
-//            guard records!.first(where: { $0.value(forKey: "username") as! String == self.userName! }) != nil else {
-//                print("No high score records found for user: \(self.userName!).")
-//                return
-//            }
-//            guard let records = records else { return }
-//            guard let highestScoreRecord = records.max(by: { ($0.value(forKey: "score") as! Int) < ($1.value(forKey: "score") as! Int) }) else { return }
-//            highestScoreRecord.setValue(newScore, forKey: "score")
-//            publicDB.save(highestScoreRecord) { (record, error) in
-//                if let error = error {
-//                    print("Error updating high score on CloudKit: \(error)")
-//                }
-//            }
-//        }
-//    }
-
+    //    func saveHighScore(score: Int) {
+    //        let container = CKContainer.default()
+    //        let publicDB = container.publicCloudDatabase
+    //
+    //        let newRecord = CKRecord(recordType: "highScore")
+    //        newRecord.setValue(score, forKey: "score")
+    //        newRecord.setValue(userName, forKey: "userName")
+    //
+    //        publicDB.save(newRecord) { (record, error) in
+    //            if let error = error {
+    //                print("Error saving high score to CloudKit: \(error)")
+    //            } else {
+    //                print("High score saved successfully to CloudKit")
+    //            }
+    //        }
+    //    }
+    //
+    //    func fetchHighScore() {
+    //        let container = CKContainer.default()
+    //        let publicDB = container.publicCloudDatabase
+    //        let predicate = NSPredicate(format: "username == %@", userName ?? "player")
+    //        let query = CKQuery(recordType: "highScore", predicate: predicate)
+    //        publicDB.perform(query, inZoneWith: nil) { (records, error) in
+    //            if let error = error {
+    //                print("Error fetching high score from CloudKit: \(error)")
+    //                return
+    //            }
+    //
+    //            guard let records = records else { return }
+    //            if records.isEmpty {
+    //                print("No high score records found for user: \(self.userName!).")
+    //                self.saveHighScore(score: self.highScore)
+    //                return
+    //            }
+    //            guard let highestScoreRecord = records.max(by: { ($0.value(forKey: "score") as! Int) < ($1.value(forKey: "score") as! Int) }) else { return }
+    //            let highScore = highestScoreRecord.value(forKey: "score") as! Int
+    //            DispatchQueue.main.async {
+    //                self.highScore = highScore
+    //            }
+    //        }
+    //    }
+    
+    //    func createHighScoreRecord(score: Int) {
+    //        let highScoreRecord = CKRecord(recordType: "highScore")
+    //        highScoreRecord["username"] = (userName as! CKRecordValue)
+    //        highScoreRecord["score"] = score as CKRecordValue
+    //        let container = CKContainer.default()
+    //        let publicDB = container.publicCloudDatabase
+    //        publicDB.save(highScoreRecord) { (record, error) in
+    //            if let error = error {
+    //                print("Error saving high score record to CloudKit: \(error)")
+    //                return
+    //            }
+    //            print("High score record saved to CloudKit")
+    //        }
+    //    }
+    //
+    //    func updateHighScore(newScore: Int) {
+    //        let container = CKContainer.default()
+    //        let publicDB = container.publicCloudDatabase
+    //        let predicate = NSPredicate(value: true)
+    //        let query = CKQuery(recordType: "highScore", predicate: predicate)
+    //        publicDB.perform(query, inZoneWith: nil) { (records, error) in
+    //            if let error = error {
+    //                print("Error fetching high score from CloudKit: \(error)")
+    //                return
+    //            }
+    //
+    //            guard records!.first(where: { $0.value(forKey: "username") as! String == self.userName! }) != nil else {
+    //                print("No high score records found for user: \(self.userName!).")
+    //                return
+    //            }
+    //            guard let records = records else { return }
+    //            guard let highestScoreRecord = records.max(by: { ($0.value(forKey: "score") as! Int) < ($1.value(forKey: "score") as! Int) }) else { return }
+    //            highestScoreRecord.setValue(newScore, forKey: "score")
+    //            publicDB.save(highestScoreRecord) { (record, error) in
+    //                if let error = error {
+    //                    print("Error updating high score on CloudKit: \(error)")
+    //                }
+    //            }
+    //        }
+    //    }
+    
     func saveScore(playerName: String, score: Int) {
         DispatchQueue.global().async {
             let record = CKRecord(recordType: "Leaderboard")
@@ -476,7 +469,7 @@ struct CompositeView: View {
     }
     
     // MARK: - Leaderboard Functions
-
+    
     func fetchLeaderboardData() {
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: "Leaderboard", predicate: predicate)
@@ -490,7 +483,7 @@ struct CompositeView: View {
             let score = record["score"] as! Int
             let rank = self.leaderboardData.count + 1
             self.leaderboardData.append(LeaderboardData(recordID: record.recordID, playerName: playerName ?? "player", rank: rank, score: score))
-//            print("Name: \(playerName) Score: \(score) High Score: \(highScore) Sound: \(selectedSound)")
+            //            print("Name: \(playerName) Score: \(score) High Score: \(highScore) Sound: \(selectedSound)")
         }
         operation.queryCompletionBlock = { [self] (cursor, error) in
             if let error = error {
@@ -514,7 +507,7 @@ struct CompositeView: View {
             if selectedSound == "default" {
                 AudioSource.play(from: .ding)
             } else if selectedSound == "sound1" {
-//                AudioSource.play(from: .new)
+                //                AudioSource.play(from: .new)
             }
         }
     }
