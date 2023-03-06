@@ -21,8 +21,8 @@ struct HeaderView: View {
     @Binding var score: Int
     @Binding var scoreMultiplier: Int
     @Binding var highScore: Int
-    @Binding var scoreGoal: Int
-    @Binding var level: Int
+    @AppStorage("scoreGoal") var scoreGoal: Int = 100
+    @AppStorage("level") var level: Int = 0
     var newGameAction: () -> Void
     var showResetButton: () -> Bool
     let buttonSize: CGFloat = 48

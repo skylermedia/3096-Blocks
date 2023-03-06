@@ -12,7 +12,10 @@ struct SoundPickerView: View {
     // MARK: - Properties
     
     @State private var audioSound = "Default"
-    @State private var showAlert = false
+
+    // Alert
+    @State var alertTitle: String = ""
+    @State var showAlert: Bool = false
     
     // MARK: - Conformance to View Protocol
     
@@ -90,16 +93,19 @@ struct SoundPickerView: View {
             Spacer()
         }
         .padding(5)
-        .actionSheet(isPresented: $showAlert) {
-            ActionSheet(title: Text("Sound Changed"), message: Text("Your game sound has been changed to " + audioSound.capitalized + "."), buttons: [
-                .destructive(Text("Restart"), action: {
-                    exit(EXIT_SUCCESS)
-                }),
-                .cancel(Text("Restart Later"), action: {
-                    // Close
-                }),
-            ])
-        }
+        .alert(isPresented: $showAlert, content: {
+            return Alert(title: Text(alertTitle))
+        })
+//        .actionSheet(isPresented: $showAlert) {
+//            ActionSheet(title: Text("Sound Changed"), message: Text("Your game sound has been changed to " + audioSound.capitalized + "."), buttons: [
+//                .destructive(Text("Restart"), action: {
+//                    exit(EXIT_SUCCESS)
+//                }),
+//                .cancel(Text("Restart Later"), action: {
+//                    // Close
+//                }),
+//            ])
+//        }
     }
 
     // MARK: - Functions
@@ -109,10 +115,16 @@ struct SoundPickerView: View {
         UserDefaults.standard.set(audioSound, forKey: "audioSound")
         // Logging
         print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
+        print("Sound changed to \(audioSound)")
         // Haptics
         Haptic.light()
-        self.showAlert = true
-        print("Sound Changed")
+        // Alert
+        showAlert(title: "Your game sound has been changed to " + audioSound.capitalized + ".")
+    }
+    
+    func showAlert(title: String) {
+        alertTitle = title
+        showAlert.toggle()
     }
     
     func setSoundBeep() {

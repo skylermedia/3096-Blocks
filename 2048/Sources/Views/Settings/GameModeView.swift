@@ -18,8 +18,10 @@ struct GameModeView: View {
     @AppStorage("gameMode") var gameMode = "symbols"
     
     // MARK: - Properties
-
-    @State private var showAlert = false
+    
+    // Alert
+    @State private var alertTitle: String = ""
+    @State private var showAlert: Bool = false
     
     // MARK: - Conformance to View Protocol
     
@@ -38,20 +40,28 @@ struct GameModeView: View {
                 Spacer()
             }
             .padding(5)
-            .actionSheet(isPresented: $showAlert) {
-                ActionSheet(title: Text("Game Mode Changed"), message: Text("Your game mode has been changed to " + gameMode.capitalized + "."), buttons: [
-                    .cancel(Text("Confirm"), action: {
-                    }),
-                ])
-            }
+//            .actionSheet(isPresented: $showAlert) {
+//                ActionSheet(title: Text("Game Mode Changed"), message: Text("Your game mode has been changed to " + gameMode.capitalized + "."), buttons: [
+//                    .cancel(Text("Confirm"), action: {
+//                    }),
+//                ])
+//            }
         }
+        .alert(isPresented: $showAlert, content: {
+            return Alert(title: Text(alertTitle))
+        })
     } 
     
     // MARK: - Functions
     
+    func showAlert(title: String) {
+        alertTitle = title
+        showAlert.toggle()
+    }
+    
     func changeGameMode() {
         Haptic.light()
-        self.showAlert = true
+        showAlert(title: "Your game mode has been changed to " + gameMode.capitalized + ".") 
     }
     
     func setLetterMode() {
@@ -68,6 +78,7 @@ struct GameModeView: View {
         gameMode = "symbols"
         changeGameMode()
     }
+    
 }
 
 struct GameModeView_Previews: PreviewProvider {
