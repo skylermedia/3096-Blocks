@@ -18,7 +18,7 @@ struct SideMenuView: View {
     // MARK: - Properties
     
     @Binding var selectedView: SelectedView
-    @State private var userName: String = (UserDefaults.standard.string(forKey: "userName") ?? "username")
+    @AppStorage("username") var currentUserUsername: String?
 
     var onMenuChangeHandler: () -> Void
     
@@ -37,7 +37,7 @@ struct SideMenuView: View {
             Group {
                 VStack(spacing: interItemSpacing) {
                     Spacer()
-                    if userName == "Skyler.Admin" {
+                    if currentUserUsername == "Skyler.Admin" {
                         ForEach(0..<adminItems.count, id: \.self) { adminItem in
                             self.adminItem(named: adminItems[adminItem].title) {
                                 selectedView = adminItems[adminItem]
