@@ -15,7 +15,8 @@ struct ChangeUsernameView: View {
     
     // MARK: - Properties
     
-    @State private var userName: String = (UserDefaults.standard.string(forKey: "userName") ?? "username")
+    @AppStorage("username") var currentUserUsername: String?
+    @State private var newUsername: String = ""
     
     // MARK: - Colors
     
@@ -46,7 +47,7 @@ struct ChangeUsernameView: View {
                 .padding([.horizontal, .bottom])
             HStack {
                 Spacer()
-                TextField("", text: $userName)
+                TextField(currentUserUsername ?? "Username", text: $newUsername)
                     .font(.body.bold())
                     .padding()
                     .foregroundColor(usernameTextColor)
@@ -76,8 +77,8 @@ struct ChangeUsernameView: View {
     // MARK: - Functions
     
     func setUserName() {
-        UserDefaults.standard.set(self.userName, forKey: "userName")
-        print(userName)
+        currentUserUsername = newUsername
+        print("New Username: \(currentUserUsername ?? "Username")")
     }
     
 }
