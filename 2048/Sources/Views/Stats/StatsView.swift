@@ -23,8 +23,13 @@ struct StatsView: View {
     @State private var averageScore: Int = 0
     @State private var averageSwipes: Int = 0
     
-    
     @Environment(\.colorScheme) var colorScheme: ColorScheme
+    
+    // MARK: - App Storage
+    
+    @AppStorage("lifetimeScore") var lifetimeScore: Int = 0
+    @AppStorage("lifetimeSwipes") var lifetimeSwipes: Int = 0
+    @AppStorage("lifetimeGames") var lifetimeGames: Int = 0
     
     // MARK: - Private Properties
     
@@ -65,11 +70,11 @@ struct StatsView: View {
                                 .font(.footnote)
                                 .multilineTextAlignment(.center)
                             ZStack {
-                                                                    RoundedRectangle(cornerRadius: 25)
-//                                                                        .stroke(.blue, lineWidth: 4)
-                                                                        .foregroundColor(Color("leaderboardBackgroundColor"))
-                                                                        .shadow(color: Color(.black), radius: 5, x: 0, y: 0)
-                                                                        .padding()
+                                RoundedRectangle(cornerRadius: 25)
+                                //                                                                        .stroke(.blue, lineWidth: 4)
+                                    .foregroundColor(Color("leaderboardBackgroundColor"))
+                                    .shadow(color: Color(.black), radius: 5, x: 0, y: 0)
+                                    .padding()
                                 VStack {
                                     // Averages
                                     HStack {
@@ -79,38 +84,46 @@ struct StatsView: View {
                                     }
                                     HStack {
                                         Spacer()
-                                        Text("Lifetime Score: ")
-                                            .font(Font.system(.title, design: .monospaced).weight(.black))
-                                            .foregroundColor(Color(red:0.29, green:0.29, blue:0.29, opacity: 1.00))
-                                        Text("\(totalScore)")
-                                            .font(Font.system(.title, design: .monospaced).weight(.black))
-                                            .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
-                                            .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
-                                            .animation(.modalSpring)
+                                        VStack {
+                                            Text("Total Score (Beta): ")
+                                                .font(Font.system(.title2, design: .monospaced).weight(.black))
+                                                .foregroundColor(Color(red:0.29, green:0.29, blue:0.29, opacity: 1.00))
+                                                .strikethrough()
+                                            Text("\(lifetimeScore)")
+                                                .font(Font.system(.title2, design: .monospaced).weight(.black))
+                                                .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
+                                                .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
+                                                .animation(.modalSpring)
+                                        }
                                         Spacer()
                                     }
                                     HStack {
                                         Spacer()
-                                        Text("Lifetime Swipes: ")
-                                            .font(Font.system(.title, design: .monospaced).weight(.black))
-                                            .foregroundColor(Color(red:0.29, green:0.29, blue:0.29, opacity: 1.00))
-                                        Text("\(totalSwipes)")
-                                            .font(Font.system(.title, design: .monospaced).weight(.black))
-                                            .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
-                                            .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
-                                            .animation(.modalSpring)
+                                        VStack {
+                                            Text("Lifetime Swipes: ")
+                                                .font(Font.system(.title, design: .monospaced).weight(.black))
+                                                .foregroundColor(Color(red:0.29, green:0.29, blue:0.29, opacity: 1.00))
+                                            Text("\(lifetimeSwipes)")
+                                                .font(Font.system(.title, design: .monospaced).weight(.black))
+                                                .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
+                                                .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
+                                                .animation(.modalSpring)
+                                        }
                                         Spacer()
                                     }
                                     HStack {
                                         Spacer()
-                                        Text("Lifetime Games: ")
-                                            .font(Font.system(.title, design: .monospaced).weight(.black))
-                                            .foregroundColor(Color(red:0.29, green:0.29, blue:0.29, opacity: 1.00))
-                                        Text("\(totalGames)")
-                                            .font(Font.system(.title, design: .monospaced).weight(.black))
-                                            .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
-                                            .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
-                                            .animation(.modalSpring)
+                                        VStack {
+                                            Text("Lifetime Games: ")
+                                                .font(Font.system(.title2, design: .monospaced).weight(.black))
+                                                .foregroundColor(Color(red:0.29, green:0.29, blue:0.29, opacity: 1.00))
+                                                .strikethrough()
+                                            Text("\(lifetimeGames)")
+                                                .font(Font.system(.title2, design: .monospaced).weight(.black))
+                                                .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
+                                                .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
+                                                .animation(.modalSpring)
+                                        }
                                         Spacer()
                                     }
                                     Divider()
@@ -120,26 +133,26 @@ struct StatsView: View {
                                         .foregroundColor(Color(red:0.29, green:0.29, blue:0.29, opacity: 1.00))
                                     HStack {
                                         Spacer()
-                                        Text("Average Score: ")
-                                            .font(Font.system(.title, design: .monospaced).weight(.black))
+                                        Text("Average Score (Coming Soon)")
+                                            .font(Font.system(.title2, design: .monospaced).weight(.black))
                                             .foregroundColor(Color(red:0.29, green:0.29, blue:0.29, opacity: 1.00))
-                                        Text("\(averageScore)")
-                                            .font(Font.system(.title, design: .monospaced).weight(.black))
-                                            .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
-                                            .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
-                                            .animation(.modalSpring)
+//                                        Text("\(averageScore)")
+//                                            .font(Font.system(.title, design: .monospaced).weight(.black))
+//                                            .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
+//                                            .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
+//                                            .animation(.modalSpring)
                                         Spacer()
                                     }
                                     HStack {
                                         Spacer()
-                                        Text("Average Swipes: ")
-                                            .font(Font.system(.title, design: .monospaced).weight(.black))
+                                        Text("Average Swipes (Coming Soon)")
+                                            .font(Font.system(.title2, design: .monospaced).weight(.black))
                                             .foregroundColor(Color(red:0.29, green:0.29, blue:0.29, opacity: 1.00))
-                                        Text("\(averageSwipes)")
-                                            .font(Font.system(.title, design: .monospaced).weight(.black))
-                                            .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
-                                            .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
-                                            .animation(.modalSpring)
+//                                        Text("\(averageSwipes)")
+//                                            .font(Font.system(.title, design: .monospaced).weight(.black))
+//                                            .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
+//                                            .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
+//                                            .animation(.modalSpring)
                                         Spacer()
                                     }
                                 }

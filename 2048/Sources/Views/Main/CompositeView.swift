@@ -67,6 +67,12 @@ struct CompositeView: View {
     @AppStorage(AppStorageKeys.audio.rawValue) var isAudioEnabled: Bool = true
     @AppStorage(AppStorageKeys.haptic.rawValue) var isHapticEnabled: Bool = true
     
+    // MARK: - Stats
+    
+    @AppStorage("lifetimeScore") var lifetimeScore: Int = 0
+    @AppStorage("lifetimeSwipes") var lifetimeSwipes: Int = 0
+    @AppStorage("lifetimeGames") var lifetimeGames: Int = 0
+    
     // MARK: - Initializers
     
     init(board: GameLogic) {
@@ -194,8 +200,10 @@ struct CompositeView: View {
                                     } else {
                                         AudioSource.playCustom(source: .ding)
                                     }
-                                    //                                    setTotalScore()
+                                    
+                                    updateStats()
                                     Haptic.light()
+                                    
                                 }
                                 .blur(radius: (presentEndGameModal || presentSideMenu) ? 4 : 0)
                             }
@@ -249,7 +257,7 @@ struct CompositeView: View {
         }
         .sheet(isPresented: $showLevelCompletedView) {
             VStack {
-                Text("Gameplay 2")
+                Text("Level Completed")
                     .padding(.top)
                     .font(.largeTitle.bold())
                 Spacer()
@@ -344,6 +352,8 @@ struct CompositeView: View {
     
     func updateStats() {
         DispatchQueue.global().async {
+            // Update Lifetime Swipes
+            lifetimeSwipes = lifetimeSwipes + 1
             
         }
     }

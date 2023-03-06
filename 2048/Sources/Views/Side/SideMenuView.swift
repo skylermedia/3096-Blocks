@@ -22,8 +22,8 @@ struct SideMenuView: View {
 
     var onMenuChangeHandler: () -> Void
     
-    var adminItems: [SelectedView] = [ .game, .levels, .ranks, .settings, .about, .stats, .multiplayer ]
-    var items: [SelectedView] = [ .game, .levels, .ranks, .settings, .profile, .about ]
+    var adminItems: [SelectedView] = [ .game, .levels, .ranks, .about, .stats, .settings, .multiplayer ]
+    var items: [SelectedView] = [ .game, .levels, .ranks, .stats, .profile, .settings, .about ]
     
     // MARK: - Constants
     
