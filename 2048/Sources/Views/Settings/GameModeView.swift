@@ -9,11 +9,16 @@ import SwiftUI
 
 struct GameModeView: View {
     
-    // MARK: - Properties
+    // MARK: - Environment
     
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
-    @State private var gameMode = "symbols"
+    // MARK: - App Storage
+
+    @AppStorage("gameMode") var gameMode = "symbols"
+    
+    // MARK: - Properties
+
     @State private var showAlert = false
     
     // MARK: - Conformance to View Protocol
@@ -45,7 +50,6 @@ struct GameModeView: View {
     // MARK: - Functions
     
     func changeGameMode() {
-        UserDefaults.standard.set(gameMode, forKey: "gameMode")
         Haptic.light()
         self.showAlert = true
     }
@@ -63,5 +67,11 @@ struct GameModeView: View {
     func setSymbolMode() {
         gameMode = "symbols"
         changeGameMode()
+    }
+}
+
+struct GameModeView_Previews: PreviewProvider {
+    static var previews: some View {
+        GameModeView()
     }
 }
