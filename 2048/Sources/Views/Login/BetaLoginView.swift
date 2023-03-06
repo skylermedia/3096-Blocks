@@ -13,20 +13,24 @@ struct BetaLoginView: View {
     
     var body: some View {
         ZStack {
-            RadialGradient(gradient: Gradient(colors: [.purple.opacity(0.8), .blue]),
-                           center: .topLeading,
-                           startRadius: 5,
-                           endRadius: UIScreen.main.bounds.height)
-            .ignoresSafeArea()
+            
             
             if currentUserSignedIn {
                 ProfileView()
                     .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .top)))
+                    .padding()
             } else {
+                ZStack {
+                    RadialGradient(gradient: Gradient(colors: [.purple.opacity(0.8), .blue]),
+                                   center: .topLeading,
+                                   startRadius: 5,
+                                   endRadius: UIScreen.main.bounds.height)
+                    .ignoresSafeArea()
+                }
                 OnboardingView()
                     .transition(.asymmetric(insertion: .move(edge: .top), removal: .move(edge: .bottom)))
+                
             }
-
         }
     }
 }

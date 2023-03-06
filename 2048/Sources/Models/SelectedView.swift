@@ -14,6 +14,7 @@ enum SelectedView {
     case multiplayer
     case ranks
     case stats
+    case profile
     case settings
     case levels
     case about
@@ -36,6 +37,8 @@ enum SelectedView {
             return "Ranks"
         case .settings:
             return "Settings"
+        case .profile:
+            return "Profile"
         case .about:
             return "About"
 

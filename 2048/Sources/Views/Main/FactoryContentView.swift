@@ -72,6 +72,12 @@ struct FactoryContentView<G: Gesture>: View {
             .padding(.bottom, 24)
     }
     
+    private var profileView: some View {
+        BetaLoginView()
+            .padding(.top, -64)
+            .padding(.bottom, 24)
+    }
+    
     private var multiplayerView: some View {
         AboutView()
             .padding(.top, -64)
@@ -101,6 +107,8 @@ struct FactoryContentView<G: Gesture>: View {
             loginView
         case .stats:
             statsView
+        case .profile:
+            profileView
         case .multiplayer:
             multiplayerView
         case .settings:
