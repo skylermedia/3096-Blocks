@@ -30,11 +30,15 @@ struct CompositeView: View {
     
     @State private var selectedView: SelectedView = .game
     @State private var score: Int = 0
-    @State private var highScore: Int = UserDefaults.standard.integer(forKey: "highScore")
-    @State private var scoreGoal: Int = UserDefaults.standard.integer(forKey: "scoreGoal")
+//    @State private var highScore: Int = UserDefaults.standard.integer(forKey: "highScore")
+    @AppStorage("highScore") var highScore: Int = 0
+//    @State private var scoreGoal: Int = UserDefaults.standard.integer(forKey: "scoreGoal")
+    @AppStorage("scoreGoal") var scoreGoal: Int = UserDefaults.standard.integer(forKey: "scoreGoal")
     @State private var resetNextMove: Bool = UserDefaults.standard.bool(forKey: "resetNextMove")
     @State private var level: Int = UserDefaults.standard.integer(forKey: "level")
     @State private var scoreMultiplier: Int = 0
+    
+    @AppStorage("signed_in") var currentUserSignedIn: Bool = false
     
     @State private var showLevelCompletedView: Bool = false
     
@@ -122,8 +126,8 @@ struct CompositeView: View {
     
     var body: some View {
         NavigationView {
-            if (isAuthenticated != nil) == false {
-                LoginView(boardSize: 4)
+            if currentUserSignedIn == false {
+                BetaLoginView()
             } else {
                 GeometryReader { proxy in
                     ZStack(alignment: .top) {
@@ -149,7 +153,6 @@ struct CompositeView: View {
                                         UserDefaults.standard.set(resetNextMove, forKey: "resetNextMove")
                                     }
                                     
-                                    scoreGoal = UserDefaults.standard.integer(forKey: "scoreGoal")
                                     if publishedScore > scoreGoal {
                                         showLevelCompletedView = true
                                     }
@@ -244,74 +247,62 @@ struct CompositeView: View {
                 .edgesIgnoringSafeArea(.all)
             }
         }
+                .sheet(isPresented: $showLevelCompletedView) {
+                    VStack {
+                        Text("Gameplay 2")
+                            .padding(.top)
+                            .font(.largeTitle.bold())
+                        Spacer()
+                        instructionsText(title: "e", text: "e")
+                        instructionsText(title: ":", text: "uctions1")
+                        instructionsText(title: ":", text: "instructions1")
+                        Spacer()
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                showLevelCompletedView = false
+                                level = level + 1
+
+                                self.level = level
         
+                                switch level {
+                                case 0:
+                                    scoreGoal = 100
+                                case 1:
+                                    scoreGoal = 1000
+                                case 2:
+                                    scoreGoal = 25000
+                                case 3:
+                                    scoreGoal = 50000
+                                case 4:
+                                    scoreGoal = 75000
+                                case 5:
+                                    scoreGoal = 100000
+                                case 6:
+                                    scoreGoal = 150000
+                                case 7:
+                                    scoreGoal = 250000
+                                default:
+                                    scoreGoal = 100
+                                }
         
-        //        .sheet(isPresented: $showLevelCompletedView) {
-        //            VStack {
-        //                Text("Gameplay 2")
-        //                    .padding(.top)
-        //                    .font(.largeTitle.bold())
-        //                Spacer()
-        //                instructionsText(title: "e", text: "e")
-        //                instructionsText(title: ":", text: "uctions1")
-        //                instructionsText(title: ":", text: "instructions1")
-        //                Spacer()
-        //                HStack {
-        //                    Spacer()
-        //                    Button(action: {
-        //                        showLevelCompletedView = false
-        //                        level = level + 1
-        ////                        scoreGoal = scoreGoal + 1000
-        //                        self.level = level
-        //
-        //                        if level == 0 {
-        //                            scoreGoal = 100
-        //                        }
-        //
-        //                        if level == 1 {
-        //                            scoreGoal = 1000
-        //                        }
-        //
-        //                        if level == 2 {
-        //                            scoreGoal = 25000
-        //                        }
-        //
-        //                        if level == 3 {
-        //                            scoreGoal = 50000
-        //                        }
-        //
-        //                        if level == 4 {
-        //                            scoreGoal = 75000
-        //                        }
-        //                        if level == 5 {
-        //                            scoreGoal = 100000
-        //                        }
-        //
-        //                        if level == 6 {
-        //                            scoreGoal = 150000
-        //                        }
-        //
-        //                        if level == 7 {
-        //                            scoreGoal = 250000
-        //                        }
-        //
-        //                        UserDefaults.standard.set(scoreGoal, forKey: "scoreGoal")
-        //                        UserDefaults.standard.set(level, forKey: "level")
-        //                    }) {
-        //                        VStack {
-        //                            Image(systemName: "x.circle.fill")
-        //                                .font(.largeTitle.bold())
-        //                                .foregroundColor(.primary)
-        //                            Text("Continue to Next Level")
-        //                                .foregroundColor(.primary)
-        //                                .font(.headline.bold())
-        //                        }
-        //                    }
-        //                    .padding()
-        //                    Spacer()
-        //                }
-        //            }
-        //        }
+                                UserDefaults.standard.set(scoreGoal, forKey: "scoreGoal")
+                                UserDefaults.standard.set(level, forKey: "level")
+                            }) {
+                                VStack {
+                                    Image(systemName: "x.circle.fill")
+                                        .font(.largeTitle.bold())
+                                        .foregroundColor(.primary)
+                                    Text("Continue to Next Level")
+                                        .foregroundColor(.primary)
+                                        .font(.headline.bold())
+                                }
+                            }
+                            .padding()
+                            Spacer()
+                        }
+                    }
+                }
         
         .navigationViewStyle(StackNavigationViewStyle())
     }
@@ -327,8 +318,8 @@ struct CompositeView: View {
             score: $score,
             scoreMultiplier: $scoreMultiplier,
             highScore: $highScore,
-            scoreGoal: $scoreGoal,
-            level: $level,
+            scoreGoal: scoreGoal,
+            level: level,
             newGameAction: {
                 presentEndGameModal = true
             },
@@ -351,17 +342,11 @@ struct CompositeView: View {
     
     // MARK: - Stats Functions
     
-    //    func setTotalScore() {
-    //        if logic .hasMoveMergedTiles {
-    //            let totalScore = UserDefaults.standard.integer(forKey: "totalScore")
-    //            let scoreDifference = self.totalScore - self.score
-    //            self.totalScore = scoreDifference + totalScore
-    //            UserDefaults.standard.set(self.totalScore, forKey: "totalScore")
-    //            print(totalScore)
-    //        } else {
-    //            print("Tiles have not moved.")
-    //        }
-    //    }
+    func updateStats() {
+        DispatchQueue.global().async {
+            
+        }
+    }
     
     // MARK: - Score Functions
     
