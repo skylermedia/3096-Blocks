@@ -32,6 +32,7 @@ struct CircleButton: View {
             .onTapGesture {
                 action()
             }
+            
             Text(text)
                 .font(.callout.bold())
         }
