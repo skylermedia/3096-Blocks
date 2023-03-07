@@ -258,9 +258,9 @@ struct CompositeView: View {
                     .padding(.top)
                     .font(.largeTitle.bold())
                 Spacer()
-                instructionsText(title: "e", text: "e")
-                instructionsText(title: ":", text: "uctions1")
-                instructionsText(title: ":", text: "instructions1")
+                instructionsText(title: "In Progress", text: "")
+                instructionsText(title: "Warning!", text: "Please click 'CONTINUE TO NEXT LEVEL'")
+                instructionsText(title: "DO NOT SWIPE DOWN!", text: "Do not swipe down. It will break the game. Fix coming soon")
                 Spacer()
                 HStack {
                     Spacer()
@@ -509,16 +509,6 @@ struct CompositeView: View {
 
 struct CompositeView_Previews : PreviewProvider {
     static var previews: some View {
-        Group {
-            CompositeView(
-                board: GameLogic(size: BoardSize.fourByFour.rawValue)
-            )
-            .colorScheme(.dark)
-    
-            CompositeView(
-                board: GameLogic(size: BoardSize.fourByFour.rawValue)
-            )
-            .colorScheme(.light)
-        }
+        CompositeView(board: GameLogic(size: BoardSize.fourByFour.rawValue))
     }
 }
