@@ -26,12 +26,12 @@ struct SoundPickerView: View {
                 HStack {
                     Spacer()
                     // Beep
-                    CircleButton(image: "tv", text: "Beep", action: {
+                    CircleButton(sfImage: false, image: "beep", text: "Beep", action: {
                         setSoundBeep()
                     })
                     
                     // Can
-                    CircleButton(image: "arrow.down", text: "Can", action: {
+                    CircleButton(sfImage: false, image: "can", text: "Can", action: {
                         setSoundCan()
                     })
                     Spacer()
@@ -39,12 +39,12 @@ struct SoundPickerView: View {
                 HStack {
                     Spacer()
                     // Click
-                    CircleButton(image: "cursorarrow.click.2", text: "Click", action: {
+                    CircleButton(sfImage: false, image: "click", text: "Click", action: {
                         setSoundClick()
                     })
                     
                     // Hit
-                    CircleButton(image: "arrow.rectanglepath", text: "Hit", action: {
+                    CircleButton(sfImage: false, image: "hit", text: "Hit", action: {
                         setSoundHit()
                     })
                     Spacer()
@@ -52,12 +52,12 @@ struct SoundPickerView: View {
                 HStack {
                     Spacer()
                     // Plant
-                    CircleButton(image: "laurel.leading", text: "Plant", action: {
+                    CircleButton(sfImage: false, image: "plant", text: "Plant", action: {
                         setSoundPlant()
                     })
                     
                     // Toy
-                    CircleButton(image: "airport.express", text: "Toy", action: {
+                    CircleButton(sfImage: false, image: "toy", text: "Toy", action: {
                         setSoundToy()
                     })
                     Spacer()
@@ -65,12 +65,12 @@ struct SoundPickerView: View {
                 HStack {
                     Spacer()
                     // Boing
-                    CircleButton(image: "football", text: "Boing", action: {
+                    CircleButton(sfImage: false, image: "boing", text: "Boing", action: {
                         setSoundBoing()
                     })
                     
                     // Wood
-                    CircleButton(image: "leaf", text: "Wood", action: {
+                    CircleButton(sfImage: false, image: "wood", text: "Wood", action: {
                         setSoundWood()
                     })
                     
@@ -79,12 +79,12 @@ struct SoundPickerView: View {
                 HStack {
                     Spacer()
                     // Woosh
-                    CircleButton(image: "wind", text: "Woosh", action: {
+                    CircleButton(sfImage: true, image: "wind", text: "Woosh", action: {
                         setSoundWoosh()
                     })
                     
                     // Default
-                    CircleButton(image: "checkmark.seal", text: "Default", action: {
+                    CircleButton(sfImage: true, image: "checkmark.seal", text: "Default", action: {
                         setSoundDefault()
                     })
                     Spacer()

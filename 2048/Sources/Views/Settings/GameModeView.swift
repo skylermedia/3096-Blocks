@@ -32,9 +32,9 @@ struct GameModeView: View {
                 Spacer()
                 HStack {
                     Spacer()
-                    CircleButton(image: "textformat", text: "Letters", action: setLetterMode)
-                    CircleButton(image: "number", text: "Numbers", action: setNumberMode)
-                    CircleButton(image: "bolt", text: "Symbols", action: setSymbolMode)
+                    CircleButton(sfImage: true, image: "textformat", text: "Letters", action: setLetterMode)
+                    CircleButton(sfImage: true, image: "number", text: "Numbers", action: setNumberMode)
+                    CircleButton(sfImage: true, image: "bolt", text: "Symbols", action: setSymbolMode)
                     Spacer()
                 }
                 Spacer()
