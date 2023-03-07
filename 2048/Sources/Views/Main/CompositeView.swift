@@ -12,9 +12,20 @@ import AVFoundation
 
 struct CompositeView: View {
     
-    // MARK: - Proeprties
+    // MARK: - Environment
+    
+    @Environment(\.colorScheme) private var colorScheme: ColorScheme
+    @Environment(\.colorSchemeBackgroundTheme) private var colorSchemeBackgroundTheme: ColorSchemeBackgroundTheme
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
+    
+    //    @EnvironmentObject var adsViewModel: AdsViewModel
+    
+    // MARK: - Observed Objects
+    
+    @ObservedObject private var logic: GameLogic
+    
+    // MARK: - Proeprties
     
     @State private var ignoreGesture = false
     @State private var presentEndGameModal = false
@@ -24,33 +35,16 @@ struct CompositeView: View {
     @State private var sideMenuViewState = CGSize.zero
     @State private var presentSideMenu = false
     
-    @ObservedObject private var logic: GameLogic
-    @Environment(\.colorScheme) private var colorScheme: ColorScheme
-    @Environment(\.colorSchemeBackgroundTheme) private var colorSchemeBackgroundTheme: ColorSchemeBackgroundTheme
-    
     @State private var selectedView: SelectedView = .game
     @State private var score: Int = 0
-    //    @State private var highScore: Int = UserDefaults.standard.integer(forKey: "highScore")
-    @AppStorage("highScore") var highScore: Int = 0
-    //    @State private var scoreGoal: Int = UserDefaults.standard.integer(forKey: "scoreGoal")
-    @AppStorage("scoreGoal") var scoreGoal: Int = UserDefaults.standard.integer(forKey: "scoreGoal")
     @State private var resetNextMove: Bool = UserDefaults.standard.bool(forKey: "resetNextMove")
     @State private var level: Int = UserDefaults.standard.integer(forKey: "level")
     @State private var scoreMultiplier: Int = 0
     
-    @AppStorage("signed_in") var currentUserSignedIn: Bool = false
-    
     @State private var showLevelCompletedView: Bool = false
     
-    private let scoreMilestones = [100, 200, 300]
     @State private var showNextLevelPopup: Bool = false
     @State private var isShowingLevelCompletedView: Bool = false
-    
-    @State private var totalScore: Int = 1
-    @State private var totalSwipes: Int = 0
-    @State private var totalGames: Int = 0
-    @State private var averageScore: Int = 0
-    @State private var averageSwipes: Int = 0
     
     @State private var leaderboardData = [LeaderboardData]()
     let userName = UserDefaults.standard.string(forKey: "userName")
@@ -59,7 +53,18 @@ struct CompositeView: View {
     
     @State private var resetWithScore: Bool = UserDefaults.standard.bool(forKey: "resetWithScore")
     
-    //    @EnvironmentObject var adsViewModel: AdsViewModel
+    // MARK: App Storage
+    
+    @AppStorage("highScore") var highScore: Int = 0
+//    @AppStorage("scoreGoal") var scoreGoal: Int = UserDefaults.standard.integer(forKey: "scoreGoal")
+    
+    @AppStorage("scoreGoal") var scoreGoal: Int = 0
+    
+    // MARK: - Login
+    
+    @AppStorage("signed_in") var currentUserSignedIn: Bool = false
+    
+    // MARK: - Sound Settings
     
     @AppStorage(AppStorageKeys.audio.rawValue) var isAudioEnabled: Bool = true
     @AppStorage(AppStorageKeys.haptic.rawValue) var isHapticEnabled: Bool = true
@@ -75,11 +80,7 @@ struct CompositeView: View {
     
     init(board: GameLogic) {
         self.logic = board
-        //        fetchHighScore()
         resetNextMove = false
-        highScore = 0
-        scoreGoal = 100
-        level = 1
         UserDefaults.standard.set("symbols", forKey: "gameMode")
     }
     
