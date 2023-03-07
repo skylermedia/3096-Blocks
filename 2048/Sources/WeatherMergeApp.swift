@@ -70,23 +70,23 @@ class AdsManager: NSObject, ObservableObject {
 
 @main
 struct WeatherMergeApp: App {
-//    let adsVM = AdsViewModel.shared
-
+    //    let adsVM = AdsViewModel.shared
+    
     class AppDelegate: UIResponder, UIApplicationDelegate {
-
-      func application(_ application: UIApplication,
-                       didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-          DispatchQueue.global().async {
-//                GADMobileAds.sharedInstance().start(completionHandler: nil)
-              }
-          }
-          //        UserDefaults.standard.register(defaults: ["playerName" : "Unknown player"])
-
-
-        return true
-      }
-
+        
+        func application(_ application: UIApplication,
+                         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+            
+            DispatchQueue.global().async {
+                //                GADMobileAds.sharedInstance().start(completionHandler: nil)
+                
+            }
+            //        UserDefaults.standard.register(defaults: ["playerName" : "Unknown player"])
+            
+            
+            return true
+        }
+        
     }
     
     func gameMode() {
@@ -103,9 +103,8 @@ struct WeatherMergeApp: App {
     
     var body: some Scene {
         WindowGroup {
-//            BetaLoginView()
+            //            BetaLoginView()
             mainView
-//                .environmentObject(adsVM)
+            //                .environmentObject(adsVM)
         }
-    }
-}
+    }}
