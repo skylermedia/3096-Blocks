@@ -132,17 +132,18 @@ struct HeaderView: View {
     }
     
     private var shareButton: some View {
-        Button(action: {
-            let shareSheet = UIActivityViewController(activityItems: [self.appStoreLink], applicationActivities: nil)
-            UIApplication.shared.windows.first?.rootViewController?.present(shareSheet, animated: true, completion: nil)
-        }){
-            Image(systemName: "square.and.arrow.up")
-                .resizable()
-                .scaledToFit()
-                .aspectRatio(1, contentMode: .fit)
-                .frame(width: buttonSize, height: buttonSize)
-                .foregroundColor(.gray)
-        }
+        ShareButton(appStoreLink: appStoreLink, buttonSize: buttonSize)
+//        Button(action: {
+//            let shareSheet = UIActivityViewController(activityItems: [self.appStoreLink], applicationActivities: nil)
+//            UIApplication.shared.windows.first?.rootViewController?.present(shareSheet, animated: true, completion: nil)
+//        }){
+//            Image(systemName: "square.and.arrow.up")
+//                .resizable()
+//                .scaledToFit()
+//                .aspectRatio(1, contentMode: .fit)
+//                .frame(width: buttonSize, height: buttonSize)
+//                .foregroundColor(.gray)
+//        }
         .foregroundColor(.gray)
         .padding()
         .opacity(showResetButton() ? 1.0 : 0.0)
@@ -199,11 +200,6 @@ struct HeaderView: View {
     var body: some View {
         ZStack {
             titleView
-//            Text(title)
-//                .fontWeight(.heavy)
-//                .font(.largeTitle)
-//                .opacity(!showResetButton() ? 1.0 : 0.0)
-//                .padding(.top, proxy.size.width > proxy.size.height ? -10 : -20)
             VStack {
                 HStack {
                     Spacer()
@@ -223,5 +219,60 @@ struct HeaderView: View {
                 scoreView
             }
         }
+    }
+}
+
+private struct ShareButton: View {
+    @State private var shareSheet: UIActivityViewController?
+    
+    private let appStoreLink: String
+    private let buttonSize: CGFloat
+    
+    init(appStoreLink: String, buttonSize: CGFloat) {
+        self.appStoreLink = appStoreLink
+        self.buttonSize = buttonSize
+    }
+    
+    var body: some View {
+        Button(action: {
+            if let shareSheet = shareSheet {
+                // If the share sheet is already created, reuse it.
+                UIApplication.shared.topViewController?.present(shareSheet, animated: true, completion: nil)
+            } else {
+                // Otherwise, create a new share sheet.
+                let shareSheet = UIActivityViewController(activityItems: [self.appStoreLink], applicationActivities: nil)
+                UIApplication.shared.topViewController?.present(shareSheet, animated: true, completion: nil)
+                self.shareSheet = shareSheet
+            }
+        }) {
+            Image(systemName: "square.and.arrow.up")
+                .resizable()
+                .scaledToFit()
+                .aspectRatio(1, contentMode: .fit)
+                .frame(width: buttonSize, height: buttonSize)
+                .foregroundColor(.gray)
+        }
+        .foregroundColor(.gray)
+    }
+}
+
+extension UIApplication {
+    var topViewController: UIViewController? {
+        return windows.first?.rootViewController
+    }
+}
+
+extension UIViewController {
+    var topViewController: UIViewController {
+        if let presentedViewController = presentedViewController {
+            return presentedViewController
+        }
+        if let navigationController = self as? UINavigationController {
+            return navigationController.visibleViewController ?? self
+        }
+        if let tabBarController = self as? UITabBarController {
+            return tabBarController.selectedViewController ?? self
+        }
+        return self
     }
 }
