@@ -57,15 +57,13 @@ struct CompositeView: View {
     let isAuthenticated = UserDefaults.standard.string(forKey: "isAuthenticated")
     let hasPlayedBefore = UserDefaults.standard.string(forKey: "hasPlayedBefore")
     
-    @State private var resetWithScore: Bool = UserDefaults.standard.bool(forKey: "audioSound")
-    
-    @State private var selectedSound: String = UserDefaults.standard.string(forKey: "audioSound") ?? "default"
-    @State private var audioSound = UserDefaults.standard.string(forKey: "audioSound")
+    @State private var resetWithScore: Bool = UserDefaults.standard.bool(forKey: "resetWithScore")
     
     //    @EnvironmentObject var adsViewModel: AdsViewModel
     
     @AppStorage(AppStorageKeys.audio.rawValue) var isAudioEnabled: Bool = true
     @AppStorage(AppStorageKeys.haptic.rawValue) var isHapticEnabled: Bool = true
+    @AppStorage("gameSound") var gameSound: String = "default"
     
     // MARK: - Stats
     
@@ -82,7 +80,6 @@ struct CompositeView: View {
         highScore = 0
         scoreGoal = 100
         level = 1
-        selectedSound = UserDefaults.standard.string(forKey: "audioSound") ?? "default"
         UserDefaults.standard.set("symbols", forKey: "gameMode")
     }
     
@@ -177,25 +174,25 @@ struct CompositeView: View {
                                 }
                                 .onReceive(logic.$hasMoveMergedTiles) { hasMergedTiles in
                                     guard isAudioEnabled else { return }
-                                    if audioSound == "default" {
+                                    if gameSound == "default" {
                                         AudioSource.playCustom(source: .ding)
-                                    } else if audioSound == "woosh" {
+                                    } else if gameSound == "woosh" {
                                         AudioSource.playCustom(source: .woosh)
-                                    } else if audioSound == "beep" {
+                                    } else if gameSound == "beep" {
                                         AudioSource.playCustom(source: .beep)
-                                    } else if audioSound == "can" {
+                                    } else if gameSound == "can" {
                                         AudioSource.playCustom(source: .can)
-                                    } else if audioSound == "click" {
+                                    } else if gameSound == "click" {
                                         AudioSource.playCustom(source: .click)
-                                    } else if audioSound == "hit" {
+                                    } else if gameSound == "hit" {
                                         AudioSource.playCustom(source: .hit)
-                                    } else if audioSound == "plant" {
+                                    } else if gameSound == "plant" {
                                         AudioSource.playCustom(source: .plant)
-                                    } else if audioSound == "toy" {
+                                    } else if gameSound == "toy" {
                                         AudioSource.playCustom(source: .toy)
-                                    } else if audioSound == "boing" {
+                                    } else if gameSound == "boing" {
                                         AudioSource.playCustom(source: .boing)
-                                    } else if audioSound == "wood" {
+                                    } else if gameSound == "wood" {
                                         AudioSource.playCustom(source: .wood)
                                     } else {
                                         AudioSource.playCustom(source: .ding)
@@ -499,9 +496,9 @@ struct CompositeView: View {
     
     private func playSound() {
         if isAudioEnabled {
-            if selectedSound == "default" {
+            if gameSound == "default" {
                 AudioSource.play(from: .ding)
-            } else if selectedSound == "sound1" {
+            } else if gameSound == "sound1" {
                 //                AudioSource.play(from: .new)
             }
         }

@@ -12,7 +12,6 @@ struct AudioSettingView: View {
     // MARK: - AppStorage Properties
     
     @AppStorage(AppStorageKeys.audio.rawValue) var isAudioEnabled: Bool = true
-    @AppStorage(AppStorageKeys.audioSound.rawValue) var selectedAudioSound: String = "default"
     @State private var selectedSound = "default"
     
     // MARK: - Private Propeties

@@ -11,8 +11,8 @@ struct SoundPickerView: View {
     
     // MARK: - Properties
     
-    @State private var audioSound = "Default"
-
+    @AppStorage("gameSound") var gameSound = "default"
+    
     // Alert
     @State var alertTitle: String = ""
     @State var showAlert: Bool = false
@@ -28,12 +28,12 @@ struct SoundPickerView: View {
                     // Beep
                     CircleButton(image: "tv", text: "Beep", action: {
                         setSoundBeep()
-                        })
+                    })
                     
                     // Can
                     CircleButton(image: "arrow.down", text: "Can", action: {
                         setSoundCan()
-                        })
+                    })
                     Spacer()
                 }
                 HStack {
@@ -41,12 +41,12 @@ struct SoundPickerView: View {
                     // Click
                     CircleButton(image: "cursorarrow.click.2", text: "Click", action: {
                         setSoundClick()
-                        })
-
+                    })
+                    
                     // Hit
                     CircleButton(image: "arrow.rectanglepath", text: "Hit", action: {
                         setSoundHit()
-                        })
+                    })
                     Spacer()
                 }
                 HStack {
@@ -54,12 +54,12 @@ struct SoundPickerView: View {
                     // Plant
                     CircleButton(image: "laurel.leading", text: "Plant", action: {
                         setSoundPlant()
-                        })
-
+                    })
+                    
                     // Toy
                     CircleButton(image: "airport.express", text: "Toy", action: {
                         setSoundToy()
-                        })
+                    })
                     Spacer()
                 }
                 HStack {
@@ -67,13 +67,13 @@ struct SoundPickerView: View {
                     // Boing
                     CircleButton(image: "football", text: "Boing", action: {
                         setSoundBoing()
-                        })
-
+                    })
+                    
                     // Wood
                     CircleButton(image: "leaf", text: "Wood", action: {
                         setSoundWood()
-                        })
-
+                    })
+                    
                     Spacer()
                 }
                 HStack {
@@ -81,12 +81,12 @@ struct SoundPickerView: View {
                     // Woosh
                     CircleButton(image: "wind", text: "Woosh", action: {
                         setSoundWoosh()
-                        })
+                    })
                     
                     // Default
                     CircleButton(image: "checkmark.seal", text: "Default", action: {
                         setSoundDefault()
-                        })
+                    })
                     Spacer()
                 }
             }
@@ -96,30 +96,20 @@ struct SoundPickerView: View {
         .alert(isPresented: $showAlert, content: {
             return Alert(title: Text(alertTitle))
         })
-//        .actionSheet(isPresented: $showAlert) {
-//            ActionSheet(title: Text("Sound Changed"), message: Text("Your game sound has been changed to " + audioSound.capitalized + "."), buttons: [
-//                .destructive(Text("Restart"), action: {
-//                    exit(EXIT_SUCCESS)
-//                }),
-//                .cancel(Text("Restart Later"), action: {
-//                    // Close
-//                }),
-//            ])
-//        }
     }
-
+    
     // MARK: - Functions
     
     func setSound() {
         // User Defaults
-        UserDefaults.standard.set(audioSound, forKey: "audioSound")
+        UserDefaults.standard.set(gameSound, forKey: "gameSound")
         // Logging
-        print(UserDefaults.standard.string(forKey: "audioSound") ?? "Audio Sound")
-        print("Sound changed to \(audioSound)")
+        print(UserDefaults.standard.string(forKey: "gameSound") ?? "Audio Sound")
+        print("Sound changed to \(gameSound)")
         // Haptics
         Haptic.light()
         // Alert
-        showAlert(title: "Your game sound has been changed to " + audioSound.capitalized + ".")
+        showAlert(title: "Your game sound has been changed to " + gameSound.capitalized + ".")
     }
     
     func showAlert(title: String) {
@@ -128,52 +118,52 @@ struct SoundPickerView: View {
     }
     
     func setSoundBeep() {
-        audioSound = "beep"
+        gameSound = "beep"
         setSound()
     }
     
     func setSoundCan() {
-        audioSound = "can"
+        gameSound = "can"
         setSound()
     }
     
     func setSoundClick() {
-        audioSound = "click"
+        gameSound = "click"
         setSound()
     }
     
     func setSoundHit() {
-        audioSound = "hit"
+        gameSound = "hit"
         setSound()
     }
     
     func setSoundPlant() {
-        audioSound = "plant"
+        gameSound = "plant"
         setSound()
     }
     
     func setSoundToy() {
-        audioSound = "toy"
+        gameSound = "toy"
         setSound()
     }
     
     func setSoundBoing() {
-        audioSound = "boing"
+        gameSound = "boing"
         setSound()
     }
     
     func setSoundWood() {
-        audioSound = "wood"
+        gameSound = "wood"
         setSound()
     }
     
     func setSoundWoosh() {
-        audioSound = "woosh"
+        gameSound = "woosh"
         setSound()
     }
+    
     func setSoundDefault() {
-        audioSound = "default"
+        gameSound = "default"
         setSound()
     }
 }
-

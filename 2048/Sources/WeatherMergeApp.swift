@@ -79,8 +79,6 @@ struct WeatherMergeApp: App {
 
           DispatchQueue.global().async {
 //                GADMobileAds.sharedInstance().start(completionHandler: nil)
-              if UserDefaults.standard.string(forKey: "audioSound") == nil {
-                  UserDefaults.standard.set("default", forKey: "audioSound")
               }
           }
           //        UserDefaults.standard.register(defaults: ["playerName" : "Unknown player"])
