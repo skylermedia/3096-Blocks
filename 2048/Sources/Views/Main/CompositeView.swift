@@ -53,6 +53,8 @@ struct CompositeView: View {
     
     @State private var resetWithScore: Bool = UserDefaults.standard.bool(forKey: "resetWithScore")
     
+    @State private var unlockedLevels = Set(UserDefaults.standard.array(forKey: "unlockedLevels") as? [Int] ?? [0, 1])
+    
     // MARK: - App Storage
     
     @AppStorage("highScore") var highScore: Int = 0
@@ -275,24 +277,34 @@ struct CompositeView: View {
                         switch level {
                         case 0:
                             scoreGoal = 100
+//                            let userUnlockedLevels = [0]
                         case 1:
                             scoreGoal = 1000
+//                            let userUnlockedLevels = [0, 1]
                         case 2:
                             scoreGoal = 25000
+//                            let userUnlockedLevels = [0, 1, 2]
                         case 3:
                             scoreGoal = 50000
+//                            let userUnlockedLevels = [0, 1, 2, 3]
                         case 4:
                             scoreGoal = 75000
+//                            let userUnlockedLevels = [0, 1, 2, 3, 4]
                         case 5:
                             scoreGoal = 100000
+//                            let userUnlockedLevels = [0, 1, 2, 3, 4, 5]
                         case 6:
                             scoreGoal = 150000
+//                            let userUnlockedLevels = [0, 1, 2, 3, 4, 5, 6]
                         case 7:
                             scoreGoal = 250000
+//                            let userUnlockedLevels = [0, 1, 2, 3, 4, 5, 6, 7]
                         default:
                             scoreGoal = 100
                         }
                         
+                        // Store updated unlocked levels array in AppStorage
+                        UserDefaults.standard.set(unlockedLevels, forKey: "unlockedLevels")
                         UserDefaults.standard.set(scoreGoal, forKey: "scoreGoal")
                         UserDefaults.standard.set(level, forKey: "level")
                     }) {
