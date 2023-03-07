@@ -38,9 +38,14 @@ struct LeaderboardView: View {
             VStack {
                 HStack {
                     Spacer()
-                    TextField("Search", text: $searchTerm) {
-                        filterLeaderboard()
-                    }
+                    TextField("Search", text: $searchTerm, onEditingChanged: { isEditing in
+                        if !isEditing && searchTerm.isEmpty {
+                            endFilterLeaderboard()
+                        } else {
+                            filterLeaderboard()
+                        }
+                    })
+
                         .padding()
                         .foregroundColor(Color("leaderboardBorderColor"))
                         
@@ -179,13 +184,13 @@ struct LeaderboardView: View {
         leaderboardLoading = true
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: "Leaderboard", predicate: predicate)
-        query.sortDescriptors = [NSSortDescriptor(key: "score", ascending: false)]
-        
+        query.sortDescriptors = [NSSortDescriptor(key: "highScore", ascending: false)]
+
         let operation = CKQueryOperation(query: query)
-        operation.resultsLimit = 50
+        operation.resultsLimit = 100
         operation.recordFetchedBlock = { record in
             let playerName = record["playerName"] as! String
-            let score = record["score"] as! Int
+            let score = record["highScore"] as! Int
             let rank = self.leaderboardData.count + 1
             self.leaderboardData.append(LeaderboardData(recordID: record.recordID, playerName: playerName, rank: rank, score: score))
             leaderboardLoading = false
@@ -206,6 +211,7 @@ struct LeaderboardView: View {
         let database = container.publicCloudDatabase
         database.add(operation)
     }
+
 }
 
 // MARK: - Previews
