@@ -76,7 +76,7 @@ struct StatsView: View {
                                     .shadow(color: Color(.black), radius: 5, x: 0, y: 0)
                                     .padding()
                                 VStack {
-                                    // Averages
+                                    Spacer()
                                     HStack {
                                         Text("Lifetime")
                                             .font(Font.system(.largeTitle, design: .monospaced).weight(.black))
@@ -85,15 +85,15 @@ struct StatsView: View {
                                     HStack {
                                         Spacer()
                                         VStack {
-                                            Text("Total Score (Beta): ")
-                                                .font(Font.system(.title2, design: .monospaced).weight(.black))
-                                                .foregroundColor(Color(red:0.29, green:0.29, blue:0.29, opacity: 1.00))
-                                                .strikethrough()
-                                            Text("\(lifetimeScore)")
-                                                .font(Font.system(.title2, design: .monospaced).weight(.black))
-                                                .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
-                                                .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
-                                                .animation(.modalSpring)
+//                                            Text("Total Score: ")
+//                                                .font(Font.system(.title2, design: .monospaced).weight(.black))
+//                                                .foregroundColor(Color(red:0.29, green:0.29, blue:0.29, opacity: 1.00))
+//                                                .strikethrough()
+//                                            Text("\(lifetimeScore)")
+//                                                .font(Font.system(.title2, design: .monospaced).weight(.black))
+//                                                .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
+//                                                .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
+//                                                .animation(.modalSpring)
                                         }
                                         Spacer()
                                     }
@@ -114,47 +114,47 @@ struct StatsView: View {
                                     HStack {
                                         Spacer()
                                         VStack {
-                                            Text("Lifetime Games: ")
-                                                .font(Font.system(.title2, design: .monospaced).weight(.black))
-                                                .foregroundColor(Color(red:0.29, green:0.29, blue:0.29, opacity: 1.00))
-                                                .strikethrough()
-                                            Text("\(lifetimeGames)")
-                                                .font(Font.system(.title2, design: .monospaced).weight(.black))
-                                                .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
-                                                .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
-                                                .animation(.modalSpring)
+//                                            Text("Lifetime Games: ")
+//                                                .font(Font.system(.title, design: .monospaced).weight(.black))
+//                                                .foregroundColor(Color(red:0.29, green:0.29, blue:0.29, opacity: 1.00))
+//                                                .strikethrough()
+//                                            Text("\(lifetimeGames)")
+//                                                .font(Font.system(.title2, design: .monospaced).weight(.black))
+//                                                .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
+//                                                .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
+//                                                .animation(.modalSpring)
                                         }
                                         Spacer()
                                     }
-                                    Divider()
+//                                    Divider()
                                     // Averages
-                                    Text("Averages")
-                                        .font(Font.system(.largeTitle, design: .monospaced).weight(.black))
-                                        .foregroundColor(Color(red:0.29, green:0.29, blue:0.29, opacity: 1.00))
-                                    HStack {
-                                        Spacer()
-                                        Text("Average Score (Coming Soon)")
-                                            .font(Font.system(.title2, design: .monospaced).weight(.black))
-                                            .foregroundColor(Color(red:0.29, green:0.29, blue:0.29, opacity: 1.00))
+//                                    Text("Averages")
+//                                        .font(Font.system(.largeTitle, design: .monospaced).weight(.black))
+//                                        .foregroundColor(Color(red:0.29, green:0.29, blue:0.29, opacity: 1.00))
+//                                    HStack {
+//                                        Spacer()
+//                                        Text("Average Score:")
+//                                            .font(Font.system(.title, design: .monospaced).weight(.black))
+//                                            .foregroundColor(Color(red:0.29, green:0.29, blue:0.29, opacity: 1.00))
 //                                        Text("\(averageScore)")
 //                                            .font(Font.system(.title, design: .monospaced).weight(.black))
 //                                            .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
 //                                            .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
 //                                            .animation(.modalSpring)
-                                        Spacer()
-                                    }
-                                    HStack {
-                                        Spacer()
-                                        Text("Average Swipes (Coming Soon)")
-                                            .font(Font.system(.title2, design: .monospaced).weight(.black))
-                                            .foregroundColor(Color(red:0.29, green:0.29, blue:0.29, opacity: 1.00))
+//                                        Spacer()
+//                                    }
+//                                    HStack {
+//                                        Spacer()
+//                                        Text("Average Swipes:")
+//                                            .font(Font.system(.title, design: .monospaced).weight(.black))
+//                                            .foregroundColor(Color(red:0.29, green:0.29, blue:0.29, opacity: 1.00))
 //                                        Text("\(averageSwipes)")
 //                                            .font(Font.system(.title, design: .monospaced).weight(.black))
 //                                            .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
 //                                            .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
 //                                            .animation(.modalSpring)
                                         Spacer()
-                                    }
+//                                    }
                                 }
                             }
                             .padding()
