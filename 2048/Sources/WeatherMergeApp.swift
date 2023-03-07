@@ -102,9 +102,10 @@ struct WeatherMergeApp: App {
     }
     
     var body: some Scene {
+        NavigationView {
         WindowGroup {
-            //            BetaLoginView()
             mainView
             //                .environmentObject(adsVM)
+        }
         }
     }}
