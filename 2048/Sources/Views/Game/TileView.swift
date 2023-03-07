@@ -100,7 +100,7 @@ struct TileView: View {
                     }
                 }
             }
-            .onLongPressGesture(maximumDistance: 75, perform: { tileLongPress() })
+            .onLongPressGesture(maximumDistance: 25, perform: { tileLongPress() })
             .zIndex(Double.greatestFiniteMagnitude)
             .clipped()
             .cornerRadius(proxy.size.width / 9)
