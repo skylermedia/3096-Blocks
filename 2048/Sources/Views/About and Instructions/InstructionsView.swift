@@ -60,9 +60,9 @@ struct InstructionsView: View {
                     .padding(.top)
                     .font(.largeTitle.bold())
                 Spacer()
-                instructionsText(title: instructionsTitle4, text: instructions1)
-                instructionsText(title: instructionsTitle5, text: instructions1)
-                instructionsText(title: instructionsTitle6, text: instructions1)
+                instructionsText(title: instructionsTitle4, text: instructions4)
+                instructionsText(title: instructionsTitle5, text: instructions5)
+                instructionsText(title: instructionsTitle6, text: instructions6)
                 Spacer()
                 HStack {
                     Button(action: {
@@ -92,9 +92,9 @@ struct InstructionsView: View {
                     .padding(.top)
                     .font(.largeTitle.bold())
                 Spacer()
-                instructionsText(title: instructionsTitle7, text: instructions1)
-                instructionsText(title: instructionsTitle8, text: instructions1)
-                instructionsText(title: instructionsTitle9, text: instructions1)
+                instructionsText(title: instructionsTitle7, text: instructions7)
+                instructionsText(title: instructionsTitle8, text: instructions8)
+                instructionsText(title: instructionsTitle9, text: instructions9)
                 Spacer()
                 HStack {
                     Button(action: {
@@ -121,8 +121,8 @@ struct InstructionsView: View {
                 .font(.largeTitle.bold())
             Spacer()
             instructionsText(title: instructionsTitle1, text: instructions1)
-            instructionsText(title: instructionsTitle2, text: instructions1)
-            instructionsText(title: instructionsTitle3, text: instructions1)
+            instructionsText(title: instructionsTitle2, text: instructions2)
+            instructionsText(title: instructionsTitle3, text: instructions3)
             Spacer()
             HStack {
                 Spacer()
@@ -133,7 +133,6 @@ struct InstructionsView: View {
                         .font(.largeTitle.bold())
                         .foregroundColor(.primary)
                 }
-                .padding(.bottom)
             }
         }
     }
@@ -141,13 +140,9 @@ struct InstructionsView: View {
 
 struct InstructionsView_Previews: PreviewProvider {
     static var previews: some View {
-        Group() {
-            InstructionsView()
-                .preferredColorScheme(.dark)
-            InstructionsView()
-                .preferredColorScheme(.light)
-        }
+        InstructionsView()
     }
+    
 }
 
 struct instructionsText: View {
@@ -156,17 +151,20 @@ struct instructionsText: View {
     let text: String
     
     var body: some View {
-        VStack {
-            Text(title)
-                .multilineTextAlignment(.center)
-                .font(Font.system(.title, design: .monospaced).weight(.bold))
-                .foregroundColor(.primary)
-            Text(text)
-                .multilineTextAlignment(.center)
-                .font(Font.system(.callout, design: .monospaced).weight(.bold))
-                .foregroundColor(.primary)
+        ScrollView {
+            
+            VStack {
+                Text(title)
+                    .multilineTextAlignment(.center)
+                    .font(Font.system(.title, design: .monospaced).weight(.bold))
+                    .foregroundColor(.primary)
+                Text(text)
+                    .multilineTextAlignment(.center)
+                    .font(Font.system(.callout, design: .monospaced).weight(.bold))
+                    .foregroundColor(.primary)
+            }
+            .padding(.bottom)
+            .padding([.leading, .trailing], 24)
         }
-        .padding(.bottom)
-        .padding([.leading, .trailing], 24)
     }
 }
