@@ -42,18 +42,21 @@ struct LeaderboardView: View {
                         filterLeaderboard()
                     }
                         .padding()
-                        .background(Color.primary.opacity(0.5))
                         .foregroundColor(Color("leaderboardBorderColor"))
-                        .cornerRadius(8)
+                        
                                     Button(action: {
                                         endFilterLeaderboard()
                                     }) {
                                         Image(systemName: "xmark.circle.fill")
                                             .foregroundColor(.gray)
+                                            .padding(.trailing)
                                     }
                     Spacer()
                 }
+                .background(Color.primary.opacity(0.1))
+                .cornerRadius(10)
                 .padding()
+                
                 ZStack {
                     if leaderboardLoading == true {
                         VStack {
@@ -71,7 +74,6 @@ struct LeaderboardView: View {
                         }
                     } else {
                         if leaderboardIsFiltered {
-                            
                             List(leaderboardData.filter { $0.playerName.contains(searchTerm) }, id: \.self) { item in
                                 HStack {
                                     Text("\(item.rank).")
@@ -161,6 +163,7 @@ struct LeaderboardView: View {
             .onAppear(perform: fetchLeaderboardData)
         }
     }
+    
     // MARK: - Functions
 
     func filterLeaderboard() {
@@ -179,7 +182,7 @@ struct LeaderboardView: View {
         query.sortDescriptors = [NSSortDescriptor(key: "score", ascending: false)]
         
         let operation = CKQueryOperation(query: query)
-        operation.resultsLimit = 25 // limit the number of results
+        operation.resultsLimit = 50
         operation.recordFetchedBlock = { record in
             let playerName = record["playerName"] as! String
             let score = record["score"] as! Int
