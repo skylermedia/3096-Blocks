@@ -23,6 +23,7 @@ struct SettingsView: View {
     private var invertedBackgroundColor: Color {
         colorScheme == .dark ? Color(red:0.90, green:0.90, blue:0.90, opacity:1.00) : Color(red:0.10, green:0.10, blue:0.10, opacity:1.00)
     }
+    
     private let previewSize: CGSize = .init(width: 144, height: 144)
     
     private let plist = PlistConfiguration(name: "Strings")
@@ -137,7 +138,7 @@ struct SettingsView: View {
                             .modifier(SettingsDescriptionStyle())
                     }
                     ) {
-                        ChangeUsernameView()
+                        ChangeUsernameView(invertedBackground: invertedBackgroundColor, previewSize: previewSize)
                         if currentUserUsername == "Feedback.Sender" {
                             Button(action: {
                                 fatalError()

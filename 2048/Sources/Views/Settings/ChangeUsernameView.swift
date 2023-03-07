@@ -13,6 +13,11 @@ struct ChangeUsernameView: View {
     
     @Environment(\.colorScheme) private var colorScheme: ColorScheme
     
+    // MARK: - Private Propeties
+    
+    private var invertedBackgroundColor: Color
+    private var previewSize: CGSize
+    
     // MARK: - Properties
     
     @AppStorage("username") var currentUserUsername: String?
@@ -32,10 +37,23 @@ struct ChangeUsernameView: View {
         colorScheme == .dark ? Color(red:0.90, green:0.90, blue:0.90, opacity:1.00) : Color(red:0.10, green:0.10, blue:0.10, opacity:1.00)
     }
     
+    // MARK: - Initializers
+    
+    init(invertedBackground: Color, previewSize: CGSize) {
+        self.invertedBackgroundColor = invertedBackground
+        self.previewSize = previewSize
+    }
+    
     // MARK: - Conformance to View Protocol
     
     var body: some View {
-        VStack {
+        changeUsernameView()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func changeUsernameView() -> some View {
+        return VStack {
             Spacer()
             Text("Do not use personal information in your username (full name, phone number, etc…).")
                 .padding(.horizontal)
@@ -72,7 +90,12 @@ struct ChangeUsernameView: View {
             }
             Spacer()
         }
+        .foregroundColor(Color.primary.opacity(0.5))
+        .shadow(color: invertedBackgroundColor.opacity(0.5), radius: 10)
+        .animation(.modalSpring)
+        .padding([.leading, .leading, .top, .bottom])
     }
+    
     
     // MARK: - Functions
     
@@ -82,8 +105,7 @@ struct ChangeUsernameView: View {
     }
     
 }
-
-// MARK: - Previews
+    // MARK: - Previews
 
 struct ChangeUsernameView_Previews: PreviewProvider {
     static var previews: some View {
