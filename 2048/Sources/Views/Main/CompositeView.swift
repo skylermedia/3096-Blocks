@@ -53,7 +53,7 @@ struct CompositeView: View {
     
     @State private var resetWithScore: Bool = UserDefaults.standard.bool(forKey: "resetWithScore")
     
-    // MARK: App Storage
+    // MARK: - App Storage
     
     @AppStorage("highScore") var highScore: Int = 0
 //    @AppStorage("scoreGoal") var scoreGoal: Int = UserDefaults.standard.integer(forKey: "scoreGoal")
@@ -63,6 +63,7 @@ struct CompositeView: View {
     // MARK: - Login
     
     @AppStorage("signed_in") var currentUserSignedIn: Bool = false
+    @AppStorage("username") var currentUserUsername: String?
     
     // MARK: - Sound Settings
     
@@ -444,7 +445,7 @@ struct CompositeView: View {
     func saveScore(playerName: String, score: Int) {
         DispatchQueue.global().async {
             let record = CKRecord(recordType: "Leaderboard")
-            let playerName = UserDefaults.standard.string(forKey: "userName")
+            let playerName = currentUserUsername
             record.setValue(playerName, forKey: "userName")
             record.setValue(score, forKey: "highScore")
             
@@ -454,8 +455,7 @@ struct CompositeView: View {
                 if let error = error {
                     print("Error saving score: \(error)")
                 } else {
-                    self.fetchLeaderboardData()
-                    print("Success Saving Data")
+                    
                 }
             }
         }
