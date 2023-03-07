@@ -57,6 +57,10 @@ final class GameLogic: ObservableObject {
         return tileMatrix
     }
 
+    // MARK: - App Storage
+    
+    @AppStorage("level") var currentLevel: Int = 1
+    
     // MARK: - Initializers
     
     init(size: Int) {
@@ -288,9 +292,61 @@ final class GameLogic: ObservableObject {
 //        if gameMode == "letter" {
 //            tileMatrix.add(Identifiedions[placeLocIndex])
 //        } else {
+        switch currentLevel {
+        case 1:
             tileMatrix.add(IdentifiedTile(id: mutableInstanceId,
                                           value: (((0...6).randomElement() ?? 0) == 0) ? 4 : 3),
                            to: blankLocations[placeLocIndex])
+        case 2:
+            tileMatrix.add(IdentifiedTile(id: mutableInstanceId,
+                                          value: (((0...6).randomElement() ?? 0) == 0) ? 8 : 6),
+                           to: blankLocations[placeLocIndex])
+        case 3:
+            tileMatrix.add(IdentifiedTile(id: mutableInstanceId,
+                                          value: (((0...6).randomElement() ?? 0) == 0) ? 12 : 10),
+                           to: blankLocations[placeLocIndex])
+        case 4:
+            tileMatrix.add(IdentifiedTile(id: mutableInstanceId,
+                                          value: (((0...6).randomElement() ?? 0) == 0) ? 16 : 14),
+                           to: blankLocations[placeLocIndex])
+        case 5:
+            tileMatrix.add(IdentifiedTile(id: mutableInstanceId,
+                                          value: (((0...6).randomElement() ?? 0) == 0) ? 20 : 18),
+                           to: blankLocations[placeLocIndex])
+        case 6:
+            tileMatrix.add(IdentifiedTile(id: mutableInstanceId,
+                                          value: (((0...6).randomElement() ?? 0) == 0) ? 24 : 22),
+                           to: blankLocations[placeLocIndex])
+        case 7:
+            tileMatrix.add(IdentifiedTile(id: mutableInstanceId,
+                                          value: (((0...6).randomElement() ?? 0) == 0) ? 7 : 6),
+                           to: blankLocations[placeLocIndex])
+        case 8:
+            tileMatrix.add(IdentifiedTile(id: mutableInstanceId,
+                                          value: (((0...6).randomElement() ?? 0) == 0) ? 7 : 6),
+                           to: blankLocations[placeLocIndex])
+        case 9:
+            tileMatrix.add(IdentifiedTile(id: mutableInstanceId,
+                                          value: (((0...6).randomElement() ?? 0) == 0) ? 7 : 6),
+                           to: blankLocations[placeLocIndex])
+        case 10:
+            tileMatrix.add(IdentifiedTile(id: mutableInstanceId,
+                                          value: (((0...6).randomElement() ?? 0) == 0) ? 7 : 6),
+                           to: blankLocations[placeLocIndex])
+        case 11:
+            tileMatrix.add(IdentifiedTile(id: mutableInstanceId,
+                                          value: (((0...6).randomElement() ?? 0) == 0) ? 7 : 6),
+                           to: blankLocations[placeLocIndex])
+        case 12:
+            tileMatrix.add(IdentifiedTile(id: mutableInstanceId,
+                                          value: (((0...6).randomElement() ?? 0) == 0) ? 7 : 6),
+                           to: blankLocations[placeLocIndex])
+        default:
+            tileMatrix.add(IdentifiedTile(id: mutableInstanceId,
+                                          value: (((0...6).randomElement() ?? 0) == 0) ? 4 : 3),
+                           to: blankLocations[placeLocIndex])
+        }
+            
 //        }
         return true
     }
