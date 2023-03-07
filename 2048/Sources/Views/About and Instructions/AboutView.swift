@@ -40,24 +40,28 @@ struct AboutView: View {
     // MARK: - Private Methods
 
     private func iconHeader(padding spacing: CGFloat, proxy: GeometryProxy) -> some View {
-        VStack(spacing: 8) {
-            if #available(iOS 16.0, *) {
-                Text(about[PlistConfigurationKeyPath.about.rawValue]?[PlistConfigurationKeyPath.linkDescription.rawValue] ?? "[Missing Information]")
-                .multilineTextAlignment(.center)
-                .fontWeight(.bold)
-                .font(Font.system(.headline, design: .monospaced).weight(.bold))
-                .foregroundColor(.primary)
-            } else {
-                Text(about[PlistConfigurationKeyPath.about.rawValue]?[PlistConfigurationKeyPath.linkDescription.rawValue] ?? "[Missing Information]")
-                .multilineTextAlignment(.center)
-                .font(Font.system(.headline, design: .monospaced).weight(.bold))
-                .foregroundColor(.primary)
+        ScrollView {
+            VStack(spacing: 8) {
+                if #available(iOS 16.0, *) {
+                    Text(about[PlistConfigurationKeyPath.about.rawValue]?[PlistConfigurationKeyPath.linkDescription.rawValue] ?? "[Missing Information]")
+                        .multilineTextAlignment(.center)
+                        .fontWeight(.bold)
+                        .font(Font.system(.title3, design: .monospaced).weight(.bold))
+                        .foregroundColor(.primary)
+                } else {
+                    Text(about[PlistConfigurationKeyPath.about.rawValue]?[PlistConfigurationKeyPath.linkDescription.rawValue] ?? "[Missing Information]")
+                        .multilineTextAlignment(.center)
+                        .font(Font.system(.title3, design: .monospaced).weight(.bold))
+                        .foregroundColor(.primary)
+                }
             }
+            .padding(.all, spacing)
+            .center(in: .local, with: proxy)
         }
-        .padding(.all, spacing)
-        .center(in: .local, with: proxy)
     }
 }
+
+// MARK: - Previews
 
 struct AboutView_Previews: PreviewProvider {
     static var previews: some View {
