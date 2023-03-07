@@ -173,30 +173,35 @@ struct TileView: View {
                             .frame(width: 75, height: 75)
                             .clipped()
                             .cornerRadius(10)
-                        if number == 3 {
+                        switch number {
+                        case 3:
+                            TileNI(image: "bolt.fill", number: "1", color: .yellow)
+                        case 4:
                             TileNI(image: "flame.fill", number: "2", color: .orange)
-                        } else if number == 4 {
+                        case 5:
                             TileNI(image: "cloud.rain.fill", number: "3", color: .blue)
-                        } else if number == 5 {
+                        case 6:
                             TileNI(image: "sun.max.fill", number: "4", color: .yellow)
-                        } else if number == 6 {
+                        case 7:
                             TileNI(image: "moon.stars.fill", number: "5", color: .blue)
-                        } else if number == 7 {
+                        case 8:
                             TileNI(image: "leaf.fill", number: "6", color: .green)
-                        } else if number == 8 {
+                        case 9:
                             TileNI(image: "tornado", number: "7", color: .red)
-                        } else if number == 9 {
+                        case 10:
                             TileNI(image: "umbrella.fill", number: "8", color: .blue)
-                        } else if number == 10 {
+                        case 11:
                             TileNI(image: "cloud.heavyrain.fill", number: "9", color: .blue)
-                        } else if number == 11 {
+                        case 12:
                             TileNI(image: "sunrise.fill", number: "10", color: .yellow)
-                        } else if number == 12 {
+                        case 13:
                             TileNI(image: "cloud.sun.fill", number: "11", color: .yellow)
-                        } else if number == 13 {
+                        case 14:
                             TileNI(image: "wind", number: "12", color: .yellow)
-                        } else if number == 14 {
+                        case 15:
                             TileNI(image: "snowflake", number: "13", color: .yellow)
+                        default:
+                            Text("")
                         }
                     }
                 }
