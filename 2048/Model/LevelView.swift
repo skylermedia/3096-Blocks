@@ -23,7 +23,7 @@ struct LevelView: View {
     // MARK: - Levels
     
     @AppStorage("isLevelUnlocked0") var isLevelUnlocked0: Bool = true
-    @AppStorage("isLevelUnlocked1") var isLevelUnlocked1: Bool = true
+    @AppStorage("isLevelUnlocked1") var isLevelUnlocked1: Bool = false
     @AppStorage("isLevelUnlocked2") var isLevelUnlocked2: Bool = false
     @AppStorage("isLevelUnlocked3") var isLevelUnlocked3: Bool = false
     @AppStorage("isLevelUnlocked4") var isLevelUnlocked4: Bool = false
