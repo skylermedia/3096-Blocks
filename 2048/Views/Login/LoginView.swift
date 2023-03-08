@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BetaLoginView: View {
+struct LoginView: View {
     
     // MARK: - Environment
     
@@ -55,6 +55,6 @@ struct BetaLoginView: View {
 
 struct BetaLoginView_Previews: PreviewProvider {
     static var previews: some View {
-        BetaLoginView()
+        LoginView()
     }
 }

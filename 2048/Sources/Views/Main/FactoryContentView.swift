@@ -73,7 +73,7 @@ struct FactoryContentView<G: Gesture>: View {
     }
     
     private var profileView: some View {
-        BetaLoginView()
+        LoginView()
             .padding(.top, -64)
             .padding(.bottom, 24)
     }
@@ -85,7 +85,7 @@ struct FactoryContentView<G: Gesture>: View {
     }
     
     private var loginView: some View {
-        BetaLoginView()
+        LoginView()
             .padding(.top, -64)
             .padding(.bottom, 24)
     }

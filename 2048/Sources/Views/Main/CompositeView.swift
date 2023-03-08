@@ -149,7 +149,7 @@ struct CompositeView: View {
     var body: some View {
         NavigationView {
             if currentUserSignedIn == false {
-                BetaLoginView()
+                LoginView()
             } else {
                 GeometryReader { proxy in
                     ZStack(alignment: .top) {
