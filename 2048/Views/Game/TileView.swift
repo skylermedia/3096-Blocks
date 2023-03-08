@@ -14,7 +14,7 @@ struct TileView: View {
     @Environment(\.tileColorTheme) private var tileColorTheme: TileColorTheme
     @Environment(\.colorScheme) private var colorScheme: ColorScheme
     
-    @State private var gameMode = UserDefaults.standard.string(forKey: "gameMode")
+    @AppStorage("gameMode") private var gameMode = (UserDefaults.standard.string(forKey: "gameMode") ?? "symbols")
     
     @State private var showTileSheet: Bool = false
     

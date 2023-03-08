@@ -99,7 +99,6 @@ struct CompositeView: View {
     init(board: GameLogic) {
         self.logic = board
         resetNextMove = false
-        UserDefaults.standard.set("symbols", forKey: "gameMode")
     }
     
     // MARK: - Drag Gesture

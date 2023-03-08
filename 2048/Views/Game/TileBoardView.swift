@@ -23,7 +23,7 @@ struct TileBoardView: View {
     
     var tileBoardSize: Int
     @Environment(\.colorScheme) var colorScheme: ColorScheme
-    @State private var gameMode = UserDefaults.standard.string(forKey: "gameMode")
+    @AppStorage("gameMode") private var gameMode = (UserDefaults.standard.string(forKey: "gameMode") ?? "symbols")
     
     // MARK: - Computed Properties
     

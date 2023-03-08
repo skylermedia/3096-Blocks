@@ -90,7 +90,7 @@ struct WeatherMergeApp: App {
     }
     
     func gameMode() {
-        UserDefaults.standard.set("letter", forKey: "gameMode")
+        UserDefaults.standard.set("symbols", forKey: "gameMode")
     }
     
     private var mainView: some View {

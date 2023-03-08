@@ -32,8 +32,6 @@ final class GameLogic: ObservableObject {
     
     private var resetWithScore = UserDefaults.standard.bool(forKey: "resetWithScore")
     
-    private var gameMode = UserDefaults.standard.string(forKey: "gameMode")
-    
     private(set) var lastGestureDirection: Direction = .up
 
     private let mergeMultiplierStep: Int = 2
@@ -59,6 +57,7 @@ final class GameLogic: ObservableObject {
 
     // MARK: - App Storage
     
+    @AppStorage("gameMode") var gameMode = (UserDefaults.standard.string(forKey: "gameMode") ?? "letter")
     @AppStorage("level") var currentLevel: Int = 1
     
     // MARK: - Initializers
