@@ -295,6 +295,7 @@
 				A9E400CF25A4730F00FE1F92 /* 3096 – Blocks.entitlements */,
 				A9757EB424CC47EC00847031 /* Info.plist */,
 				D43A019F29689632007D8134 /* Launch Screen.storyboard */,
+				A9757EAB24CC47EC00847031 /* WeatherMergeApp.swift */,
 				D46E5BDB29B81F2F0091B190 /* Views */,
 				A9757EDD24CC481E00847031 /* Sources */,
 				A9757ED624CC481E00847031 /* Assets */,
@@ -334,7 +335,6 @@
 		A9757EDD24CC481E00847031 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				A9757EAB24CC47EC00847031 /* WeatherMergeApp.swift */,
 				A9757F0124CC481E00847031 /* Audio */,
 				D46E5BD829B7A48C0091B190 /* CloudKit */,
 				D40228BC296FA68300A6F5D5 /* Haptics */,
@@ -465,7 +465,6 @@
 		A9757F0424CC481E00847031 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D4D3047A297997770022868A /* Stats */,
 				A9757F0924CC481E00847031 /* Side */,
 				D46A953E29B3EFF50029874D /* Login */,
 				D470730B2976652C0019774A /* Leaderboard */,
@@ -651,6 +650,7 @@
 				D46E5BDC29B81F890091B190 /* About */,
 				D46E5BDD29B81F930091B190 /* Instructions */,
 				A9757F0524CC481E00847031 /* Settings */,
+				D4D3047A297997770022868A /* Stats */,
 			);
 			path = Views;
 			sourceTree = "<group>";
