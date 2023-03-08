@@ -319,27 +319,27 @@ final class GameLogic: ObservableObject {
                            to: blankLocations[placeLocIndex])
         case 7:
             tileMatrix.add(IdentifiedTile(id: mutableInstanceId,
-                                          value: (((0...6).randomElement() ?? 0) == 0) ? 7 : 6),
+                                          value: (((0...6).randomElement() ?? 0) == 0) ? 28 : 26),
                            to: blankLocations[placeLocIndex])
         case 8:
             tileMatrix.add(IdentifiedTile(id: mutableInstanceId,
-                                          value: (((0...6).randomElement() ?? 0) == 0) ? 7 : 6),
+                                          value: (((0...6).randomElement() ?? 0) == 0) ? 32 : 30),
                            to: blankLocations[placeLocIndex])
         case 9:
             tileMatrix.add(IdentifiedTile(id: mutableInstanceId,
-                                          value: (((0...6).randomElement() ?? 0) == 0) ? 7 : 6),
+                                          value: (((0...6).randomElement() ?? 0) == 0) ? 36 : 34),
                            to: blankLocations[placeLocIndex])
         case 10:
             tileMatrix.add(IdentifiedTile(id: mutableInstanceId,
-                                          value: (((0...6).randomElement() ?? 0) == 0) ? 7 : 6),
+                                          value: (((0...6).randomElement() ?? 0) == 0) ? 40 : 38),
                            to: blankLocations[placeLocIndex])
         case 11:
             tileMatrix.add(IdentifiedTile(id: mutableInstanceId,
-                                          value: (((0...6).randomElement() ?? 0) == 0) ? 7 : 6),
+                                          value: (((0...6).randomElement() ?? 0) == 0) ? 44 : 42),
                            to: blankLocations[placeLocIndex])
         case 12:
             tileMatrix.add(IdentifiedTile(id: mutableInstanceId,
-                                          value: (((0...6).randomElement() ?? 0) == 0) ? 7 : 6),
+                                          value: (((0...6).randomElement() ?? 0) == 0) ? 48 : 46),
                            to: blankLocations[placeLocIndex])
         default:
             tileMatrix.add(IdentifiedTile(id: mutableInstanceId,

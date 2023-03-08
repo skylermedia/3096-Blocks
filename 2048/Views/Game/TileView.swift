@@ -111,6 +111,44 @@ struct TileView: View {
                         TileNI(image: "drop.fill", number: 20, color: .yellow)
                     case 23:
                         TileNI(image: "bolt.shield.fill", number: 21, color: .purple)
+                    case 24:
+                        TileNI(image: "bag.fill", number: 22, color: .green)
+                    case 25:
+                        TileNI(image: "cart.fill", number: 23, color: .green)
+                    case 26:
+                        TileNI(image: "cart.fill.badge.plus", number: 24, color: .green)
+                    case 27:
+                        TileNI(image: "giftcard.fill", number: 25, color: .green)
+                    case 28:
+                        TileNI(image: "banknote.fill", number: 26, color: .green)
+                    case 29:
+                        TileNI(image: "creditcard.fill", number: 27, color: .green)
+                    case 30:
+                        TileNI(image: "figure.walk", number: 28, color: .purple)
+                    case 31:
+                        TileNI(image: "figure.wave", number: 29, color: .purple)
+                    case 32:
+                        TileNI(image: "scooter", number: 30, color: .purple)
+                    case 33:
+                        TileNI(image: "bicycle", number: 31, color: .purple)
+                    case 34:
+                        TileNI(image: "car.fill", number: 32, color: .purple)
+                    case 35:
+                        TileNI(image: "bolt.car.fill", number: 33, color: .purple)
+                    case 36:
+                        TileNI(image: "box.truck.fill", number: 34, color: .purple)
+                    case 37:
+                        TileNI(image: "bus", number: 35, color: .purple)
+                    case 38:
+                        TileNI(image: "tram", number: 36, color: .purple)
+                    case 39:
+                        TileNI(image: "airplane.departure", number: 37, color: .purple)
+                    case 40:
+                        TileNI(image: "airplane", number: 38, color: .purple)
+                    case 41:
+                        TileNI(image: "airplane.arrival", number: 39, color: .purple)
+                    case 42:
+                        TileNI(image: "medal.fill", number: 40, color: .purple)
                     default:
                         Text("")
                     }
@@ -278,7 +316,7 @@ struct TileView: View {
                             .frame(width: 75, height: 75)
                             .clipped()
                             .cornerRadius(10)
-                        weatherTiles
+                        weatherTilesMinus1
                     }
                 }
                 
@@ -300,7 +338,7 @@ struct TileView: View {
 
 extension TileView {
     
-    private var weatherTiles: some View {
+    private var weatherTilesMinus1: some View {
         switch number {
         case 2:
             return TileNI(image: "bolt.fill", number: 1, color: .yellow)
@@ -343,6 +381,93 @@ extension TileView {
         case 21:
             return TileNI(image: "drop.fill", number: 20, color: .yellow)
         case 22:
+            return TileNI(image: "bolt.shield.fill", number: 21, color: .purple)
+        case 23:
+            return TileNI(image: "bag.fill", number: 22, color: .green)
+        case 24:
+            return TileNI(image: "cart.fill", number: 23, color: .green)
+        case 25:
+            return TileNI(image: "cart.fill.badge.plus", number: 24, color: .green)
+        case 26:
+            return TileNI(image: "giftcard.fill", number: 25, color: .green)
+        case 27:
+            return TileNI(image: "banknote.fill", number: 26, color: .green)
+        case 28:
+            return TileNI(image: "creditcard.fill", number: 27, color: .green)
+        case 29:
+            return TileNI(image: "figure.walk", number: 28, color: .purple)
+        case 30:
+            return TileNI(image: "figure.wave", number: 29, color: .purple)
+        case 31:
+            return TileNI(image: "scooter", number: 30, color: .purple)
+        case 32:
+            return TileNI(image: "bicycle", number: 31, color: .purple)
+        case 33:
+            return TileNI(image: "car.fill", number: 32, color: .purple)
+        case 34:
+            return TileNI(image: "bolt.car.fill", number: 33, color: .purple)
+        case 35:
+            return TileNI(image: "box.truck.fill", number: 34, color: .purple)
+        case 36:
+            return TileNI(image: "bus", number: 35, color: .purple)
+        case 37:
+            return TileNI(image: "tram", number: 36, color: .purple)
+        case 38:
+            return TileNI(image: "airplane.departure", number: 37, color: .purple)
+        case 39:
+            return TileNI(image: "airplane", number: 38, color: .purple)
+        case 40:
+            return TileNI(image: "airplane.arrival", number: 39, color: .purple)
+        case 41:
+            return TileNI(image: "medal.fill", number: 40, color: .purple)
+        default:
+            return TileNI(image: "xmark.circle.fill", number: -1, color: .red)
+        }
+    }
+    
+    private var weatherTiles: some View {
+        switch number {
+        case 3:
+            return TileNI(image: "bolt.fill", number: 1, color: .yellow)
+        case 4:
+            return TileNI(image: "flame.fill", number: 2, color: .orange)
+        case 5:
+            return TileNI(image: "cloud.rain.fill", number: 3, color: .blue)
+        case 6:
+            return TileNI(image: "sun.max.fill", number: 4, color: .yellow)
+        case 7:
+            return TileNI(image: "moon.stars.fill", number: 5, color: .blue)
+        case 8:
+            return TileNI(image: "leaf.fill", number: 6, color: .green)
+        case 9:
+            return TileNI(image: "tornado", number: 7, color: .red)
+        case 10:
+            return TileNI(image: "umbrella.fill", number: 8, color: .blue)
+        case 11:
+            return TileNI(image: "cloud.heavyrain.fill", number: 9, color: .blue)
+        case 12:
+            return TileNI(image: "sunrise.fill", number: 10, color: .yellow)
+        case 13:
+            return TileNI(image: "cloud.sun.fill", number: 11, color: .yellow)
+        case 14:
+            return TileNI(image: "wind", number: 12, color: .yellow)
+        case 15:
+            return TileNI(image: "snowflake", number: 13, color: .yellow)
+        case 16:
+            return TileNI(image: "water.waves", number: 14, color: .blue)
+        case 17:
+            return TileNI(image: "hurricane", number: 15, color: .gray)
+        case 18:
+            return TileNI(image: "cloud.bolt.fill", number: 16, color: .purple)
+        case 19:
+            return TileNI(image: "sparkles", number: 17, color: .red)
+        case 20:
+            return TileNI(image: "smoke.fill", number: 18, color: .blue)
+        case 21:
+            return TileNI(image: "cloud.sun.bolt.fill", number: 19, color: .orange)
+        case 22:
+            return TileNI(image: "drop.fill", number: 20, color: .yellow)
+        case 23:
             return TileNI(image: "bolt.shield.fill", number: 21, color: .purple)
         case 24:
             return TileNI(image: "bag.fill", number: 22, color: .green)
@@ -404,9 +529,9 @@ extension TileView {
         let blankLetter = blankDictionary[number]
         
         if gameMode == "symbols" {
-            return blankLetter ?? "!"
+            return blankLetter ?? ""
         } else {
-            return letter ?? "!"
+            return letter ?? ""
         }
     }
     
