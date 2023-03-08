@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		A9757EAC24CC47EC00847031 /* WeatherMergeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9757EAB24CC47EC00847031 /* WeatherMergeApp.swift */; };
 		A9757EB324CC47EC00847031 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9757EB224CC47EC00847031 /* Preview Assets.xcassets */; };
-		A9757EBE24CC47EC00847031 /* DirectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9757EBD24CC47EC00847031 /* DirectionTests.swift */; };
-		A9757EC924CC47EC00847031 /* AppLaunchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9757EC824CC47EC00847031 /* AppLaunchUITests.swift */; };
 		A9757F1F24CC481E00847031 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9757ED724CC481E00847031 /* Assets.xcassets */; };
 		A9757F2024CC481E00847031 /* Merge.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A9757ED924CC481E00847031 /* Merge.mp3 */; };
 		A9757F2224CC481E00847031 /* New.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A9757EDB24CC481E00847031 /* New.mp3 */; };
@@ -63,7 +61,6 @@
 		A9757F5124CC481E00847031 /* BlurEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9757F1D24CC481E00847031 /* BlurEffect.swift */; };
 		A9757F5224CC481E00847031 /* RoundedClippedBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9757F1E24CC481E00847031 /* RoundedClippedBackground.swift */; };
 		A9757F5424CC497400847031 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A9757F5324CC497400847031 /* .gitignore */; };
-		A9757F5624CC4C9F00847031 /* GameBoardSizeStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9757F5524CC4C9F00847031 /* GameBoardSizeStateTests.swift */; };
 		D40228B9296FA50F00A6F5D5 /* HapticSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40228B8296FA50F00A6F5D5 /* HapticSettingsView.swift */; };
 		D40228BB296FA64700A6F5D5 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40228BA296FA64700A6F5D5 /* Haptics.swift */; };
 		D40228BE296FA6A700A6F5D5 /* HapticControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40228BD296FA6A700A6F5D5 /* HapticControler.swift */; };
@@ -143,11 +140,7 @@
 		A9757EB224CC47EC00847031 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A9757EB424CC47EC00847031 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9757EB924CC47EC00847031 /* MergeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MergeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9757EBD24CC47EC00847031 /* DirectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionTests.swift; sourceTree = "<group>"; };
-		A9757EBF24CC47EC00847031 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9757EC424CC47EC00847031 /* MergeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MergeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9757EC824CC47EC00847031 /* AppLaunchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchUITests.swift; sourceTree = "<group>"; };
-		A9757ECA24CC47EC00847031 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9757ED724CC481E00847031 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9757ED924CC481E00847031 /* Merge.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Merge.mp3; sourceTree = "<group>"; };
 		A9757EDB24CC481E00847031 /* New.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = New.mp3; sourceTree = "<group>"; };
@@ -200,7 +193,6 @@
 		A9757F1D24CC481E00847031 /* BlurEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurEffect.swift; sourceTree = "<group>"; };
 		A9757F1E24CC481E00847031 /* RoundedClippedBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedClippedBackground.swift; sourceTree = "<group>"; };
 		A9757F5324CC497400847031 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		A9757F5524CC4C9F00847031 /* GameBoardSizeStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoardSizeStateTests.swift; sourceTree = "<group>"; };
 		A9E400CF25A4730F00FE1F92 /* 3096 – Blocks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "3096 – Blocks.entitlements"; sourceTree = "<group>"; };
 		D40228B8296FA50F00A6F5D5 /* HapticSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticSettingsView.swift; sourceTree = "<group>"; };
 		D40228BA296FA64700A6F5D5 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
@@ -287,8 +279,6 @@
 			children = (
 				A9757F5324CC497400847031 /* .gitignore */,
 				A9757EAA24CC47EC00847031 /* 2048 */,
-				A9757EBC24CC47EC00847031 /* 2048Tests */,
-				A9757EC724CC47EC00847031 /* 2048UITests */,
 				D42DB3E4296D2B21006D7392 /* ThreeZeroNineSixWatch Watch App */,
 				A9757EA924CC47EC00847031 /* Products */,
 			);
@@ -323,25 +313,6 @@
 				A9757EB224CC47EC00847031 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		A9757EBC24CC47EC00847031 /* 2048Tests */ = {
-			isa = PBXGroup;
-			children = (
-				A9757EBF24CC47EC00847031 /* Info.plist */,
-				A9757EBD24CC47EC00847031 /* DirectionTests.swift */,
-				A9757F5524CC4C9F00847031 /* GameBoardSizeStateTests.swift */,
-			);
-			path = 2048Tests;
-			sourceTree = "<group>";
-		};
-		A9757EC724CC47EC00847031 /* 2048UITests */ = {
-			isa = PBXGroup;
-			children = (
-				A9757ECA24CC47EC00847031 /* Info.plist */,
-				A9757EC824CC47EC00847031 /* AppLaunchUITests.swift */,
-			);
-			path = 2048UITests;
 			sourceTree = "<group>";
 		};
 		A9757ED624CC481E00847031 /* Assets */ = {
@@ -948,8 +919,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9757EBE24CC47EC00847031 /* DirectionTests.swift in Sources */,
-				A9757F5624CC4C9F00847031 /* GameBoardSizeStateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -957,7 +926,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9757EC924CC47EC00847031 /* AppLaunchUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
