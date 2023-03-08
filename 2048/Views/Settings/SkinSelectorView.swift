@@ -1,6 +1,6 @@
 ////
 ////  SkinSelectorView.swift
-////  3096 – Blocks
+////  Weather Merge
 ////
 ////  Created by Skyler Szijjarto on 1/19/23.
 ////
@@ -45,7 +45,7 @@
 //            }
 //            .padding(5)
 //            .actionSheet(isPresented: $showAlert) {
-//                ActionSheet(title: Text("Requires Restart"), message: Text("You must restart 3096 – Blocks to change this setting."), buttons: [
+//                ActionSheet(title: Text("Requires Restart"), message: Text("You must restart Weather Merge to change this setting."), buttons: [
 //                    .destructive(Text("Restart"), action: {
 //                        exit(EXIT_SUCCESS)
 //                    }),
