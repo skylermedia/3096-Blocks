@@ -132,53 +132,7 @@ struct TileView: View {
                                 .frame(width: 75, height: 75)
                                 .clipped()
                                 .cornerRadius(10)
-                            
-                            switch number {
-                            case 3:
-                                TileNI(image: "bolt.fill", number: 1, color: .yellow)
-                            case 4:
-                                TileNI(image: "flame.fill", number: 2, color: .orange)
-                            case 5:
-                                TileNI(image: "cloud.rain.fill", number: 3, color: .blue)
-                            case 6:
-                                TileNI(image: "sun.max.fill", number: 4, color: .yellow)
-                            case 7:
-                                TileNI(image: "moon.stars.fill", number: 5, color: .blue)
-                            case 8:
-                                TileNI(image: "leaf.fill", number: 6, color: .green)
-                            case 9:
-                                TileNI(image: "tornado", number: 7, color: .red)
-                            case 10:
-                                TileNI(image: "umbrella.fill", number: 8, color: .blue)
-                            case 11:
-                                TileNI(image: "cloud.heavyrain.fill", number: 9, color: .blue)
-                            case 12:
-                                TileNI(image: "sunrise.fill", number: 10, color: .yellow)
-                            case 13:
-                                TileNI(image: "cloud.sun.fill", number: 11, color: .yellow)
-                            case 14:
-                                TileNI(image: "wind", number: 12, color: .yellow)
-                            case 15:
-                                TileNI(image: "snowflake", number: 13, color: .yellow)
-                            case 16:
-                                TileNI(image: "water.waves", number: 14, color: .blue)
-                            case 17:
-                                TileNI(image: "hurricane", number: 15, color: .gray)
-                            case 18:
-                                TileNI(image: "cloud.bolt.fill", number: 16, color: .purple)
-                            case 19:
-                                TileNI(image: "sparkles", number: 17, color: .red)
-                            case 20:
-                                TileNI(image: "smoke.fill", number: 18, color: .blue)
-                            case 21:
-                                TileNI(image: "cloud.sun.bolt.fill", number: 19, color: .orange)
-                            case 22:
-                                TileNI(image: "drop.fill", number: 20, color: .yellow)
-                            case 23:
-                                TileNI(image: "bolt.shield.fill", number: 21, color: .purple)
-                            default:
-                                Text("!")
-                            }
+                            weatherTiles
                         }
                     }
                     Spacer()
@@ -248,8 +202,10 @@ struct TileView: View {
                         Text("Bolt Shield")
                             .font(.largeTitle.bold())
                     default:
-                        Text("Invalid Tile 🤯")
+                        Text("Blank Tile 🤯")
                             .font(.largeTitle.bold())
+                        Text("Plese contact support@skyler.media if you see this.")
+                            .font(.body.bold())
                     }
                     
                     Spacer()
@@ -265,52 +221,7 @@ struct TileView: View {
                             .frame(width: 75, height: 75)
                             .clipped()
                             .cornerRadius(10)
-                        switch number {
-                        case 2:
-                            TileNI(image: "bolt.fill", number: 1, color: .yellow)
-                        case 3:
-                            TileNI(image: "flame.fill", number: 2, color: .orange)
-                        case 4:
-                            TileNI(image: "cloud.rain.fill", number: 3, color: .blue)
-                        case 5:
-                            TileNI(image: "sun.max.fill", number: 4, color: .yellow)
-                        case 6:
-                            TileNI(image: "moon.stars.fill", number: 5, color: .blue)
-                        case 7:
-                            TileNI(image: "leaf.fill", number: 6, color: .green)
-                        case 8:
-                            TileNI(image: "tornado", number: 7, color: .red)
-                        case 9:
-                            TileNI(image: "umbrella.fill", number: 8, color: .blue)
-                        case 10:
-                            TileNI(image: "cloud.heavyrain.fill", number: 9, color: .blue)
-                        case 11:
-                            TileNI(image: "sunrise.fill", number: 10, color: .yellow)
-                        case 12:
-                            TileNI(image: "cloud.sun.fill", number: 11, color: .yellow)
-                        case 13:
-                            TileNI(image: "wind", number: 12, color: .yellow)
-                        case 14:
-                            TileNI(image: "snowflake", number: 13, color: .yellow)
-                        case 15:
-                            TileNI(image: "water.waves", number: 14, color: .blue)
-                        case 16:
-                            TileNI(image: "hurricane", number: 15, color: .gray)
-                        case 17:
-                            TileNI(image: "cloud.bolt.fill", number: 16, color: .purple)
-                        case 18:
-                            TileNI(image: "sparkles", number: 17, color: .red)
-                        case 19:
-                            TileNI(image: "smoke.fill", number: 18, color: .blue)
-                        case 20:
-                            TileNI(image: "cloud.sun.bolt.fill", number: 19, color: .orange)
-                        case 21:
-                            TileNI(image: "drop.fill", number: 20, color: .yellow)
-                        case 22:
-                            TileNI(image: "bolt.shield.fill", number: 21, color: .purple)
-                        default:
-                            TileNI(image: "xmark.circle.fill", number: -1, color: .red)
-                        }
+                        weatherTiles
                     }
                 }
                 
@@ -326,9 +237,66 @@ struct TileView: View {
             .padding([.top], 50)
         }
     }
+}
+
+// MARK: - Weather Tiles
+
+extension TileView {
     
-    // MARK: - Methods
+    private var weatherTiles: some View {
+        switch number {
+        case 2:
+            return TileNI(image: "bolt.fill", number: 1, color: .yellow)
+        case 3:
+            return TileNI(image: "flame.fill", number: 2, color: .orange)
+        case 4:
+            return TileNI(image: "cloud.rain.fill", number: 3, color: .blue)
+        case 5:
+            return TileNI(image: "sun.max.fill", number: 4, color: .yellow)
+        case 6:
+            return TileNI(image: "moon.stars.fill", number: 5, color: .blue)
+        case 7:
+            return TileNI(image: "leaf.fill", number: 6, color: .green)
+        case 8:
+            return TileNI(image: "tornado", number: 7, color: .red)
+        case 9:
+            return TileNI(image: "umbrella.fill", number: 8, color: .blue)
+        case 10:
+            return TileNI(image: "cloud.heavyrain.fill", number: 9, color: .blue)
+        case 11:
+            return TileNI(image: "sunrise.fill", number: 10, color: .yellow)
+        case 12:
+            return TileNI(image: "cloud.sun.fill", number: 11, color: .yellow)
+        case 13:
+            return TileNI(image: "wind", number: 12, color: .yellow)
+        case 14:
+            return TileNI(image: "snowflake", number: 13, color: .yellow)
+        case 15:
+            return TileNI(image: "water.waves", number: 14, color: .blue)
+        case 16:
+            return TileNI(image: "hurricane", number: 15, color: .gray)
+        case 17:
+            return TileNI(image: "cloud.bolt.fill", number: 16, color: .purple)
+        case 18:
+            return TileNI(image: "sparkles", number: 17, color: .red)
+        case 19:
+            return TileNI(image: "smoke.fill", number: 18, color: .blue)
+        case 20:
+            return TileNI(image: "cloud.sun.bolt.fill", number: 19, color: .orange)
+        case 21:
+            return TileNI(image: "drop.fill", number: 20, color: .yellow)
+        case 22:
+            return TileNI(image: "bolt.shield.fill", number: 21, color: .purple)
+        default:
+            return TileNI(image: "xmark.circle.fill", number: -1, color: .red)
+        }
+    }
     
+}
+
+// MARK: - Methods
+
+extension TileView {
     private func titleNumber() -> String {
         guard let number = self.number else {
             return ""
