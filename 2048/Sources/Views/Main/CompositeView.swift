@@ -58,9 +58,24 @@ struct CompositeView: View {
     // MARK: - App Storage
     
     @AppStorage("highScore") var highScore: Int = 0
-//    @AppStorage("scoreGoal") var scoreGoal: Int = UserDefaults.standard.integer(forKey: "scoreGoal")
-    
     @AppStorage("scoreGoal") var scoreGoal: Int = 0
+    @AppStorage("levelChanged") var levelChanged: Bool = false
+    
+    // MARK: - Levels
+    
+    @AppStorage("isLevelUnlocked0") var isLevelUnlocked0: Bool = true
+    @AppStorage("isLevelUnlocked1") var isLevelUnlocked1: Bool = true
+    @AppStorage("isLevelUnlocked2") var isLevelUnlocked2: Bool = false
+    @AppStorage("isLevelUnlocked3") var isLevelUnlocked3: Bool = false
+    @AppStorage("isLevelUnlocked4") var isLevelUnlocked4: Bool = false
+    @AppStorage("isLevelUnlocked5") var isLevelUnlocked5: Bool = false
+    @AppStorage("isLevelUnlocked6") var isLevelUnlocked6: Bool = false
+    @AppStorage("isLevelUnlocked7") var isLevelUnlocked7: Bool = false
+    @AppStorage("isLevelUnlocked8") var isLevelUnlocked8: Bool = false
+    @AppStorage("isLevelUnlocked9") var isLevelUnlocked9: Bool = false
+    @AppStorage("isLevelUnlocked10") var isLevelUnlocked10: Bool = false
+    @AppStorage("isLevelUnlocked11") var isLevelUnlocked11: Bool = false
+    @AppStorage("isLevelUnlocked12") var isLevelUnlocked12: Bool = false
     
     // MARK: - Login
     
@@ -202,6 +217,10 @@ struct CompositeView: View {
                                         AudioSource.playCustom(source: .ding)
                                     }
                                     
+                                    if levelChanged == true {
+                                        resetGame()
+                                    }
+                                    
                                     updateStats()
                                     Haptic.light()
                                     
@@ -277,30 +296,32 @@ struct CompositeView: View {
                         switch level {
                         case 0:
                             scoreGoal = 100
-                            let userUnlockedLevels = [0]
+                            isLevelUnlocked0 = true
                         case 1:
                             scoreGoal = 1000
-                            let userUnlockedLevels = [0, 1]
+                            isLevelUnlocked1 = true
                         case 2:
                             scoreGoal = 25000
-                            let userUnlockedLevels = [0, 1, 2]
+                            isLevelUnlocked2 = true
                         case 3:
                             scoreGoal = 50000
-                            let userUnlockedLevels = [0, 1, 2, 3]
+                            isLevelUnlocked3 = true
                         case 4:
                             scoreGoal = 75000
-                            let userUnlockedLevels = [0, 1, 2, 3, 4]
+                            isLevelUnlocked4 = true
                         case 5:
                             scoreGoal = 100000
-                            let userUnlockedLevels = [0, 1, 2, 3, 4, 5]
+                            isLevelUnlocked5 = true
                         case 6:
                             scoreGoal = 150000
-                            let userUnlockedLevels = [0, 1, 2, 3, 4, 5, 6]
+                            isLevelUnlocked6 = true
                         case 7:
                             scoreGoal = 250000
-                            let userUnlockedLevels = [0, 1, 2, 3, 4, 5, 6, 7]
+                            isLevelUnlocked7 = true
                         default:
                             scoreGoal = 100
+                            isLevelUnlocked0 = true
+                            isLevelUnlocked1 = true
                         }
                         
                         // Store updated unlocked levels array in AppStorage
