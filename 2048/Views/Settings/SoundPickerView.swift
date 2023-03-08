@@ -1,6 +1,6 @@
 //
 //  SoundPickerView.swift
-//  3096 – Blocks
+//  Weather Merge
 //
 //  Created by Skyler Szijjarto on 1/22/23.
 //
@@ -13,6 +13,8 @@ struct SoundPickerView: View {
     
     @AppStorage("gameSound") var gameSound = "default"
     
+    @State var customSound: URL?
+    
     // Alert
     @State var alertTitle: String = ""
     @State var showAlert: Bool = false
@@ -23,6 +25,14 @@ struct SoundPickerView: View {
         HStack {
             Spacer()
             VStack {
+                VStack {
+                    Image(systemName: "music.note")
+                        .font(.system(size: 32))
+                    Text("Custom (Beta)")
+                }
+                .onTapGesture {
+                    setCustomSound()
+                }
                 HStack {
                     Spacer()
                     // Beep
@@ -89,6 +99,12 @@ struct SoundPickerView: View {
                     })
                     Spacer()
                 }
+                Button(action: {
+                    setCustomSound()
+                }, label: {
+                    Text("Set Custom Sound")
+                })
+                .disabled(customSound == nil)
             }
             Spacer()
         }
@@ -99,6 +115,11 @@ struct SoundPickerView: View {
     }
     
     // MARK: - Functions
+    
+    func showAlert(title: String) {
+        alertTitle = title
+        showAlert.toggle()
+    }
     
     func setSound() {
         // User Defaults
@@ -112,9 +133,14 @@ struct SoundPickerView: View {
         showAlert(title: "Your game sound has been changed to " + gameSound.capitalized + ".")
     }
     
-    func showAlert(title: String) {
-        alertTitle = title
-        showAlert.toggle()
+    func setCustomSound() {
+        print("e")
+        let allowedTypes = [ kUTTypeMP3, kUTTypePDF, kUTTypeText, kUTTypePlainText] as [String]
+        let picker = DocumentPicker(allowedTypes: allowedTypes) { url in
+            customSound = url
+        }
+        UIApplication.shared.windows.first?.rootViewController?.present(UIHostingController(rootView: picker), animated: true, completion: nil)
+        showAlert(title: "Your sound has been set to \(customSound)")
     }
     
     func setSoundBeep() {
@@ -165,5 +191,49 @@ struct SoundPickerView: View {
     func setSoundDefault() {
         gameSound = "default"
         setSound()
+    }
+    
+}
+
+import SwiftUI
+import UIKit
+import MobileCoreServices
+
+struct DocumentPicker: UIViewControllerRepresentable {
+    
+    var allowedTypes: [String]
+    var onPick: (URL) -> Void
+    
+    func makeUIViewController(context: Context) -> UIDocumentPickerViewController {
+        let documentPicker = UIDocumentPickerViewController(documentTypes: allowedTypes, in: .import)
+        documentPicker.allowsMultipleSelection = false
+        documentPicker.delegate = context.coordinator
+        return documentPicker
+    }
+    
+    func updateUIViewController(_ uiViewController: UIDocumentPickerViewController, context: Context) {
+        // Nothing to do here
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(onPick: onPick)
+    }
+    
+    class Coordinator: NSObject, UIDocumentPickerDelegate {
+        
+        var onPick: (URL) -> Void
+        
+        init(onPick: @escaping (URL) -> Void) {
+            self.onPick = onPick
+        }
+        
+        func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+            guard let url = urls.first else { return }
+            onPick(url)
+        }
+        
+        func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+            // User cancelled the picker
+        }
     }
 }
