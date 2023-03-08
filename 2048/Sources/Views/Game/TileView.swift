@@ -256,13 +256,13 @@ struct TileView: View {
                 }
                 
                 Divider()
-                VStack {
+                HStack {
                     Text("Next Tile:")
                         .font(.title.bold())
                     ZStack {
                         Rectangle()
                             .fill(tileColorTheme.background)
-                            .frame(width: 150, height: 150)
+                            .frame(width: 75, height: 75)
                             .clipped()
                             .cornerRadius(10)
                         switch number {
