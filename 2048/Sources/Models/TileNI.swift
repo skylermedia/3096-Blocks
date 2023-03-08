@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TileNI: View {
     var image: String
-    var number: String
+    var number: Int
     var color: Color
     
     @State private var selection = GameBoardSizeState()
@@ -31,52 +31,52 @@ struct TileNI: View {
             
             if #available(iOS 16.0, *) {
                 if selection.is3x3On {
-                    Text(number)
+                    Text("\(number)")
                         .offset(x: 25, y: 25)
                         .font(.title)
                         .fontWeight(.black)
                 }
             } else {
-                Text(number)
+                Text("\(number)")
                     .offset(x: 25, y: 25)
                     .font(.title)
             }
             
             if #available(iOS 16.0, *) {
                 if selection.is4x4On {
-                    Text(number)
+                    Text("\(number)")
                         .offset(x: 25, y: 25)
                         .font(.body)
                         .fontWeight(.black)
                 }
             } else {
-                Text(number)
+                Text("\(number)")
                     .offset(x: 17, y: 17)
                     .font(.caption)
             }
             
             if #available(iOS 16.0, *) {
                 if selection.is5x5On {
-                    Text(number)
+                    Text("\(number)")
                         .offset(x: 20, y: 20)
                         .font(.body)
                         .fontWeight(.black)
                 }
             } else {
-                Text(number)
+                Text("\(number)")
                     .offset(x: 17, y: 17)
                     .font(.caption)
             }
             
             if #available(iOS 16.0, *) {
                 if selection.is6x6On {
-                    Text(number)
+                    Text("\(number)")
                         .offset(x: 17, y: 17)
                         .font(.caption)
                         .fontWeight(.black)
                 }
             } else {
-                Text(number)
+                Text("\(number)")
                     .offset(x: 17, y: 17)
                     .font(.caption)
                 
