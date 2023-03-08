@@ -17,9 +17,8 @@ struct GameModeView: View {
 
     @AppStorage("gameMode") var gameMode = "symbols"
     
-    // MARK: - Properties
+    // MARK: - Alert
     
-    // Alert
     @State private var alertTitle: String = ""
     @State private var showAlert: Bool = false
     
