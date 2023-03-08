@@ -63,7 +63,6 @@
 		D40228B9296FA50F00A6F5D5 /* HapticSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40228B8296FA50F00A6F5D5 /* HapticSettingsView.swift */; };
 		D40228BB296FA64700A6F5D5 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40228BA296FA64700A6F5D5 /* Haptics.swift */; };
 		D40228BE296FA6A700A6F5D5 /* HapticControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40228BD296FA6A700A6F5D5 /* HapticControler.swift */; };
-		D402368C29694BA400B81834 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D402368B29694BA400B81834 /* Podfile */; };
 		D42CF903297DE2C700E117DD /* SoundPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42CF902297DE2C700E117DD /* SoundPickerView.swift */; };
 		D42CF905297DE99B00E117DD /* Woosh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D42CF904297DE99B00E117DD /* Woosh.mp3 */; };
 		D42CF90B297E0FBC00E117DD /* Boing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D42CF90A297E0FBC00E117DD /* Boing.mp3 */; };
@@ -80,7 +79,6 @@
 		D43E7FB429ADA66F00792A90 /* MultiplayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43E7FB329ADA66F00792A90 /* MultiplayerManager.swift */; };
 		D43E7FB629ADBDF400792A90 /* TileNI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43E7FB529ADBDF400792A90 /* TileNI.swift */; };
 		D43E7FB829ADC13500792A90 /* InstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43E7FB729ADC13500792A90 /* InstructionsView.swift */; };
-		D43E7FBA29AE911300792A90 /* InitialInstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43E7FB929AE911300792A90 /* InitialInstructionsView.swift */; };
 		D43E7FBC29AE959900792A90 /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43E7FBB29AE959900792A90 /* LevelView.swift */; };
 		D43E7FBE29AEEA2400792A90 /* LevelCompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43E7FBD29AEEA2400792A90 /* LevelCompletedView.swift */; };
 		D43EF0BB29A1EF79007E5022 /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43EF0BA29A1EF79007E5022 /* BannerAd.swift */; };
@@ -195,7 +193,6 @@
 		D40228B8296FA50F00A6F5D5 /* HapticSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticSettingsView.swift; sourceTree = "<group>"; };
 		D40228BA296FA64700A6F5D5 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		D40228BD296FA6A700A6F5D5 /* HapticControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticControler.swift; sourceTree = "<group>"; };
-		D402368B29694BA400B81834 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D42CF902297DE2C700E117DD /* SoundPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPickerView.swift; sourceTree = "<group>"; };
 		D42CF904297DE99B00E117DD /* Woosh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Woosh.mp3; sourceTree = "<group>"; };
 		D42CF90A297E0FBC00E117DD /* Boing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Boing.mp3; sourceTree = "<group>"; };
@@ -224,7 +221,6 @@
 		D43E7FB329ADA66F00792A90 /* MultiplayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplayerManager.swift; sourceTree = "<group>"; };
 		D43E7FB529ADBDF400792A90 /* TileNI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileNI.swift; sourceTree = "<group>"; };
 		D43E7FB729ADC13500792A90 /* InstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsView.swift; sourceTree = "<group>"; };
-		D43E7FB929AE911300792A90 /* InitialInstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InitialInstructionsView.swift; path = ../../../../../InitialInstructionsView.swift; sourceTree = "<group>"; };
 		D43E7FBB29AE959900792A90 /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LevelView.swift; path = ../../../../../LevelView.swift; sourceTree = "<group>"; };
 		D43E7FBD29AEEA2400792A90 /* LevelCompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LevelCompletedView.swift; path = ../../../../../LevelCompletedView.swift; sourceTree = "<group>"; };
 		D43EF0BA29A1EF79007E5022 /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
@@ -469,7 +465,6 @@
 		A9757F0424CC481E00847031 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A9757F0C24CC481E00847031 /* About and Instructions */,
 				D4D3047A297997770022868A /* Stats */,
 				A9757F0924CC481E00847031 /* Side */,
 				D46A953E29B3EFF50029874D /* Login */,
@@ -503,15 +498,6 @@
 				A9757F0B24CC481E00847031 /* CompositeSideView.swift */,
 			);
 			path = Side;
-			sourceTree = "<group>";
-		};
-		A9757F0C24CC481E00847031 /* About and Instructions */ = {
-			isa = PBXGroup;
-			children = (
-				D43E7FB929AE911300792A90 /* InitialInstructionsView.swift */,
-				D402368B29694BA400B81834 /* Podfile */,
-			);
-			path = "About and Instructions";
 			sourceTree = "<group>";
 		};
 		A9757F0E24CC481E00847031 /* Game */ = {
@@ -822,7 +808,6 @@
 				D42CF90B297E0FBC00E117DD /* Boing.mp3 in Resources */,
 				D42CF916297E0FE200E117DD /* Hit.mp3 in Resources */,
 				A9757F2024CC481E00847031 /* Merge.mp3 in Resources */,
-				D402368C29694BA400B81834 /* Podfile in Resources */,
 				A9757F2324CC481E00847031 /* Strings.plist in Resources */,
 				D42CF914297E0FE200E117DD /* Can.mp3 in Resources */,
 			);
@@ -887,7 +872,6 @@
 				A9757F4824CC481E00847031 /* ModalView.swift in Sources */,
 				A9757F4A24CC481E00847031 /* CompositeView.swift in Sources */,
 				A9757F3E24CC481E00847031 /* AudioSource.swift in Sources */,
-				D43E7FBA29AE911300792A90 /* InitialInstructionsView.swift in Sources */,
 				A9757F3524CC481E00847031 /* Edge+InvertedDirection.swift in Sources */,
 				D46A953D29B3EED00029874D /* BetaLoginView.swift in Sources */,
 				D43E7FB229ADA65000792A90 /* CircleButton.swift in Sources */,
