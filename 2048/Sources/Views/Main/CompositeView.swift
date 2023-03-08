@@ -218,6 +218,7 @@ struct CompositeView: View {
                                     }
                                     
                                     if levelChanged == true {
+                                        levelChanged = false
                                         resetGame()
                                     }
                                     
