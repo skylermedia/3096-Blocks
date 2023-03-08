@@ -201,6 +201,63 @@ struct TileView: View {
                     case 23:
                         Text("Bolt Shield")
                             .font(.largeTitle.bold())
+                    case 24:
+                        Text("Bag")
+                            .font(.largeTitle.bold())
+                    case 25:
+                        Text("Cart")
+                            .font(.largeTitle.bold())
+                    case 26:
+                        Text("Bag")
+                            .font(.largeTitle.bold())
+                    case 27:
+                        Text("Giftcard")
+                            .font(.largeTitle.bold())
+                    case 28:
+                        Text("Banknote")
+                            .font(.largeTitle.bold())
+                    case 29:
+                        Text("Credit Card")
+                            .font(.largeTitle.bold())
+                    case 30:
+                        Text("Walk")
+                            .font(.largeTitle.bold())
+                    case 31:
+                        Text("Hitchhike")
+                            .font(.largeTitle.bold())
+                    case 32:
+                        Text("Scooter")
+                            .font(.largeTitle.bold())
+                    case 33:
+                        Text("Bicycle")
+                            .font(.largeTitle.bold())
+                    case 34:
+                        Text("Car")
+                            .font(.largeTitle.bold())
+                    case 35:
+                        Text("Electric Car")
+                            .font(.largeTitle.bold())
+                    case 36:
+                        Text("Box Truck")
+                            .font(.largeTitle.bold())
+                    case 37:
+                        Text("Bus")
+                            .font(.largeTitle.bold())
+                    case 38:
+                        Text("Tram")
+                            .font(.largeTitle.bold())
+                    case 39:
+                        Text("Airplane Departure")
+                            .font(.largeTitle.bold())
+                    case 40:
+                        Text("Airplane")
+                            .font(.largeTitle.bold())
+                    case 41:
+                        Text("Airplane Arrival")
+                            .font(.largeTitle.bold())
+                    case 42:
+                        Text("Medal")
+                            .font(.largeTitle.bold())
                     default:
                         Text("Blank Tile 🤯")
                             .font(.largeTitle.bold())
@@ -287,6 +344,44 @@ extension TileView {
             return TileNI(image: "drop.fill", number: 20, color: .yellow)
         case 22:
             return TileNI(image: "bolt.shield.fill", number: 21, color: .purple)
+        case 24:
+            return TileNI(image: "bag.fill", number: 22, color: .green)
+        case 25:
+            return TileNI(image: "cart.fill", number: 23, color: .green)
+        case 26:
+            return TileNI(image: "cart.fill.badge.plus", number: 24, color: .green)
+        case 27:
+            return TileNI(image: "giftcard.fill", number: 25, color: .green)
+        case 28:
+            return TileNI(image: "banknote.fill", number: 26, color: .green)
+        case 29:
+            return TileNI(image: "creditcard.fill", number: 27, color: .green)
+        case 30:
+            return TileNI(image: "figure.walk", number: 28, color: .purple)
+        case 31:
+            return TileNI(image: "figure.wave", number: 29, color: .purple)
+        case 32:
+            return TileNI(image: "scooter", number: 30, color: .purple)
+        case 33:
+            return TileNI(image: "bicycle", number: 31, color: .purple)
+        case 34:
+            return TileNI(image: "car.fill", number: 32, color: .purple)
+        case 35:
+            return TileNI(image: "bolt.car.fill", number: 33, color: .purple)
+        case 36:
+            return TileNI(image: "box.truck.fill", number: 34, color: .purple)
+        case 37:
+            return TileNI(image: "bus", number: 35, color: .purple)
+        case 38:
+            return TileNI(image: "tram", number: 36, color: .purple)
+        case 39:
+            return TileNI(image: "airplane.departure", number: 37, color: .purple)
+        case 40:
+            return TileNI(image: "airplane", number: 38, color: .purple)
+        case 41:
+            return TileNI(image: "airplane.arrival", number: 39, color: .purple)
+        case 42:
+            return TileNI(image: "medal.fill", number: 40, color: .purple)
         default:
             return TileNI(image: "xmark.circle.fill", number: -1, color: .red)
         }
