@@ -294,11 +294,12 @@
 				A9757EB424CC47EC00847031 /* Info.plist */,
 				D43A019F29689632007D8134 /* Launch Screen.storyboard */,
 				A9757EAB24CC47EC00847031 /* WeatherMergeApp.swift */,
+				A9757ED624CC481E00847031 /* Assets */,
 				D46E5BE029B820F60091B190 /* Models */,
+				D43E7FB329ADA66F00792A90 /* MultiplayerManager.swift */,
 				D46E5BDF29B8206B0091B190 /* ViewModels */,
 				D46E5BDB29B81F2F0091B190 /* Views */,
 				A9757EDD24CC481E00847031 /* Sources */,
-				A9757ED624CC481E00847031 /* Assets */,
 			);
 			path = 2048;
 			sourceTree = "<group>";
@@ -465,8 +466,6 @@
 		A9757F0424CC481E00847031 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A9757F0E24CC481E00847031 /* Game */,
-				A9757F1224CC481E00847031 /* Main */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -499,7 +498,6 @@
 		A9757F0E24CC481E00847031 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				D43E7FB329ADA66F00792A90 /* MultiplayerManager.swift */,
 				A9757F0F24CC481E00847031 /* TileView.swift */,
 				A9757F1024CC481E00847031 /* TileBoardView.swift */,
 				A9757F1124CC481E00847031 /* GameStateBottomView.swift */,
@@ -509,7 +507,7 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
-		A9757F1224CC481E00847031 /* Main */ = {
+		A9757F1224CC481E00847031 /* Other */ = {
 			isa = PBXGroup;
 			children = (
 				A9757F1324CC481E00847031 /* ModalView.swift */,
@@ -519,7 +517,7 @@
 				D4D30481297A373E0022868A /* TimedView.swift */,
 				A9757F1624CC481E00847031 /* FactoryContentView.swift */,
 			);
-			path = Main;
+			path = Other;
 			sourceTree = "<group>";
 		};
 		A9757F1724CC481E00847031 /* View Modifiers */ = {
@@ -642,11 +640,13 @@
 		D46E5BDB29B81F2F0091B190 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D44A46C72987650000B9FD54 /* Ads */,
 				D46E5BDC29B81F890091B190 /* About */,
+				D44A46C72987650000B9FD54 /* Ads */,
+				A9757F0E24CC481E00847031 /* Game */,
 				D46E5BDD29B81F930091B190 /* Instructions */,
 				D470730B2976652C0019774A /* Leaderboard */,
 				D46A953E29B3EFF50029874D /* Login */,
+				A9757F1224CC481E00847031 /* Other */,
 				A9757F0524CC481E00847031 /* Settings */,
 				D4D3047A297997770022868A /* Stats */,
 				A9757F0924CC481E00847031 /* Side */,
