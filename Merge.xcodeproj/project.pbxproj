@@ -300,7 +300,6 @@
 				A9757EB424CC47EC00847031 /* Info.plist */,
 				D43A019F29689632007D8134 /* Launch Screen.storyboard */,
 				D46E5BDB29B81F2F0091B190 /* Views */,
-				D46E5BDD29B81F930091B190 /* Instructions */,
 				A9757EDD24CC481E00847031 /* Sources */,
 				A9757ED624CC481E00847031 /* Assets */,
 			);
@@ -471,8 +470,6 @@
 			isa = PBXGroup;
 			children = (
 				A9757F0C24CC481E00847031 /* About and Instructions */,
-				D44A46C72987650000B9FD54 /* Ads */,
-				A9757F0524CC481E00847031 /* Settings */,
 				D4D3047A297997770022868A /* Stats */,
 				A9757F0924CC481E00847031 /* Side */,
 				D46A953E29B3EFF50029874D /* Login */,
@@ -664,7 +661,10 @@
 		D46E5BDB29B81F2F0091B190 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D44A46C72987650000B9FD54 /* Ads */,
 				D46E5BDC29B81F890091B190 /* About */,
+				D46E5BDD29B81F930091B190 /* Instructions */,
+				A9757F0524CC481E00847031 /* Settings */,
 			);
 			path = Views;
 			sourceTree = "<group>";
