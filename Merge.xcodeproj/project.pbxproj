@@ -235,6 +235,7 @@
 		D46A953F29B3F0070029874D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnboardingView.swift; path = ../../../../../OnboardingView.swift; sourceTree = "<group>"; };
 		D46A954129B3FDC60029874D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileView.swift; path = ../../../../../ProfileView.swift; sourceTree = "<group>"; };
 		D46E5BD929B7A4AD0091B190 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../../../../User.swift; sourceTree = "<group>"; };
+		D46E5BDE29B81FA00091B190 /* InitialInstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialInstructionsView.swift; sourceTree = "<group>"; };
 		D47073092976633F0019774A /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		D470730C2976654E0019774A /* LeaderboardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardData.swift; sourceTree = "<group>"; };
 		D470730E2976774B0019774A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -298,8 +299,10 @@
 				A9E400CF25A4730F00FE1F92 /* 3096 – Blocks.entitlements */,
 				A9757EB424CC47EC00847031 /* Info.plist */,
 				D43A019F29689632007D8134 /* Launch Screen.storyboard */,
-				A9757ED624CC481E00847031 /* Assets */,
+				D46E5BDB29B81F2F0091B190 /* Views */,
+				D46E5BDD29B81F930091B190 /* Instructions */,
 				A9757EDD24CC481E00847031 /* Sources */,
+				A9757ED624CC481E00847031 /* Assets */,
 			);
 			path = 2048;
 			sourceTree = "<group>";
@@ -508,8 +511,6 @@
 		A9757F0C24CC481E00847031 /* About and Instructions */ = {
 			isa = PBXGroup;
 			children = (
-				A9757F0D24CC481E00847031 /* AboutView.swift */,
-				D43E7FB729ADC13500792A90 /* InstructionsView.swift */,
 				D43E7FB929AE911300792A90 /* InitialInstructionsView.swift */,
 				D402368B29694BA400B81834 /* Podfile */,
 			);
@@ -658,6 +659,31 @@
 				D46E5BD929B7A4AD0091B190 /* User.swift */,
 			);
 			path = CloudKit;
+			sourceTree = "<group>";
+		};
+		D46E5BDB29B81F2F0091B190 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D46E5BDC29B81F890091B190 /* About */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D46E5BDC29B81F890091B190 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				A9757F0D24CC481E00847031 /* AboutView.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		D46E5BDD29B81F930091B190 /* Instructions */ = {
+			isa = PBXGroup;
+			children = (
+				D43E7FB729ADC13500792A90 /* InstructionsView.swift */,
+				D46E5BDE29B81FA00091B190 /* InitialInstructionsView.swift */,
+			);
+			path = Instructions;
 			sourceTree = "<group>";
 		};
 		D470730B2976652C0019774A /* Leaderboard */ = {
@@ -1066,7 +1092,6 @@
 				CODE_SIGN_ENTITLEMENTS = "2048/3096 – Blocks.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"2048/Preview Content\"";
 				DEVELOPMENT_TEAM = 26RS32W3MQ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = 2048/Info.plist;
@@ -1101,7 +1126,6 @@
 				CODE_SIGN_ENTITLEMENTS = "2048/3096 – Blocks.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"2048/Preview Content\"";
 				DEVELOPMENT_TEAM = 26RS32W3MQ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = 2048/Info.plist;
