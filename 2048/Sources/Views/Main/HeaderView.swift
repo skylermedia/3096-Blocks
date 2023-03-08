@@ -35,11 +35,11 @@ struct HeaderView: View {
         return VStack {
             HStack {
                 Text("Goal: ")
-                    .font(shouldShowReset ? Font.system(.title, design: .monospaced).weight(.black) : Font.caption)
+                    .font(shouldShowReset ? Font.system(.title, design: .monospaced).weight(.black) : Font.caption2)
                     .foregroundColor(Color(red:0.49, green:0.49, blue:0.49, opacity: 0.7))
 
                 Text("\(scoreGoal)")
-                    .font(shouldShowReset ? Font.system(.title, design: .monospaced).weight(.black) : Font.caption)
+                    .font(shouldShowReset ? Font.system(.title, design: .monospaced).weight(.black) : Font.caption2)
                     .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
                     .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
                     .animation(.modalSpring, value: shouldShowReset)
@@ -55,7 +55,7 @@ struct HeaderView: View {
             .id("Score Goal View: \(showResetButton())")
             HStack {
                 Text("Score: ")
-                    .font(Font.system(.title, design: .monospaced).weight(.black))
+                    .font(shouldShowReset ? Font.system(.title, design: .monospaced).weight(.black) : Font.caption2)
                     .foregroundColor(Color(red:0.49, green:0.49, blue:0.49, opacity: 0.7))
                 
                 Text("\(score)")
@@ -76,11 +76,11 @@ struct HeaderView: View {
             .id("Score View: \(showResetButton())")
             HStack {
                 Text("High Score: ")
-                    .font(shouldShowReset ? Font.system(.title, design: .monospaced).weight(.black) : Font.caption)
+                    .font(shouldShowReset ? Font.system(.title, design: .monospaced).weight(.black) : Font.caption2)
                     .foregroundColor(Color(red:0.49, green:0.49, blue:0.49, opacity: 0.7))
 
                 Text("\(highScore)")
-                    .font(shouldShowReset ? Font.system(.title, design: .monospaced).weight(.black) : Font.caption)
+                    .font(shouldShowReset ? Font.system(.title, design: .monospaced).weight(.black) : Font.caption2)
                     .foregroundColor(Color(red:0.59, green:0.59, blue:0.59, opacity: 1.00))
                     .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
                     .animation(.modalSpring, value: shouldShowReset)
